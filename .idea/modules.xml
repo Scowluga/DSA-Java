@@ -5,6 +5,7 @@
       <module fileurl="file://$PROJECT_DIR$/CCC/CCC.iml" filepath="$PROJECT_DIR$/CCC/CCC.iml" />
       <module fileurl="file://$PROJECT_DIR$/DMOJ/DMOJ.iml" filepath="$PROJECT_DIR$/DMOJ/DMOJ.iml" />
       <module fileurl="file://$PROJECT_DIR$/DSA-Java.iml" filepath="$PROJECT_DIR$/DSA-Java.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ECOO/ECOO.iml" filepath="$PROJECT_DIR$/ECOO/ECOO.iml" />
       <module fileurl="file://$PROJECT_DIR$/NOTES/NOTES.iml" filepath="$PROJECT_DIR$/NOTES/NOTES.iml" />
       <module fileurl="file://$PROJECT_DIR$/TLE/TLE.iml" filepath="$PROJECT_DIR$/TLE/TLE.iml" />
     </modules>
