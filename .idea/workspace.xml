@@ -1,16 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1fefd6f2-b2c1-40d8-bd6c-e791a02392f4" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ECOO/ECOO.iml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ECOO/src/attempt/Main.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ECOO/src/q0/Main.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ECOO/src/q1/Main.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ECOO/src/q3/Main.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ECOO/src/q4/Main.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-    </list>
+    <list default="true" id="1fefd6f2-b2c1-40d8-bd6c-e791a02392f4" name="Default" comment="" />
     <ignored path="DSA-Java.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path="$PROJECT_DIR$/out/" />
