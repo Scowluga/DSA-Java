@@ -1,11 +1,8 @@
-package q3;
+package boardwide.q3;
 
 import java.io.*;
 
-import java.nio.BufferOverflowException;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
 
 /* Good Luck
@@ -21,7 +18,7 @@ public class Main {
 
     public static void main(String[] args) {
         try {
-            br = new BufferedReader(new FileReader("C:\\Users\\scowluga\\Documents\\GitHub\\DSA-Java\\ECOO\\src\\q3\\DATA31.txt"));
+            br = new BufferedReader(new FileReader("C:\\Users\\scowluga\\Documents\\GitHub\\DSA-Java\\ECOO\\src\\boardwide.q3\\DATA31.txt"));
 
             for (int input = 0; input < 10; input ++) {
                 int mountains = Integer.parseInt(br.readLine());

@@ -1,10 +1,6 @@
-package q0;
+package boardwide.q0;
 
 import java.io.*;
-
-import java.util.ArrayList;
-import java.util.List;
-import java.util.StringTokenizer;
 
 /* Good Luck
 
@@ -15,7 +11,7 @@ public class Main {
 
     public static void main(String[] args) {
         try {
-            BufferedReader br = new BufferedReader(new FileReader("C:\\Users\\scowluga\\Documents\\GitHub\\DSA-Java\\ECOO\\src\\q0\\DATA01.txt"));
+            BufferedReader br = new BufferedReader(new FileReader("C:\\Users\\scowluga\\Documents\\GitHub\\DSA-Java\\ECOO\\src\\boardwide.q0\\DATA11.txt"));
 
             String[] info;
             String correct, wrong;

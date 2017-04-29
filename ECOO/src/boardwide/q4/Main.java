@@ -1,11 +1,4 @@
-package q4;
-
-import java.io.IOException;
-
-import java.io.DataInputStream;
-import java.io.FileInputStream;
-import java.util.ArrayList;
-import java.util.List;
+package boardwide.q4;
 
 /* Good Luck
 

@@ -1,9 +1,6 @@
-package q1;
+package boardwide.q1;
 
 import java.io.*;
-
-import java.util.ArrayList;
-import java.util.List;
 
 /* Good Luck
 
@@ -16,7 +13,7 @@ public class Main {
 
     public static void main(String[] args) {
         try {
-            br = new BufferedReader(new FileReader("C:\\Users\\scowluga\\Documents\\GitHub\\DSA-Java\\ECOO\\src\\q1\\DATA11.txt"));
+            br = new BufferedReader(new FileReader("C:\\Users\\scowluga\\Documents\\GitHub\\DSA-Java\\ECOO\\src\\boardwide.q1\\DATA11.txt"));
             for (int i = 0; i < 10; i ++) {
                 playGame();
             }
