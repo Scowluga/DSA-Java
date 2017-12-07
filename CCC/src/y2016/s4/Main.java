@@ -13,7 +13,7 @@ public class Main {
 
     public static void main(String[] args) {
         try { // file: t.txt
-//            FastReader reader = new FastReader("C:\\Users\\david\\Documents\\Programming\\Java\\DSA-Java\\CCC\\src\\" + "y2016.s4".split(".")[0] + "\\" + "y2016.s4".split(".")[1] + "\\t.txt");
+//            FastReader reader = new FastReader("C:\\Users\\david\\Documents\\Programming\\Java\\DSA-Java\\CCC\\src\\" + "y2016._s4".split(".")[0] + "\\" + "y2016._s4".split(".")[1] + "\\t.txt");
             FastReader reader = new FastReader();
 
 

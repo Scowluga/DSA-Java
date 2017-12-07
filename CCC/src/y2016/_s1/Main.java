@@ -41,7 +41,7 @@ public class Main {
 
                 if (difference > 0) { // first one has more
                     if (difference > wildcards) {
-                        System.out.println("N");
+                        System.out.println("P");
                         return;
                     }
                     wildcards -= difference;

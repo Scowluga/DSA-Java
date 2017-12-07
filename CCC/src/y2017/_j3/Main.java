@@ -23,7 +23,7 @@ public class Main {
 
             int val = reader.nextInt() - (Math.abs(x1 - x2) + Math.abs(y1 - y2));
 
-            System.out.println(val >= 0 && val % 2 == 0 ? "Y" : "N");
+            System.out.println(val >= 0 && val % 2 == 0 ? "Y" : "P");
 
         } catch (Exception e) {
             e.printStackTrace();
