@@ -1,34 +1,97 @@
-package y2011._j3;
+package y2000._j5_s3;
 
 import java.io.DataInputStream;
 import java.io.FileInputStream;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
-/* Sumac Sequences 15/15
+/* Surfing 15/15
+Reading in to create a list
+BFS with visited to find whether or not you can reach
 
 */
 public class Main {
 
     public static void main(String[] args) throws IOException {
-        String file = "t.txt";
-//        FastReader reader = new FastReader("C:\\Users\\david\\Documents\\Programming\\Java\\DSA-Java\\CCC\\src\\" + "y2011._j3_s1".split(".")[0] + "\\" + "y2011._j3_s1".split(".")[1] + "\\" + "file");
         FastReader reader = new FastReader();
 
-        int t1 = reader.nextInt();
-        int t2 = reader.nextInt();
-        int t3 = t1 - t2;
+        List<P> pages = new ArrayList<>();
+        int nPages = reader.nextInt();
 
-        int c = 2;
-        while (t3 >= 0) {
-            t1 = t2;
-            t2 = t3;
-            t3 = t1 - t2;
-            c++;
+        // Input of pages
+        for (int pi = 0; pi < nPages; pi++) {
+            P p = new P(reader.readLine());
+            StringBuilder sb = new StringBuilder();
+            String s = reader.readLine();
+            while (!s.equals("</HTML>")) {
+                int i = s.indexOf("<A HREF=\"");
+                while (i >= 0) {
+                    int si = i + 9;
+                    int ei = s.indexOf("\"", si);
+                    String url = s.substring(si, ei);
+                    p.links.add(url);
+                    System.out.println("Link from " + p.url + " to " + url);
+                    i = s.indexOf("<A HREF=\"", ei);
+                }
+                s = reader.readLine();
+            }
+            pages.add(p);
         }
-        System.out.println(c);
 
+
+        // Surfing with BFS
+        String p1 = reader.readLine();
+        String p2;
+        grand :
+        while (!p1.equals("The End")) {
+            p2 = reader.readLine();
+            Queue<P> q = new LinkedList<>();
+            Set<String> v = new HashSet<>();
+            v.add(p1);
+            P p0 = pages.get(pages.indexOf(new P(p1)));
+            q.add(p0);
+
+            while (!q.isEmpty()) {
+                P p = q.remove();
+                for (int i = 0; i < p.links.size(); i++ ) {
+                    String url = p.links.get(i);
+                    if (url.equals(p2)) {
+                        System.out.println("Can surf from " + p1 + " to " + p2 + ".");
+                        p1 = reader.readLine();
+                        continue grand;
+                    }
+                    if (!v.contains(url)) {
+                        v.add(url);
+                        p0 = pages.get(pages.indexOf(new P(url)));
+                        q.add(p0);
+                    }
+                }
+            }
+            System.out.println("Can't surf from " + p1 + " to " + p2 + ".");
+
+            p1 = reader.readLine();
+        }
+    }
+
+    static class P {
+
+        String url;
+        List<String> links;
+
+        P (String url) {
+            this.url = url;
+            this.links = new ArrayList<>();
+        }
+
+        @Override
+        public boolean equals(Object obj) {
+            return ((P)obj).url.equals(this.url);
+        }
+
+        @Override
+        public String toString() {
+            return this.url;
+        }
     }
 
 

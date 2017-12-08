@@ -1,4 +1,4 @@
-package y2011._j3;
+package y2000._j3_s1;
 
 import java.io.DataInputStream;
 import java.io.FileInputStream;
@@ -6,31 +6,51 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-/* Sumac Sequences 15/15
+/* Slot Machines 15/15
+Playing continuously until broke
 
 */
 public class Main {
 
+    static int coins;
+    static int[] slots; // length 3
+
+    static int[] ret = {30, 60, 9};
+    static int[] max = {35, 100, 10};
+
     public static void main(String[] args) throws IOException {
-        String file = "t.txt";
-//        FastReader reader = new FastReader("C:\\Users\\david\\Documents\\Programming\\Java\\DSA-Java\\CCC\\src\\" + "y2011._j3_s1".split(".")[0] + "\\" + "y2011._j3_s1".split(".")[1] + "\\" + "file");
         FastReader reader = new FastReader();
 
-        int t1 = reader.nextInt();
-        int t2 = reader.nextInt();
-        int t3 = t1 - t2;
+        coins = reader.nextInt();
+        slots = new int[]{reader.nextInt() + 1, reader.nextInt() + 1, reader.nextInt() + 1};
+        int i = 0;
+        int t = 0;
 
-        int c = 2;
-        while (t3 >= 0) {
-            t1 = t2;
-            t2 = t3;
-            t3 = t1 - t2;
-            c++;
+        while (coins > 0) {
+            coins--;
+            t++;
+            play(i);
+            i = inc(i);
         }
-        System.out.println(c);
+        System.out.println("Martha plays " + t + " times before going broke.");
 
     }
 
+    private static void play(int i) {
+        if (slots[i] == max[i]) {
+            coins += ret[i];
+            slots[i] = 1;
+        } else {
+            slots[i]++;
+        }
+    }
+
+    static int inc (int i) {
+        if (i == 2) {
+            return 0;
+        }
+        return i + 1;
+    }
 
     public static class FastReader {
 

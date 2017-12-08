@@ -1,4 +1,4 @@
-package y2011._j3;
+package y2000._j4_s2;
 
 import java.io.DataInputStream;
 import java.io.FileInputStream;
@@ -6,29 +6,42 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-/* Sumac Sequences 15/15
+/* Babbling Brooks 15/15
 
 */
 public class Main {
 
     public static void main(String[] args) throws IOException {
-        String file = "t.txt";
-//        FastReader reader = new FastReader("C:\\Users\\david\\Documents\\Programming\\Java\\DSA-Java\\CCC\\src\\" + "y2011._j3_s1".split(".")[0] + "\\" + "y2011._j3_s1".split(".")[1] + "\\" + "file");
         FastReader reader = new FastReader();
 
-        int t1 = reader.nextInt();
-        int t2 = reader.nextInt();
-        int t3 = t1 - t2;
-
-        int c = 2;
-        while (t3 >= 0) {
-            t1 = t2;
-            t2 = t3;
-            t3 = t1 - t2;
-            c++;
+        int nRiver = reader.nextInt();
+        List<Double> rivers = new ArrayList<>(nRiver);
+        for (int i = 0; i < nRiver; i++) {
+            rivers.add(reader.nextDouble());
         }
-        System.out.println(c);
 
+        while (true) {
+            int n = reader.nextInt();
+            switch(n) {
+                case 77:
+                    for (int i = 0; i < rivers.size(); i++) {
+                        System.out.print(Math.round(rivers.get(i)) + " ");
+                    }
+                    return;
+                case 88: // join
+                    int j = reader.nextInt();
+                    rivers.set(j - 1, rivers.get(j - 1) + rivers.get(j));
+                    rivers.remove(j);
+                    break;
+                case 99: // split
+                    int s = reader.nextInt();
+                    double l = reader.nextDouble();
+                    double r = 100 - l;
+                    rivers.add(s, rivers.get(s - 1) * r / 100.0);
+                    rivers.set(s - 1, rivers.get(s - 1) * l / 100.0);
+                    break;
+            }
+        }
     }
 
 

@@ -14,7 +14,7 @@ public class Main {
 
     public static void main(String[] args) throws IOException {
         String file = "t.txt";
-//        FastReader reader = new FastReader("C:\\Users\\david\\Documents\\Programming\\Java\\DSA-Java\\CCC\\src\\" + "y2010._j3".split(".")[0] + "\\" + "y2010._j3".split(".")[1] + "\\" + "file");
+//        FastReader reader = new FastReader("C:\\Users\\david\\Documents\\Programming\\Java\\DSA-Java\\CCC\\src\\" + "y2010._j3_s1".split(".")[0] + "\\" + "y2010._j3_s1".split(".")[1] + "\\" + "file");
         FastReader reader = new FastReader();
 
         // 0 - A | 1 - B

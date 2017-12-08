@@ -1,36 +1,131 @@
-package y2011._j3;
+package y2004._s2;
 
 import java.io.DataInputStream;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
-/* Sumac Sequences 15/15
-
+/* TopYodeller 15/15
+Have an array of yodellers
+After each competition, just update a "worst rank" attribute
+    worst rank calculated by sorting a clone, then looping through
 */
 public class Main {
 
+    static int x = 4;
+    static Y[] y;
+
     public static void main(String[] args) throws IOException {
-        String file = "t.txt";
-//        FastReader reader = new FastReader("C:\\Users\\david\\Documents\\Programming\\Java\\DSA-Java\\CCC\\src\\" + "y2011._j3_s1".split(".")[0] + "\\" + "y2011._j3_s1".split(".")[1] + "\\" + "file");
         FastReader reader = new FastReader();
 
-        int t1 = reader.nextInt();
-        int t2 = reader.nextInt();
-        int t3 = t1 - t2;
+        int n = reader.nextInt();
+        int k = reader.nextInt();
+        y = new Y[n];
 
-        int c = 2;
-        while (t3 >= 0) {
-            t1 = t2;
-            t2 = t3;
-            t3 = t1 - t2;
-            c++;
+        for (int i = 0; i < n; i++) {
+            y[i] = new Y(i + 1, reader.nextInt());
         }
-        System.out.println(c);
+        us();
 
+        for (int i = 0; i < k - 1; i++) {
+            int[] t = reader.readLineAsIntArray(n);
+            for (int ii = 0; ii < n; ii++) {
+                y[ii].s += t[ii];
+            }
+            us();
+        }
+
+        List<Y> l = Arrays.asList(y);
+        Collections.sort(l);
+
+        int score = l.get(0).s;
+        int i = 0;
+
+        while (i < l.size() && l.get(i).s == score) {
+            System.out.println(l.get(i).out());
+            i++;
+        }
     }
 
+    static void us () { // update scores
+        // 1. Sort
+        List<Y> t = Arrays.asList(y.clone());
+        Collections.sort(t);
+
+        // 2. Loop through for tied ranks
+        int rank = 1;
+        int score = t.get(0).s;
+        for (int i = 0; i < t.size(); i++) {
+            if (t.get(i).s == score) { // same score as previous
+                t.get(i).tr = rank;
+            } else { // new score
+                t.get(i).tr = i + 1;
+                score = t.get(i).s;
+                rank = i + 1;
+            }
+        }
+
+        // 3. Update scores in y array
+        for (int i = 0; i < y.length; i++) {
+            int wr = t.get(
+                    t.indexOf(y[i])
+            ).tr;
+            int nwr = Math.max(y[i].wr, wr);
+            y[i].wr = nwr;
+        }
+    }
+
+    static class Y implements Comparable {
+
+        int n;  // number
+        int s;  // score
+        int wr; // worst rank
+        int tr; // temporary rank for wr calc
+
+        Y(int n, int s) {
+            this.n = n;
+            this.s = s;
+            this.wr = 0;
+        }
+
+        @Override
+        public boolean equals(Object obj) {
+            Y y = (Y)obj;
+            return (y.n == this.n && y.s == this.s);
+        }
+
+        @Override
+        protected Object clone() throws CloneNotSupportedException {
+            // for cloning to sort
+            Y y = new Y(this.n, this.s);
+            y.wr = this.wr;
+            return y;
+        }
+
+        @Override
+        public int compareTo(Object o) {
+            // for sorting. By score then number
+            Y y = (Y)o;
+            if (y.s == this.s) {
+                return this.n - y.n;
+            } else {
+                return y.s - this.s;
+            }
+        }
+
+        @Override
+        public String toString() {
+            return "Y| num: " + this.n + " | score: " + this.s + " and wrank: " + this.wr;
+        }
+
+        public String out() {
+            // for final display
+            return "Yodeller " + this.n + " is the TopYodeller: score " + this.s + ", worst rank " + this.wr;
+        }
+    }
 
     public static class FastReader {
 

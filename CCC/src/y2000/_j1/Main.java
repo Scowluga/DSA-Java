@@ -1,4 +1,4 @@
-package y2011._j3;
+package y2000._j1;
 
 import java.io.DataInputStream;
 import java.io.FileInputStream;
@@ -6,29 +6,48 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-/* Sumac Sequences 15/15
-
+/* Calendar 15/15
+This is the hardest J1 ever. Lots of string processing.
+My code is bad :)
 */
 public class Main {
 
     public static void main(String[] args) throws IOException {
-        String file = "t.txt";
-//        FastReader reader = new FastReader("C:\\Users\\david\\Documents\\Programming\\Java\\DSA-Java\\CCC\\src\\" + "y2011._j3_s1".split(".")[0] + "\\" + "y2011._j3_s1".split(".")[1] + "\\" + "file");
         FastReader reader = new FastReader();
 
-        int t1 = reader.nextInt();
-        int t2 = reader.nextInt();
-        int t3 = t1 - t2;
+        int s = reader.nextInt();
+        int t = reader.nextInt();
+        int c = 1;
 
-        int c = 2;
-        while (t3 >= 0) {
-            t1 = t2;
-            t2 = t3;
-            t3 = t1 - t2;
+        System.out.println("Sun Mon Tue Wed Thr Fri Sat");
+
+        String s1 = String.format("%3d", 1);
+        c++;
+        for (int i = 2; i <= (8 - s); i++) {
+            s1 += String.format("%4d", i);
             c++;
         }
-        System.out.println(c);
+        System.out.println(String.format("%27s", s1));
 
+        while (t - c >= 6) {
+            String s0 = String.format("%3d", c);
+            c++;
+            for (int i = 1; i < 7; i++) {
+                s0 += String.format("%4d", c);
+                c++;
+            }
+            System.out.println(String.format("%27s", s0));
+        }
+
+        if (c > t) return;
+
+        String s0 = String.format("%3d", c);
+        int cc = c;
+        for (int i = 0; i < (t - cc); i++) {
+            c++;
+            s0 += String.format("%4d", c);
+        }
+        System.out.println(s0);
     }
 
 

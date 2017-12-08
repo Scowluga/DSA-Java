@@ -12,7 +12,6 @@ public class Main {
 
     public static void main(String[] args) throws IOException {
         String file = "t.txt";
-//        FastReader reader = new FastReader("C:\\Users\\david\\Documents\\Programming\\Java\\DSA-Java\\CCC\\src\\" + "y2010._j5".split(".")[0] + "\\" + "y2010._j5".split(".")[1] + "\\" + "file");
         FastReader reader = new FastReader();
 
         int[][] m = new int[2][8 + 1];

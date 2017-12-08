@@ -1,36 +1,38 @@
-package y2011._j3;
+package y2000._j2;
 
 import java.io.DataInputStream;
 import java.io.FileInputStream;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
-/* Sumac Sequences 15/15
-
+/* 9966 15/15
+This is the hardest j2 what the y2000 is insane
 */
 public class Main {
 
     public static void main(String[] args) throws IOException {
-        String file = "t.txt";
-//        FastReader reader = new FastReader("C:\\Users\\david\\Documents\\Programming\\Java\\DSA-Java\\CCC\\src\\" + "y2011._j3_s1".split(".")[0] + "\\" + "y2011._j3_s1".split(".")[1] + "\\" + "file");
         FastReader reader = new FastReader();
+        int[] m = {0, 1, -1, -1, -1, -1, 9, -1, 8, 6};
 
-        int t1 = reader.nextInt();
-        int t2 = reader.nextInt();
-        int t3 = t1 - t2;
+        int i1 = reader.nextInt();
+        int i2 = reader.nextInt();
 
-        int c = 2;
-        while (t3 >= 0) {
-            t1 = t2;
-            t2 = t3;
-            t3 = t1 - t2;
+        int c = 0;
+        outer :
+        for (int i = i1; i <= i2; i++) {
+            int[] a = Integer.toString(i).chars().map(q -> q-='0').toArray();
+            for (int p = 0; p < a.length; p++) {
+                int n1 = a[p]; // digit
+                int n2 = a.length - p - 1; // matching index
+                boolean x = a[n2] == m[n1]; // matched number is correct
+                if (!x) {
+                    continue outer; // skip the counter increment
+                }
+            }
             c++;
         }
         System.out.println(c);
-
     }
-
 
     public static class FastReader {
 
