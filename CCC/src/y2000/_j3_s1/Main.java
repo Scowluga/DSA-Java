@@ -11,45 +11,26 @@ Playing continuously until broke
 
 */
 public class Main {
-
-    static int coins;
-    static int[] slots; // length 3
-
-    static int[] ret = {30, 60, 9};
-    static int[] max = {35, 100, 10};
-
     public static void main(String[] args) throws IOException {
         FastReader reader = new FastReader();
 
-        coins = reader.nextInt();
-        slots = new int[]{reader.nextInt() + 1, reader.nextInt() + 1, reader.nextInt() + 1};
+        int[] ret = {30, 60, 9};
+        int[] max = {35, 100, 10};
+
+        int coins = reader.nextInt();
+        int[] slots = new int[]{reader.nextInt() + 1, reader.nextInt() + 1, reader.nextInt() + 1};
         int i = 0;
-        int t = 0;
 
-        while (coins > 0) {
-            coins--;
-            t++;
-            play(i);
-            i = inc(i);
+        while (coins-- > 0) {
+            int p = i++ % 3;
+            if (slots[p] == max[p]) {
+                coins += ret[p];
+                slots[p] = 1;
+            } else {
+                slots[p]++;
+            }
         }
-        System.out.println("Martha plays " + t + " times before going broke.");
-
-    }
-
-    private static void play(int i) {
-        if (slots[i] == max[i]) {
-            coins += ret[i];
-            slots[i] = 1;
-        } else {
-            slots[i]++;
-        }
-    }
-
-    static int inc (int i) {
-        if (i == 2) {
-            return 0;
-        }
-        return i + 1;
+        System.out.println("Martha plays " + i + " times before going broke.");
     }
 
     public static class FastReader {

@@ -1,60 +1,133 @@
-package y2017._s3_2;
+package y2001._j3_s1;
 
 import java.io.DataInputStream;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
-/* Nailed It! 15/15 (faster & simpler)
+/* Keeping Score 15/15
+Please don't read this code. It's so bad holy.
+I'm almost ashamed to have written it...
 
-Since we know the max length of a board is 2000, we can simply create a size 2000 array
-This is a really elegant solution, use int[] with indexes as length (wood and board)
-Use this idea for future problems
+...
 
+...
 
- */
+almost ;)
 
+*/
 public class Main {
 
     public static void main(String[] args) throws IOException {
         FastReader reader = new FastReader();
 
-        int count = reader.nextInt();
-        int[] woods = new int[2001];
-        int[] boards = new int[4001];
+        // --- helpers ---
+        // length of line (maximum for suit with 13 cards)
+        final int SIZE = 38;
 
-        for (int i = 0; i < count; i++) {
-            woods[reader.nextInt()]++;
+        // card points
+        Map<String, Integer> map = new HashMap<>();
+        map.put("A", 4);
+        map.put("K", 3);
+        map.put("Q", 2);
+        map.put("J", 1);
+
+        // suit points
+        int[] bonus = new int[13 + 1];
+        bonus[0] = 3;
+        bonus[1] = 2;
+        bonus[2] = 1;
+
+        // --- input ---
+        String input = reader.readLine();
+
+        // --- logic ---
+        // suit ou<t>put
+        String ct = "Clubs ";
+        String dt = "Diamonds ";
+        String ht = "Hearts ";
+        String st = "Spades ";
+
+        // suit <p>oints
+        int cp = 0;
+        int dp = 0;
+        int hp = 0;
+        int sp = 0;
+
+        // suit starting <i>ndex
+        int ci = 0; // always first
+        int di = input.indexOf("D");
+        int hi = input.indexOf("H");
+        int si = input.indexOf("S");
+
+        // suit <c>ards
+        String[] cc = input.substring(ci + 1, di).trim().split("");
+        String[] dc = input.substring(di + 1, hi).trim().split("");
+        String[] hc = input.substring(hi + 1, si).trim().split("");
+        String[] sc = input.substring(si + 1).trim().split("");
+
+        // card & suit calculations
+        for (int i = 0; i < cc.length; i++) {
+            cp += map.getOrDefault(cc[i], 0);
+            ct += cc[i] + " ";
+        }
+        if (cc[0].equals("")) {
+            cp += 3;
+        } else {
+            cp += bonus[cc.length];
         }
 
-        for (int i = 1; i < 2001; i++) {
-            if (woods[i] > 0) {
-                for (int j = i; j < 2001; j++) {
-                    if (i == j) { // paired with itself, take half instead
-                        boards[i + j] += woods[i] / 2;
-                    } else {
-                        boards[i + j] += Math.min(woods[i], woods[j]);
-                    }
-                }
-            }
+        for (int i = 0; i < dc.length; i++) {
+            dp += map.getOrDefault(dc[i], 0);
+            dt += dc[i] + " ";
+        }
+        if (dc[0].equals("")) {
+            dp += 3;
+        } else {
+            dp += bonus[dc.length];
         }
 
-        // woods: index = length, value = count
-        // boards: index = height, value = length
-
-        int length = 0;
-        count = 1;
-        for (int i = 1; i < 4001; i++) {
-            if (boards[i] > length) { // greater length
-                length = boards[i];
-                count = 1;
-            } else if (boards[i] == length) {
-                count++;
-            }
+        for (int i = 0; i < hc.length; i++) {
+            hp += map.getOrDefault(hc[i], 0);
+            ht += hc[i] + " ";
+        }
+        if (hc[0].equals("")) {
+            hp += 3;
+        } else {
+            hp += bonus[hc.length];
         }
 
-        System.out.println(length + " " + count);
+        for (int i = 0; i < sc.length; i++) {
+            sp += map.getOrDefault(sc[i], 0);
+            st += sc[i] + " ";
+        }
+        if (sc[0].equals("")) {
+            sp += 3;
+        } else {
+            sp += bonus[sc.length];
+        }
+
+        // output
+        System.out.println("Cards Dealt" + String.format("%" + String.valueOf(SIZE - 11) + "s", "Points"));
+
+        // suits
+        System.out.print(ct);
+        System.out.println(String.format("%" + String.valueOf(SIZE - ct.length()) + "s", cp));
+
+        System.out.print(dt);
+        System.out.println(String.format("%" + String.valueOf(SIZE - dt.length()) + "s", dp));
+
+        System.out.print(ht);
+        System.out.println(String.format("%" + String.valueOf(SIZE - ht.length()) + "s", hp));
+
+        System.out.print(st);
+        System.out.println(String.format("%" + String.valueOf(SIZE - st.length()) + "s", sp));
+
+        // total
+        System.out.println(String.format("%" + SIZE + "s", "Total " + (cp + dp + hp + sp)));
     }
 
 

@@ -1,4 +1,4 @@
-package y2017._s3_2;
+package y2001._s4;
 
 import java.io.DataInputStream;
 import java.io.FileInputStream;
@@ -6,57 +6,168 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-/* Nailed It! 15/15 (faster & simpler)
+/* Cookies - https://dmoj.ca/problem/ccc01s4
+ * 50/50
+ * Intermediate Math
+ * Full Solution
 
-Since we know the max length of a board is 2000, we can simply create a size 2000 array
-This is a really elegant solution, use int[] with indexes as length (wood and board)
-Use this idea for future problems
+Ok so initially, just loop through largest pairs of points, and use largest dist.
 
+However, that's the incorrect algorithm. Instead, observe that when points
+A, B, C exist, if a^2 + b^2 = c^2, then points A and B make the diameter, and
+point C is on the edge of the circle (this is a property).
 
- */
+When a^2 + b^2 <= c^2, we can use the distance as the diameter.
 
+However, when a^2 + b^2 > c^2, point C is outside of the circle formed by the
+diameter of line AB. Thus a new algorithm is required.
+
+For that, we will take a new circle with all three points on the edges. Then
+take separate chords AC and BC. Take the midpoints, draw a perpendicular line,
+then they will intersect at the center of the circle.
+
+*/
 public class Main {
 
     public static void main(String[] args) throws IOException {
         FastReader reader = new FastReader();
 
-        int count = reader.nextInt();
-        int[] woods = new int[2001];
-        int[] boards = new int[4001];
+        // setup
+        int n = reader.nextInt();
+        P[] ps = new P[n];
+        for (int i = 0; i < n; i++) ps[i] = new P(reader.nextInt(), reader.nextInt());
 
-        for (int i = 0; i < count; i++) {
-            woods[reader.nextInt()]++;
-        }
+        // max diameter for output
+        double md = 0;
 
-        for (int i = 1; i < 2001; i++) {
-            if (woods[i] > 0) {
-                for (int j = i; j < 2001; j++) {
-                    if (i == j) { // paired with itself, take half instead
-                        boards[i + j] += woods[i] / 2;
+        // loop through each triple combination of points
+        for (int Ai = 0; Ai < n; Ai++) {
+            for (int Bi = Ai + 1; Bi < n; Bi++) {
+                for (int Ci = 0; Ci < n; Ci++) {
+                    if (Ci == Ai || Ci == Bi) continue; // repeated point
+
+                    P A = ps[Ai];
+                    P B = ps[Bi];
+                    P C = ps[Ci];
+                    double a = dist(B, C);
+                    double b = dist(A, C);
+                    double c = dist(A, B);
+
+                    double m = Math.max(a, Math.max(b, c)); // max distance
+                    if ((m == a) && (c*c + b*b > a*a) ||
+                            (m == b) && (c*c + a*a > b*b) ||
+                            (m == c) && (a*a + b*b > c*c)){
+                        // case 2: check chords
+                        md = Math.max(md, triple(A, B, C));
                     } else {
-                        boards[i + j] += Math.min(woods[i], woods[j]);
+                        // case 1: take max distance (diameter)
+                        md = Math.max(md, Math.max(a, Math.max(b, c)));
                     }
                 }
             }
         }
 
-        // woods: index = length, value = count
-        // boards: index = height, value = length
-
-        int length = 0;
-        count = 1;
-        for (int i = 1; i < 4001; i++) {
-            if (boards[i] > length) { // greater length
-                length = boards[i];
-                count = 1;
-            } else if (boards[i] == length) {
-                count++;
-            }
-        }
-
-        System.out.println(length + " " + count);
+        System.out.println(String.format("%.2f", md));
     }
 
+    private static double triple(P A, P B, P C) {
+        // let us set the two chords as AC (1) and BC (2)
+        // the equation of each line can be modelled as
+        // y = mx + b, where m is invSlope, b is y-intercept
+
+        double m1 = invSlope(A, C);   // invSlope
+        double x1 = middle(A.x, C.x); // mid x
+        double y1 = middle(A.y, C.y); // mid y
+        double b1 = y1 - (m1 * x1);   // y int
+
+        double m2 = invSlope(B, C);   // invSlope
+        double x2 = middle(B.x, C.x); // mid x
+        double y2 = middle(B.y, C.y); // mid y
+        double b2 = y2 - (m2 * x2);   // y int
+
+        // if a chord is horizontal or vertical, it's annoying
+        // we're going to escape it by then changing that
+        // chord to the third one (AB)
+        if (m1 == Integer.MAX_VALUE || m1 == 0) {
+            m1 = invSlope(A, B);      // invSlope
+            x1 = middle(A.x, B.x);    // mid x
+            y1 = middle(A.y, B.y);    // mid y
+            b1 = y1 - (m1 * x1);      // y int
+        } else if (m2 == Integer.MAX_VALUE || m2 == 0) {
+            m2 = invSlope(A, B);      // invSlope
+            x2 = middle(A.x, B.x);    // mid x
+            y2 = middle(A.y, B.y);    // mid y
+            b2 = y2 - (m2 * x2);      // y int
+        }
+        /*
+        (1) y = m1 * x + b1
+        (2) y = m2 * x + b2
+            substitute (1) into (2)
+        m1 * x + b1 = m2 * x + b2
+        (m1 - m2) * x = b2 - b1
+        x = (b2 - b1) / (m1 - m2)
+        y = m1 * x + b1
+
+        thus (x, y) is the center of the circle
+         */
+
+        double x0 = (b2 - b1) / (m1 - m2);
+        double y0 = m1 * x0 + b1;
+        double diameter = 2 * dist(x0, y0, A.x, A.y);
+
+        return diameter;
+    }
+
+    // invSlope of two points
+    private static double invSlope(P p1, P p2) {
+        if (p1.x == p2.x || p1.y == p2.y) { // horizontal
+            return Integer.MAX_VALUE;
+        }
+
+        return -1.0 / ((p2.y - p1.y * 1.0) / (p2.x - p1.x));
+    }
+
+    // middle of two values
+    private static double middle (int v1, int v2) {
+        return (v1 + v2 * 1.0) / 2.0;
+    }
+
+    // distance between points
+    static double dist(P p1, P p2) {
+        return Math.sqrt(Math.pow(1.0 * p2.x - p1.x, 2) + Math.pow(1.0 * p2.y - p1.y, 2));
+    }
+
+    // distance between points (as values)
+    static double dist(double x1, double y1, double x2, double y2) {
+        return Math.sqrt(Math.pow(1.0 * x2 - x1, 2) + Math.pow(1.0 * y2 - y1, 2));
+    }
+
+    // point
+    static class P {
+        int x;
+        int y;
+
+        P() {
+            this.x = 0;
+            this.y = 0;
+        }
+
+        P(int x, int y) {
+            this.x = x;
+            this.y = y;
+        }
+
+        @Override
+        public boolean equals(Object obj) {
+            P p = (P)obj;
+            return p.x == this.x && p.y == this.y;
+        }
+
+        @Override
+        public String toString() {
+            return "Point (" + this.x + ", " + this.y + ").";
+        }
+    }
 
     public static class FastReader {
 

@@ -1,4 +1,4 @@
-package y2017._s3_2;
+package y2001.j5_s3;
 
 import java.io.DataInputStream;
 import java.io.FileInputStream;
@@ -6,55 +6,14 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-/* Nailed It! 15/15 (faster & simpler)
+/* Strategic Bombing
 
-Since we know the max length of a board is 2000, we can simply create a size 2000 array
-This is a really elegant solution, use int[] with indexes as length (wood and board)
-Use this idea for future problems
-
-
- */
-
+*/
 public class Main {
 
     public static void main(String[] args) throws IOException {
         FastReader reader = new FastReader();
 
-        int count = reader.nextInt();
-        int[] woods = new int[2001];
-        int[] boards = new int[4001];
-
-        for (int i = 0; i < count; i++) {
-            woods[reader.nextInt()]++;
-        }
-
-        for (int i = 1; i < 2001; i++) {
-            if (woods[i] > 0) {
-                for (int j = i; j < 2001; j++) {
-                    if (i == j) { // paired with itself, take half instead
-                        boards[i + j] += woods[i] / 2;
-                    } else {
-                        boards[i + j] += Math.min(woods[i], woods[j]);
-                    }
-                }
-            }
-        }
-
-        // woods: index = length, value = count
-        // boards: index = height, value = length
-
-        int length = 0;
-        count = 1;
-        for (int i = 1; i < 4001; i++) {
-            if (boards[i] > length) { // greater length
-                length = boards[i];
-                count = 1;
-            } else if (boards[i] == length) {
-                count++;
-            }
-        }
-
-        System.out.println(length + " " + count);
     }
 
 

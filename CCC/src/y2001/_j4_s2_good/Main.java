@@ -1,107 +1,98 @@
-package y2011.s5_;
-
-import java.io.IOException;
+package y2001._j4_s2_good;
 
 import java.io.DataInputStream;
 import java.io.FileInputStream;
-import java.util.*;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
-/* Switch
-Brute force entire game BFS every light
-9/15
+/* Spirals 15/15
+1. Turns out you can add empty strings instead of having 50
+lines of edge case checking :)
 
- */
+2. Turns out this means you don't need the max + min counters :)
 
+3. Turns out this means you don't even need to store the lines...
+
+4. Turns out I'm actually bad at coding... I coded an extra 50 lines...
+
+also slightly optimized
+*/
 public class Main {
 
-    static int length;
-
-    public static void main(String[] args) throws IOException{
+    public static void main(String[] args) throws IOException {
         FastReader reader = new FastReader();
 
-        Set<int[]> visited = new HashSet<>();
-        length = reader.nextInt();
+        // move[0: x, 1: y][0: d, 1: r, 2: u, 3:l]
+        int[][] move = {{0, 1, 0, -1}, {1, 0, -1, 0}};
+//        int[][] move = new int[2][4];
+//        move[0][0] = 0; // x d
+//        move[1][0] = 1; // y d
+//        move[0][1] = 1; // x r
+//        move[1][1] = 0; // y r
+//        move[0][2] = 0; // x u
+//        move[1][2] = -1; // y u
+//        move[0][3] = -1; // x l
+//        move[1][3] = 0; // y l
 
-        Queue<Board> info = new LinkedList<>();
-        int[] temp = new int[length];
 
-        for (int i = 0; i < length; i ++) {
-            temp[i] = reader.nextInt();
+        int n1 = reader.nextInt();
+        int n2 = reader.nextInt();
+
+        // check edge cases
+        if (n1 == n2) {
+            System.out.println(n1);
+            return;
+        } else if (n2 - n1 == 1) {
+            System.out.println(n1);
+            System.out.println(n2);
+            return;
         }
-        info.add(new Board(temp));
 
-        while (!info.isEmpty()) {
-            Board b = info.poll();
-            if (!b.isDone()) {
-                for (int i = 0; i < length; i ++) {
-                    if (b.items[i] == 0) {
-                        Board tempo = new Board(b.items.clone(), b.counter);
-                        tempo.turnOn(i);
-                        if (visited.contains(tempo.items)) {
-                            // do nothing
-                        } else {
-                            visited.add(tempo.items);
-                            info.add(tempo);
-                        }
-                    }
+        // access by out[y][x]
+        int[][] out = new int[10][10];
+        int x = 4;
+        int y = 4;
+        out[y][x] = n1;
+
+        // 1, 1, 2, 2, 3, 3
+        int c1 = 1;
+        // counter for c1
+        int c2 = 0;
+        // direction counter
+        int dc = 0;
+
+        for (int v = n1 + 1; v <= n2; v++) {
+            if (c2 == c1) { // first change
+                c2++;
+                dc++;
+            } else if (c2 == (c1 * 2)) { // second
+                c1++;
+                c2 = 1;
+                dc++;
+            } else { // keep going
+                c2++;
+            }
+
+            int d = dc % 4; // 0: d, 1: r, 2: u, 3:l
+            x += move[0][d];
+            y += move[1][d];
+
+            out[y][x] = v;
+        }
+
+        // output
+        for (int iy = 0; iy <= 9; iy++) { // each row
+            for (int ix = 0; ix <= 9; ix++) { // each column
+                // turns out when this is 0, it works :) kms
+                if (out[iy][ix] == 0) {
+                    System.out.print(String.format("   "));
+                } else {
+                    System.out.print(String.format("%3d", out[iy][ix]));
                 }
-            } else { // b is done
-                System.out.println(b.counter);
-                break;
             }
-        }
-    }
-
-    public static class Board {
-
-        int[] items;
-        int counter;
-
-        public Board (int[] items) {
-            this.items = items;
-            this.counter = 0;
-        }
-
-        public Board (int[] items, int counter) {
-            this.items = items;
-            this.counter = counter;
-        }
-
-        public void turnOn (int index) {
-            counter += 1;
-            this.items[index] = 1;
-            int cnt = 0;
-            for (int i = 0; i < length; i ++) {
-                if (this.items[i] == 1) { // light is on
-                    cnt += 1;
-                } else { // light is off
-                    if (cnt >= 4) { // turn off all lights before if row of 4
-                        for (int x = 1; x < cnt + 1; x ++) {
-                            this.items[i - x] = 0;
-                        }
-                    }
-                    cnt = 0;
-                }
-            }
-            if (cnt >= 4) {
-                for (int x = 1; x < cnt + 1; x ++) {
-                    this.items[length - x] = 0;
-                }
-            }
-        }
-
-        public boolean isDone() {
-            return Arrays.stream(this.items).sum() == 0;
-        }
-
-        @Override
-        public String toString() {
-            String s = "";
-            for (int i = 0; i < length; i ++) {
-                s += this.items[i] + " ";
-            }
-            s += " with count " + this.counter;
-            return s;
+            System.out.println("");
         }
     }
 
@@ -349,5 +340,3 @@ public class Main {
 
     }
 }
-
-

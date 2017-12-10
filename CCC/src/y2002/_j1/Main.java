@@ -1,4 +1,4 @@
-package y2017._s3_2;
+package y2002._j1;
 
 import java.io.DataInputStream;
 import java.io.FileInputStream;
@@ -6,55 +6,92 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-/* Nailed It! 15/15 (faster & simpler)
-
-Since we know the max length of a board is 2000, we can simply create a size 2000 array
-This is a really elegant solution, use int[] with indexes as length (wood and board)
-Use this idea for future problems
-
-
- */
-
+/* 0123456789 30/30
+Just output
+*/
 public class Main {
 
     public static void main(String[] args) throws IOException {
         FastReader reader = new FastReader();
 
-        int count = reader.nextInt();
-        int[] woods = new int[2001];
-        int[] boards = new int[4001];
+        int n = reader.nextInt();
 
-        for (int i = 0; i < count; i++) {
-            woods[reader.nextInt()]++;
+        boolean[] w = new boolean[8];
+
+        int[][] m = {
+                {1, 2, 3, 5, 6, 7},    // 0
+                {3, 6},                // 1
+                {1, 3, 4, 5, 7},       // 2
+                {1, 3, 4, 6, 7},       // 3
+                {2, 3, 4, 6},          // 4
+                {1, 2, 4, 6, 7},       // 5
+                {1, 2, 4, 5, 6, 7},    // 6
+                {1, 3, 6},             // 7
+                {1, 2, 3, 4, 5, 6, 7}, // 8
+                {1, 2, 3, 4, 6, 7}     // 9
+        };
+
+        for (int i = 0; i < m[n].length; i++) {
+            w[m[n][i]] = true;
         }
 
-        for (int i = 1; i < 2001; i++) {
-            if (woods[i] > 0) {
-                for (int j = i; j < 2001; j++) {
-                    if (i == j) { // paired with itself, take half instead
-                        boards[i + j] += woods[i] / 2;
-                    } else {
-                        boards[i + j] += Math.min(woods[i], woods[j]);
-                    }
-                }
-            }
+//         *1*
+//        *   *
+//        2   3
+//        *   *
+//         *4*
+//        *   *
+//        5   6
+//        *   *
+//         *7*
+
+        // output
+        if (w[1]) {
+            System.out.println(" * * * ");
         }
 
-        // woods: index = length, value = count
-        // boards: index = height, value = length
+        String l2 = "";
 
-        int length = 0;
-        count = 1;
-        for (int i = 1; i < 4001; i++) {
-            if (boards[i] > length) { // greater length
-                length = boards[i];
-                count = 1;
-            } else if (boards[i] == length) {
-                count++;
-            }
+        if (w[2]) {
+            l2 += "*";
+        } else {
+            l2 += " ";
+        }
+        l2 += "     ";
+        if (w[3]) {
+            l2 += "*";
+        } else {
+            l2 += " ";
+        }
+        System.out.println(l2);
+        System.out.println(l2);
+        System.out.println(l2);
+
+        if (w[4]) {
+            System.out.println(" * * * ");
         }
 
-        System.out.println(length + " " + count);
+        l2 = "";
+
+        if (w[5]) {
+            l2 += "*";
+        } else {
+            l2 += " ";
+        }
+        l2 += "     ";
+        if (w[6]) {
+            l2 += "*";
+        } else {
+            l2 += " ";
+        }
+
+        System.out.println(l2);
+        System.out.println(l2);
+        System.out.println(l2);
+
+        if (w[7]) {
+            System.out.println(" * * * ");
+        }
     }
 
 

@@ -1,60 +1,42 @@
-package y2017._s3_2;
+package y2002._j2;
 
 import java.io.DataInputStream;
 import java.io.FileInputStream;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
-/* Nailed It! 15/15 (faster & simpler)
+/* AmeriCanadian 100/100
+String checking
 
-Since we know the max length of a board is 2000, we can simply create a size 2000 array
-This is a really elegant solution, use int[] with indexes as length (wood and board)
-Use this idea for future problems
-
-
- */
-
+*/
 public class Main {
 
     public static void main(String[] args) throws IOException {
         FastReader reader = new FastReader();
 
-        int count = reader.nextInt();
-        int[] woods = new int[2001];
-        int[] boards = new int[4001];
+        String input = reader.readLine();
+        String vowels = "aeiou";
 
-        for (int i = 0; i < count; i++) {
-            woods[reader.nextInt()]++;
-        }
-
-        for (int i = 1; i < 2001; i++) {
-            if (woods[i] > 0) {
-                for (int j = i; j < 2001; j++) {
-                    if (i == j) { // paired with itself, take half instead
-                        boards[i + j] += woods[i] / 2;
-                    } else {
-                        boards[i + j] += Math.min(woods[i], woods[j]);
+        while (!input.equals("quit!")) {
+            if (input.length() > 4) {
+                if (!vowels.contains(
+                        input.substring(
+                                input.length() - 3,
+                                input.length() - 2))
+                        ) {
+                    if (input.substring(input.length() - 2).equals("or")) {
+                        System.out.println(
+                                input.substring(0, input.length() - 1)
+                                + "ur"
+                        );
+                        input = reader.readLine();
+                        continue;
                     }
                 }
             }
+            System.out.println(input);
+            input = reader.readLine();
         }
-
-        // woods: index = length, value = count
-        // boards: index = height, value = length
-
-        int length = 0;
-        count = 1;
-        for (int i = 1; i < 4001; i++) {
-            if (boards[i] > length) { // greater length
-                length = boards[i];
-                count = 1;
-            } else if (boards[i] == length) {
-                count++;
-            }
-        }
-
-        System.out.println(length + " " + count);
     }
 
 

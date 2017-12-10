@@ -1,60 +1,155 @@
-package y2017._s3_2;
+package y2001._j4_s2_bad;
 
 import java.io.DataInputStream;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
-/* Nailed It! 15/15 (faster & simpler)
-
-Since we know the max length of a board is 2000, we can simply create a size 2000 array
-This is a really elegant solution, use int[] with indexes as length (wood and board)
-Use this idea for future problems
-
-
- */
-
+/* Spirals 15/15
+A really stupid solution... I forgot you can add empty strings :)
+see 'good' solution
+*/
 public class Main {
 
     public static void main(String[] args) throws IOException {
         FastReader reader = new FastReader();
 
-        int count = reader.nextInt();
-        int[] woods = new int[2001];
-        int[] boards = new int[4001];
+        // move[0: x, 1: y][0: d, 1: r, 2: u, 3:l]
+        int[][] move = new int[2][4];
+        move[0][0] = 0; // x d
+        move[1][0] = 1; // y d
+        move[0][1] = 1; // x r
+        move[1][1] = 0; // y r
+        move[0][2] = 0; // x u
+        move[1][2] = -1; // y u
+        move[0][3] = -1; // x l
+        move[1][3] = 0; // y l
 
-        for (int i = 0; i < count; i++) {
-            woods[reader.nextInt()]++;
+        int n1 = reader.nextInt();
+        int n2 = reader.nextInt();
+
+        // check edge cases
+        if (n1 == n2) {
+            System.out.println(n1);
+            return;
+        } else if (n2 - n1 == 1) {
+            System.out.println(n1);
+            System.out.println(n2);
+            return;
         }
 
-        for (int i = 1; i < 2001; i++) {
-            if (woods[i] > 0) {
-                for (int j = i; j < 2001; j++) {
-                    if (i == j) { // paired with itself, take half instead
-                        boards[i + j] += woods[i] / 2;
-                    } else {
-                        boards[i + j] += Math.min(woods[i], woods[j]);
-                    }
+        // access by out[y][x]
+        int[][] out = new int[10][10];
+        int x = 4;
+        int y = 4;
+        out[y][x] = n1;
+
+        // first c1 or not
+        boolean first = true;
+        // 1, 1, 2, 2, 3, 3
+        int c1 = 1;
+        // counter for c1
+        int c2 = 0;
+        // direction counter
+        int dc = 0;
+
+        // for output
+        int xMin = 4;
+        int xMax = 4;
+        int yMin = 4;
+        int yMax = 4;
+
+        for (int v = n1 + 1; v <= n2; v++) {
+            if (c2 < c1) { // keep going
+                c2++;
+            } else if (c2 == c1) { // caught up
+                if (first) { // first time
+                    // same number
+                    first = false;
+                    c2 = 1;
+                } else { // second time
+                    // next number
+                    first = true;
+                    c1++;
+                    c2 = 1;
+                }
+                dc++; // change direction
+            }
+
+            int d = dc % 4; // 0: d, 1: r, 2: u, 3:l
+            x += move[0][d];
+            y += move[1][d];
+
+            xMax = Math.max(xMax, x);
+            xMin = Math.min(xMin, x);
+            yMax = Math.max(yMax, y);
+            yMin = Math.min(yMin, y);
+
+            out[y][x] = v;
+        }
+
+        // creating output strings
+
+        int baseY = yMax - yMin + 1; // starting index
+        String[] lines = new String[baseY];
+        Arrays.fill(lines, "");
+
+        for (int iy = yMin; iy <= yMax; iy++) { // each row
+            for (int ix = xMin; ix <= xMax; ix++) { // each column
+                if (!(out[iy][ix] == 0)) { // has value
+                    lines[iy - yMin] += String.format("%3d", out[iy][ix]);
                 }
             }
         }
 
-        // woods: index = length, value = count
-        // boards: index = height, value = length
+        /*
+        ok at this point, we have the array of lines. So all's good is good right? you can just use the following code:
 
-        int length = 0;
-        count = 1;
-        for (int i = 1; i < 4001; i++) {
-            if (boards[i] > length) { // greater length
-                length = boards[i];
-                count = 1;
-            } else if (boards[i] == length) {
-                count++;
-            }
+        for (int i = 0; i < lines.length; i++) {
+            System.out.println(String.format("%" + String.valueOf((xMax - xMin + 1) * 3) + "s", lines[i]));
         }
 
-        System.out.println(length + " " + count);
+        right? no. freaking there's 4 cases where there's the original block of numbers, then trailing digits
+        to the left, top, right, or bottom.
+        ie. Trailing top
+                  x x
+            x x x x x
+            x x x x x
+            x x x x x
+            x x x x x
+        Each one needs to be treated by itself. I'm hardcoding it idc.
+         */
+
+        // output
+        if (out[yMin][xMin] == 0) { // case 1: trailing top
+            // simplest case. Print normally, as trailing top
+            // is default to the right side
+            for (int i = 0; i < lines.length; i++) {
+                System.out.println(String.format("%" + String.valueOf((xMax - xMin + 1) * 3) + "s", lines[i]));
+            }
+        } else if (out[yMin][xMax] == 0) { // case 2: trailing right
+            // print directly. Easy
+            for (int i = 0; i < lines.length; i++) {
+                System.out.println(lines[i]);
+            }
+        } else if (out[yMax][xMin] == 0) { // case 3: trailing left
+            // easy. print all formatted to the right
+            for (int i = 0; i < lines.length; i++) {
+                System.out.println(String.format("%" + String.valueOf((xMax - xMin + 1) * 3) + "s", lines[i]));
+            }
+        } else if (out[yMax][xMax] == 0) { // case 4: trailing bottom
+            // not bad. Just print the last line with no format
+            for (int i = 0; i < lines.length - 1; i++) {
+                System.out.println(String.format("%" + String.valueOf((xMax - xMin + 1) * 3) + "s", lines[i]));
+            }
+            System.out.println(lines[lines.length - 1]);
+        } else { // case 5: no trailing, perfect square. phew.
+            for (int i = 0; i < lines.length; i++) {
+                System.out.println(String.format("%" + String.valueOf((xMax - xMin + 1) * 3) + "s", lines[i]));
+            }
+        }
     }
 
 

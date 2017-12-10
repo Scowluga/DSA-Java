@@ -1,60 +1,108 @@
-package y2017._s3_2;
+package y2011._s5_brute_force;
+
+import java.io.IOException;
 
 import java.io.DataInputStream;
 import java.io.FileInputStream;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
-/* Nailed It! 15/15 (faster & simpler)
-
-Since we know the max length of a board is 2000, we can simply create a size 2000 array
-This is a really elegant solution, use int[] with indexes as length (wood and board)
-Use this idea for future problems
-
+/* Switch
+Brute force entire game BFS every light
+9/15
 
  */
 
 public class Main {
 
-    public static void main(String[] args) throws IOException {
+    static int length;
+
+    public static void main(String[] args) throws IOException{
         FastReader reader = new FastReader();
 
-        int count = reader.nextInt();
-        int[] woods = new int[2001];
-        int[] boards = new int[4001];
+        Set<int[]> visited = new HashSet<>();
+        length = reader.nextInt();
 
-        for (int i = 0; i < count; i++) {
-            woods[reader.nextInt()]++;
+        Queue<Board> info = new LinkedList<>();
+        int[] temp = new int[length];
+
+        for (int i = 0; i < length; i ++) {
+            temp[i] = reader.nextInt();
+        }
+        info.add(new Board(temp));
+
+        while (!info.isEmpty()) {
+            Board b = info.poll();
+            if (!b.isDone()) {
+                for (int i = 0; i < length; i ++) {
+                    if (b.items[i] == 0) {
+                        Board tempo = new Board(b.items.clone(), b.counter);
+                        tempo.turnOn(i);
+                        if (visited.contains(tempo.items)) {
+                            // do nothing
+                        } else {
+                            visited.add(tempo.items);
+                            info.add(tempo);
+                        }
+                    }
+                }
+            } else { // b is done
+                System.out.println(b.counter);
+                break;
+            }
+        }
+    }
+
+    public static class Board {
+
+        int[] items;
+        int counter;
+
+        public Board (int[] items) {
+            this.items = items;
+            this.counter = 0;
         }
 
-        for (int i = 1; i < 2001; i++) {
-            if (woods[i] > 0) {
-                for (int j = i; j < 2001; j++) {
-                    if (i == j) { // paired with itself, take half instead
-                        boards[i + j] += woods[i] / 2;
-                    } else {
-                        boards[i + j] += Math.min(woods[i], woods[j]);
+        public Board (int[] items, int counter) {
+            this.items = items;
+            this.counter = counter;
+        }
+
+        public void turnOn (int index) {
+            counter += 1;
+            this.items[index] = 1;
+            int cnt = 0;
+            for (int i = 0; i < length; i ++) {
+                if (this.items[i] == 1) { // light is on
+                    cnt += 1;
+                } else { // light is off
+                    if (cnt >= 4) { // turn off all lights before if row of 4
+                        for (int x = 1; x < cnt + 1; x ++) {
+                            this.items[i - x] = 0;
+                        }
                     }
+                    cnt = 0;
+                }
+            }
+            if (cnt >= 4) {
+                for (int x = 1; x < cnt + 1; x ++) {
+                    this.items[length - x] = 0;
                 }
             }
         }
 
-        // woods: index = length, value = count
-        // boards: index = height, value = length
-
-        int length = 0;
-        count = 1;
-        for (int i = 1; i < 4001; i++) {
-            if (boards[i] > length) { // greater length
-                length = boards[i];
-                count = 1;
-            } else if (boards[i] == length) {
-                count++;
-            }
+        public boolean isDone() {
+            return Arrays.stream(this.items).sum() == 0;
         }
 
-        System.out.println(length + " " + count);
+        @Override
+        public String toString() {
+            String s = "";
+            for (int i = 0; i < length; i ++) {
+                s += this.items[i] + " ";
+            }
+            s += " with count " + this.counter;
+            return s;
+        }
     }
 
 
@@ -301,3 +349,5 @@ public class Main {
 
     }
 }
+
+

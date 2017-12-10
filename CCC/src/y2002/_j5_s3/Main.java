@@ -1,4 +1,4 @@
-package y2017._s3_2;
+package y2002._j5_s3;
 
 import java.io.DataInputStream;
 import java.io.FileInputStream;
@@ -6,55 +6,89 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-/* Nailed It! 15/15 (faster & simpler)
+/* Blindfold 100/100
+Walking through the array
 
-Since we know the max length of a board is 2000, we can simply create a size 2000 array
-This is a really elegant solution, use int[] with indexes as length (wood and board)
-Use this idea for future problems
-
-
- */
-
+*/
 public class Main {
 
     public static void main(String[] args) throws IOException {
         FastReader reader = new FastReader();
 
-        int count = reader.nextInt();
-        int[] woods = new int[2001];
-        int[] boards = new int[4001];
+        int rn = reader.nextInt();
+        int cn  = reader.nextInt();
 
-        for (int i = 0; i < count; i++) {
-            woods[reader.nextInt()]++;
+        String[][] yard = new String[rn][cn];
+
+        for (int i = rn - 1; i >= 0; i--) {
+            yard[i] = reader.readLine().split("");
         }
 
-        for (int i = 1; i < 2001; i++) {
-            if (woods[i] > 0) {
-                for (int j = i; j < 2001; j++) {
-                    if (i == j) { // paired with itself, take half instead
-                        boards[i + j] += woods[i] / 2;
-                    } else {
-                        boards[i + j] += Math.min(woods[i], woods[j]);
+        int mn = reader.nextInt();
+        String[] moves = new String[mn];
+        for (int i = 0; i < mn; i++) {
+            moves[i] = reader.readLine();
+        }
+
+        /* move[0:x, 1:y][0:d, 1:r, 2:u, 3:l]
+        - directions:
+          2
+        3 * 1
+          0
+        - access
+
+        r 2 2 2
+        r 1 1 2
+        r 0 1 2
+          c c c
+        */
+        int[][] move = {
+                {0, 1, 0, -1}, // x
+                {-1, 0, 1, 0} // y
+        };
+
+
+        for (int sr = 0; sr < rn; sr++) {
+            for (int sc = 0; sc < cn; sc++) {
+                if (yard[sr][sc].equals("X")) continue;
+                dl:for (int sd = 0; sd < 4; sd++) {
+                    int r = sr, c = sc, d = sd;
+                    for (int i = 0; i < mn; i++) {
+                        if (yard[r][c].equals("X")) {
+                            continue dl;
+                        } else {
+                            if (moves[i].equals("F")) {
+                                r += move[1][d];
+                                c += move[0][d];
+                                if (r < 0 || r == rn || c < 0 || c == cn) {
+                                    continue dl;
+                                }
+                            } else if (moves[i].equals("L")) {
+                                if (d == 3) {
+                                    d = 0;
+                                } else {
+                                    d++;
+                                }
+                            } else if (moves[i].equals("R")) {
+                                if (d == 0) {
+                                    d = 3;
+                                } else {
+                                    d--;
+                                }
+                            }
+                        }
                     }
+                    yard[r][c] = (yard[r][c].equals("X")) ? "X" : "*";
                 }
             }
         }
 
-        // woods: index = length, value = count
-        // boards: index = height, value = length
-
-        int length = 0;
-        count = 1;
-        for (int i = 1; i < 4001; i++) {
-            if (boards[i] > length) { // greater length
-                length = boards[i];
-                count = 1;
-            } else if (boards[i] == length) {
-                count++;
+        for (int r = rn - 1; r >= 0; r--) {
+            for (int c = 0; c < cn; c++) {
+                System.out.print(yard[r][c]);
             }
+            System.out.println("");
         }
-
-        System.out.println(length + " " + count);
     }
 
 
