@@ -1,12 +1,14 @@
-package y2001.j5_s3;
+package y1998._s4;
 
 import java.io.DataInputStream;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
-/* Strategic Bombing
+/* Lottery 100/100
+Read the play function.
 
 */
 public class Main {
@@ -14,25 +16,55 @@ public class Main {
     public static void main(String[] args) throws IOException {
         FastReader reader = new FastReader();
 
-        int rn = 0;
-        List<Integer>[] map = new List[625];
-        String r = reader.readLine();
+        int nl = reader.nextInt();
 
-        while (!r.equals("**")) {
-            String p1 = r.substring(0, 1);
-            String p2 = r.substring(1, 2);
+        for (int n = 0; n < nl; n++) {
+            List<String> d = play(new ArrayList<>(Arrays.asList(reader.readLine().split(" "))));
 
-            rn++;
+            for (int i = 0; i < d.size(); i++) {
+                String s = d.get(i);
+                if (s.equals("+") || s.equals("X") || s.equals("-")) {
+                    System.out.print(" " + s + " ");
+                } else {
+                    System.out.print(d.get(i));
+                }
+            }
+
+            System.out.println("\n");
         }
     }
 
-    static int getInt(String s) {
+    static List<String> play(List<String> d) {
+        if (d.size() <= 3) return d;
 
+        for (int i = 0; i < d.size(); i++) {
+            if (d.get(i).equals("X")) {
+                String s = "(" + d.get(i - 1) + " " + d.get(i) + " " + d.get(i + 1) + ")";
+                d.remove(i - 1);
+                d.remove(i - 1);
+                d.remove(i - 1);
+                d.add(i - 1, s);
+                i--;
+            }
+            if (d.size() <= 3) return d;
+        }
+
+
+        for (int i = 0; i < d.size(); i++) {
+            if (d.get(i).equals("+") || d.get(i).equals("-")) {
+                String s = "(" + d.get(i - 1) + " " + d.get(i) + " " + d.get(i + 1) + ")";
+                d.remove(i - 1);
+                d.remove(i - 1);
+                d.remove(i - 1);
+                d.add(i - 1, s);
+                i--;
+            }
+            if (d.size() <= 3) return d;
+        }
+
+        return d;
     }
 
-    static String getString(int i) {
-
-    }
 
     public static class FastReader {
 

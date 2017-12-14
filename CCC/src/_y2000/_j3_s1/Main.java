@@ -1,4 +1,4 @@
-package y2001.j5_s3;
+package _y2000._j3_s1;
 
 import java.io.DataInputStream;
 import java.io.FileInputStream;
@@ -6,32 +6,31 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-/* Strategic Bombing
+/* Slot Machines 15/15
+Playing continuously until broke
 
 */
 public class Main {
-
     public static void main(String[] args) throws IOException {
         FastReader reader = new FastReader();
 
-        int rn = 0;
-        List<Integer>[] map = new List[625];
-        String r = reader.readLine();
+        int[] ret = {30, 60, 9};
+        int[] max = {35, 100, 10};
 
-        while (!r.equals("**")) {
-            String p1 = r.substring(0, 1);
-            String p2 = r.substring(1, 2);
+        int coins = reader.nextInt();
+        int[] slots = new int[]{reader.nextInt() + 1, reader.nextInt() + 1, reader.nextInt() + 1};
+        int i = 0;
 
-            rn++;
+        while (coins-- > 0) {
+            int p = i++ % 3;
+            if (slots[p] == max[p]) {
+                coins += ret[p];
+                slots[p] = 1;
+            } else {
+                slots[p]++;
+            }
         }
-    }
-
-    static int getInt(String s) {
-
-    }
-
-    static String getString(int i) {
-
+        System.out.println("Martha plays " + i + " times before going broke.");
     }
 
     public static class FastReader {

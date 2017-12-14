@@ -1,4 +1,4 @@
-package y2001.j5_s3;
+package _y2000._j4_s2;
 
 import java.io.DataInputStream;
 import java.io.FileInputStream;
@@ -6,7 +6,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-/* Strategic Bombing
+/* Babbling Brooks 15/15
 
 */
 public class Main {
@@ -14,25 +14,36 @@ public class Main {
     public static void main(String[] args) throws IOException {
         FastReader reader = new FastReader();
 
-        int rn = 0;
-        List<Integer>[] map = new List[625];
-        String r = reader.readLine();
+        int nRiver = reader.nextInt();
+        List<Double> rivers = new ArrayList<>(nRiver);
+        for (int i = 0; i < nRiver; i++) {
+            rivers.add(reader.nextDouble());
+        }
 
-        while (!r.equals("**")) {
-            String p1 = r.substring(0, 1);
-            String p2 = r.substring(1, 2);
-
-            rn++;
+        while (true) {
+            int n = reader.nextInt();
+            switch(n) {
+                case 77:
+                    for (int i = 0; i < rivers.size(); i++) {
+                        System.out.print(Math.round(rivers.get(i)) + " ");
+                    }
+                    return;
+                case 88: // join
+                    int j = reader.nextInt();
+                    rivers.set(j - 1, rivers.get(j - 1) + rivers.get(j));
+                    rivers.remove(j);
+                    break;
+                case 99: // split
+                    int s = reader.nextInt();
+                    double l = reader.nextDouble();
+                    double r = 100 - l;
+                    rivers.add(s, rivers.get(s - 1) * r / 100.0);
+                    rivers.set(s - 1, rivers.get(s - 1) * l / 100.0);
+                    break;
+            }
         }
     }
 
-    static int getInt(String s) {
-
-    }
-
-    static String getString(int i) {
-
-    }
 
     public static class FastReader {
 

@@ -1,12 +1,15 @@
-package y2001.j5_s3;
+package _y2000._s4;
 
 import java.io.DataInputStream;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
+import java.util.Stack;
 
-/* Strategic Bombing
+/* Golf 15/15
+DFS with a bit of DP in there
 
 */
 public class Main {
@@ -14,24 +17,66 @@ public class Main {
     public static void main(String[] args) throws IOException {
         FastReader reader = new FastReader();
 
-        int rn = 0;
-        List<Integer>[] map = new List[625];
-        String r = reader.readLine();
+        int d = reader.nextInt(); // 1 - 5280
+        int nc = reader.nextInt(); // 1 - 32
 
-        while (!r.equals("**")) {
-            String p1 = r.substring(0, 1);
-            String p2 = r.substring(1, 2);
+        int[] b = new int[d + 1]; // dp
+        b[d] = 5281;
 
-            rn++;
+        List<Integer> cs = new ArrayList<>(nc); // clubs
+
+        for (int i = 0; i < nc; i++) {
+            cs.add(reader.nextInt());
+        }
+        Collections.sort(cs); // for better dfs. I think
+
+        Stack<S> ds = new Stack<>();
+        ds.add(new S(0, 0));
+
+        while (!ds.isEmpty()) {
+            S s1 = ds.pop();
+            for (int i = 0; i < cs.size(); i++) {
+                int ns = s1.strokes + 1;
+                int nd = s1.distance + cs.get(i);
+
+                if (nd == d) { // done
+                    // update if less moves
+                    b[d] = Math.min(b[d], ns);
+                } else if (nd > d) { // overshoot
+                    // nothing
+                } else if (b[nd] == 0 // no memo
+                        || ns < b[nd] // least strokes
+                        ){
+                    b[nd] = ns; // save
+                    S s2 = new S(ns, nd);
+                    ds.push(s2);
+                } else {
+                    // we don't care
+                }
+            }
+        }
+
+        if (b[d] == 5281) {
+            System.out.println("Roberta acknowledges defeat.");
+        } else {
+            System.out.println("Roberta wins in " + b[d] + " strokes.");
         }
     }
 
-    static int getInt(String s) {
+    static class S {
 
-    }
+        int strokes;
+        int distance;
 
-    static String getString(int i) {
+        public S(int strokes, int distance) {
+            this.strokes = strokes;
+            this.distance = distance;
+        }
 
+        @Override
+        public String toString() {
+            return "S: " + this.strokes + " D: " + this.distance;
+        }
     }
 
     public static class FastReader {

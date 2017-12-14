@@ -1,4 +1,4 @@
-package y2001.j5_s3;
+package y2001._s5;
 
 import java.io.DataInputStream;
 import java.io.FileInputStream;
@@ -6,33 +6,73 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-/* Strategic Bombing
+/* Post's Correspondence Problem
+ * Recursion, String algorithms
+ * 10/10 points
 
 */
 public class Main {
 
+    static int M;
+    static int N;
+    static String[] a;
+    static String[] b;
+
+    static boolean recurse(String as, String bs, List<Integer> indexes, int k) {
+        if (k >= M) return false;
+
+        for (int i = 0; i < N; i++) {
+            String tas = as + a[i];
+            String tbs = bs + b[i];
+            int r = check(tas, tbs);
+            if (r == 1) { // done
+                System.out.println(k + 1);
+                for (int v = 0; v < indexes.size(); v++) {
+                    System.out.println(indexes.get(v) + 1);
+                }
+                System.out.println(i + 1);
+                return true;
+            } else if (r == 0) { // continue
+                List<Integer> tIndexes = new ArrayList<>(indexes);
+                tIndexes.add(i);
+                boolean b = recurse(tas, tbs, tIndexes, k + 1);
+                if (b) return b;
+            }
+
+        }
+        return false;
+    }
+
+    // 1 : equal
+    // 0 : keep going
+    // -1 : stop
+    static int check(String s1, String s2) {
+        if (s1.equals(s2)) return 1;
+        else if (s1.contains(s2) || s2.contains(s1)) return 0;
+        return -1;
+    }
+
     public static void main(String[] args) throws IOException {
         FastReader reader = new FastReader();
 
-        int rn = 0;
-        List<Integer>[] map = new List[625];
-        String r = reader.readLine();
+        M = reader.nextInt();
+        N = reader.nextInt();
 
-        while (!r.equals("**")) {
-            String p1 = r.substring(0, 1);
-            String p2 = r.substring(1, 2);
-
-            rn++;
+        a = new String[N];
+        b = new String[N];
+        for (int i = 0; i < N; i++) {
+            a[i] = reader.nextString();
         }
+        for (int i = 0; i < N; i++) {
+            b[i] = reader.nextString();
+        }
+
+        boolean found = recurse("", "", new ArrayList<>(), 0);
+        if (!found) System.out.println("No solution.");
+
+
     }
 
-    static int getInt(String s) {
-
-    }
-
-    static String getString(int i) {
-
-    }
 
     public static class FastReader {
 

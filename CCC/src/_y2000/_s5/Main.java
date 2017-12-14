@@ -1,4 +1,4 @@
-package y2001.j5_s3;
+package _y2000._s5;
 
 import java.io.DataInputStream;
 import java.io.FileInputStream;
@@ -6,7 +6,10 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-/* Strategic Bombing
+/* Sheep and Coyotes 15/15
+Looping through every possible entry of wolf
+Got stuck on wolf being able to enter from double positions
+Whoops
 
 */
 public class Main {
@@ -14,24 +17,61 @@ public class Main {
     public static void main(String[] args) throws IOException {
         FastReader reader = new FastReader();
 
-        int rn = 0;
-        List<Integer>[] map = new List[625];
-        String r = reader.readLine();
+        int ns = reader.nextInt();
+        S[] sheep = new S[ns + 1];
 
-        while (!r.equals("**")) {
-            String p1 = r.substring(0, 1);
-            String p2 = r.substring(1, 2);
+        for (int i = 1; i <= ns; i++) { // input
+            sheep[i] = new S(reader.nextDouble(), reader.nextDouble());
+        }
 
-            rn++;
+        for (double x1 = 0.0; x1 <= 1000.0; x1 += 0.01) { // each possible entry
+            double y1 = 0.0; // start y
+
+            List<Integer> ms = new ArrayList<>();
+            double md = Double.valueOf(Integer.MAX_VALUE);
+
+            for (int i1 = 1; i1 <= ns; i1++) {
+                S s = sheep[i1];
+                double d = dist(x1, y1, s.x, s.y);
+                if (d == md) {
+                    ms.add(i1); // add sheep with min distance
+                } else if (d < md) {
+                    ms = new ArrayList<>();
+                    ms.add(i1);
+                    md = d; // new min distance
+                }
+            }
+
+            for (Integer s : ms) {
+                sheep[s].d = true;
+            }
+        }
+        for (int i = 1; i <= ns; i++) {
+            S s = sheep[i];
+            if (s.d) {
+                System.out.println("The sheep at " + s + " might be eaten.");
+            }
         }
     }
 
-    static int getInt(String s) {
-
+    static double dist (double x1, double y1, double x2, double y2) {
+        return Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2);
     }
 
-    static String getString(int i) {
+    static class S {
+        double x; // 0-1000
+        double y; // 0-1000
+        boolean d; // danger of eaten
 
+        S(double x, double y) {
+            this.x = x;
+            this.y = y;
+        }
+
+        @Override
+        public String toString() {
+            return "(" + String.format("%.02f", this.x) + ", " + String.format("%.02f", this.y) + ")";
+        }
     }
 
     public static class FastReader {

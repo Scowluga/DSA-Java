@@ -1,4 +1,4 @@
-package y2001.j5_s3;
+package y2009.s2;
 
 import java.io.DataInputStream;
 import java.io.FileInputStream;
@@ -6,7 +6,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-/* Strategic Bombing
+/* Lights Going on and Off
 
 */
 public class Main {
@@ -14,25 +14,9 @@ public class Main {
     public static void main(String[] args) throws IOException {
         FastReader reader = new FastReader();
 
-        int rn = 0;
-        List<Integer>[] map = new List[625];
-        String r = reader.readLine();
-
-        while (!r.equals("**")) {
-            String p1 = r.substring(0, 1);
-            String p2 = r.substring(1, 2);
-
-            rn++;
-        }
-    }
-
-    static int getInt(String s) {
 
     }
 
-    static String getString(int i) {
-
-    }
 
     public static class FastReader {
 

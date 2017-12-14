@@ -1,4 +1,4 @@
-package y2001.j5_s3;
+package _y2000._j1;
 
 import java.io.DataInputStream;
 import java.io.FileInputStream;
@@ -6,33 +6,50 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-/* Strategic Bombing
-
+/* Calendar 15/15
+This is the hardest J1 ever. Lots of string processing.
+My code is bad :)
 */
 public class Main {
 
     public static void main(String[] args) throws IOException {
         FastReader reader = new FastReader();
 
-        int rn = 0;
-        List<Integer>[] map = new List[625];
-        String r = reader.readLine();
+        int s = reader.nextInt();
+        int t = reader.nextInt();
+        int c = 1;
 
-        while (!r.equals("**")) {
-            String p1 = r.substring(0, 1);
-            String p2 = r.substring(1, 2);
+        System.out.println("Sun Mon Tue Wed Thr Fri Sat");
 
-            rn++;
+        String s1 = String.format("%3d", 1);
+        c++;
+        for (int i = 2; i <= (8 - s); i++) {
+            s1 += String.format("%4d", i);
+            c++;
         }
+        System.out.println(String.format("%27s", s1));
+
+        while (t - c >= 6) {
+            String s0 = String.format("%3d", c);
+            c++;
+            for (int i = 1; i < 7; i++) {
+                s0 += String.format("%4d", c);
+                c++;
+            }
+            System.out.println(String.format("%27s", s0));
+        }
+
+        if (c > t) return;
+
+        String s0 = String.format("%3d", c);
+        int cc = c;
+        for (int i = 0; i < (t - cc); i++) {
+            c++;
+            s0 += String.format("%4d", c);
+        }
+        System.out.println(s0);
     }
 
-    static int getInt(String s) {
-
-    }
-
-    static String getString(int i) {
-
-    }
 
     public static class FastReader {
 

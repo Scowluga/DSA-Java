@@ -1,37 +1,94 @@
-package y2001.j5_s3;
+package y2003._s3;
 
 import java.io.DataInputStream;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.LinkedList;
 import java.util.List;
 
-/* Strategic Bombing
+/* Floor Plan 100/100
 
 */
 public class Main {
 
-    public static void main(String[] args) throws IOException {
-        FastReader reader = new FastReader();
+    static String[][] board;
+    static List<Integer> rooms;
+    static int[][] move;
 
-        int rn = 0;
-        List<Integer>[] map = new List[625];
-        String r = reader.readLine();
+    static int r;
+    static int c;
 
-        while (!r.equals("**")) {
-            String p1 = r.substring(0, 1);
-            String p2 = r.substring(1, 2);
-
-            rn++;
+    private static int search(int x, int y) {
+        if (x < 0 || x >= c || y < 0 || y >= r || !board[y][x].equals(".")) {
+            // * or I
+            return 0;
+        } else {
+            board[y][x] = "*";
+            int count = 1;
+            for (int d = 0; d < 4; d++) {
+                int x1 = x + move[0][d];
+                int y1 = y + move[1][d];
+                count += search(x1, y1);
+            }
+            return count;
         }
     }
 
-    static int getInt(String s) {
 
-    }
+    public static void main(String[] args) throws IOException {
+        FastReader reader = new FastReader();
 
-    static String getString(int i) {
+        /* move[0:x, 1:y][0:d, 1:r, 2:u, 3:l]
+        - directions:
+          2
+        3 * 1
+          0
+        - access
+        r 2 2 2
+        r 1 1 2
+        r 0 1 2
+          c c c
+        */
 
+        move = new int[][]{
+                {0, 1, 0, -1}, // x
+                {-1, 0, 1, 0} // y
+        };
+
+
+
+        int n = reader.nextInt();
+        r = reader.nextInt();
+        c = reader.nextInt();
+
+        // I: wall, .: unvisited, *: visited
+        board = new String[r][c];
+        for (int i = 0; i < r; i++) {
+            board[i] = reader.readLine().split("");
+        }
+        rooms = new LinkedList<>();
+
+        for (int y = 0; y < r; y++) {
+            for (int x = 0; x < c; x++) {
+                if (board[y][x].equals(".")) {
+                    rooms.add(search(x, y));
+                }
+            }
+        }
+
+        Collections.sort(rooms);
+        Collections.reverse(rooms);
+
+        int count = 0;
+        while (!rooms.isEmpty() && n >= rooms.get(0)) {
+            n -= rooms.remove(0);
+            count++;
+        }
+
+        System.out.print(count + " room" + ((count != 1) ? "s, " : ", "));
+        System.out.print(n + " square metre(s) left over");
     }
 
     public static class FastReader {

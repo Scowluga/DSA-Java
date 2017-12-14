@@ -1,4 +1,4 @@
-package y2001.j5_s3;
+package brute_force.p3;
 
 import java.io.DataInputStream;
 import java.io.FileInputStream;
@@ -6,7 +6,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-/* Strategic Bombing
+/* Next Prime
 
 */
 public class Main {
@@ -14,25 +14,31 @@ public class Main {
     public static void main(String[] args) throws IOException {
         FastReader reader = new FastReader();
 
-        int rn = 0;
-        List<Integer>[] map = new List[625];
-        String r = reader.readLine();
+        int n = reader.nextInt();
+        if (n <= 2) {
+            System.out.println(2);
+            return;
+        } else if (n % 2 == 0) n ++;
 
-        while (!r.equals("**")) {
-            String p1 = r.substring(0, 1);
-            String p2 = r.substring(1, 2);
-
-            rn++;
+        for (;;) {
+            if (isPrime(n)) break;
+            else n += 2;
         }
+        System.out.println(n);
     }
 
-    static int getInt(String s) {
+    static boolean isPrime(int n) {
+        if (n < 2) return false;
+        if (n == 2) return true;
+        if (n % 2 == 0) return false;
+
+        for (int i = 3; i*i <= n; i += 2) {
+            if (n % i == 0) return false;
+        }
+        return true;
 
     }
 
-    static String getString(int i) {
-
-    }
 
     public static class FastReader {
 

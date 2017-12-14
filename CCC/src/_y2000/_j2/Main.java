@@ -1,37 +1,37 @@
-package y2001.j5_s3;
+package _y2000._j2;
 
 import java.io.DataInputStream;
 import java.io.FileInputStream;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
-/* Strategic Bombing
-
+/* 9966 15/15
+This is the hardest j2 what the y2000 is insane
 */
 public class Main {
 
     public static void main(String[] args) throws IOException {
         FastReader reader = new FastReader();
+        int[] m = {0, 1, -1, -1, -1, -1, 9, -1, 8, 6};
 
-        int rn = 0;
-        List<Integer>[] map = new List[625];
-        String r = reader.readLine();
+        int i1 = reader.nextInt();
+        int i2 = reader.nextInt();
 
-        while (!r.equals("**")) {
-            String p1 = r.substring(0, 1);
-            String p2 = r.substring(1, 2);
-
-            rn++;
+        int c = 0;
+        outer :
+        for (int i = i1; i <= i2; i++) {
+            int[] a = Integer.toString(i).chars().map(q -> q-='0').toArray();
+            for (int p = 0; p < a.length; p++) {
+                int n1 = a[p]; // digit
+                int n2 = a.length - p - 1; // matching index
+                boolean x = a[n2] == m[n1]; // matched number is correct
+                if (!x) {
+                    continue outer; // skip the counter increment
+                }
+            }
+            c++;
         }
-    }
-
-    static int getInt(String s) {
-
-    }
-
-    static String getString(int i) {
-
+        System.out.println(c);
     }
 
     public static class FastReader {

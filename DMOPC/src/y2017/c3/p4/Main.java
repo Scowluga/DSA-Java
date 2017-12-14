@@ -1,4 +1,4 @@
-package y2001.j5_s3;
+package y2017.c3.p4;
 
 import java.io.DataInputStream;
 import java.io.FileInputStream;
@@ -6,7 +6,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-/* Strategic Bombing
+/* Solitaire Logic
 
 */
 public class Main {
@@ -14,25 +14,104 @@ public class Main {
     public static void main(String[] args) throws IOException {
         FastReader reader = new FastReader();
 
-        int rn = 0;
-        List<Integer>[] map = new List[625];
-        String r = reader.readLine();
+        int N = reader.nextInt();
+        int Q = reader.nextInt();
+        int[] revealed = new int[N * 2 + 1]; // 0, r1, r2
+        int[][] data = new int[2][N];
 
-        while (!r.equals("**")) {
-            String p1 = r.substring(0, 1);
-            String p2 = r.substring(1, 2);
+        for (int w = 0; w < Q; w++) {
+            String[] vals = reader.readLine().split(" ");
+            int t = Integer.valueOf(vals[0]);
+            if (t == 1) {
+                int r = Integer.valueOf(vals[1]);
+                int i = Integer.valueOf(vals[2]);
+                int v = Integer.valueOf(vals[3]);
+                revealed[v] = r;
+                data[r - 1][i - 1] = v;
+                if (i == 1) {
+                    if (v == 1) {
 
-            rn++;
+                    } else {
+                        int nr = r == 0 ? 1 : 1;
+                        revealed[1] = nr;
+                        data[nr][0] = 1;
+                    }
+                }
+
+                if (i == N * 2) {
+                    if (v == N * 2) {
+
+                    } else {
+                        int nr = r == 0 ? 1 : 1;
+                        revealed[N * 2] = nr;
+                        data[nr][N - 1] = N * 2;
+                    }
+                }
+
+            } else { // t == 2, calculate and display
+                int v = Integer.valueOf(vals[1]);
+                if (revealed[v] != 0) {                               // shown
+                    System.out.println(1);
+                } else if (v == 1) {                             // first
+                    if (data[0][0] != 0 || data[1][0] != 0) {
+                        System.out.println(1);
+                    } else {
+                        System.out.println(2);
+                    }
+                } else if (v == N * 2) {                         // last
+                    if (data[0][N - 1] != 0 || data[1][N - 1] != 0) {
+                        System.out.println(1);
+                    } else {
+                        System.out.println(2);
+                    }
+                } else { // actual logic lol
+                    int si = 0;
+                    int ei = N - 1;
+                    if (v < N) {
+                        ei = v - 1;
+                    }
+                    if (v > N + 1) {
+                        si = v - (N + 1);
+                    }
+
+                    int sir1 = si;
+                    int c1 = 0;
+                    // FOR NOW, DON'T CHECK SANDWICH ON OUTSIDES
+                    for (int i = sir1; i <= ei; i++) {
+                        int vr1 = data[0][i];
+                        if (vr1 == 0) {
+                            c1++;
+                        } else {
+                            if (vr1 < v) {
+                                sir1 = Math.max(sir1, i);
+                                c1 = 0;
+                            } else if (vr1 > v) {
+                                break;
+                            }
+                        }
+                    }
+
+                    int sir2 = si;
+                    int c2 = 0;
+                    for (int i = sir2; i <= ei; i++) {
+                        int vr2 = data[1][i];
+                        if (vr2 == 0) {
+                            c2++;
+                        } else {
+                            if (vr2 < v) {
+                                sir2 = Math.max(sir2, i);
+                                c2 = 0;
+                            } else if (vr2 > v) {
+                                break;
+                            }
+                        }
+                    }
+                    System.out.println(c1 + c2);
+                }
+            }
         }
     }
 
-    static int getInt(String s) {
-
-    }
-
-    static String getString(int i) {
-
-    }
 
     public static class FastReader {
 

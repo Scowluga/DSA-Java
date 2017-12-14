@@ -1,38 +1,130 @@
-package y2001.j5_s3;
+package y2017.c3.p3;
 
 import java.io.DataInputStream;
 import java.io.FileInputStream;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
-/* Strategic Bombing
-
+/* N-Kat
+ADD INSERT FUNCTION TO LIBRARY
 */
 public class Main {
 
     public static void main(String[] args) throws IOException {
         FastReader reader = new FastReader();
 
-        int rn = 0;
-        List<Integer>[] map = new List[625];
-        String r = reader.readLine();
+        int N = reader.nextInt();
+        int[] kat = new int[N + 1];
 
-        while (!r.equals("**")) {
-            String p1 = r.substring(0, 1);
-            String p2 = r.substring(1, 2);
+        // input while checking for number duplicates
+        Set<Integer> v = new HashSet<>();
+        Set<Integer> set = new HashSet<>();
+        for (int i = 1; i <= N; i ++) {
+            set.add(i);
+            int k = reader.nextInt();
+            if (v.contains(k)) {
+                System.out.println(i);
+                for (int j = 1; j < kat.length; j++) {
+                    if (kat[j] == k) {
+                        System.out.println(j);
+                    }
+                }
+                return;
+            } else {
+                kat[i] = k;
+                v.add(k);
+            }
+        }
 
-            rn++;
+        List<Set<Integer>> all = new ArrayList<>(powerSet(set));
+        List<State> sums = new ArrayList<>();
+
+        for (Set<Integer> s : all) {
+                Iterator iter = s.iterator();
+                int c = 0;
+                while (iter.hasNext()) {
+                    c += kat[(Integer)iter.next()];
+                }
+                insert(sums, new State(s, c));
+        }
+
+        int mD = Integer.MAX_VALUE;
+        State s1 = null;
+        State s2 = null;
+        for (int i = 1; i < sums.size(); i++) {
+            int d = sums.get(i).sweet - sums.get(i - 1).sweet;
+            if (d < mD) {
+                if (d == 0) {
+                    for (Integer s : sums.get(i).set) System.out.print(s + " ");
+                    System.out.println("");
+                    for (Integer s : sums.get(i - 1).set) System.out.print(s + " ");
+                    return;
+                }
+                s1 = sums.get(i);
+                s2 = sums.get(i - 1);
+                mD = d;
+            }
+        }
+
+        for (Integer s : s1.set) System.out.print(s + " ");
+        System.out.println("");
+        for (Integer s : s2.set) System.out.print(s + " ");
+    }
+
+    private static void insert(List<State> sums, State state) {
+        if (sums.isEmpty()) {
+            sums.add(state);
+        } else {
+            for (int i = 0; i < sums.size(); i++) {
+                if (sums.get(i).compareTo(state) > 0) {
+                    sums.add(i, state);
+                    return;
+                }
+            }
+            sums.add(sums.size() - 1, state);
         }
     }
 
-    static int getInt(String s) {
+    static class State implements Comparable {
 
+        Set<Integer> set;
+        int sweet;
+
+        public State(Set<Integer> set, int sweet) {
+            this.set = set;
+            this.sweet = sweet;
+        }
+
+        @Override
+        public String toString() {
+            return "Sweet: " + this.sweet + " | Set: " + set;
+        }
+
+        @Override
+        public int compareTo(Object o) {
+            return this.sweet - ((State)o).sweet;
+        }
     }
 
-    static String getString(int i) {
-
+    static Set<Set<Integer>> powerSet(Set<Integer> originalSet) {
+        Set<Set<Integer>> sets = new HashSet<Set<Integer>>();
+        if (originalSet.isEmpty()) {
+            sets.add(new HashSet<Integer>());
+            return sets;
+        }
+        List<Integer> list = new ArrayList<Integer>(originalSet);
+        Integer head = list.get(0);
+        Set<Integer> rest = new HashSet<Integer>(list.subList(1, list.size()));
+        for (Set<Integer> set : powerSet(rest)) {
+            Set<Integer> newSet = new HashSet<Integer>();
+            newSet.add(head);
+            newSet.addAll(set);
+            sets.add(newSet);
+            sets.add(set);
+        }
+        return sets;
     }
+
 
     public static class FastReader {
 

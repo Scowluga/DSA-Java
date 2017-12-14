@@ -1,38 +1,107 @@
-package y2001.j5_s3;
+package y2002.s4;
 
 import java.io.DataInputStream;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
-/* Strategic Bombing
+/* Bridge Crossing
+ * 100/100
+ * Recursion, Logic
+ * Full Solution
+
+Essentially, there's a recursive run function that returns an array list
+The first index is the total crossing time, and the rest are how many people
+cross at each crossing.
+
+Run takes a starting index, assuming we start from a fresh crossing.
+Thus, in the run function, we loop through 1 - M people.
 
 */
 public class Main {
 
+    // --- variables
+    static int M; // max people per crossing
+    static int Q; // total people
+
+    static String[] names; // input names
+    static int[] times;    // input cross times
+
+    // --- recursive call
+    static List<Integer> run(int index, List<Integer> people) {
+        if (index >= Q) return people;
+
+        List<Integer> fastest = new ArrayList<>(Arrays.asList(Integer.MAX_VALUE));
+
+        int currentSlowest = times[index];  // this run's slowest
+        for (int m = 1; m <= M; m++) {
+            if (m + index >= Q) break;
+            if (times[m + index] <= currentSlowest) { // person is faster
+                // nothing, person is added to crossing
+            } else { // person is slower
+                // move on to next cycle
+                List<Integer> t = new ArrayList<>(people);
+                t.set(0, people.get(0) + currentSlowest);
+                t.add(m);
+                List<Integer> temp = run(m + index, t);
+                if (temp.get(0) < fastest.get(0)) {
+                    fastest = temp;
+                }
+
+                // continue this one
+                currentSlowest = times[m + index];
+            }
+        }
+
+        // finally, move on to the next cycle with max
+        // people crossing at this time.
+        List<Integer> t = new ArrayList<>(people);
+        t.set(0, people.get(0) + currentSlowest);
+        if (Q - M >= index) {
+            t.add(M); // max people
+        } else {
+            t.add(Q - index);
+        }
+        List<Integer> temp = run(index + M, t);
+        if (temp.get(0) < fastest.get(0)) {
+            fastest = temp;
+        }
+
+        return fastest;
+    }
+
+    // --- main
     public static void main(String[] args) throws IOException {
         FastReader reader = new FastReader();
 
-        int rn = 0;
-        List<Integer>[] map = new List[625];
-        String r = reader.readLine();
+        M = reader.nextInt();
+        Q = reader.nextInt();
 
-        while (!r.equals("**")) {
-            String p1 = r.substring(0, 1);
-            String p2 = r.substring(1, 2);
+        names = new String[Q];
+        times = new int[Q];
 
-            rn++;
+        for (int i = 0; i < Q; i++) {
+            names[i] = reader.nextString();
+            times[i] = reader.nextInt();
+        }
+
+        List<Integer> ret = run(0, new ArrayList<>(Arrays.asList(0)));
+
+        int rT = ret.remove(0);
+        List<Integer> rP = ret;
+
+        System.out.println("Total Time: " + rT);
+        int c = 0;
+        for (int i = 0; i < rP.size(); i++) {
+            for (int j = 0; j < rP.get(i); j++) {
+                System.out.print(names[c++] + " ");
+            }
+            System.out.println();
         }
     }
 
-    static int getInt(String s) {
-
-    }
-
-    static String getString(int i) {
-
-    }
 
     public static class FastReader {
 
