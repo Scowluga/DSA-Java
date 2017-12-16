@@ -1,38 +1,69 @@
-package y2001.j5_s3;
+package y2011.s5_better_brute_force;
 
 import java.io.DataInputStream;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
-/* Strategic Bombing
+/* Switch
 
 */
 public class Main {
 
     public static void main(String[] args) throws IOException {
         FastReader reader = new FastReader();
+        int N = reader.nextInt();
 
-        int rn = 0;
-        List<Integer>[] map = new List[625];
-        String r = reader.readLine();
-
-        while (!r.equals("**")) {
-            String p1 = r.substring(0, 1);
-            String p2 = r.substring(1, 2);
-
-            rn++;
+        // INPUT
+        StringBuilder rowS = new StringBuilder();
+        for (int i = 0; i < N; i ++) {
+            rowS.append(reader.nextString());
         }
+
+        String[] rowSA = rowS.toString().split("0000+"); // or {4,}
+
+        List<List<Integer>> row = new ArrayList<>(N);
+
+        for (int i = 0; i < rowSA.length; i++) {
+            List<Integer> tg = new ArrayList<>();
+            for (String s : rowSA[i].split("")) {
+                tg.add(Integer.valueOf(s));
+            }
+            row.add(tg);
+        }
+
+        // Now you have row which contains List<Integer> of all split by 4 zeros
+        int count = 0;
+        for (List<Integer> l : row) {
+            count += solve(l);
+        }
+        System.out.println(count);
     }
 
-//    static int getInt(String s) {
-//
-//    }
-//
-//    static String getString(int i) {
-//
-//    }
+    private static int solve(List<Integer> l) {
+        if (l.size() == 0) {
+            return 0; 
+        } else if (l.size() == 1) {
+            return 3;
+        } else if (l.size() == 2) {
+            return 2;
+        } else if (l.size() == 3) {
+            if (l.get(1) == 1) {
+                return 1;
+            } else {
+                return 2;
+            }
+        } else if (l.size() == 4) {
+            int c = 0;
+            if (l.get(1) == 0) c++;
+            if (l.get(2) == 0) c++;
+            return c;
+        }
+
+        // l.size > 4 && max 3 zero gaps
+    }
 
     public static class FastReader {
 

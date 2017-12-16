@@ -1,38 +1,66 @@
-package y2001.j5_s3;
+package y2009._s2;
 
 import java.io.DataInputStream;
 import java.io.FileInputStream;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
-/* Strategic Bombing
+/* Lights Going on and Off
+ * Implementation
+ * 10 points
+
+Recursive call with base case of first row
 
 */
 public class Main {
 
+    static Boolean[][] grid;
+
     public static void main(String[] args) throws IOException {
         FastReader reader = new FastReader();
 
-        int rn = 0;
-        List<Integer>[] map = new List[625];
-        String r = reader.readLine();
+        int R = reader.nextInt();
+        int C = reader.nextInt();
 
-        while (!r.equals("**")) {
-            String p1 = r.substring(0, 1);
-            String p2 = r.substring(1, 2);
+        grid = new Boolean[R][C];
 
-            rn++;
+        for (int r = 0; r < R; r++) {
+            for (int c = 0; c < C; c++) {
+                grid[r][c] = reader.nextInt() == 1 ? true : false;
+            }
         }
+
+        Set<List<Boolean>> fc = recurse(R - 1);
+        System.out.println(fc.size());
+
     }
 
-//    static int getInt(String s) {
-//
-//    }
-//
-//    static String getString(int i) {
-//
-//    }
+    static Set<List<Boolean>> recurse(int rn) {
+        if (rn == 0) {
+            Set<List<Boolean>> base = new HashSet<>();
+            base.add(new ArrayList<>(Arrays.asList(grid[0])));
+            return base;
+        }
+        Set<List<Boolean>> c = recurse(rn - 1);
+        Set<List<Boolean>> r = new HashSet<>();
+        r.add(new ArrayList<>(Arrays.asList(grid[rn])));
+
+        for (List<Boolean> l : c) {
+            r.add(calc(l, grid[rn])); // pressed with this state
+        }
+
+        return r;
+    }
+
+    static List<Boolean> calc(List<Boolean> a, Boolean[] b) {
+        List<Boolean> r = new ArrayList<>(a.size());
+
+        for (int i = 0; i < a.size(); i++) {
+            r.add(!(a.get(i) == b[i]));
+        }
+        return r;
+    }
+
 
     public static class FastReader {
 
