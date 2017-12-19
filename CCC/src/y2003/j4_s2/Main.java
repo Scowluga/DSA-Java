@@ -1,104 +1,34 @@
-package y2002.s4;
+package y2003.j4_s2;
 
 import java.io.DataInputStream;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Arrays;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
-/* Bridge Crossing
- * 100/100
- * Recursion, Logic
- * Full Solution
-
-Essentially, there's a recursive run function that returns an array list
-The first index is the total crossing time, and the rest are how many people
-cross at each crossing.
-
-Run takes a starting index, assuming we start from a fresh crossing.
-Thus, in the run function, we loop through 1 - M people.
+/* Poetry
 
 */
 public class Main {
 
-    // --- variables
-    static int M; // max people per crossing
-    static int Q; // total people
-
-    static String[] names; // input names
-    static int[] times;    // input cross times
-
-    // --- recursive call
-    static List<Integer> run(int index, List<Integer> people) {
-        if (index >= Q) return people;
-
-        List<Integer> fastest = new ArrayList<>(Arrays.asList(Integer.MAX_VALUE));
-
-        int currentSlowest = times[index];  // this run's slowest
-        for (int m = 1; m <= M; m++) {
-            if (m + index >= Q) break;
-            if (times[m + index] <= currentSlowest) { // person is faster
-                // nothing, person is added to crossing
-            } else { // person is slower
-                // move on to next cycle
-                List<Integer> t = new ArrayList<>(people);
-                t.set(0, people.get(0) + currentSlowest);
-                t.add(m);
-                List<Integer> temp = run(m + index, t);
-                if (temp.get(0) < fastest.get(0)) {
-                    fastest = temp;
-                }
-
-                // continue this one
-                currentSlowest = times[m + index];
-            }
-        }
-
-        // finally, move on to the next cycle with max
-        // people crossing at this time.
-        List<Integer> t = new ArrayList<>(people);
-        t.set(0, people.get(0) + currentSlowest);
-        if (Q - M >= index) {
-            t.add(M); // max people
-        } else {
-            t.add(Q - index);
-        }
-        List<Integer> temp = run(index + M, t);
-        if (temp.get(0) < fastest.get(0)) {
-            fastest = temp;
-        }
-
-        return fastest;
-    }
-
-    // --- main
     public static void main(String[] args) throws IOException {
         FastReader reader = new FastReader();
 
-        M = reader.nextInt();
-        Q = reader.nextInt();
+        Set<String> vowels = new HashSet<>(); 
 
-        names = new String[Q];
-        times = new int[Q];
+        int N = reader.nextInt();
 
-        for (int i = 0; i < Q; i++) {
-            names[i] = reader.nextString();
-            times[i] = reader.nextInt();
-        }
+        for (int t = 0; t < N; t++) {
+            String[] words = reader.readLine().split(" ");
+            String word = words[words.length - 1];
 
-        List<Integer> ret = run(0, new ArrayList<>(Arrays.asList(0)));
-
-        int rT = ret.remove(0);
-        List<Integer> rP = ret;
-
-        System.out.println("Total Time: " + rT);
-        int c = 0;
-        for (int i = 0; i < rP.size(); i++) {
-            for (int j = 0; j < rP.get(i); j++) {
-                System.out.print(names[c++] + " ");
+            for (int i = word.length() - 1; i >= 0; i--) {
+                if (word.substring(i, i + 1))
             }
-            System.out.println();
+
+
         }
     }
 

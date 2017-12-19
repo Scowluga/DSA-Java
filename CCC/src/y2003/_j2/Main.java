@@ -1,73 +1,36 @@
-package y2011.s5_better_brute_force;
+package y2003._j2;
 
 import java.io.DataInputStream;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
-/* Switch
+/* Picture Perfect
 
 */
 public class Main {
 
     public static void main(String[] args) throws IOException {
         FastReader reader = new FastReader();
-        int N = reader.nextInt();
 
-        // INPUT
-        StringBuilder rowS = new StringBuilder();
-        for (int i = 0; i < N; i ++) {
-            rowS.append(reader.nextString());
-        }
+        int n = reader.nextInt();
 
-        String[] rowSA = rowS.toString().split("0000+"); // or {4,}
-
-        List<List<Integer>> row = new ArrayList<>(N);
-
-        for (int i = 0; i < rowSA.length; i++) {
-            List<Integer> tg = new ArrayList<>();
-            for (String s : rowSA[i].split("")) {
-                tg.add(Integer.valueOf(s));
+        t: while (n != 0) {
+            int s = (int)Math.round(Math.sqrt(n));
+            for (int i = s; i <= n; i++) {
+                if (i * (n / i) == n) {
+                    int w = i;
+                    int l = n / i;
+                    System.out.println("Minimum perimeter is " + 2 * (w + l) + " with dimensions " + w + " x " + l);
+                    n = reader.nextInt();
+                    continue t;
+                }
             }
-            row.add(tg);
+            n = reader.nextInt();
         }
-
-        // Now you have row which contains List<Integer> of all split by 4 zeros
-        int count = 0;
-        for (List<Integer> l : row) {
-            count += solve(l);
-        }
-        System.out.println(count);
     }
 
-    private static int solve(List<Integer> l) {
-        if (l.size() == 0) {
-            return 0;
-        } else if (l.size() == 1) {
-            return 3;
-        } else if (l.size() == 2) {
-            return 2;
-        } else if (l.size() == 3) {
-            if (l.get(1) == 1) {
-                return 1;
-            } else {
-                return 2;
-            }
-        } else if (l.size() == 4) {
-            int c = 0;
-            if (l.get(1) == 0) c++;
-            if (l.get(2) == 0) c++;
-            return c;
-        }
-
-        // l.size > 4 && max 3 zero gaps
-
-
-
-        return 0;
-    }
 
     public static class FastReader {
 
