@@ -1,14 +1,12 @@
-package y2003._j4_s2;
+package newyears2018.p2;
 
 import java.io.DataInputStream;
 import java.io.FileInputStream;
 import java.io.IOException;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
 
-/** Poetry
- * 100/100
- * Implementation
-
+/* Mimi and Christmas Cake
 
 */
 public class Main {
@@ -16,48 +14,31 @@ public class Main {
     public static void main(String[] args) throws IOException {
         FastReader reader = new FastReader();
 
-        Set<String> vowels = new HashSet<>();
-        vowels.add("a");
-        vowels.add("e");
-        vowels.add("i");
-        vowels.add("o");
-        vowels.add("u");
-
         int N = reader.nextInt();
 
-        for (int t = 0; t < N; t++) {
-            String[] words = new String[4];
-            for (int i = 0; i < 4; i++) {
-                String[] lines = reader.readLine().split(" ");
-                words[i] = lines[lines.length - 1].toLowerCase();
+        int c = 0;
+
+        for (int i = 0; i < N; i++) {
+            int f = reader.nextInt();
+            if (isPrime(f)) {
+                c++;
             }
-
-            for (int w = 0; w < 4; w++) {
-                String word = words[w];
-                for (int i = word.length() - 1; i >= 0; i--) {
-                    if (vowels.contains(word.substring(i, i + 1))) {
-                        words[w] = word.substring(i);
-                        break;
-                    }
-                }
-            }
-
-//            System.out.println(Arrays.toString(words));
-
-            if (words[0].equals(words[1]) && words[1].equals(words[2]) && words[2].equals(words[3])) {
-                System.out.println("perfect");
-            } else if (words[0].equals(words[1]) && words[2].equals(words[3])) {
-                System.out.println("even");
-            } else if (words[0].equals(words[2]) && words[1].equals(words[3])) {
-                System.out.println("cross");
-            } else if (words[0].equals(words[3]) && words[1].equals(words[2])) {
-                System.out.println("shell");
-            } else {
-                System.out.println("free");
-            }
-
-
         }
+
+        System.out.println(c);
+
+    }
+
+
+    static boolean isPrime(int n) {
+        if (n < 2) return false;
+        if (n == 2) return true;
+        if (n % 2 == 0) return false;
+
+        for (int i = 3; i*i <= n; i += 2) {
+            if (n % i == 0) return false;
+        }
+        return true;
     }
 
 

@@ -1,63 +1,101 @@
-package y2003._j4_s2;
+package newyears2018.p4;
 
 import java.io.DataInputStream;
 import java.io.FileInputStream;
 import java.io.IOException;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
-/** Poetry
- * 100/100
- * Implementation
-
+/* The Polar Express
+1000 34567899000
 
 */
 public class Main {
 
+    static boolean DEBUG = false;
+
     public static void main(String[] args) throws IOException {
         FastReader reader = new FastReader();
 
-        Set<String> vowels = new HashSet<>();
-        vowels.add("a");
-        vowels.add("e");
-        vowels.add("i");
-        vowels.add("o");
-        vowels.add("u");
+        long L = reader.nextLong();
+        long R = reader.nextLong();
 
-        int N = reader.nextInt();
+        if (L == R) {
+            System.out.println(1);
+            return;
+        } else if (R - L < 1000000) {
+            testCalc(L, R);
+            return;
+        } else { // R - L >= 50
+            // no edge cases. Let's tackle the TLE case
 
-        for (int t = 0; t < N; t++) {
-            String[] words = new String[4];
-            for (int i = 0; i < 4; i++) {
-                String[] lines = reader.readLine().split(" ");
-                words[i] = lines[lines.length - 1].toLowerCase();
-            }
+            if (DEBUG) testCalc(L, R);
 
-            for (int w = 0; w < 4; w++) {
-                String word = words[w];
-                for (int i = word.length() - 1; i >= 0; i--) {
-                    if (vowels.contains(word.substring(i, i + 1))) {
-                        words[w] = word.substring(i);
-                        break;
-                    }
+            long output = 0;
+
+            if (L == 0) output ++;
+
+            long ndr = numDigit(R);
+            output += (ndr - 1) * 9;
+
+
+            int fdr = firstDigit(R);
+            output += fdr - 1;
+            if (firstDigit(R + 1) != fdr) output++;
+
+            /*
+            ^^^ Above was finding the max, now we need to subtract the min values it cannot be
+
+             */
+
+            long ndl = numDigit(L);
+            if (ndl == ndr) {
+                int fdl = firstDigit(L);
+                if (L - (fdl * Math.pow(10, ndl)) != 0) {
+                    output -= fdl;
                 }
             }
 
-//            System.out.println(Arrays.toString(words));
 
-            if (words[0].equals(words[1]) && words[1].equals(words[2]) && words[2].equals(words[3])) {
-                System.out.println("perfect");
-            } else if (words[0].equals(words[1]) && words[2].equals(words[3])) {
-                System.out.println("even");
-            } else if (words[0].equals(words[2]) && words[1].equals(words[3])) {
-                System.out.println("cross");
-            } else if (words[0].equals(words[3]) && words[1].equals(words[2])) {
-                System.out.println("shell");
-            } else {
-                System.out.println("free");
-            }
-
+            System.out.println(output);
 
         }
+    }
+
+    static void testCalc(long L, long R) {
+        Set<Long> sums = new HashSet<>();
+
+        for (long n = L; n <= R; n++) {
+            sums.add(sumDigit(n));
+        }
+
+        System.out.println((DEBUG ? "CORRECT: " : "") + sums.size());
+    }
+
+    static long sumDigit(long m) {
+        long n;
+        long sum = 0;
+        while (m > 0) {
+            n = m % 10;
+            sum += n;
+            m = m / 10;
+        }
+        return sum;
+    }
+
+    static long numDigit(long n) {
+        long c = 0;
+        while (n != 0) {
+            n /= 10;
+            c++;
+        }
+        return c;
+    }
+
+    static int firstDigit(long n) {
+        return Integer.parseInt(Long.toString(n).substring(0, 1));
     }
 
 

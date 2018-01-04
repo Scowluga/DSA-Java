@@ -1,62 +1,122 @@
-package y2003._j4_s2;
+package newyears2018.p6;
 
 import java.io.DataInputStream;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.*;
 
-/** Poetry
- * 100/100
- * Implementation
-
+/* Old Christmas Lights II
 
 */
 public class Main {
 
+    static long[][] memo;
+
     public static void main(String[] args) throws IOException {
         FastReader reader = new FastReader();
 
-        Set<String> vowels = new HashSet<>();
-        vowels.add("a");
-        vowels.add("e");
-        vowels.add("i");
-        vowels.add("o");
-        vowels.add("u");
-
         int N = reader.nextInt();
+        int Q = reader.nextInt();
 
-        for (int t = 0; t < N; t++) {
-            String[] words = new String[4];
-            for (int i = 0; i < 4; i++) {
-                String[] lines = reader.readLine().split(" ");
-                words[i] = lines[lines.length - 1].toLowerCase();
+        Node[] nodes = new Node[N + 1];
+
+        for (int i = 1; i <= N; i++) {
+            nodes[i] = new Node(i, reader.nextLong());
+        }
+
+        for (int i = 0; i < N - 1; i++) {
+            int n1 = reader.nextInt();
+            int n2 = reader.nextInt();
+            nodes[n1].neighbors.add(n2);
+            nodes[n2].neighbors.add(n1);
+        }
+
+        memo = new long[N + 1][N + 1];
+
+        for (int q = 0; q < Q; q++) {
+            int n1 = reader.nextInt();
+            int n2 = reader.nextInt();
+
+            if (memo[n1][n2] != 0) {
+                System.out.println(memo[n1][n2]);
+                continue;
             }
 
-            for (int w = 0; w < 4; w++) {
-                String word = words[w];
-                for (int i = word.length() - 1; i >= 0; i--) {
-                    if (vowels.contains(word.substring(i, i + 1))) {
-                        words[w] = word.substring(i);
-                        break;
+            Queue<State> bfs = new LinkedList<>();
+            bfs.add(new State(n1, n1, new ArrayList<>(Arrays.asList(nodes[n1]))));
+
+            while (true) {
+                State s = bfs.poll();
+                if (s.current == n2) {
+                    System.out.println(memorize(s, n1, n2));
+                    break;
+                } else { // not the one
+                    Node n = nodes[s.current];
+                    for (int i : n.neighbors) {
+                        if (i != s.previous) {
+                            List<Node> path = new ArrayList<>(s.path);
+                            path.add(nodes[i]);
+                            State s2 = new State(i, s.current, path);
+                            memorize(s2, n1, n2);
+                            bfs.add(s2);
+                        }
                     }
                 }
             }
 
-//            System.out.println(Arrays.toString(words));
-
-            if (words[0].equals(words[1]) && words[1].equals(words[2]) && words[2].equals(words[3])) {
-                System.out.println("perfect");
-            } else if (words[0].equals(words[1]) && words[2].equals(words[3])) {
-                System.out.println("even");
-            } else if (words[0].equals(words[2]) && words[1].equals(words[3])) {
-                System.out.println("cross");
-            } else if (words[0].equals(words[3]) && words[1].equals(words[2])) {
-                System.out.println("shell");
-            } else {
-                System.out.println("free");
-            }
 
 
+
+        }
+
+    }
+
+    private static long memorize(State s, int n1, int n2) {
+        List<Node> path = new ArrayList<>(s.path);
+        Collections.sort(path);
+        long difference = Long.MAX_VALUE;
+        for (int i = 0; i < path.size() - 1; i++) {
+            difference = Math.min(difference, path.get(i).bright - path.get(i + 1).bright);
+        }
+        memo[n1][n2] = difference;
+        return difference;
+
+    }
+
+    static class State {
+
+        int current;
+        int previous;
+        List<Node> path;
+
+        State(int current, int previous, List<Node> path) {
+            this.current = current;
+            this.previous = previous;
+            this.path = path;
+        }
+    }
+
+    static class Node implements Comparable {
+
+        int index; // index
+        long bright; // brightness
+        List<Integer> neighbors; // connected nodes
+
+        Node(int i, long b) {
+            this.index = i;
+            this.bright = b;
+            this.neighbors = new ArrayList<>();
+        }
+
+        @Override
+        public String toString() {
+            return "I: " + this.index + " B: " + this.bright + " " + neighbors.toString();
+        }
+
+        @Override
+        public int compareTo(Object o) {
+            Node n = (Node)o;
+            return (int)(n.bright - this.bright);
         }
     }
 

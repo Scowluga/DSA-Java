@@ -1,65 +1,61 @@
-package y2003._j4_s2;
+package December17.p3;
 
 import java.io.DataInputStream;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.*;
 
-/** Poetry
- * 100/100
- * Implementation
-
+/* Fax's Christmas Dish
 
 */
 public class Main {
 
+    /*
+    for each read through
+    > pop from queue
+    > read in number and increment counter
+    > if final set empty, finish
+    > if you have one in the final, remove
+    > otherwise for each of the final one
+        > if index[place] contains all
+            > PERFORM, add back to queue
+
+    problem is cyclical recipes
+
+    if there's two of something. so count. So hold items in
+    int[N] where index = number, value = frequency
+
+     */
     public static void main(String[] args) throws IOException {
         FastReader reader = new FastReader();
 
-        Set<String> vowels = new HashSet<>();
-        vowels.add("a");
-        vowels.add("e");
-        vowels.add("i");
-        vowels.add("o");
-        vowels.add("u");
-
         int N = reader.nextInt();
+        int M = reader.nextInt();
+        int D = reader.nextInt();
 
-        for (int t = 0; t < N; t++) {
-            String[] words = new String[4];
-            for (int i = 0; i < 4; i++) {
-                String[] lines = reader.readLine().split(" ");
-                words[i] = lines[lines.length - 1].toLowerCase();
-            }
+        Set<Integer>[] dishes = new Set[N + 1];
 
-            for (int w = 0; w < 4; w++) {
-                String word = words[w];
-                for (int i = word.length() - 1; i >= 0; i--) {
-                    if (vowels.contains(word.substring(i, i + 1))) {
-                        words[w] = word.substring(i);
-                        break;
-                    }
-                }
-            }
-
-//            System.out.println(Arrays.toString(words));
-
-            if (words[0].equals(words[1]) && words[1].equals(words[2]) && words[2].equals(words[3])) {
-                System.out.println("perfect");
-            } else if (words[0].equals(words[1]) && words[2].equals(words[3])) {
-                System.out.println("even");
-            } else if (words[0].equals(words[2]) && words[1].equals(words[3])) {
-                System.out.println("cross");
-            } else if (words[0].equals(words[3]) && words[1].equals(words[2])) {
-                System.out.println("shell");
-            } else {
-                System.out.println("free");
-            }
-
-
+        // reading in recipes
+        for (int r = 0; r < M; r++) {
+            int num = reader.nextInt();
+            int amo = reader.nextInt();
+            dishes[num] = new HashSet<>();
+            dishes[num].addAll(reader.readLineAsIntegers());
         }
+
+        int[] items = reader.readLineAsIntArray(D);
+
+        Queue<Case> queue = new LinkedList<>();
+
+
+
+
     }
 
+    static class Case {
+
+
+    }
 
     public static class FastReader {
 

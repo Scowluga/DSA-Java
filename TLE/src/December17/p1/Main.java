@@ -1,14 +1,12 @@
-package y2003._j4_s2;
+package December17.p1;
 
 import java.io.DataInputStream;
 import java.io.FileInputStream;
 import java.io.IOException;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
 
-/** Poetry
- * 100/100
- * Implementation
-
+/* Riding the Curve
 
 */
 public class Main {
@@ -16,48 +14,18 @@ public class Main {
     public static void main(String[] args) throws IOException {
         FastReader reader = new FastReader();
 
-        Set<String> vowels = new HashSet<>();
-        vowels.add("a");
-        vowels.add("e");
-        vowels.add("i");
-        vowels.add("o");
-        vowels.add("u");
-
+        int M = reader.nextInt();
+        double K = reader.nextDouble();
         int N = reader.nextInt();
 
-        for (int t = 0; t < N; t++) {
-            String[] words = new String[4];
-            for (int i = 0; i < 4; i++) {
-                String[] lines = reader.readLine().split(" ");
-                words[i] = lines[lines.length - 1].toLowerCase();
+        for (int i = 0; i <= M; i++) {
+            double score = (i + K) / N;
+            if (score >= 0.595) {
+                System.out.println(i);
+                return;
             }
-
-            for (int w = 0; w < 4; w++) {
-                String word = words[w];
-                for (int i = word.length() - 1; i >= 0; i--) {
-                    if (vowels.contains(word.substring(i, i + 1))) {
-                        words[w] = word.substring(i);
-                        break;
-                    }
-                }
-            }
-
-//            System.out.println(Arrays.toString(words));
-
-            if (words[0].equals(words[1]) && words[1].equals(words[2]) && words[2].equals(words[3])) {
-                System.out.println("perfect");
-            } else if (words[0].equals(words[1]) && words[2].equals(words[3])) {
-                System.out.println("even");
-            } else if (words[0].equals(words[2]) && words[1].equals(words[3])) {
-                System.out.println("cross");
-            } else if (words[0].equals(words[3]) && words[1].equals(words[2])) {
-                System.out.println("shell");
-            } else {
-                System.out.println("free");
-            }
-
-
         }
+        System.out.println("have mercy snew");
     }
 
 

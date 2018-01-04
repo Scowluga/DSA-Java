@@ -1,14 +1,14 @@
-package y2003._j4_s2;
+package December17.p2;
 
 import java.io.DataInputStream;
 import java.io.FileInputStream;
 import java.io.IOException;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
-/** Poetry
- * 100/100
- * Implementation
-
+/* Microwave Buttons
 
 */
 public class Main {
@@ -16,48 +16,52 @@ public class Main {
     public static void main(String[] args) throws IOException {
         FastReader reader = new FastReader();
 
-        Set<String> vowels = new HashSet<>();
-        vowels.add("a");
-        vowels.add("e");
-        vowels.add("i");
-        vowels.add("o");
-        vowels.add("u");
+        String[] info = reader.readLine().split(":");
+        int h = Integer.valueOf(info[0]);
+        int m = Integer.valueOf(info[1]);
+        int s = Integer.valueOf(info[2]);
 
-        int N = reader.nextInt();
+        // time in seconds
+        int ts = s + (60 * m) + (3600 * h);
 
-        for (int t = 0; t < N; t++) {
-            String[] words = new String[4];
-            for (int i = 0; i < 4; i++) {
-                String[] lines = reader.readLine().split(" ");
-                words[i] = lines[lines.length - 1].toLowerCase();
-            }
+        String[] digIn = reader.readLine().split("");
+        List<Integer> digits = new ArrayList<>();
+        for (String string : digIn) {
+            digits.add(Integer.valueOf(string));
+        }
 
-            for (int w = 0; w < 4; w++) {
-                String word = words[w];
-                for (int i = word.length() - 1; i >= 0; i--) {
-                    if (vowels.contains(word.substring(i, i + 1))) {
-                        words[w] = word.substring(i);
-                        break;
+        int[] p = new int[3];
+        int c = Integer.MAX_VALUE; // max difference
+        for (int h1 : digits) {
+            for (int h2 : digits) {
+                for (int m1 : digits) {
+                    for (int m2 : digits) {
+                        for (int s1 : digits) {
+                            for (int s2 : digits) {
+                                int hh = h1 * 10 + h2;
+                                int mm = m1 * 10 + m2;
+                                int ss = s1 * 10 + s2;
+                                int tt = ss + (60 * mm) + (3600 * hh);
+                                if (Math.abs(tt - ts) < c) {
+                                    c = Math.abs(tt - ts);
+                                    p[0] = hh;
+                                    p[1] = mm;
+                                    p[2] = ss;
+                                }
+                            }
+                        }
                     }
                 }
             }
-
-//            System.out.println(Arrays.toString(words));
-
-            if (words[0].equals(words[1]) && words[1].equals(words[2]) && words[2].equals(words[3])) {
-                System.out.println("perfect");
-            } else if (words[0].equals(words[1]) && words[2].equals(words[3])) {
-                System.out.println("even");
-            } else if (words[0].equals(words[2]) && words[1].equals(words[3])) {
-                System.out.println("cross");
-            } else if (words[0].equals(words[3]) && words[1].equals(words[2])) {
-                System.out.println("shell");
-            } else {
-                System.out.println("free");
-            }
-
-
         }
+
+        System.out.println(String.format("%02d:%02d:%02d", p[0], p[1], p[2]));
+
+
+
+
+
+
     }
 
 

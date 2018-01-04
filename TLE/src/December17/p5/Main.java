@@ -1,65 +1,59 @@
-package y2003._j4_s2;
+package December17.p5;
 
 import java.io.DataInputStream;
 import java.io.FileInputStream;
 import java.io.IOException;
-import java.util.*;
+import java.math.BigInteger;
+import java.util.ArrayList;
+import java.util.List;
 
-/** Poetry
- * 100/100
- * Implementation
-
+/* Pascal's Tree 80/100 pts
 
 */
 public class Main {
 
+    static BigInteger[] factorials;
+
     public static void main(String[] args) throws IOException {
         FastReader reader = new FastReader();
 
-        Set<String> vowels = new HashSet<>();
-        vowels.add("a");
-        vowels.add("e");
-        vowels.add("i");
-        vowels.add("o");
-        vowels.add("u");
-
+        // n'th row
         int N = reader.nextInt();
 
-        for (int t = 0; t < N; t++) {
-            String[] words = new String[4];
-            for (int i = 0; i < 4; i++) {
-                String[] lines = reader.readLine().split(" ");
-                words[i] = lines[lines.length - 1].toLowerCase();
-            }
+        // mod m
+        BigInteger M = t(reader.nextInt());
 
-            for (int w = 0; w < 4; w++) {
-                String word = words[w];
-                for (int i = word.length() - 1; i >= 0; i--) {
-                    if (vowels.contains(word.substring(i, i + 1))) {
-                        words[w] = word.substring(i);
-                        break;
-                    }
-                }
-            }
+        // index: N, value: factorial
+        factorials = new BigInteger[N + 1];
 
-//            System.out.println(Arrays.toString(words));
+        List<BigInteger> out = new ArrayList<>();
+        out.add(BigInteger.ONE);
+        out.add(t(N % M.intValue()));
 
-            if (words[0].equals(words[1]) && words[1].equals(words[2]) && words[2].equals(words[3])) {
-                System.out.println("perfect");
-            } else if (words[0].equals(words[1]) && words[2].equals(words[3])) {
-                System.out.println("even");
-            } else if (words[0].equals(words[2]) && words[1].equals(words[3])) {
-                System.out.println("cross");
-            } else if (words[0].equals(words[3]) && words[1].equals(words[2])) {
-                System.out.println("shell");
-            } else {
-                System.out.println("free");
-            }
+        BigInteger n = t(N);
+        for (int i = 2; i <= N / 2; i++ ) { // COMPUTING EACH VALUE TWICE
+            n = n.multiply(t(N - i + 1)).divide(t(i));
+            BigInteger m = n.mod(M);
+            out.add(m);
+        }
 
+        // output
+        for (int i = 0; i < out.size(); i++) {
+            System.out.println(out.get(i));
+        }
 
+        if (N % 2 == 1) {
+            System.out.println(out.get(out.size() - 1));
+        }
+
+        for (int i = out.size() - 2; i >= 0; i--) {
+            System.out.println(out.get(i));
         }
     }
 
+    static BigInteger t(Integer n) {
+        return BigInteger.valueOf(n.intValue());
+    }
 
     public static class FastReader {
 

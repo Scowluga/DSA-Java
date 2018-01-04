@@ -1,14 +1,14 @@
-package y2003._j4_s2;
+package newyears2018.p3;
 
 import java.io.DataInputStream;
 import java.io.FileInputStream;
 import java.io.IOException;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
 
-/** Poetry
- * 100/100
- * Implementation
-
+/* World Domination Fun
 
 */
 public class Main {
@@ -16,47 +16,104 @@ public class Main {
     public static void main(String[] args) throws IOException {
         FastReader reader = new FastReader();
 
-        Set<String> vowels = new HashSet<>();
-        vowels.add("a");
-        vowels.add("e");
-        vowels.add("i");
-        vowels.add("o");
-        vowels.add("u");
-
         int N = reader.nextInt();
+        int M = reader.nextInt();
+        int K = reader.nextInt();
 
-        for (int t = 0; t < N; t++) {
-            String[] words = new String[4];
-            for (int i = 0; i < 4; i++) {
-                String[] lines = reader.readLine().split(" ");
-                words[i] = lines[lines.length - 1].toLowerCase();
+        long[] snowmen = new long[N];
+        for (int i = 0; i < N; i++) {
+            snowmen[i] = reader.nextLong();
+        }
+
+        if (K == 1) {
+            Node[] snownodes = new Node[N];
+            for (int i = 0; i < snowmen.length; i++) {
+                snownodes[i] = new Node(i, snowmen[i]);
+            }
+            Arrays.sort(snownodes);
+
+            long lv = snownodes[0].value;
+            int index = 1;
+
+            while (snownodes[index].value == lv) {
+                index++;
             }
 
-            for (int w = 0; w < 4; w++) {
-                String word = words[w];
-                for (int i = word.length() - 1; i >= 0; i--) {
-                    if (vowels.contains(word.substring(i, i + 1))) {
-                        words[w] = word.substring(i);
-                        break;
+            List<Integer> indexes = new ArrayList<>();
+
+            for (int i = 0; i < index; i++) {
+                indexes.add(snownodes[i].index);
+            }
+
+            Collections.sort(indexes);
+
+            int largestDifference = indexes.get(indexes.size() - 1) - indexes.get(0);
+            if (largestDifference <= M) {
+                System.out.println(lv + 1);
+            } else {
+                System.out.println(lv);
+            }
+
+        } else if (M == 1) {
+            while (K > 0) {
+                Arrays.sort(snowmen);
+                long difference = snowmen[1] - snowmen[0];
+                if (difference == 0) {
+                    long lv = snowmen[0];
+                    int index = 2;
+
+                    while (snowmen[index] == lv && index < N) {
+                        index++;
+                    }
+
+                    // there are index snowmen of the same height
+
+                    if (index == N) { // all snowmen are same height
+                        System.out.println(lv + (K / N));
+                        return;
+                    } else {
+                        long d2 = snowmen[index] - lv;
+
+                        if (index * d2 <= K) {
+                            K -= index * d2;
+                            for (int i = 0; i < index; i++) {
+                                snowmen[i] += d2;
+                            }
+                        } else {
+                            System.out.println(lv + (K / index));
+                            return;
+                        }
+
+                    }
+                } else {
+                    if (difference > K) {
+                        snowmen[0] += K;
+                        K = 0;
+                    } else {
+                        // difference < K
+                        snowmen[0] += difference;
+                        K -= difference;
                     }
                 }
             }
+            System.out.println(snowmen[0]);
+        }
 
-//            System.out.println(Arrays.toString(words));
+    }
 
-            if (words[0].equals(words[1]) && words[1].equals(words[2]) && words[2].equals(words[3])) {
-                System.out.println("perfect");
-            } else if (words[0].equals(words[1]) && words[2].equals(words[3])) {
-                System.out.println("even");
-            } else if (words[0].equals(words[2]) && words[1].equals(words[3])) {
-                System.out.println("cross");
-            } else if (words[0].equals(words[3]) && words[1].equals(words[2])) {
-                System.out.println("shell");
-            } else {
-                System.out.println("free");
-            }
+    static class Node implements Comparable {
+        int index;
+        long value;
 
+        Node(int index, long value) {
+            this.index = index;
+            this.value = value;
+        }
 
+        @Override
+        public int compareTo(Object o) {
+            Node n = (Node)o;
+            return (int)(this.value - n.value);
         }
     }
 
