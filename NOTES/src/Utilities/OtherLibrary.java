@@ -17,6 +17,15 @@ public class OtherLibrary {
     }
 
 
+    static void output(Object[][] array) {
+        for (int y = 0; y < array[0].length; y++) {
+            for (int x = 0; x < array.length; x++) {
+                System.out.println(array[x][y]);
+            }
+        }
+    }
+
+
     static void move() {
         /* move[0:x, 1:y][0:d, 1:r, 2:u, 3:l]
         - directions:

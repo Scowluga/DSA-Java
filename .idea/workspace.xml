@@ -2,36 +2,36 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1fefd6f2-b2c1-40d8-bd6c-e791a02392f4" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/CCC/src/_y2002/_s5/Main.java" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/CCC/y2002/_j1/Main$FastReader.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/CCC/y2002/_j1/Main.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/CCC/y2002/_j2/Main$FastReader.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/CCC/y2002/_j2/Main.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/CCC/y2002/_j3_s1/Main$FastReader.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/CCC/y2002/_j3_s1/Main.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/CCC/y2002/_j4_s2/Main$FastReader.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/CCC/y2002/_j4_s2/Main.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/CCC/y2002/_j5_s3/Main$FastReader.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/CCC/y2002/_j5_s3/Main.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/CCC/y2002/_s4/Main$FastReader.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/CCC/y2002/_s4/Main.class" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/CCC/src/y2001/_j1/Main.java" afterPath="$PROJECT_DIR$/CCC/src/_y2001/_j1/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/CCC/src/y2001/_j2/Main.java" afterPath="$PROJECT_DIR$/CCC/src/_y2001/_j2/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/CCC/src/y2001/_j3_s1/Main.java" afterPath="$PROJECT_DIR$/CCC/src/_y2001/_j3_s1/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/CCC/src/y2001/_j4_s2_bad/Main.java" afterPath="$PROJECT_DIR$/CCC/src/_y2001/_j4_s2_bad/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/CCC/src/y2001/_j4_s2_good/Main.java" afterPath="$PROJECT_DIR$/CCC/src/_y2001/_j4_s2_good/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/CCC/src/y2001/_s4/Main.java" afterPath="$PROJECT_DIR$/CCC/src/_y2001/_s4/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/CCC/src/y2001/_s5/Main.java" afterPath="$PROJECT_DIR$/CCC/src/_y2001/_s5/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/CCC/src/y2001/j5_s3/Main.java" afterPath="$PROJECT_DIR$/CCC/src/_y2001/_j5_s3/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/CCC/src/y2002/_j1/Main.java" afterPath="$PROJECT_DIR$/CCC/src/_y2002/_j1/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/CCC/src/y2002/_j2/Main.java" afterPath="$PROJECT_DIR$/CCC/src/_y2002/_j2/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/CCC/src/y2002/_j3_s1/Main.java" afterPath="$PROJECT_DIR$/CCC/src/_y2002/_j3_s1/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/CCC/src/y2002/_j4_s2/Main.java" afterPath="$PROJECT_DIR$/CCC/src/_y2002/_j4_s2/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/CCC/src/y2002/_j5_s3/Main.java" afterPath="$PROJECT_DIR$/CCC/src/_y2002/_j5_s3/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/CCC/src/y2002/_s4/Main.java" afterPath="$PROJECT_DIR$/CCC/src/_y2002/_s4/Main.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/CCC/y2001/j5_s3/Main$FastReader.class" afterPath="$PROJECT_DIR$/out/production/CCC/y2001/j5_s3/Main$FastReader.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/CCC/y2001/j5_s3/Main.class" afterPath="$PROJECT_DIR$/out/production/CCC/y2001/j5_s3/Main.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/CCC/src/y2003/s5_/Main.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/CCC/src/y2004/_j1/Main.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/CCC/src/y2004/_j2/Main.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/CCC/src/y2004/_j3/Main.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/CCC/src/y2004/_j4/Main.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/CCC/src/y2004/_j5/Main.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/CCC/src/y2004/_s1/Main.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/CCC/src/y2004/_s3/Main.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/CCC/src/y2004/_s5_bruteforce_tle/Main.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/CCC/src/y2004/s4/Main.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/CCC/src/zzz_utilities/Utilities.java" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/CCC/y2001/_j1/Main$FastReader.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/CCC/y2001/_j1/Main.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/CCC/y2001/_j2/Main$FastReader.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/CCC/y2001/_j2/Main.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/CCC/y2001/_j3_s1/Main$FastReader.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/CCC/y2001/_j3_s1/Main.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/CCC/y2001/_j4_s2_bad/Main$FastReader.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/CCC/y2001/_j4_s2_bad/Main.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/CCC/y2001/_j4_s2_good/Main$FastReader.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/CCC/y2001/_j4_s2_good/Main.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/CCC/y2001/_s4/Main$FastReader.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/CCC/y2001/_s4/Main$P.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/CCC/y2001/_s4/Main.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/CCC/y2001/_s5/Main$FastReader.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/CCC/y2001/_s5/Main.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/CCC/y2001/j5_s3/Main$FastReader.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/CCC/y2001/j5_s3/Main.class" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/NOTES/src/Utilities/OtherLibrary.java" afterPath="$PROJECT_DIR$/NOTES/src/Utilities/OtherLibrary.java" />
     </list>
     <ignored path="DSA-Java.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -110,7 +110,7 @@
       <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/DMOJ/src/newyears2018/p6/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="543">
+            <state relative-caret-position="575">
               <caret line="28" column="38" lean-forward="false" selection-start-line="28" selection-start-column="38" selection-end-line="28" selection-end-column="38" />
               <folding>
                 <element signature="class#FastReader#0;class#Main#0" expanded="false" />
@@ -119,16 +119,47 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Main.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/CCC/src/_y2002/_s5/Main.java">
+      <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/CCC/src/y2004/s4/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="23">
-              <caret line="8" column="35" lean-forward="false" selection-start-line="8" selection-start-column="35" selection-end-line="8" selection-end-column="35" />
+            <state relative-caret-position="161">
+              <caret line="11" column="17" lean-forward="false" selection-start-line="11" selection-start-column="17" selection-end-line="11" selection-end-column="17" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/CCC/src/y2004/_s5_bruteforce_tle/Main.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="92">
+              <caret line="8" column="21" lean-forward="false" selection-start-line="8" selection-start-column="21" selection-end-line="8" selection-end-column="21" />
               <folding>
-                <element signature="method#intersect#0;class#Main#0" expanded="false" />
-                <element signature="class#P#0;class#Main#0" expanded="false" />
+                <element signature="class#FastReader#0;class#Main#0" expanded="false" />
+                <element signature="method#readLineAsLongs#0;class#FastReader#0;class#Main#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Main.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/CCC/src/y2004/_s5_dp/Main.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="161">
+              <caret line="11" column="15" lean-forward="false" selection-start-line="11" selection-start-column="15" selection-end-line="11" selection-end-column="15" />
+              <folding>
                 <element signature="class#FastReader#0;class#Main#0" expanded="false" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Utilities.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/CCC/src/zzz_utilities/Utilities.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="483">
+              <caret line="25" column="48" lean-forward="false" selection-start-line="25" selection-start-column="48" selection-end-line="25" selection-end-column="48" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -154,29 +185,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/CCC/src/y2002/_j1/Main.java" />
-        <option value="$PROJECT_DIR$/CCC/src/y2002/j2/Main.java" />
-        <option value="$PROJECT_DIR$/CCC/src/y2002/_j2/Main.java" />
-        <option value="$PROJECT_DIR$/CCC/src/y2002/j3_s1/Main.java" />
-        <option value="$PROJECT_DIR$/CCC/src/y2002/_j3_s1/Main.java" />
-        <option value="$PROJECT_DIR$/CCC/src/y2002/j4_s2/Main.java" />
-        <option value="$PROJECT_DIR$/CCC/src/y2002/_j4_s2/Main.java" />
-        <option value="$PROJECT_DIR$/CCC/src/y2002/j5_s3/Main.java" />
-        <option value="$PROJECT_DIR$/CCC/src/y2002/_j5_s3/Main.java" />
-        <option value="$PROJECT_DIR$/DMOJ/src/brute_force/p3/Main.java" />
-        <option value="$PROJECT_DIR$/CCC/src/y1998/s4/Main.java" />
-        <option value="$PROJECT_DIR$/CCC/src/y1998/_s4/Main.java" />
-        <option value="$PROJECT_DIR$/CCC/src/y2002/s4/Main.java" />
-        <option value="$PROJECT_DIR$/CCC/src/y2003/s3/Main.java" />
-        <option value="$PROJECT_DIR$/CCC/src/y2003/_s3/Main.java" />
-        <option value="$PROJECT_DIR$/NOTES/src/Utilities/MathLibrary.java" />
-        <option value="$PROJECT_DIR$/NOTES/src/Utilities/OtherLibrary.java" />
-        <option value="$PROJECT_DIR$/CCC/src/y2001/s5/Main.java" />
-        <option value="$PROJECT_DIR$/CCC/src/y2001/_s5/Main.java" />
-        <option value="$PROJECT_DIR$/DMOPC/src/y2017/c3/p0/Main.java" />
-        <option value="$PROJECT_DIR$/DMOPC/src/y2017/c3/p1/Main.java" />
-        <option value="$PROJECT_DIR$/DMOPC/src/y2017/c3/p2/Main.java" />
-        <option value="$PROJECT_DIR$/DMOPC/src/y2017/c3/p3/Main.java" />
         <option value="$PROJECT_DIR$/DMOPC/src/y2017/c3/p4/Main.java" />
         <option value="$PROJECT_DIR$/CCC/src/y2009/s2/Main.java" />
         <option value="$PROJECT_DIR$/CCC/src/y2009/_s2/Main.java" />
@@ -205,13 +213,35 @@
         <option value="$PROJECT_DIR$/CCC/src/y2001/j5_s3/Main.java" />
         <option value="$PROJECT_DIR$/CCC/src/y2001/_j5_s3/Main.java" />
         <option value="$PROJECT_DIR$/CCC/src/_y2001/_j5_s3/Main.java" />
+        <option value="$PROJECT_DIR$/CCC/src/y2003/s4/Main.java" />
+        <option value="$PROJECT_DIR$/CCC/src/y2004/j1/Main.java" />
+        <option value="$PROJECT_DIR$/CCC/src/y2004/_j1/Main.java" />
+        <option value="$PROJECT_DIR$/CCC/src/y2004/j2/Main.java" />
+        <option value="$PROJECT_DIR$/CCC/src/y2004/_j2/Main.java" />
+        <option value="$PROJECT_DIR$/CCC/src/y2004/j3/Main.java" />
+        <option value="$PROJECT_DIR$/CCC/src/y2004/_j3/Main.java" />
+        <option value="$PROJECT_DIR$/CCC/src/y2004/j4/Main.java" />
+        <option value="$PROJECT_DIR$/CCC/src/y2004/_j4/Main.java" />
+        <option value="$PROJECT_DIR$/CCC/src/y2004/j5/Main.java" />
+        <option value="$PROJECT_DIR$/CCC/src/y2004/_j5/Main.java" />
+        <option value="$PROJECT_DIR$/CCC/src/y2004/s1/Main.java" />
+        <option value="$PROJECT_DIR$/CCC/src/y2004/_s1/Main.java" />
+        <option value="$PROJECT_DIR$/NOTES/src/Utilities/OtherLibrary.java" />
+        <option value="$PROJECT_DIR$/CCC/src/y2004/s3/Main.java" />
+        <option value="$PROJECT_DIR$/CCC/src/y2004/_s3/Main.java" />
+        <option value="$PROJECT_DIR$/CCC/src/zzz_utilities/Utilities.java" />
+        <option value="$PROJECT_DIR$/CCC/src/y2004/s5/Main.java" />
+        <option value="$PROJECT_DIR$/CCC/src/y2004/s5_bruteforce_tle/Main.java" />
+        <option value="$PROJECT_DIR$/CCC/src/y2004/s5_dp_i_think_maybe_lemme_see_after_i_make_the_algorithm_huh/Main.java" />
+        <option value="$PROJECT_DIR$/CCC/src/y2004/s5_dp/Main.java" />
+        <option value="$PROJECT_DIR$/CCC/src/y2004/_s5_bruteforce_tle/Main.java" />
+        <option value="$PROJECT_DIR$/CCC/src/y2004/_s5_dp/Main.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="56" />
-    <option name="y" value="-6" />
-    <option name="width" value="730" />
+    <option name="x" value="67" />
+    <option name="width" value="725" />
     <option name="height" value="1006" />
   </component>
   <component name="ProjectLevelVcsManager">
@@ -259,15 +289,52 @@
               <item name="DSA-Java" type="462c0819:PsiDirectoryNode" />
               <item name="CCC" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="_y2002" type="462c0819:PsiDirectoryNode" />
+              <item name="y2003" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="DSA-Java" type="b2602c69:ProjectViewProjectNode" />
               <item name="DSA-Java" type="462c0819:PsiDirectoryNode" />
               <item name="CCC" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="_y2002" type="462c0819:PsiDirectoryNode" />
-              <item name="_s5" type="462c0819:PsiDirectoryNode" />
+              <item name="y2003" type="462c0819:PsiDirectoryNode" />
+              <item name="_s3" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="DSA-Java" type="b2602c69:ProjectViewProjectNode" />
+              <item name="DSA-Java" type="462c0819:PsiDirectoryNode" />
+              <item name="CCC" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="y2004" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="DSA-Java" type="b2602c69:ProjectViewProjectNode" />
+              <item name="DSA-Java" type="462c0819:PsiDirectoryNode" />
+              <item name="CCC" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="y2004" type="462c0819:PsiDirectoryNode" />
+              <item name="_s5_bruteforce_tle" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="DSA-Java" type="b2602c69:ProjectViewProjectNode" />
+              <item name="DSA-Java" type="462c0819:PsiDirectoryNode" />
+              <item name="CCC" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="y2004" type="462c0819:PsiDirectoryNode" />
+              <item name="s4" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="DSA-Java" type="b2602c69:ProjectViewProjectNode" />
+              <item name="DSA-Java" type="462c0819:PsiDirectoryNode" />
+              <item name="CCC" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="y2010" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="DSA-Java" type="b2602c69:ProjectViewProjectNode" />
+              <item name="DSA-Java" type="462c0819:PsiDirectoryNode" />
+              <item name="CCC" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="y2011" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="DSA-Java" type="b2602c69:ProjectViewProjectNode" />
@@ -328,12 +395,12 @@
     <property name="settings.editor.splitter.proportion" value="0.18291761" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\david\Documents\Programming\Java\DSA-Java\CCC\src\y2016\s3" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/NOTES/src" />
       <recent name="$PROJECT_DIR$/DMOJ" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\david\Documents\Programming\Java\DSA-Java\CCC\src\y2016\s3" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -961,6 +1028,63 @@
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
+          <option name="PATTERN" value="y2004._s3.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="MAIN_CLASS_NAME" value="y2004._s3.Main" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="CCC" />
+      <envs />
+    </configuration>
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="y2004.s5_bruteforce_tle.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="MAIN_CLASS_NAME" value="y2004.s5_bruteforce_tle.Main" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="CCC" />
+      <envs />
+    </configuration>
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="y2004._s5_dp.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="MAIN_CLASS_NAME" value="y2004._s5_dp.Main" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="CCC" />
+      <envs />
+    </configuration>
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
           <option name="PATTERN" value="_y2002._s5.*" />
           <option name="ENABLED" value="true" />
         </pattern>
@@ -985,6 +1109,120 @@
         </pattern>
       </extension>
       <option name="MAIN_CLASS_NAME" value="_y2001._j5_s3.Main" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="CCC" />
+      <envs />
+    </configuration>
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="y2004._j1.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="MAIN_CLASS_NAME" value="y2004._j1.Main" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="CCC" />
+      <envs />
+    </configuration>
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="y2004._j2.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="MAIN_CLASS_NAME" value="y2004._j2.Main" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="CCC" />
+      <envs />
+    </configuration>
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="y2004._j3.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="MAIN_CLASS_NAME" value="y2004._j3.Main" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="CCC" />
+      <envs />
+    </configuration>
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="y2004._j4.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="MAIN_CLASS_NAME" value="y2004._j4.Main" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="CCC" />
+      <envs />
+    </configuration>
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="y2004._j5.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="MAIN_CLASS_NAME" value="y2004._j5.Main" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="CCC" />
+      <envs />
+    </configuration>
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="y2004._s1.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="MAIN_CLASS_NAME" value="y2004._s1.Main" />
       <option name="VM_PARAMETERS" />
       <option name="PROGRAM_PARAMETERS" />
       <option name="WORKING_DIRECTORY" />
@@ -1227,10 +1465,10 @@
     <recent_temporary>
       <list size="5">
         <item index="0" class="java.lang.String" itemvalue="Application.Main (2)" />
-        <item index="1" class="java.lang.String" itemvalue="Application.Main (5)" />
-        <item index="2" class="java.lang.String" itemvalue="Application.Main (1)" />
-        <item index="3" class="java.lang.String" itemvalue="Application.Main" />
-        <item index="4" class="java.lang.String" itemvalue="Application.Main (3)" />
+        <item index="1" class="java.lang.String" itemvalue="Application.Main (2)" />
+        <item index="2" class="java.lang.String" itemvalue="Application.Main (2)" />
+        <item index="3" class="java.lang.String" itemvalue="Application.Main (2)" />
+        <item index="4" class="java.lang.String" itemvalue="Application.Main (2)" />
       </list>
     </recent_temporary>
   </component>
@@ -1250,29 +1488,38 @@
     </task>
     <servers />
   </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+  </component>
   <component name="ToolWindowManager">
     <frame x="64" y="-8" width="1864" height="1096" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.23863636" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32916668" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2375" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.28295454" sideWeight="0.50253075" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.27613637" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.30104166" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32954547" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3272727" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15631929" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.12472284" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.325" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.27727273" sideWeight="0.49746928" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.253125" sideWeight="0.49746928" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -1281,7 +1528,6 @@
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="DB Browser" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.325" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1825,186 +2071,44 @@
           <properties />
           <option name="timeStamp" value="222" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/CCC/src/y2004/_j5/Main.java</url>
+          <line>1</line>
+          <properties />
+          <option name="timeStamp" value="234" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/CCC/src/y2004/_s3/Main.java</url>
+          <line>38</line>
+          <properties />
+          <option name="timeStamp" value="237" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/CCC/src/y2004/_s5_bruteforce_tle/Main.java</url>
+          <line>59</line>
+          <properties />
+          <option name="timeStamp" value="240" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/CCC/src/y2004/_s5_dp/Main.java</url>
+          <line>77</line>
+          <properties />
+          <option name="timeStamp" value="249" />
+        </line-breakpoint>
       </breakpoints>
-      <option name="time" value="223" />
+      <option name="time" value="256" />
     </breakpoint-manager>
-    <watches-manager />
+    <watches-manager>
+      <configuration name="Application">
+        <watch expression="cc" language="JAVA" />
+      </configuration>
+    </watches-manager>
   </component>
   <component name="antWorkspaceConfiguration">
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/CCC/src/_y2002/_j1/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="92">
-          <caret line="8" column="19" lean-forward="true" selection-start-line="8" selection-start-column="19" selection-end-line="8" selection-end-column="19" />
-          <folding>
-            <element signature="class#FastReader#0;class#Main#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CCC/src/_y2002/_j2/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="506">
-          <caret line="25" column="27" lean-forward="true" selection-start-line="25" selection-start-column="27" selection-end-line="25" selection-end-column="27" />
-          <folding>
-            <element signature="class#FastReader#0;class#Main#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CCC/src/_y2001/_j4_s2_bad/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="54" column="28" lean-forward="true" selection-start-line="54" selection-start-column="28" selection-end-line="54" selection-end-column="28" />
-          <folding>
-            <element signature="class#FastReader#0;class#Main#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CCC/src/_y2002/_j3_s1/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="943">
-          <caret line="44" column="9" lean-forward="false" selection-start-line="44" selection-start-column="9" selection-end-line="44" selection-end-column="9" />
-          <folding>
-            <element signature="class#FastReader#0;class#Main#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CCC/src/y2011/_s3/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="253">
-          <caret line="16" column="21" lean-forward="false" selection-start-line="16" selection-start-column="21" selection-end-line="16" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CCC/src/y2011/_j3/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="483">
-          <caret line="25" column="11" lean-forward="false" selection-start-line="25" selection-start-column="11" selection-end-line="25" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CCC/src/y2012/_s2/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-69">
-          <caret line="14" column="0" lean-forward="false" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
-          <folding>
-            <element signature="class#FastReader#0;class#Main#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CCC/src/_y2001/_j4_s2_good/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="483">
-          <caret line="26" column="8" lean-forward="true" selection-start-line="26" selection-start-column="8" selection-end-line="27" selection-end-column="54" />
-          <folding>
-            <element signature="class#FastReader#0;class#Main#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/NOTES/src/FastReaderClass">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="644">
-          <caret line="28" column="25" lean-forward="false" selection-start-line="28" selection-start-column="25" selection-end-line="28" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/NOTES/src/Collections/Main.java" />
-    <entry file="file://$PROJECT_DIR$/NOTES/src/Comparable/Main.java" />
-    <entry file="file://$PROJECT_DIR$/CCC/src/y1998/_s4/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-355">
-          <caret line="10" column="24" lean-forward="false" selection-start-line="10" selection-start-column="24" selection-end-line="10" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/DMOJ/src/brute_force/p3/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="138">
-          <caret line="10" column="2" lean-forward="false" selection-start-line="10" selection-start-column="2" selection-end-line="10" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CCC/src/y2016/_s3/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="184">
-          <caret line="11" column="13" lean-forward="false" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CCC/src/y2016/_j3/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="184">
-          <caret line="10" column="44" lean-forward="true" selection-start-line="10" selection-start-column="44" selection-end-line="10" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CCC/src/_y2001/_s4/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="728">
-          <caret line="120" column="4" lean-forward="true" selection-start-line="120" selection-start-column="4" selection-end-line="127" selection-end-column="5" />
-          <folding>
-            <element signature="method#invSlope#0;class#Main#0" expanded="false" />
-            <element signature="method#dist#0;class#Main#0" expanded="false" />
-            <element signature="method#dist#1;class#Main#0" expanded="false" />
-            <element signature="class#P#0;class#Main#0" expanded="false" />
-            <element signature="class#FastReader#0;class#Main#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CCC/src/_y2002/_j5_s3/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="368">
-          <caret line="20" column="45" lean-forward="true" selection-start-line="20" selection-start-column="45" selection-end-line="20" selection-end-column="45" />
-          <folding>
-            <element signature="class#FastReader#0;class#Main#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CCC/src/_y2002/_j4_s2/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="337">
-          <caret line="33" column="26" lean-forward="true" selection-start-line="33" selection-start-column="26" selection-end-line="33" selection-end-column="26" />
-          <folding>
-            <element signature="class#FastReader#0;class#Main#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CCC/src/y2003/_s3/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="138">
-          <caret line="42" column="8" lean-forward="true" selection-start-line="42" selection-start-column="8" selection-end-line="57" selection-end-column="10" />
-          <folding>
-            <element signature="class#FastReader#0;class#Main#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/DMOPC/src/y2017/c3/p0/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="92">
-          <caret line="8" column="23" lean-forward="false" selection-start-line="8" selection-start-column="23" selection-end-line="8" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/DMOPC/src/y2017/c3/p1/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="92">
-          <caret line="9" column="37" lean-forward="false" selection-start-line="9" selection-start-column="37" selection-end-line="9" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/CCC/src/y2011/_s5_brute_force/Main.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="92">
@@ -2181,13 +2285,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/NOTES/src/Utilities/OtherLibrary.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="851">
-          <caret line="41" column="28" lean-forward="false" selection-start-line="41" selection-start-column="28" selection-end-line="41" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/DMOJ/src/random/APlusB/Main.java" />
     <entry file="file://$PROJECT_DIR$/NOTES/src/Utilities/MathLibrary.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -2249,6 +2346,44 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/CCC/src/y2003/_s3/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1150">
+          <caret line="56" column="34" lean-forward="true" selection-start-line="56" selection-start-column="34" selection-end-line="56" selection-end-column="34" />
+          <folding>
+            <element signature="class#FastReader#0;class#Main#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CCC/src/_y2001/_j4_s2_bad/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1595">
+          <caret line="54" column="28" lean-forward="true" selection-start-line="54" selection-start-column="28" selection-end-line="54" selection-end-column="28" />
+          <folding>
+            <element signature="class#FastReader#0;class#Main#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CCC/src/_y2001/_j4_s2_good/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-928">
+          <caret line="26" column="8" lean-forward="true" selection-start-line="26" selection-start-column="8" selection-end-line="27" selection-end-column="39" />
+          <folding>
+            <element signature="class#FastReader#0;class#Main#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CCC/src/_y2000/_s4/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-92">
+          <caret line="14" column="13" lean-forward="false" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/CCC/src/_y2001/_s5/Main.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="851">
@@ -2259,9 +2394,161 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/CCC/src/y2003/s4_/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="253">
+          <caret line="15" column="0" lean-forward="false" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+          <folding>
+            <element signature="class#FastReader#0;class#Main#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CCC/src/y2003/s5_/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="161">
+          <caret line="11" column="17" lean-forward="false" selection-start-line="11" selection-start-column="17" selection-end-line="11" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CCC/src/y2004/_j1/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="92">
+          <caret line="8" column="18" lean-forward="false" selection-start-line="8" selection-start-column="18" selection-end-line="8" selection-end-column="18" />
+          <folding>
+            <element signature="class#FastReader#0;class#Main#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CCC/src/y2004/_j2/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="92">
+          <caret line="8" column="24" lean-forward="false" selection-start-line="8" selection-start-column="24" selection-end-line="8" selection-end-column="24" />
+          <folding>
+            <element signature="class#FastReader#0;class#Main#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CCC/src/y2004/_j3/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="92">
+          <caret line="8" column="27" lean-forward="false" selection-start-line="8" selection-start-column="27" selection-end-line="8" selection-end-column="27" />
+          <folding>
+            <element signature="class#FastReader#0;class#Main#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CCC/src/y2004/_j4/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="184">
+          <caret line="12" column="0" lean-forward="true" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+          <folding>
+            <element signature="class#FastReader#0;class#Main#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CCC/src/y2011/_s3/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="154">
+          <caret line="19" column="13" lean-forward="false" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CCC/src/y2004/_s1/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="46">
+          <caret line="9" column="19" lean-forward="false" selection-start-line="9" selection-start-column="19" selection-end-line="9" selection-end-column="19" />
+          <folding>
+            <element signature="class#FastReader#0;class#Main#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CCC/src/y2004/_s2/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="138">
+          <caret line="15" column="13" lean-forward="false" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CCC/src/_y2002/_j5_s3/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-974">
+          <caret line="20" column="45" lean-forward="true" selection-start-line="20" selection-start-column="45" selection-end-line="20" selection-end-column="45" />
+          <folding>
+            <element signature="class#FastReader#0;class#Main#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_131/src.zip!/java/lang/String.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="196">
+          <caret line="1962" column="0" lean-forward="false" selection-start-line="1962" selection-start-column="0" selection-end-line="1962" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CCC/src/y2004/_s3/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-782">
+          <caret line="22" column="45" lean-forward="false" selection-start-line="22" selection-start-column="45" selection-end-line="22" selection-end-column="45" />
+          <folding>
+            <element signature="method#parse#0;class#Main#0" expanded="false" />
+            <element signature="class#FastReader#0;class#Main#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/NOTES/src/Utilities/OtherLibrary.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="163">
+          <caret line="29" column="8" lean-forward="true" selection-start-line="29" selection-start-column="8" selection-end-line="51" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CCC/src/zzz_utilities/Utilities.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="483">
+          <caret line="25" column="48" lean-forward="false" selection-start-line="25" selection-start-column="48" selection-end-line="25" selection-end-column="48" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CCC/src/_y2002/_s5/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="92">
+          <caret line="8" column="35" lean-forward="false" selection-start-line="8" selection-start-column="35" selection-end-line="8" selection-end-column="35" />
+          <folding>
+            <element signature="method#intersect#0;class#Main#0" expanded="false" />
+            <element signature="class#P#0;class#Main#0" expanded="false" />
+            <element signature="class#FastReader#0;class#Main#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CCC/src/y2004/_j5/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="230">
+          <caret line="10" column="12" lean-forward="false" selection-start-line="10" selection-start-column="12" selection-end-line="10" selection-end-column="12" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="class#FastReader#0;class#Main#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/DMOJ/src/newyears2018/p6/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="543">
+        <state relative-caret-position="575">
           <caret line="28" column="38" lean-forward="false" selection-start-line="28" selection-start-column="38" selection-end-line="28" selection-end-column="38" />
           <folding>
             <element signature="class#FastReader#0;class#Main#0" expanded="false" />
@@ -2269,13 +2556,30 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/CCC/src/_y2002/_s5/Main.java">
+    <entry file="file://$PROJECT_DIR$/CCC/src/y2004/s4/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="23">
-          <caret line="8" column="35" lean-forward="false" selection-start-line="8" selection-start-column="35" selection-end-line="8" selection-end-column="35" />
+        <state relative-caret-position="161">
+          <caret line="11" column="17" lean-forward="false" selection-start-line="11" selection-start-column="17" selection-end-line="11" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CCC/src/y2004/_s5_bruteforce_tle/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="92">
+          <caret line="8" column="21" lean-forward="false" selection-start-line="8" selection-start-column="21" selection-end-line="8" selection-end-column="21" />
           <folding>
-            <element signature="method#intersect#0;class#Main#0" expanded="false" />
-            <element signature="class#P#0;class#Main#0" expanded="false" />
+            <element signature="class#FastReader#0;class#Main#0" expanded="false" />
+            <element signature="method#readLineAsLongs#0;class#FastReader#0;class#Main#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CCC/src/y2004/_s5_dp/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="161">
+          <caret line="11" column="15" lean-forward="false" selection-start-line="11" selection-start-column="15" selection-end-line="11" selection-end-column="15" />
+          <folding>
             <element signature="class#FastReader#0;class#Main#0" expanded="false" />
           </folding>
         </state>
