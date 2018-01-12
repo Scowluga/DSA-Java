@@ -9,7 +9,7 @@ import java.util.List;
 /* Mouse Journey 70/70
  * DP
 
-A very simple dynamic programming approach 
+A very simple dynamic programming approach
 
 */
 public class Main {
