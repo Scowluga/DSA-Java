@@ -1,126 +1,114 @@
-package y2016.s4;
+package y1999.s4_bfs;
 
 import java.io.DataInputStream;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
+import java.util.LinkedList;
 import java.util.List;
+import java.util.Queue;
 
-/* Combining Riceballs
-
-dp table: indexed by one, dp[s][e] inclusive
-    Holds n if able
-    Holds -1 if unable
-    Holds 0 if un-calculated
+/* A Knightly Pursuit
 
 */
 public class Main {
 
-    static long max = 0; // max rb size
-    static long[][] dp;  // memo table
-    static int[] rb;     // rice balls
+    static int stalemate;
+    static int[][] move;
 
     public static void main(String[] args) throws IOException {
         FastReader reader = new FastReader();
 
-        int N = reader.nextInt();
-
-        rb = reader.readLineAsIntArray(N + 1);
-        dp = new long[N + 1][N + 1];
-
-        long n = recurse(1, N);
-        if (n != -1) System.out.println(n);
-        else {
-            Arrays.sort(rb);
-            System.out.println(Math.max(max, rb[N]));
-        }
-    }
+        // move[r, c][val]
+        move = new int[][]{
+            //   ul  ur  rd  ru  dr  dl  ld  lu
+                {+2, +2, -1, +1, -2, -2, -1, +1}, // r
+                {-1, +1, +2, +2, +1, -1, -2, -2}  // c
+        };
 
 
-    static long recurse(int start, int end) {
-        if (dp[start][end] != 0) { // calculated base case
+        int NNN = reader.nextInt();
 
-        } else if (start == end) { // 1 base case
-            dp[start][end] = rb[start];
-        } else if (end - start == 1) { // 2 base case
-            if (rb[start] == rb[end]) {
-                dp[start][end] = rb[start] + rb[end];
-            } else {
-                dp[start][end] = -1;
-            }
-        } else if (end - start == 2) { // 3 base case
-            int v1 = rb[start];
-            int v2 = rb[start + 1];
-            int v3 = rb[end];
-            if (
-                    (v1 == v2 && (v1 + v2) == v3)    // 2 2 4
-                    || (v1 == (v2 + v3) && v2 == v3) // 4 2 2
-                    || v1 == v3                      // 2 4 2
-            ) {
-                dp[start][end] = v1 + v2 + v3;
-            } else {
-                dp[start][end] = -1;
-            }
-        } else {
+        loop: for (int NN = 0; NN < NNN; NN++) {
+            stalemate = Integer.MAX_VALUE;
 
-            // now you've dealt with base cases, time to begin the fun
-            // there are 4 or more balls
+            int r = reader.nextInt();
+            int c = reader.nextInt();
+            int pr = reader.nextInt() - 1;
+            int pc = reader.nextInt() - 1;
+            int kr = reader.nextInt() - 1;
+            int kc = reader.nextInt() - 1;
 
-            // 2 BALL CASE
 
-            boolean done = false;
-
-            for (int s = start; s < end; s++) {
-                long left = recurse(start, s);
-                if (left == -1) continue;
-                long right = recurse(s + 1, end);
-                if (right == -1) continue;
-
-                if (left == right) {
-                    dp[start][end] = left + right;
-                    done = true;
-                }
+            if (pc == kc && kr == pr + 1) {
+                stalemate = 0;
             }
 
-            // 3 BALL CASE
+            boolean[][] visited = new boolean[c][r];
+            visited[kc][kr] = true;
 
-            if (!done)
-            for (int s = start; s < end - 1; s++) {     // num s
+            Queue<State> queue = new LinkedList<>();
+            State s = new State(kr, kc, 1);
+            queue.add(s);
 
-                long left = recurse(start, s);
-                if (left == -1) continue;
+            littleLoop: while (!queue.isEmpty()) {
+                s = queue.poll();
 
-                for (int m = s + 1; m < end; m++) { // num m
+                int wr = pr + s.t; // win row (pawn)
+                if (wr >= r - 1) continue littleLoop;
 
-                    long right = recurse(m + 1, end);
-                    if (right == -1) continue;
+                for (int d = 0; d < 8; d++) {
+                    int nkr = s.kr + move[0][d];
+                    int nkc = s.kc + move[1][d];
 
-                    if (left == right) {
-                        long mid = recurse(s + 1, m);
-                        if (mid != -1) {
-                            dp[start][end] = left + right + recurse(s + 1, m);
-                            done = true;
-                        }
-                    } else if (left == right * 2) {
-                        if (recurse(s + 1, m) == right) {
-                            dp[start][end] = left + right + right;
-                            done = true;
-                        }
-                    } else if (right == left * 2) {
-                        if (recurse(s + 1, m) == left) {
-                            dp[start][end] = left + left + right;
-                            done = true;
-                        }
+                    if (nkr < 0 || nkr >= r || nkc < 0 || nkc >= c) {
+                        continue;
+                    } else if (nkr == wr && nkc == pc) {
+                        // win
+                        System.out.println("Win in " + (s.t) + " knight move(s).");
+                        continue loop;
+                    }
+
+                    // valid move, not win
+
+                    if (nkr == wr + 1 && nkc == pc) {
+                        // update stalemate
+                        stalemate = Math.min(stalemate, s.t);
+                    }
+
+                    if (!visited[nkc][nkr]) {
+                        queue.add(new State(nkr, nkc, s.t + 1));
+                        visited[nkc][nkr] = true;
                     }
                 }
+
+
+
             }
-            if (!done) dp[start][end] = -1;
+
+            if (stalemate == Integer.MAX_VALUE) {
+                System.out.println("Loss in " + (r - pr - 2) + " knight move(s).");
+            } else {
+                System.out.println("Stalemate in " + stalemate + " knight move(s).");
+            }
         }
-        max = Math.max(max, dp[start][end]);
-        return dp[start][end];
+
+
     }
+
+
+    static class State {
+        int kr;
+        int kc;
+        int t;
+
+        State(int kr, int kc, int t) {
+            this.kr = kr;
+            this.kc = kc;
+            this.t = t;
+        }
+    }
+
 
 
     public static class FastReader {
@@ -327,7 +315,7 @@ public class Main {
         public int[] readLineAsIntArray(int n) throws IOException {
             int[] ret = new int[n];
 //            int ret = new ArrayList<>();
-            int idx = 1;
+            int idx = 0;
             byte c = read();
             while (c != -1) {
                 if (c == '\n' || c == '\r')

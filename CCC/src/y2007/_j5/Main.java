@@ -1,4 +1,4 @@
-package y2016.s4;
+package y2007._j5;
 
 import java.io.DataInputStream;
 import java.io.FileInputStream;
@@ -8,118 +8,58 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
-/* Combining Riceballs
-
-dp table: indexed by one, dp[s][e] inclusive
-    Holds n if able
-    Holds -1 if unable
-    Holds 0 if un-calculated
+/* Keep on Truckin' 10/10
+Simple DP approach
 
 */
 public class Main {
 
-    static long max = 0; // max rb size
-    static long[][] dp;  // memo table
-    static int[] rb;     // rice balls
+    static int min;
+    static int max;
+
+    static List<Integer> motels;
+    static int[] memo; // motel number: number of ways until end from there
+
 
     public static void main(String[] args) throws IOException {
         FastReader reader = new FastReader();
 
-        int N = reader.nextInt();
+        min = reader.nextInt();
+        max = reader.nextInt();
 
-        rb = reader.readLineAsIntArray(N + 1);
-        dp = new long[N + 1][N + 1];
+        int nm = reader.nextInt();
 
-        long n = recurse(1, N);
-        if (n != -1) System.out.println(n);
-        else {
-            Arrays.sort(rb);
-            System.out.println(Math.max(max, rb[N]));
+        motels = new ArrayList<>(Arrays.asList(0, 990, 1010, 1970, 2030, 2940, 3060, 3930, 4060, 4970, 5030, 5990, 6010, 7000));
+        for (int i = 0; i < nm; i++) {
+            motels.add(reader.nextInt());
         }
+        Collections.sort(motels);
+
+        memo = new int[motels.size()];
+
+        System.out.println(recurse(0));
     }
 
+    static int recurse(int motel) {
+        if (motel == motels.size() - 1) return 1;
+        if (memo[motel] != 0) return memo[motel];
 
-    static long recurse(int start, int end) {
-        if (dp[start][end] != 0) { // calculated base case
+        int count = 0;
+        for (int i = motel + 1; i < motels.size(); i++) {
+            int dist = motels.get(i) - motels.get(motel);
 
-        } else if (start == end) { // 1 base case
-            dp[start][end] = rb[start];
-        } else if (end - start == 1) { // 2 base case
-            if (rb[start] == rb[end]) {
-                dp[start][end] = rb[start] + rb[end];
+            if (dist < min) {
+                // nothing
+            } else if (dist > max) {
+                break;
             } else {
-                dp[start][end] = -1;
-            }
-        } else if (end - start == 2) { // 3 base case
-            int v1 = rb[start];
-            int v2 = rb[start + 1];
-            int v3 = rb[end];
-            if (
-                    (v1 == v2 && (v1 + v2) == v3)    // 2 2 4
-                    || (v1 == (v2 + v3) && v2 == v3) // 4 2 2
-                    || v1 == v3                      // 2 4 2
-            ) {
-                dp[start][end] = v1 + v2 + v3;
-            } else {
-                dp[start][end] = -1;
-            }
-        } else {
-
-            // now you've dealt with base cases, time to begin the fun
-            // there are 4 or more balls
-
-            // 2 BALL CASE
-
-            boolean done = false;
-
-            for (int s = start; s < end; s++) {
-                long left = recurse(start, s);
-                if (left == -1) continue;
-                long right = recurse(s + 1, end);
-                if (right == -1) continue;
-
-                if (left == right) {
-                    dp[start][end] = left + right;
-                    done = true;
-                }
+                count += recurse(i);
             }
 
-            // 3 BALL CASE
-
-            if (!done)
-            for (int s = start; s < end - 1; s++) {     // num s
-
-                long left = recurse(start, s);
-                if (left == -1) continue;
-
-                for (int m = s + 1; m < end; m++) { // num m
-
-                    long right = recurse(m + 1, end);
-                    if (right == -1) continue;
-
-                    if (left == right) {
-                        long mid = recurse(s + 1, m);
-                        if (mid != -1) {
-                            dp[start][end] = left + right + recurse(s + 1, m);
-                            done = true;
-                        }
-                    } else if (left == right * 2) {
-                        if (recurse(s + 1, m) == right) {
-                            dp[start][end] = left + right + right;
-                            done = true;
-                        }
-                    } else if (right == left * 2) {
-                        if (recurse(s + 1, m) == left) {
-                            dp[start][end] = left + left + right;
-                            done = true;
-                        }
-                    }
-                }
-            }
-            if (!done) dp[start][end] = -1;
         }
-        max = Math.max(max, dp[start][end]);
-        return dp[start][end];
+
+        memo[motel] = count;
+        return count;
     }
 
 
@@ -327,7 +267,7 @@ public class Main {
         public int[] readLineAsIntArray(int n) throws IOException {
             int[] ret = new int[n];
 //            int ret = new ArrayList<>();
-            int idx = 1;
+            int idx = 0;
             byte c = read();
             while (c != -1) {
                 if (c == '\n' || c == '\r')
