@@ -1,24 +1,31 @@
-package y2016.s4;
+package y2016._s4_bottom_up;
 
 import java.io.DataInputStream;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
 
-/* Combining Riceballs
+/* Combining Riceballs 15/15
 
-dp table: indexed by one, dp[s][e] inclusive
-    Holds n if able
-    Holds -1 if unable
-    Holds 0 if un-calculated
+The second method of DP is more intuitive to me, where you recurse and memoize.
+However, following that approach, upon calling getVal() you have two steps
+
+1. if calculated: return calculated
+2. else: calculate
+
+That first step is because of ambiguity. In the beginning of the recursion,
+the value will have not yet been calculated, so you have to calculate.
+
+But in the later half, that step is a waste of time. In the look up table approach,
+you can skip that first step to directly return, since you know everything before it
+has already been calculated
+
 
 */
 public class Main {
 
-    static long max = 0; // max rb size
     static long[][] dp;  // memo table
     static int[] rb;     // rice balls
 
@@ -26,102 +33,84 @@ public class Main {
         FastReader reader = new FastReader();
 
         int N = reader.nextInt();
-
         rb = reader.readLineAsIntArray(N + 1);
-        dp = new long[N + 1][N + 1];
 
-        long n = recurse(1, N);
-        if (n != -1) System.out.println(n);
-        else {
-            Arrays.sort(rb);
-            System.out.println(Math.max(max, rb[N]));
+        dp = new long[N + 1][N + 1];
+        for (int i = 1; i <= N; i++) Arrays.fill(dp[i], -1);
+
+        for (int size = 2; size <= N; size++) {
+            int limit = N - size + 1;
+
+            for (int first = 1; first <= limit; first++) {
+                int last = first + size - 1;
+
+                if (r2(first, last)) continue;
+                if (size > 2) r3(first, last);
+            }
+
         }
+
+        long max = 0;
+        for (int s = 1; s <= N; s++) {
+            for (int e = s; e <= N; e++) {
+                max = Math.max(max, getVal(s, e));
+            }
+        }
+        System.out.println(max);
     }
 
+    static boolean isComb(int start, int end) {
+        if (start == end) return true;
+        return dp[start][end] != -1;
+    }
 
-    static long recurse(int start, int end) {
-        if (dp[start][end] != 0) { // calculated base case
-
-        } else if (start == end) { // 1 base case
-            dp[start][end] = rb[start];
-        } else if (end - start == 1) { // 2 base case
-            if (rb[start] == rb[end]) {
-                dp[start][end] = rb[start] + rb[end];
-            } else {
-                dp[start][end] = -1;
-            }
-        } else if (end - start == 2) { // 3 base case
-            int v1 = rb[start];
-            int v2 = rb[start + 1];
-            int v3 = rb[end];
-            if (
-                    (v1 == v2 && (v1 + v2) == v3)    // 2 2 4
-                    || (v1 == (v2 + v3) && v2 == v3) // 4 2 2
-                    || v1 == v3                      // 2 4 2
-            ) {
-                dp[start][end] = v1 + v2 + v3;
-            } else {
-                dp[start][end] = -1;
-            }
-        } else {
-
-            // now you've dealt with base cases, time to begin the fun
-            // there are 4 or more balls
-
-            // 2 BALL CASE
-
-            boolean done = false;
-
-            for (int s = start; s < end; s++) {
-                long left = recurse(start, s);
-                if (left == -1) continue;
-                long right = recurse(s + 1, end);
-                if (right == -1) continue;
-
-                if (left == right) {
-                    dp[start][end] = left + right;
-                    done = true;
-                }
-            }
-
-            // 3 BALL CASE
-
-            if (!done)
-            for (int s = start; s < end - 1; s++) {     // num s
-
-                long left = recurse(start, s);
-                if (left == -1) continue;
-
-                for (int m = s + 1; m < end; m++) { // num m
-
-                    long right = recurse(m + 1, end);
-                    if (right == -1) continue;
-
-                    if (left == right) {
-                        long mid = recurse(s + 1, m);
-                        if (mid != -1) {
-                            dp[start][end] = left + right + recurse(s + 1, m);
-                            done = true;
-                        }
-                    } else if (left == right * 2) {
-                        if (recurse(s + 1, m) == right) {
-                            dp[start][end] = left + right + right;
-                            done = true;
-                        }
-                    } else if (right == left * 2) {
-                        if (recurse(s + 1, m) == left) {
-                            dp[start][end] = left + left + right;
-                            done = true;
-                        }
-                    }
-                }
-            }
-            if (!done) dp[start][end] = -1;
-        }
-        max = Math.max(max, dp[start][end]);
+    static long getVal(int start, int end) {
+        if (start == end) return rb[start];
         return dp[start][end];
     }
 
+    static boolean r2(int start, int end) {
+        for (int i = start; i < end; i++) {
+            // range [start, i], [i + 1, end]
+
+            if (!isComb(start, i))   continue;
+            if (!isComb(i + 1, end)) continue;
+
+            long l = getVal(start, i);
+            long r = getVal(i + 1, end);
+
+            if (l == r) {
+                dp[start][end] = l + r;
+                return true;
+            }
+        }
+        return false;
+    }
+
+    static void r3(int start, int end) {
+        for (int s = start; s < end - 1; s++) {     // num s
+            // left: [start, s]
+            if (!isComb(start, s)) continue;
+            long l = getVal(start, s);
+
+            for (int m = s + 1; m < end; m++) { // num m
+                // mid: [s + 1, m]
+                // right: [m + 1, end]
+
+                if (!isComb(s + 1, m)) continue;
+                if (!isComb(m + 1, end)) continue;
+
+                long r = getVal(m + 1, end);
+
+                if (l != r) continue;
+
+                long c = getVal(s + 1, m);
+
+                dp[start][end] = l + c + r;
+                return;
+            }
+        }
+    }
 
     public static class FastReader {
 
