@@ -1,4 +1,4 @@
-package y2004._s5_bruteforce_tle;
+package y2014.s5;
 
 import java.io.DataInputStream;
 import java.io.FileInputStream;
@@ -6,99 +6,56 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-/* Super Plumber 0/50
-THIS SOLUTION DOES NOT WORK AND TLE's THE TEST CASES
-SEE THE DYNAMIC PROGRAMMING SOLUTION
-(this is brute force)
+/* Lazy Fox
+ * Dynamic Programming
+
 */
 public class Main {
-
-    /* move[0:x, 1:y][0:d, 1:r, 2:u, 3:l]
-    - directions:
-      0
-      * 1
-      2
-    - access
-    r 2 2 2
-    r 1 1 2
-    r 0 1 2
-      c c c
-    */
-
-    static int[][] move = new int[][]{
-            {0, 1, 0, -1}, // x
-            {-1, 0, 1, 0} // y
-    };
-
-    static int r;
-    static int c;
-
-    static String[][] cs; // course strings
-    static int[][]    cc; // course costs (memoized)
 
     public static void main(String[] args) throws IOException {
         FastReader reader = new FastReader();
 
-        r = reader.nextInt();
-        c = reader.nextInt();
+        int N = reader.nextInt();
+        P[] points = new P[N];
 
-        do { // for each case
-            cs = new String[c][r];
-            cc = new int[c][r];
+        for (int i = 0; i < N; i++) {
+            points[i] = new P(reader.nextInt(), reader.nextInt());
+        }
 
-            // input
-            for (int y = 0; y < r; y++) {
-                String[] line = reader.readLine().split("");
-                for (int x = 0; x < c; x++) {
-                    cs[x][y] = line[x];
-                }
-            }
-//            zzz_utilities.Utilities.output(cs);
-
-            int xs = 0, ys = r - 1, xe = c - 1, ye = r - 1;
-
-            try {
-                recurse(xs, ys, xs, ys + 1, Integer.parseInt(cs[xs][ys]) + 1);
-            } catch (Exception e) {
-                recurse(xs, ys, xs, ys + 1, 1);
-            }
-
-            // output
-            int f = cc[xe][ye];
-            if (f == 0) System.out.println(f);
-            else System.out.println(f - 1);
-
-            r = reader.nextInt(); c = reader.nextInt();
-        } while (!(r == 0 && c == 0));
 
     }
 
-    static void recurse(int x, int y, int x0, int y0, int n) {
+    // distance
+    static double dist(P p1, P p2) {
+        return Math.sqrt(Math.pow(p2.x - p1.x, 2) + Math.pow(p2.y - p1.y, 2));
+    }
 
-        for (int d = 0; d < 3; d++) {
-            int x1 = x + move[0][d];
-            int y1 = y + move[1][d];
+    // point
+    static class P {
+        int x;
+        int y;
 
-            if (!(
-                    (x1 == x0 && y1 == y0)      // previous
-                    || (x1 < 0 || x1 == c)      // x out of bounds
-                    || (y1 < 0 || y1 == r)      // y out of bounds
-                    || (cs[x1][y1].equals("*")) // obstacle
-            )) {
-                int n1 = n;
-                try {
-                    n1 += Integer.parseInt(cs[x1][y1]);
-                } catch (Exception e) {
-                }
+        P() {
+            this.x = 0;
+            this.y = 0;
+        }
 
-                if (n1 > cc[x1][y1]) {
-                    cc[x1][y1] = n1;
-                }
-                recurse(x1, y1, x, y, n1);
-            }
+        P(int x, int y) {
+            this.x = x;
+            this.y = y;
+        }
+
+        @Override
+        public boolean equals(Object obj) {
+            P p = (P)obj;
+            return p.x == this.x && p.y == this.y;
+        }
+
+        @Override
+        public String toString() {
+            return "Point (" + this.x + ", " + this.y + ").";
         }
     }
-
 
     public static class FastReader {
 

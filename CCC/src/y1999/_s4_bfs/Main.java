@@ -1,103 +1,114 @@
-package y2004._s5_bruteforce_tle;
+package y1999._s4_bfs;
 
 import java.io.DataInputStream;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
+import java.util.Queue;
 
-/* Super Plumber 0/50
-THIS SOLUTION DOES NOT WORK AND TLE's THE TEST CASES
-SEE THE DYNAMIC PROGRAMMING SOLUTION
-(this is brute force)
+/* A Knightly Pursuit 100/100
+
 */
 public class Main {
 
-    /* move[0:x, 1:y][0:d, 1:r, 2:u, 3:l]
-    - directions:
-      0
-      * 1
-      2
-    - access
-    r 2 2 2
-    r 1 1 2
-    r 0 1 2
-      c c c
-    */
-
-    static int[][] move = new int[][]{
-            {0, 1, 0, -1}, // x
-            {-1, 0, 1, 0} // y
-    };
-
-    static int r;
-    static int c;
-
-    static String[][] cs; // course strings
-    static int[][]    cc; // course costs (memoized)
+    static int stalemate;
+    static int[][] move;
 
     public static void main(String[] args) throws IOException {
         FastReader reader = new FastReader();
 
-        r = reader.nextInt();
-        c = reader.nextInt();
+        // move[r, c][val]
+        move = new int[][]{
+            //   ul  ur  rd  ru  dr  dl  ld  lu
+                {+2, +2, -1, +1, -2, -2, -1, +1}, // r
+                {-1, +1, +2, +2, +1, -1, -2, -2}  // c
+        };
 
-        do { // for each case
-            cs = new String[c][r];
-            cc = new int[c][r];
 
-            // input
-            for (int y = 0; y < r; y++) {
-                String[] line = reader.readLine().split("");
-                for (int x = 0; x < c; x++) {
-                    cs[x][y] = line[x];
-                }
+        int NNN = reader.nextInt();
+
+        loop: for (int NN = 0; NN < NNN; NN++) {
+            stalemate = Integer.MAX_VALUE;
+
+            int r = reader.nextInt();
+            int c = reader.nextInt();
+            int pr = reader.nextInt() - 1;
+            int pc = reader.nextInt() - 1;
+            int kr = reader.nextInt() - 1;
+            int kc = reader.nextInt() - 1;
+
+
+            if (pc == kc && kr == pr + 1) {
+                stalemate = 0;
             }
-//            zzz_utilities.Utilities.output(cs);
 
-            int xs = 0, ys = r - 1, xe = c - 1, ye = r - 1;
+            boolean[][] visited = new boolean[c][r];
+            visited[kc][kr] = true;
 
-            try {
-                recurse(xs, ys, xs, ys + 1, Integer.parseInt(cs[xs][ys]) + 1);
-            } catch (Exception e) {
-                recurse(xs, ys, xs, ys + 1, 1);
+            Queue<State> queue = new LinkedList<>();
+            State s = new State(kr, kc, 1);
+            queue.add(s);
+
+            littleLoop: while (!queue.isEmpty()) {
+                s = queue.poll();
+
+                int wr = pr + s.t; // win row (pawn)
+                if (wr >= r - 1) continue littleLoop;
+
+                for (int d = 0; d < 8; d++) {
+                    int nkr = s.kr + move[0][d];
+                    int nkc = s.kc + move[1][d];
+
+                    if (nkr < 0 || nkr >= r || nkc < 0 || nkc >= c) {
+                        continue;
+                    } else if (nkr == wr && nkc == pc) {
+                        // win
+                        System.out.println("Win in " + (s.t) + " knight move(s).");
+                        continue loop;
+                    }
+
+                    // valid move, not win
+
+                    if (nkr == wr + 1 && nkc == pc) {
+                        // update stalemate
+                        stalemate = Math.min(stalemate, s.t);
+                    }
+
+                    if (!visited[nkc][nkr]) {
+                        queue.add(new State(nkr, nkc, s.t + 1));
+                        visited[nkc][nkr] = true;
+                    }
+                }
+
+
+
             }
 
-            // output
-            int f = cc[xe][ye];
-            if (f == 0) System.out.println(f);
-            else System.out.println(f - 1);
-
-            r = reader.nextInt(); c = reader.nextInt();
-        } while (!(r == 0 && c == 0));
-
-    }
-
-    static void recurse(int x, int y, int x0, int y0, int n) {
-
-        for (int d = 0; d < 3; d++) {
-            int x1 = x + move[0][d];
-            int y1 = y + move[1][d];
-
-            if (!(
-                    (x1 == x0 && y1 == y0)      // previous
-                    || (x1 < 0 || x1 == c)      // x out of bounds
-                    || (y1 < 0 || y1 == r)      // y out of bounds
-                    || (cs[x1][y1].equals("*")) // obstacle
-            )) {
-                int n1 = n;
-                try {
-                    n1 += Integer.parseInt(cs[x1][y1]);
-                } catch (Exception e) {
-                }
-
-                if (n1 > cc[x1][y1]) {
-                    cc[x1][y1] = n1;
-                }
-                recurse(x1, y1, x, y, n1);
+            if (stalemate == Integer.MAX_VALUE) {
+                System.out.println("Loss in " + (r - pr - 2) + " knight move(s).");
+            } else {
+                System.out.println("Stalemate in " + stalemate + " knight move(s).");
             }
         }
+
+
     }
+
+
+    static class State {
+        int kr;
+        int kc;
+        int t;
+
+        State(int kr, int kc, int t) {
+            this.kr = kr;
+            this.kc = kc;
+            this.t = t;
+        }
+    }
+
 
 
     public static class FastReader {

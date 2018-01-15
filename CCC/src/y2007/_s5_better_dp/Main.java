@@ -1,115 +1,65 @@
-package y1999.s4_bfs;
+package y2007._s5_better_dp;
 
 import java.io.DataInputStream;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.LinkedList;
 import java.util.List;
-import java.util.Queue;
 
-/* A Knightly Pursuit
+/* Bowling for Numbers 50/50
+ * DP (Knapsack)
+
+inputs        :  2  8  5  1  9  6  9  3  2
+sums of past W:  2 10 15 14 15 16 24 18 14
+sum of all    :  2 10 15 16 25 31 40 43 45
 
 */
 public class Main {
 
-    static int stalemate;
-    static int[][] move;
+    // the maximum value with b balls, from [1, p] pins
+    static int[][] memo;
+
+    // sum of it, all before
+    static int[]   pins;
+
+    static int P; // number of pins
+    static int B; // number of balls
+    static int W; // width of ball
 
     public static void main(String[] args) throws IOException {
         FastReader reader = new FastReader();
+        int T = reader.nextInt();
+        for (;T-- != 0;) {
 
-        // move[r, c][val]
-        move = new int[][]{
-            //   ul  ur  rd  ru  dr  dl  ld  lu
-                {+2, +2, -1, +1, -2, -2, -1, +1}, // r
-                {-1, +1, +2, +2, +1, -1, -2, -2}  // c
-        };
+            P = reader.nextInt();
+            B = reader.nextInt();
+            W = reader.nextInt();
 
-
-        int NNN = reader.nextInt();
-
-        loop: for (int NN = 0; NN < NNN; NN++) {
-            stalemate = Integer.MAX_VALUE;
-
-            int r = reader.nextInt();
-            int c = reader.nextInt();
-            int pr = reader.nextInt() - 1;
-            int pc = reader.nextInt() - 1;
-            int kr = reader.nextInt() - 1;
-            int kc = reader.nextInt() - 1;
-
-
-            if (pc == kc && kr == pr + 1) {
-                stalemate = 0;
+            // pins input
+            pins = new int[P + 1];
+            pins[0] = 0;
+            for (int pi = 1; pi <= P; pi++) {
+                pins[pi] = pins[pi - 1] + reader.nextInt();
             }
 
-            boolean[][] visited = new boolean[c][r];
-            visited[kc][kr] = true;
+            // memo setup (1 ball)
+            memo = new int[B + 1][P + 1];
+            for (int pi = 1; pi <= W; pi++) {
+                if (pi <= W) memo[1][pi] = pins[pi];
+                else memo[1][pi] = Math.max(memo[1][pi - 1], pins[pi] - pins[pi - W]);
+            }
 
-            Queue<State> queue = new LinkedList<>();
-            State s = new State(kr, kc, 1);
-            queue.add(s);
-
-            littleLoop: while (!queue.isEmpty()) {
-                s = queue.poll();
-
-                int wr = pr + s.t; // win row (pawn)
-                if (wr >= r - 1) continue littleLoop;
-
-                for (int d = 0; d < 8; d++) {
-                    int nkr = s.kr + move[0][d];
-                    int nkc = s.kc + move[1][d];
-
-                    if (nkr < 0 || nkr >= r || nkc < 0 || nkc >= c) {
-                        continue;
-                    } else if (nkr == wr && nkc == pc) {
-                        // win
-                        System.out.println("Win in " + (s.t) + " knight move(s).");
-                        continue loop;
-                    }
-
-                    // valid move, not win
-
-                    if (nkr == wr + 1 && nkc == pc) {
-                        // update stalemate
-                        stalemate = Math.min(stalemate, s.t);
-                    }
-
-                    if (!visited[nkc][nkr]) {
-                        queue.add(new State(nkr, nkc, s.t + 1));
-                        visited[nkc][nkr] = true;
-                    }
+            // memo table build
+            for (int b = 2; b <= B; b++) {
+                for (int p = 1; p <= P; p++) {
+                    if (p <= W) memo[b][p] = memo[b - 1][p];
+                    else memo[b][p] = Math.max(memo[b][p - 1], memo[b - 1][p - W] + (pins[p] - pins[p - W]));
                 }
-
-
-
             }
 
-            if (stalemate == Integer.MAX_VALUE) {
-                System.out.println("Loss in " + (r - pr - 2) + " knight move(s).");
-            } else {
-                System.out.println("Stalemate in " + stalemate + " knight move(s).");
-            }
-        }
-
-
-    }
-
-
-    static class State {
-        int kr;
-        int kc;
-        int t;
-
-        State(int kr, int kc, int t) {
-            this.kr = kr;
-            this.kc = kc;
-            this.t = t;
+            System.out.println(memo[B][P]);
         }
     }
-
-
 
     public static class FastReader {
 

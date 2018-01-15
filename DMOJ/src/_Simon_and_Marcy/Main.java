@@ -1,4 +1,4 @@
-package y2004._s5_bruteforce_tle;
+package _Simon_and_Marcy;
 
 import java.io.DataInputStream;
 import java.io.FileInputStream;
@@ -6,97 +6,30 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-/* Super Plumber 0/50
-THIS SOLUTION DOES NOT WORK AND TLE's THE TEST CASES
-SEE THE DYNAMIC PROGRAMMING SOLUTION
-(this is brute force)
+/* Simon and Marcy
+ * DP (Knapsack)
+
 */
 public class Main {
 
-    /* move[0:x, 1:y][0:d, 1:r, 2:u, 3:l]
-    - directions:
-      0
-      * 1
-      2
-    - access
-    r 2 2 2
-    r 1 1 2
-    r 0 1 2
-      c c c
-    */
-
-    static int[][] move = new int[][]{
-            {0, 1, 0, -1}, // x
-            {-1, 0, 1, 0} // y
-    };
-
-    static int r;
-    static int c;
-
-    static String[][] cs; // course strings
-    static int[][]    cc; // course costs (memoized)
-
     public static void main(String[] args) throws IOException {
         FastReader reader = new FastReader();
+        int C = reader.nextInt(); // cages
+        int M = reader.nextInt(); // max weight
 
-        r = reader.nextInt();
-        c = reader.nextInt();
+        int[][] memo = new int[M + 1][C + 1];
 
-        do { // for each case
-            cs = new String[c][r];
-            cc = new int[c][r];
+        for (int c = 1; c <= C; c++) {
+            int N = reader.nextInt(); // number of princesses
+            int W = reader.nextInt(); // weight of cage
 
-            // input
-            for (int y = 0; y < r; y++) {
-                String[] line = reader.readLine().split("");
-                for (int x = 0; x < c; x++) {
-                    cs[x][y] = line[x];
-                }
-            }
-//            zzz_utilities.Utilities.output(cs);
-
-            int xs = 0, ys = r - 1, xe = c - 1, ye = r - 1;
-
-            try {
-                recurse(xs, ys, xs, ys + 1, Integer.parseInt(cs[xs][ys]) + 1);
-            } catch (Exception e) {
-                recurse(xs, ys, xs, ys + 1, 1);
-            }
-
-            // output
-            int f = cc[xe][ye];
-            if (f == 0) System.out.println(f);
-            else System.out.println(f - 1);
-
-            r = reader.nextInt(); c = reader.nextInt();
-        } while (!(r == 0 && c == 0));
-
-    }
-
-    static void recurse(int x, int y, int x0, int y0, int n) {
-
-        for (int d = 0; d < 3; d++) {
-            int x1 = x + move[0][d];
-            int y1 = y + move[1][d];
-
-            if (!(
-                    (x1 == x0 && y1 == y0)      // previous
-                    || (x1 < 0 || x1 == c)      // x out of bounds
-                    || (y1 < 0 || y1 == r)      // y out of bounds
-                    || (cs[x1][y1].equals("*")) // obstacle
-            )) {
-                int n1 = n;
-                try {
-                    n1 += Integer.parseInt(cs[x1][y1]);
-                } catch (Exception e) {
-                }
-
-                if (n1 > cc[x1][y1]) {
-                    cc[x1][y1] = n1;
-                }
-                recurse(x1, y1, x, y, n1);
+            for (int w = 1; w <= M; w++) {
+                if (w < W) memo[w][c] = memo[w][c - 1];
+                else memo[w][c] = Math.max(memo[w][c - 1],  N + memo[w - W][c - 1]);
             }
         }
+
+        System.out.println(memo[M][C]);
     }
 
 

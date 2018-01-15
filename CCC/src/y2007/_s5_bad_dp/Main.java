@@ -1,4 +1,4 @@
-package y2004._s5_bruteforce_tle;
+package y2007._s5_bad_dp;
 
 import java.io.DataInputStream;
 import java.io.FileInputStream;
@@ -6,97 +6,72 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-/* Super Plumber 0/50
-THIS SOLUTION DOES NOT WORK AND TLE's THE TEST CASES
-SEE THE DYNAMIC PROGRAMMING SOLUTION
-(this is brute force)
+/* Bowling for Numbers TLE 8/15 pts
+ * DP (Brute force)
+
 */
 public class Main {
 
-    /* move[0:x, 1:y][0:d, 1:r, 2:u, 3:l]
-    - directions:
-      0
-      * 1
-      2
-    - access
-    r 2 2 2
-    r 1 1 2
-    r 0 1 2
-      c c c
-    */
+    // 0: not calculated
+    // n: calculated
+    static int[][] memo; // [pin#] [ball#]
+    static int[]   pins;
 
-    static int[][] move = new int[][]{
-            {0, 1, 0, -1}, // x
-            {-1, 0, 1, 0} // y
-    };
+    static int memod = 0;
 
-    static int r;
-    static int c;
 
-    static String[][] cs; // course strings
-    static int[][]    cc; // course costs (memoized)
+    static int P; // number of pins
+    static int B; // number of balls
+    static int W; // width of ball
 
     public static void main(String[] args) throws IOException {
         FastReader reader = new FastReader();
+        int T = reader.nextInt();
+        for (;T-- != 0;) {
+            memod = 0;
 
-        r = reader.nextInt();
-        c = reader.nextInt();
+            P = reader.nextInt();
+            B = reader.nextInt();
+            W = reader.nextInt();
 
-        do { // for each case
-            cs = new String[c][r];
-            cc = new int[c][r];
+            memo = new int[P + 1][B + 1];
+            pins = new int[P + 1];
 
-            // input
-            for (int y = 0; y < r; y++) {
-                String[] line = reader.readLine().split("");
-                for (int x = 0; x < c; x++) {
-                    cs[x][y] = line[x];
-                }
-            }
-//            zzz_utilities.Utilities.output(cs);
-
-            int xs = 0, ys = r - 1, xe = c - 1, ye = r - 1;
-
-            try {
-                recurse(xs, ys, xs, ys + 1, Integer.parseInt(cs[xs][ys]) + 1);
-            } catch (Exception e) {
-                recurse(xs, ys, xs, ys + 1, 1);
+            pins[0] = 0;
+            for (int pi = 1; pi <= P; pi++) {
+                pins[pi] = pins[pi - 1] + reader.nextInt();
             }
 
-            // output
-            int f = cc[xe][ye];
-            if (f == 0) System.out.println(f);
-            else System.out.println(f - 1);
+            System.out.println(dp(1, B));
+//            System.out.println(memod);
+        }
+    }
 
-            r = reader.nextInt(); c = reader.nextInt();
-        } while (!(r == 0 && c == 0));
+    static int dp(int pn, int bn) {
+        if (bn == 0) return 0;
+        if (pn == P + 1) return 0;
+        if (memo[pn][bn] != 0) {
+            memod += 1;
+            return memo[pn][bn];
+        }
+
+        int max = 0;
+
+        int li = P - (W * (bn)) + 1;
+        for (int p = pn; p <= li; p++) {
+            int left = calc(p, p + W);
+            int right = dp(p + W, bn - 1);
+            int total = left + right;
+            max = Math.max(max, total);
+        }
+
+        memo[pn][bn] = max;
+        return max;
 
     }
 
-    static void recurse(int x, int y, int x0, int y0, int n) {
-
-        for (int d = 0; d < 3; d++) {
-            int x1 = x + move[0][d];
-            int y1 = y + move[1][d];
-
-            if (!(
-                    (x1 == x0 && y1 == y0)      // previous
-                    || (x1 < 0 || x1 == c)      // x out of bounds
-                    || (y1 < 0 || y1 == r)      // y out of bounds
-                    || (cs[x1][y1].equals("*")) // obstacle
-            )) {
-                int n1 = n;
-                try {
-                    n1 += Integer.parseInt(cs[x1][y1]);
-                } catch (Exception e) {
-                }
-
-                if (n1 > cc[x1][y1]) {
-                    cc[x1][y1] = n1;
-                }
-                recurse(x1, y1, x, y, n1);
-            }
-        }
+    static int calc(int s, int e) {
+        return pins[e - 1] - pins[s - 1];
     }
 
 
