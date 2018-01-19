@@ -1,92 +1,80 @@
-package ICPC_PACNW_2016_H;
+package _ICPC_PACNW_2016_H;
 
-import java.io.DataInputStream;
-import java.io.FileInputStream;
-import java.io.IOException;
+import java.io.*;
 import java.util.*;
 
-/* Paint
- * DP ()
+/* Paint 7/7pt
+ * DP
 
-Find the minimum number of unpainted sections
+Makes use of TreeMap instead of array for DP since multiple
+painters can have the same right ending.
+
+    dp[p] = max(self,
+               (best of all p0 where p0.r < p.l) + p.v()
+           )
 
 */
+
 public class Main {
-
-    static long n;
-    static int k;
-
-    static R[] ps; // all painters
 
     public static void main(String[] args) throws IOException {
         FastReader reader = new FastReader();
 
-        n = reader.nextLong();
-        k = reader.nextInt();
+        // input
+        long n = reader.nextLong();
+        int k = reader.nextInt();
 
-        ps = new R[k];
+        R[] ps = new R[k];
         for (int i = 0; i < k; i++) ps[i] = new R(reader.nextLong(), reader.nextLong());
+        Arrays.sort(ps);
 
-        Arrays.sort(ps, (o1, o2) -> {
-            if (o1.x == o2.x) {
-                return Long.compare(o1.y, o2.y);
+        // p.r -> max v
+        TreeMap<Long, Long> dp = new TreeMap<>();
+        long b = 0;
+        for(R p : ps) {
+            while(!dp.isEmpty() && dp.firstKey() < p.l) {
+                b = Math.max(b, dp.remove(dp.firstKey()));
             }
-            return Long.compare(o1.x, o2.x);
-        });
 
-        System.out.println(n - dp(1, 0));
-    }
+            // first visited p.r val
+            if(!dp.containsKey(p.r)) dp.put(p.r, 0L);
 
-    // how many sections can be painted in range (fi, end)
-    // starting from painter # si
-    static long dp(long fi, int si) {
-        if (si >= k) return 0;
-        if (fi > n) return 0;
-
-        R r = null;
-
-        while (si < k) {
-            if (ps[si].x >= fi) {
-                r = ps[si];
-                si++;
-                break;
-            }
-            si++;
+            dp.put(p.r, Math.max(dp.get(p.r), p.v() + b));
         }
 
-        if (r == null) return 0;
-        if (r.memo != -1) return r.memo;
+        // output
+        System.out.println(n - Collections.max(dp.values()));
 
-        r.memo = Math.max(dp(fi, si), (r.y - r.x + 1) + dp(r.y + 1, si));
-        return r.memo;
     }
 
-    static class R {
-        long x;
-        long y;
-        long memo;
+    static class R implements Comparable<R> {
 
-        R() {
-            this.x = 0;
-            this.y = 0;
-            this.memo = -1;
-        }
+        long l;
+        long r;
 
         R(long x, long y) {
-            this.x = x;
-            this.y = y;
-            this.memo = -1;
+            this.l = x;
+            this.r = y;
+        }
+
+        long v() {
+            return this.r - this.l + 1;
         }
 
         @Override
         public boolean equals(Object obj) {
             R p = (R)obj;
-            return p.x == this.x && p.y == this.y;
+            return p.l == this.l && p.r == this.r;
         }
 
         @Override
         public String toString() {
-            return "Range (" + this.x + ", " + this.y + ").";
+            return "Range (" + this.l + ", " + this.r + ")";
+        }
+
+        @Override
+        public int compareTo(R o) {
+            return Long.compare(this.l, o.l);
         }
     }
 
