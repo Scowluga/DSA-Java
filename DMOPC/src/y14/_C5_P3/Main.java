@@ -1,73 +1,62 @@
-package y2011.s5_better_brute_force;
+package y14._C5_P3;
 
 import java.io.DataInputStream;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
-/* Switch
+/* Golden Lily 10/10pt
+ * DP (maze movement, simple)
+
+Virtually identical to Space Plumber
+
+memo holds cost to get to gold FROM: u, l, r
 
 */
 public class Main {
 
+    static int L;
+    static int D;
+
+    static int ls;
+    static int ds;
+
+    static int[][] g;
+    static long[][][] memo;
+
     public static void main(String[] args) throws IOException {
         FastReader reader = new FastReader();
-        int N = reader.nextInt();
 
-        // INPUT
-        StringBuilder rowS = new StringBuilder();
-        for (int i = 0; i < N; i ++) {
-            rowS.append(reader.nextString());
-        }
+        L = reader.nextInt();
+        D = reader.nextInt();
 
-        String[] rowSA = rowS.toString().split("0000+"); // or {4,}
+        g = new int[L][D];
+        for (int d = 0; d < D; d++)
+            for (int l = 0; l < L; l++)
+                g[l][d] = reader.nextInt();
 
-        List<List<Integer>> row = new ArrayList<>(N);
+        memo = new long[L][D][3];
+        ls = reader.nextInt(); ds = reader.nextInt();
 
-        for (int i = 0; i < rowSA.length; i++) {
-            List<Integer> tg = new ArrayList<>();
-            for (String s : rowSA[i].split("")) {
-                tg.add(Integer.valueOf(s));
-            }
-            row.add(tg);
-        }
-
-        // Now you have row which contains List<Integer> of all split by 4 zeros
-        int count = 0;
-        for (List<Integer> l : row) {
-            count += solve(l);
-        }
-        System.out.println(count);
+        System.out.println(dp(0, 0, 0));
     }
 
-    private static int solve(List<Integer> l) {
-        if (l.size() == 0) {
-            return 0;
-        } else if (l.size() == 1) {
-            return 3;
-        } else if (l.size() == 2) {
-            return 2;
-        } else if (l.size() == 3) {
-            if (l.get(1) == 1) {
-                return 1;
-            } else {
-                return 2;
-            }
-        } else if (l.size() == 4) {
-            int c = 0;
-            if (l.get(1) == 0) c++;
-            if (l.get(2) == 0) c++;
-            return c;
+    private static long dp(int l, int d, int f) {
+        if (l < 0 || l >= L || d < 0 || d > ds) return Integer.MAX_VALUE;
+        if (l == ls && d == ds) return g[l][d];
+
+        if (memo[l][d][f] == 0) {
+            long min = dp(l, d + 1, 0);
+
+            if (f != 1) min = Math.min(min, dp(l - 1, d, 2));
+            if (f != 2) min = Math.min(min, dp(l + 1, d, 1));
+
+            memo[l][d][f] = g[l][d] + min;
         }
-
-        // l.size > 4 && max 3 zero gaps
-
-
-
-        return 0;
+        return memo[l][d][f];
     }
+
 
     public static class FastReader {
 
