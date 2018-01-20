@@ -1,92 +1,42 @@
-package y2011._s3;
-
-import java.io.IOException;
+package _y2011._j2;
 
 import java.io.DataInputStream;
 import java.io.FileInputStream;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-/* Alice Through the Looking Glass 15/15
+/* Who Has Seen The Wind 15/15
 
-info[x][y] returns 0, 1, 2
-0: auto not a crystal
-1: segment and re-run
-2: definitely a crystal
-
-Recursion is the best
- */
-
+*/
 public class Main {
 
-    static int[][] info = new int[5][5];
+    public static void main(String[] args) throws IOException {
+        String file = "t.txt";
+//        FastReader reader = new FastReader("C:\\Users\\david\\Documents\\Programming\\Java\\DSA-Java\\CCC\\src\\" + "y2011._j2".split(".")[0] + "\\" + "y2011._j2".split(".")[1] + "\\" + "file");
+        FastReader reader = new FastReader();
 
-    public static void main(String[] args) {
-        try {
-            setup();
-            FastReader reader = new FastReader();
-            int cases = reader.nextInt();
-            for (int m = 0; m < cases; m ++) {
-                int magnification = reader.nextInt();
-                int x = reader.nextInt();
-                int y = reader.nextInt();
-                System.out.println(solve(magnification, x, y));
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
+        int h = reader.nextInt();
+        int m = reader.nextInt();
 
-    private static String solve(int magnification, int x, int y) {
-        int level = (int)Math.pow(5, magnification - 1);
-        if (magnification == 1) { // base 5x5 case
-            int temp = info[x][y];
-            if (temp == 2) {
-                return "crystal";
-            } else { // either 0 or 1
-                return "empty";
-            }
-        } else {
-            // find which of the 25 areas this point is in (in the base 5x5 case)
-            int temp = info[x / level][y / level]; // integer divide
-            switch(temp) {
-                case 0: // definitely not a crystal
-                    return "empty";
-                case 1: // potentially a crystal
-                    // so we're going to zoom in on that one specific 5x5 grid and rerun the solve formula
-                    return solve(magnification - 1, x % level, y % level);
-                case 2: // definitely a crystal
-                    return "crystal";
-                default:
-                    System.out.println("WHAT");
+        for (int i = 1; i < m; i++) {
+            if (c(i, h) < 0) {
+                System.out.println("The balloon first touches ground at hour:\n" + i);
+                return;
             }
         }
-        return null;
+        System.out.println("The balloon does not touch ground in the given time.");
+
     }
 
-    private static void setup() {
-        for (int x = 0; x < 5; x ++) {
-            info[x][3] = 0;
-            info[x][4] = 0;
-        }
-        info[0][2] = 0;
-        info[1][2] = 0;
-        info[2][2] = 1;
-        info[3][2] = 0;
-        info[4][2] = 0;
-
-        info[0][1] = 0;
-        info[1][1] = 1;
-        info[2][1] = 2;
-        info[3][1] = 1;
-        info[4][1] = 0;
-
-        info[0][0] = 0;
-        info[1][0] = 2;
-        info[2][0] = 2;
-        info[3][0] = 2;
-        info[4][0] = 0;
+    static int c(int t, int h) {
+        return
+                -6 * t * t * t * t
+                + h * t * t * t
+                + 2 * t * t
+                + t;
     }
+
 
     public static class FastReader {
 
@@ -331,5 +281,3 @@ public class Main {
 
     }
 }
-
-

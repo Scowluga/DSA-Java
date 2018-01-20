@@ -1,4 +1,4 @@
-package y2011._j1;
+package _y2011._s5_dp;
 
 import java.io.DataInputStream;
 import java.io.FileInputStream;
@@ -6,31 +6,138 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-/* Which Alien? 15/15
+/* Switch 12/12pt
+ * DP (hard)
 
+First, we understand an important part of the problem:
+    lights can only be solved in groups of 1-7.
+
+Next, understand that we only care about off lights in between
+groups of those that are on.
+
+From this, we can create 'groups' of lights that are on.
+Then, create a look-up-table based on groups of groups where
+the range is <= 7.
+
+Then, simple take minimum of solving each group of groups, and
+draw from the dp table.
+
+FULL EXPLANATION: http://mmhs.ca/ccc/2011/s5switchsf.txt
+I read the explanation, and wrote my own code to implement it
+
+Take away:
+    Analyze the problem for specific points that can help us
+    isolate the sub-problem.
+
+    In this case, noting that groups cap at 7 lights, we can
+    take minimum from each group of lights and recurse
 */
 public class Main {
 
     public static void main(String[] args) throws IOException {
-        String file = "t.txt";
-//        FastReader reader = new FastReader("C:\\Users\\david\\Documents\\Programming\\Java\\DSA-Java\\CCC\\src\\" + "y2011._j1".split(".")[0] + "\\" + "y2011._j1".split(".")[1] + "\\" + "file");
         FastReader reader = new FastReader();
-        int a = reader.nextInt();
-        int e = reader.nextInt();
 
-        if (a >= 3 && e <= 4) {
-            System.out.println("TroyMartian");
+        // 1. Input
+        int N = reader.nextInt();
+
+        boolean[] ls = new boolean[N]; // lights
+        for (int i = 0; i < N; i++) ls[i] = reader.nextInt() == 1;
+
+
+        // 2. Creating Groups
+        List<G> gs = new ArrayList<>(); // groups
+
+        boolean isG = false; // is making a group
+        int si = 0;
+        int ei = 0;
+
+        for (int i = 0; i < N; i++) {
+            if (!isG) { // NOT group
+                if (ls[i]) { // light on -> start group
+                    si = i;
+                    ei = i;
+                    isG = true;
+                }
+            } else { // IS group
+                if (ls[i]) ei++; // continue group
+                else { // end group
+                    gs.add(new G(si, ei));
+                    isG = false;
+                }
+            }
+        }
+        if (isG) gs.add(new G(si, ei));
+
+        // 3. Dynamic Programming
+        int[] dp = new int[gs.size() + 1]; // best of group and all to right
+        dp[gs.size()] = 0;
+
+        for (int i1 = gs.size() - 1; i1 >= 0; i1--) { // each group
+            G g1 = gs.get(i1);
+
+            dp[i1] = Integer.MAX_VALUE;
+            for (int i2 = i1; i2 < gs.size(); i2++) {
+                G g2 = gs.get(i2);
+                if (g2.r - g1.l <= 6) {
+                    dp[i1] = Math.min(dp[i1], process(g1.l, g2.r, ls) + dp[i2 + 1]);
+                }
+            }
         }
 
-        if (a <= 6 && e >= 2) {
-            System.out.println("VladSaturnian");
-        }
+        // 4. Output
+        System.out.println(dp[0]);
 
-        if (a <= 2 && e <= 3) {
-            System.out.println("GraemeMercurian");
-        }
     }
 
+    static int process(int l, int r, boolean[] ls) {
+        int d = r - l; // range
+
+        int c = 0; // number of OFF lights
+        for (int i = l; i <= r; i++) if (!ls[i]) c++;
+
+        if (d == 0 || d == 1) return 3 - d;
+        if (d == 2) return ls[l + 1] ? 1 : 2;
+        if (d == 3 || d == 4) return c;
+        if (d == 5) { // 6 light case
+            if (ls[l + 2] && ls[l + 3]) {
+                return 4;
+            } else { // good
+                return c;
+            }
+        }
+        if (d == 6) { // 7 light case
+            if (ls[l + 3]) {
+                if (c == 4) return 5;
+                else return 4;
+            } else { // good
+                return c;
+            }
+        }
+        return Integer.MAX_VALUE;
+    }
+
+    static class G {
+
+        int l;
+        int r;
+
+        G(int x, int y) {
+            this.l = x;
+            this.r = y;
+        }
+
+        @Override
+        public boolean equals(Object obj) {
+            G p = (G)obj;
+            return p.l == this.l && p.r == this.r;
+        }
+
+        @Override
+        public String toString() {
+            return "Group (" + this.l + ", " + this.r + ")";
+        }
+
+    }
 
     public static class FastReader {
 

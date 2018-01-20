@@ -1,105 +1,47 @@
-package y2011._j5;
+package _y2011._s1;
 
 import java.io.IOException;
 
 import java.io.DataInputStream;
 import java.io.FileInputStream;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
 
-/* Unfriend 15/15
-Loop through each. At each index
-1. Don't remove it
-2. Remove it
-    only if all the people it invited are being removed
-Add the scenario (W) to Queue, then count
+/* English or French? 15/15
 
  */
 
 public class Main {
-    public static void main(String[] args) throws IOException{
-        FastReader reader = new FastReader();
+    public static void main(String[] args) {
+        try {
+            FastReader reader = new FastReader();
 
-        // --- Input
-        int N = reader.nextInt();
-        P[] b = new P[N + 1]; // people 1 - N
-        b[N] = new P(N, -1);  // mark (N)
+            int num = reader.nextInt();
 
-        for (int i = 1; i < N; i++) {
-            int in = reader.nextInt();
-            // so person i was invited by b
-            if (b[i] == null) {
-                b[i] = new P(i, in);
-            } else { // someone is invited by this person previously
-                b[i].p0 = in;
+            int t = 0;
+            int s = 0;
+
+            for (int i = 0; i < num; i ++) {
+                String line = reader.readLine().toUpperCase();
+                for (Character c : line.toCharArray()) {
+                    if (c.equals('T')) {
+                        t ++;
+                    } else if (c.equals('S')) {
+                        s ++;
+                    }
+                }
             }
-            if (b[in] == null) {
-                b[in] = new P(in, -1);
-            }
-            b[in].ps.add(i);
-        }
-
-        // --- Counting
-        Queue<W> dS = new LinkedList<>();
-        dS.add(new W(new HashSet<>(), 1));
-
-        int c = 0;
-        while (!dS.isEmpty()) {
-            W w = dS.poll();
-
-            if (w.i == N) {
-                c++;
-                continue;
+            if (t > s) {
+                System.out.println("English");
+            } else {
+                System.out.println("French");
             }
 
-            // don't remove, just increment index
-            W k = new W(new HashSet<>(w.r), w.i + 1);
-            dS.add(k);
-
-            // remove, check if all are in
-            P p = b[w.i];
-            if (w.r.containsAll(p.ps)) {
-                // we can remove
-                Set<Integer> t = new HashSet<>(w.r);
-                t.add(p.p1);
-                W x = new W(t, w.i + 1);
-                dS.add(x);
-            }
-        }
-        System.out.println(c);
-    }
-
-    static class W {
-        Set<Integer> r; // being removed already
-        int i; // index we're at
-
-        public W(Set<Integer> r, int i) {
-            this.r = r;
-            this.i = i;
-        }
-
-        @Override
-        public String toString() {
-            return "i: " + i + " Set: " + r.toString();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 
-    static class P {
-
-        int p1; // this person
-        int p0; // this invited by
-        List<Integer> ps; // people invited by this
-
-        public P(int p1, int p0) {
-            this.p1 = p1;
-            this.p0 = p0;
-            this.ps = new ArrayList<>();
-        }
-
-        @Override
-        public String toString() {
-            return "p1:" + p1 + " | p0:" + p0;
-        }
-    }
 
     public static class FastReader {
 
@@ -122,7 +64,7 @@ public class Main {
         }
 
         public String readLine() throws IOException {
-            byte[] buf = new byte[6400]; // line length
+            byte[] buf = new byte[256]; // line length
             int cnt = 0, c;
             while ((c = read()) != -1) {
                 if (c == '\n')

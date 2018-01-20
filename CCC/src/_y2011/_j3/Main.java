@@ -1,38 +1,34 @@
-package y2011._s2;
-
-import java.io.IOException;
+package _y2011._j3;
 
 import java.io.DataInputStream;
 import java.io.FileInputStream;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-/* Multiple Choice 15/15
+/* Sumac Sequences 15/15
 
- */
-
+*/
 public class Main {
-    public static void main(String[] args) {
-        try {
-            FastReader reader = new FastReader();
 
-            int num = reader.nextInt();
-            int correct = 0;
-            String[] student = new String[num];
-            for (int i = 0; i < num; i ++) {
-                student[i] = reader.nextString();
-            }
-            for (int i = 0; i < num; i ++) {
-                if (student[i].equals(reader.nextString())) {
-                    correct ++;
-                }
-            }
-            System.out.println(correct);
+    public static void main(String[] args) throws IOException {
+        String file = "t.txt";
+//        FastReader reader = new FastReader("C:\\Users\\david\\Documents\\Programming\\Java\\DSA-Java\\CCC\\src\\" + "y2011._j3_s1".split(".")[0] + "\\" + "y2011._j3_s1".split(".")[1] + "\\" + "file");
+        FastReader reader = new FastReader();
 
+        int t1 = reader.nextInt();
+        int t2 = reader.nextInt();
+        int t3 = t1 - t2;
 
-        } catch (Exception e) {
-            e.printStackTrace();
+        int c = 2;
+        while (t3 >= 0) {
+            t1 = t2;
+            t2 = t3;
+            t3 = t1 - t2;
+            c++;
         }
+        System.out.println(c);
+
     }
 
 
@@ -57,7 +53,7 @@ public class Main {
         }
 
         public String readLine() throws IOException {
-            byte[] buf = new byte[64]; // line length
+            byte[] buf = new byte[6400]; // line length
             int cnt = 0, c;
             while ((c = read()) != -1) {
                 if (c == '\n')
@@ -279,5 +275,3 @@ public class Main {
 
     }
 }
-
-

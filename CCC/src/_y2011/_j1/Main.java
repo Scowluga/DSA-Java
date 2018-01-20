@@ -1,44 +1,33 @@
-package y2011._s1;
-
-import java.io.IOException;
+package _y2011._j1;
 
 import java.io.DataInputStream;
 import java.io.FileInputStream;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-/* English or French? 15/15
+/* Which Alien? 15/15
 
- */
-
+*/
 public class Main {
-    public static void main(String[] args) {
-        try {
-            FastReader reader = new FastReader();
 
-            int num = reader.nextInt();
+    public static void main(String[] args) throws IOException {
+        String file = "t.txt";
+//        FastReader reader = new FastReader("C:\\Users\\david\\Documents\\Programming\\Java\\DSA-Java\\CCC\\src\\" + "y2011._j1".split(".")[0] + "\\" + "y2011._j1".split(".")[1] + "\\" + "file");
+        FastReader reader = new FastReader();
+        int a = reader.nextInt();
+        int e = reader.nextInt();
 
-            int t = 0;
-            int s = 0;
+        if (a >= 3 && e <= 4) {
+            System.out.println("TroyMartian");
+        }
 
-            for (int i = 0; i < num; i ++) {
-                String line = reader.readLine().toUpperCase();
-                for (Character c : line.toCharArray()) {
-                    if (c.equals('T')) {
-                        t ++;
-                    } else if (c.equals('S')) {
-                        s ++;
-                    }
-                }
-            }
-            if (t > s) {
-                System.out.println("English");
-            } else {
-                System.out.println("French");
-            }
+        if (a <= 6 && e >= 2) {
+            System.out.println("VladSaturnian");
+        }
 
-        } catch (Exception e) {
-            e.printStackTrace();
+        if (a <= 2 && e <= 3) {
+            System.out.println("GraemeMercurian");
         }
     }
 
@@ -64,7 +53,7 @@ public class Main {
         }
 
         public String readLine() throws IOException {
-            byte[] buf = new byte[256]; // line length
+            byte[] buf = new byte[6400]; // line length
             int cnt = 0, c;
             while ((c = read()) != -1) {
                 if (c == '\n')
@@ -286,5 +275,3 @@ public class Main {
 
     }
 }
-
-

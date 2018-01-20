@@ -1,4 +1,4 @@
-package y2011._s5_brute_force;
+package _y2011._s5_brute_force;
 
 import java.io.IOException;
 
