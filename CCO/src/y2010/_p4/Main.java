@@ -1,48 +1,102 @@
-package y2010.p4;
+package y2010._p4;
 
 import java.io.DataInputStream;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
-/* Computer Purchase Return 
- * DP
+/* Computer Purchase Return 10/10tp
+ * DP (Knapsack with types)
 
+Finished typing --> Test case --> AC Submission
+One of the first times I directly AC'd the test case
+Definitely first time complete AC
+
+Read the solution. Straightforward.
 
 */
 public class Main {
 
     static int tn; // # of types
     static int pn; // # of parts
+    static int bn; // $ of budget
 
-    static int[][] ps; // parts
-
-    static int C = 0; // cost
-    static int V = 1; // value
-    static int T = 2; // type
-
-    static int B; // budget
+    static List<P>[] ps; // parts
+    static int[][] memo; // [budget][types]
 
     public static void main(String[] args) throws IOException {
         FastReader reader = new FastReader();
 
+        // > Input
         tn = reader.nextInt();
         pn = reader.nextInt();
 
-        ps = new int[pn][3];
+        ps = new List[tn + 1];
 
+        // initialize lists
+        for (int i = 1; i <= tn; i++) ps[i] = new ArrayList<>();
+
+        // input lists
         for (int i = 0; i < pn; i++) {
-            ps[i][C] = reader.nextInt();
-            ps[i][V] = reader.nextInt();
-            ps[i][T] = reader.nextInt();
+            int c0 = reader.nextInt();
+            int v0 = reader.nextInt();
+            int t0 = reader.nextInt();
+            ps[t0].add(new P(c0, v0));
         }
 
-        B = reader.nextInt();
+        // sort lists
+        for (int i = 1; i <= tn; i++) Collections.sort(ps[i]);
 
+        bn = reader.nextInt();
 
+        // > Create look-up-table
+        memo = new int[bn + 1][tn + 1];
+
+        // initializing to impossible with 0 budget
+        for (int t = 1; t <= tn; t++) {
+            memo[0][t] = -1;
+        }
+
+        for (int t = 1; t <= tn; t++) {
+            for (int b = 1; b <= bn; b++) {
+                int max = memo[b-1][t]; // left value
+                for (int i = 0; i < ps[t].size(); i++) { // each possible part
+                    P p = ps[t].get(i);
+                    if (p.c <= b) {
+                        max = Math.max(max, p.v + memo[b - p.c][t-1]);
+                    } else {
+                        break;
+                    }
+                }
+                memo[b][t] = max;
+            }
+        }
+
+        // > Output
+        System.out.println(memo[bn][tn]);
     }
 
+    static class P implements Comparable<P> { // part
+        int c;
+        int v;
+
+        P(int c0, int v0) {
+            this.c = c0;
+            this.v = v0;
+        }
+
+        @Override
+        public int compareTo(P o) {
+            return Integer.compare(this.c, o.c);
+        }
+
+        @Override
+        public String toString() {
+            return "Part c: " + this.c + " v: " + this.v;
+        }
+    }
 
     public static class FastReader {
 

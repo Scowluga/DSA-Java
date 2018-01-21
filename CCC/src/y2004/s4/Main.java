@@ -7,16 +7,90 @@ import java.util.ArrayList;
 import java.util.List;
 
 /* Space Turtle
+ * Geometry, Implementation (3D grid movement, Ugly)
 
+
+yeah i give up for now... too much effort involved
 */
 public class Main {
 
+    static FastReader reader;
+
+    static int ZB = 0; // down
+    static int ZF = 1; // up
+    static int XB = 2; // back left
+    static int XF = 3; // front left
+    static int YB = 4; // back right
+    static int YF = 5; // front right
+
     public static void main(String[] args) throws IOException {
-        FastReader reader = new FastReader();
+        reader = new FastReader();
+
+        // > SETUP
+        // current coordinates
+        int cx = reader.nextInt();
+        int cy = reader.nextInt();
+        int cz = reader.nextInt();
+
+        // golden shell planet coordinates
+        int px = reader.nextInt();
+        int py = reader.nextInt();
+        int pz = reader.nextInt();
+
+        // space ship top
+        int st = ZF;
+        // space ship front
+        int sf = XF;
+
+        // min distance to planet
+        double min = Math.sqrt(
+            Math.pow(Math.abs(px-cx), 2) +
+            Math.pow(Math.abs(py-cy), 2) +
+            Math.pow(Math.abs(pz-cz), 2)
+        );
+
+        // > SOLVE
+        // move amount
+        int move = reader.nextInt();
+        // direction of turn
+        String turn = reader.nextString();
+        while (!turn.equals("E")) {
+            // move & check distance
 
 
+
+
+            // turn
+            switch(turn) {
+                case "L":
+                    if      (sf == XF) sf = YF;
+                    else if (sf == YF) sf = XB;
+                    else if (sf == XB) sf = YB;
+                    else if (sf == YB) sf = XF;
+                    break;
+                case "R":
+                    if      (sf == XF) sf = YB;
+                    else if (sf == YB) sf = XB;
+                    else if (sf == XB) sf = YF;
+                    else if (sf == YF) sf = XF;
+                    break;
+                case "U":
+
+                    break;
+                case "D":
+
+                    break;
+            }
+
+            move = reader.nextInt();
+            turn = reader.nextString();
+        }
+
+        // do the final move
+
+        // > OUTPUT
+        System.out.println(String.format("%.02d", min));
     }
-
 
     public static class FastReader {
 
