@@ -1,4 +1,4 @@
-package y14._C5_P3;
+package _DMPG_y2017_B5;
 
 import java.io.DataInputStream;
 import java.io.FileInputStream;
@@ -6,55 +6,44 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-/* Golden Lily 10/10pt
- * DP (maze movement, simple)
+/* Hackathons 7/7pt
+ * DP (simple)
 
-Virtually identical to Space Plumber
+Create a memo table of max size. For each index, the max valued
+project is simple Max of it, and the one before.
 
-memo holds cost to get to gold FROM: u, l, r
+To save time, have a max counter.
 
 */
 public class Main {
 
-    static int L;
-    static int D;
-
-    static int ls;
-    static int ds;
-
-    static int[][] g;
-    static long[][][] memo;
-
     public static void main(String[] args) throws IOException {
         FastReader reader = new FastReader();
 
-        L = reader.nextInt();
-        D = reader.nextInt();
+        // > Input
+        int N = reader.nextInt();
+        int[] memo = new int[1000000];
 
-        g = new int[L][D];
-        for (int d = 0; d < D; d++)
-            for (int l = 0; l < L; l++)
-                g[l][d] = reader.nextInt();
-
-        memo = new long[L][D][3];
-        ls = reader.nextInt(); ds = reader.nextInt();
-
-        System.out.println(dp(0, 0, 0));
-    }
-
-    private static long dp(int l, int d, int f) {
-        if (l < 0 || l >= L || d < 0 || d > ds) return Integer.MAX_VALUE;
-        if (l == ls && d == ds) return g[l][d];
-
-        if (memo[l][d][f] == 0) {
-            long min = dp(l, d + 1, 0);
-
-            if (f != 1) min = Math.min(min, dp(l - 1, d, 2));
-            if (f != 2) min = Math.min(min, dp(l + 1, d, 1));
-
-            memo[l][d][f] = g[l][d] + min;
+        int max = 0;
+        for (int n = 0; n < N; n++) {
+            int t = reader.nextInt();
+            int w = reader.nextInt();
+            memo[t] = Math.max(memo[t], w);
+            max = Math.max(max, t);
         }
-        return memo[l][d][f];
+
+        // > Solve
+        for (int t = 1; t <= max; t++) {
+            memo[t] = Math.max(memo[t-1], memo[t]);
+        }
+
+
+        // > Output
+        int Q = reader.nextInt();
+        while (Q-- != 0) {
+            System.out.println(memo[Math.min(reader.nextInt(), max)]);
+        }
+
     }
 
 

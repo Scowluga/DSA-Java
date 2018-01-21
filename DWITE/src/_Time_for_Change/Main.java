@@ -1,65 +1,49 @@
-package y2007._j5;
+package _Time_for_Change;
 
 import java.io.DataInputStream;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
 
-/* Keep on Truckin' 5/5pt
- * DP (Jumping, simple)
+/* Time for Change 7/7pt
+ * DP (jumping, easy)
+
+Same as HSIUNG, but with multiple values
 
 */
 public class Main {
 
-    static int min;
-    static int max;
-
-    static List<Integer> motels;
-    static int[] memo; // motel number: number of ways until end from there
-
-
     public static void main(String[] args) throws IOException {
         FastReader reader = new FastReader();
+        for (int tc = 0; tc < 5; tc++) {
 
-        min = reader.nextInt();
-        max = reader.nextInt();
+            // input
+            int M = reader.nextInt(); // total dispense
+            int N = reader.nextInt(); // # of coins
 
-        int nm = reader.nextInt();
-
-        motels = new ArrayList<>(Arrays.asList(0, 990, 1010, 1970, 2030, 2940, 3060, 3930, 4060, 4970, 5030, 5990, 6010, 7000));
-        for (int i = 0; i < nm; i++) {
-            motels.add(reader.nextInt());
-        }
-        Collections.sort(motels);
-
-        memo = new int[motels.size()];
-
-        System.out.println(recurse(0));
-    }
-
-    static int recurse(int motel) {
-        if (motel == motels.size() - 1) return 1;
-        if (memo[motel] != 0) return memo[motel];
-
-        int count = 0;
-        for (int i = motel + 1; i < motels.size(); i++) {
-            int dist = motels.get(i) - motels.get(motel);
-
-            if (dist < min) {
-                // nothing
-            } else if (dist > max) {
-                break;
-            } else {
-                count += recurse(i);
+            int[] cs = new int[N];
+            int[] dp = new int[M + 1];
+            for (int i = 0; i < N; i++) {
+                cs[i] = reader.nextInt();
+                dp[cs[i]] = 1;
             }
 
-        }
+            // solve
+            for (int i = 1; i < M; i++) { // each index
+                if (dp[i] > 0) { // reachable
+                    for (int j = 0; j < cs.length; j++) { // each coin
+                        if (i + cs[j] <= M) {
+                            if (dp[i + cs[j]] == 0) dp[i + cs[j]] = dp[i] + 1;
+                            else dp[i + cs[j]] = Math.min(dp[i + cs[j]], dp[i] + 1);
+                        }
+                    }
+                }
+            }
 
-        memo[motel] = count;
-        return count;
+            // output
+            System.out.println(dp[M]);
+        }
     }
 
 

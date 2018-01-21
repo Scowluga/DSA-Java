@@ -6,7 +6,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-/* Candy
+/* Candy 15pt
  * DP (Knapsack)
 
 */

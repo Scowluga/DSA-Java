@@ -1,65 +1,34 @@
-package y2007._j5;
+package y2013.c1.p4;
 
 import java.io.DataInputStream;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
 
-/* Keep on Truckin' 5/5pt
- * DP (Jumping, simple)
+/* AFK
 
 */
 public class Main {
 
-    static int min;
-    static int max;
-
-    static List<Integer> motels;
-    static int[] memo; // motel number: number of ways until end from there
-
-
     public static void main(String[] args) throws IOException {
+        String file = "t.txt";
+//        FastReader reader = new FastReader("C:\\Users\\david\\Documents\\Programming\\Java\\DSA-Java\\CCC\\src\\" + "y13.c1.p4".split(".")[0] + "\\" + "y13.c1.p4".split(".")[1] + "\\" + "file");
         FastReader reader = new FastReader();
 
-        min = reader.nextInt();
-        max = reader.nextInt();
+        int t = reader.nextInt();
+        for (int tt = 0; tt < t; tt++) {
+            int xT = reader.nextInt();
+            int yT = reader.nextInt();
 
-        int nm = reader.nextInt();
+            String[][] b = new String[xT][yT];
 
-        motels = new ArrayList<>(Arrays.asList(0, 990, 1010, 1970, 2030, 2940, 3060, 3930, 4060, 4970, 5030, 5990, 6010, 7000));
-        for (int i = 0; i < nm; i++) {
-            motels.add(reader.nextInt());
-        }
-        Collections.sort(motels);
-
-        memo = new int[motels.size()];
-
-        System.out.println(recurse(0));
-    }
-
-    static int recurse(int motel) {
-        if (motel == motels.size() - 1) return 1;
-        if (memo[motel] != 0) return memo[motel];
-
-        int count = 0;
-        for (int i = motel + 1; i < motels.size(); i++) {
-            int dist = motels.get(i) - motels.get(motel);
-
-            if (dist < min) {
-                // nothing
-            } else if (dist > max) {
-                break;
-            } else {
-                count += recurse(i);
+            for (int i = 0; i < yT; i++) {
+                b[i] = reader.readLine().split("");
             }
 
-        }
 
-        memo[motel] = count;
-        return count;
+        }
     }
 
 

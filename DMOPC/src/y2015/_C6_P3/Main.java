@@ -1,65 +1,70 @@
-package y2007._j5;
+package y2015._C6_P3;
 
 import java.io.DataInputStream;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
 
-/* Keep on Truckin' 5/5pt
- * DP (Jumping, simple)
+/* Harvest 7/7pt
+ * DP (Difference Array --> Prefix Sum)
+
+Data structures solve this problem.
 
 */
 public class Main {
 
-    static int min;
-    static int max;
-
-    static List<Integer> motels;
-    static int[] memo; // motel number: number of ways until end from there
-
-
     public static void main(String[] args) throws IOException {
         FastReader reader = new FastReader();
 
-        min = reader.nextInt();
-        max = reader.nextInt();
+        int NR = reader.nextInt();  // rows
+        int NC = reader.nextInt();  // columns
+        long K = reader.nextLong(); // required potatoes
 
-        int nm = reader.nextInt();
+        if (K == 0) {System.out.println(0); return;}
 
-        motels = new ArrayList<>(Arrays.asList(0, 990, 1010, 1970, 2030, 2940, 3060, 3930, 4060, 4970, 5030, 5990, 6010, 7000));
-        for (int i = 0; i < nm; i++) {
-            motels.add(reader.nextInt());
+        // creating difference array
+        int[] da = new int[NR + 1];
+        for (int i = 0; i < NC; i++) {
+            da[0]++;
+            da[reader.nextInt() - 1]--;
+            da[reader.nextInt()]++;
         }
-        Collections.sort(motels);
 
-        memo = new int[motels.size()];
-
-        System.out.println(recurse(0));
-    }
-
-    static int recurse(int motel) {
-        if (motel == motels.size() - 1) return 1;
-        if (memo[motel] != 0) return memo[motel];
-
+        // difference array --> prefix sum array
+        long[] psa = new long[NR+1];
         int count = 0;
-        for (int i = motel + 1; i < motels.size(); i++) {
-            int dist = motels.get(i) - motels.get(motel);
-
-            if (dist < min) {
-                // nothing
-            } else if (dist > max) {
-                break;
-            } else {
-                count += recurse(i);
-            }
-
+        for(int i=1;i<=NR;i++) {
+            count += da[i - 1];
+            psa[i] = psa[i - 1] + count;
         }
 
-        memo[motel] = count;
-        return count;
+        // > SOLVING
+
+        // Check for impossible
+        if (psa[NR] < K) {
+            System.out.println(-1);
+            return;
+        }
+
+        // find first index
+        int r1 = 1;
+        int r2 = 0;
+        while (psa[r2] < K) {
+            r2++;
+        }
+
+        int min = r2 - r1 + 1;
+
+        // double pointer approach
+        while (++r2 <= NR) {
+            while (psa[r2] - psa[r1 - 1] >= K) {
+                r1++;
+            }
+            min = Math.min(min, r2 - r1 + 2);
+        }
+
+        System.out.println(min);
     }
 
 

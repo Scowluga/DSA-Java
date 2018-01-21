@@ -1,4 +1,4 @@
-package y13.c1.p4;
+package y2014._C5_P3;
 
 import java.io.DataInputStream;
 import java.io.FileInputStream;
@@ -6,29 +6,55 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-/* AFK
+/* Golden Lily 10/10pt
+ * DP (maze movement, simple)
+
+Virtually identical to Space Plumber
+
+memo holds cost to get to gold FROM: u, l, r
 
 */
 public class Main {
 
+    static int L;
+    static int D;
+
+    static int ls;
+    static int ds;
+
+    static int[][] g;
+    static long[][][] memo;
+
     public static void main(String[] args) throws IOException {
-        String file = "t.txt";
-//        FastReader reader = new FastReader("C:\\Users\\david\\Documents\\Programming\\Java\\DSA-Java\\CCC\\src\\" + "y13.c1.p4".split(".")[0] + "\\" + "y13.c1.p4".split(".")[1] + "\\" + "file");
         FastReader reader = new FastReader();
 
-        int t = reader.nextInt();
-        for (int tt = 0; tt < t; tt++) {
-            int xT = reader.nextInt();
-            int yT = reader.nextInt();
+        L = reader.nextInt();
+        D = reader.nextInt();
 
-            String[][] b = new String[xT][yT];
+        g = new int[L][D];
+        for (int d = 0; d < D; d++)
+            for (int l = 0; l < L; l++)
+                g[l][d] = reader.nextInt();
 
-            for (int i = 0; i < yT; i++) {
-                b[i] = reader.readLine().split("");
-            }
+        memo = new long[L][D][3];
+        ls = reader.nextInt(); ds = reader.nextInt();
 
+        System.out.println(dp(0, 0, 0));
+    }
 
+    private static long dp(int l, int d, int f) {
+        if (l < 0 || l >= L || d < 0 || d > ds) return Integer.MAX_VALUE;
+        if (l == ls && d == ds) return g[l][d];
+
+        if (memo[l][d][f] == 0) {
+            long min = dp(l, d + 1, 0);
+
+            if (f != 1) min = Math.min(min, dp(l - 1, d, 2));
+            if (f != 2) min = Math.min(min, dp(l + 1, d, 1));
+
+            memo[l][d][f] = g[l][d] + min;
         }
+        return memo[l][d][f];
     }
 
 
