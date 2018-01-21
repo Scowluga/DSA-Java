@@ -1,13 +1,14 @@
-package y2014.p1;
+package y2014._p1;
 
 import java.io.*;
-import java.util.ArrayList;
-import java.util.List;
 
 /* Troyangles 10/10pt
  * DP (logic, not too bad)
 
+Essentially, store in dp the number of triangles that this is the TOP of.
+To calculate this, take the min of the 3 below it.
 
+Not too bad, just need to think of this sub-problem.
 
 */
 public class Main {
