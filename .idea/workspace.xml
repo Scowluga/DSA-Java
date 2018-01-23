@@ -2,48 +2,26 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1fefd6f2-b2c1-40d8-bd6c-e791a02392f4" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/DMOJ/src/GFSSOC/y2017_j5/Main.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/TLE/src/y2016/C6_Mock_CCC_Junior/_j5_dp/Main.java" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/O/CCO.iml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/O/CCOO.iml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/O/src/y2008/p5/Main.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/DMOJ/DMPG_y2017_B5/Main$FastReader.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/DMOJ/DMPG_y2017_B5/Main.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/DMOJ/MockJunior/j1/Main$FastReader.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/DMOJ/MockJunior/j1/Main.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/DMOJ/MockJunior/j3/Main$FastReader.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/DMOJ/MockJunior/j3/Main.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/DMOJ/MockJunior/j4/Main$FastReader.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/DMOJ/MockJunior/j4/Main$Line.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/DMOJ/MockJunior/j4/Main.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/DMOJ/MockJunior/j5one/Main$FastReader.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/DMOJ/MockJunior/j5one/Main$Plan.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/DMOJ/MockJunior/j5one/Main.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/DMOJ/MockJunior/j5two/Main$FastReader.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/DMOJ/MockJunior/j5two/Main.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/DMOJ/MockSenior/s1/Main$FastReader.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/DMOJ/MockSenior/s1/Main.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/DMOJ/MockSenior/s2/Main$FastReader.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/DMOJ/MockSenior/s2/Main.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/DMOJ/MockSenior/s3/Main$FastReader.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/DMOJ/MockSenior/s3/Main$Fox.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/DMOJ/MockSenior/s3/Main$House.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/DMOJ/MockSenior/s3/Main.class" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/CCO/CCO.iml" afterPath="$PROJECT_DIR$/IOI/IOI.iml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/CCO/src/y2005/_p5/Main.java" afterPath="$PROJECT_DIR$/CCOO/src/y2005/_p5/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/CCO/src/y2010/_p4/Main.java" afterPath="$PROJECT_DIR$/CCOO/src/y2010/_p4/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/CCO/src/y2014/_p1/Main.java" afterPath="$PROJECT_DIR$/CCOO/src/y2014/_p1/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/DMOJ/src/MockJunior/j1/Main.java" afterPath="$PROJECT_DIR$/TLE/src/y2016/C6_Mock_CCC_Junior/j1/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/DMOJ/src/MockJunior/j3/Main.java" afterPath="$PROJECT_DIR$/TLE/src/y2016/C6_Mock_CCC_Junior/j3/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/DMOJ/src/MockJunior/j4/Main.java" afterPath="$PROJECT_DIR$/TLE/src/y2016/C6_Mock_CCC_Junior/j4/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/DMOJ/src/MockJunior/j5one/Main.java" afterPath="$PROJECT_DIR$/TLE/src/y2016/C6_Mock_CCC_Junior/j5one/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/DMOJ/src/MockJunior/j5two/Main.java" afterPath="$PROJECT_DIR$/TLE/src/y2016/C6_Mock_CCC_Junior/j5two/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/DMOJ/src/MockSenior/s1/Main.java" afterPath="$PROJECT_DIR$/TLE/src/y2016/C6_Mock_CCC_Senior/s1/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/DMOJ/src/MockSenior/s2/Main.java" afterPath="$PROJECT_DIR$/TLE/src/y2016/C6_Mock_CCC_Senior/s2/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/DMOJ/src/MockSenior/s3/Main.java" afterPath="$PROJECT_DIR$/TLE/src/y2016/C6_Mock_CCC_Senior/s3/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/IOI_1994/src/_p1/Main.java" afterPath="$PROJECT_DIR$/IOI/src/_y1994_p1/Main.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/AAA/src/Winning_at_Sports/Main.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/CCC/src/y2008/_s5/Main.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/CCO/CCO.iml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/DMOJ/src/_Boolean/Main.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/IOI/src/_y2000_p1/Main.java" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/DMOJ/GFSSOC/y2017_j5/Main$FastReader.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/DMOJ/GFSSOC/y2017_j5/Main$P.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/DMOJ/GFSSOC/y2017_j5/Main.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/IOI/y1994_p1.class" afterPath="" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/CCOO/CCOO.iml" afterPath="$PROJECT_DIR$/AAA/AAA.iml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/CCOO/src/y2005/_p5/Main.java" afterPath="$PROJECT_DIR$/CCO/src/y2005/_p5/Main.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/CCOO/src/y2008/p5/Main.java" afterPath="$PROJECT_DIR$/CCO/src/y2008/p5/Main.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/CCOO/src/y2010/_p4/Main.java" afterPath="$PROJECT_DIR$/CCO/src/y2010/_p4/Main.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/CCOO/src/y2014/_p1/Main.java" afterPath="$PROJECT_DIR$/CCO/src/y2014/_p1/Main.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/DMOJ/src/GFSSOC/y2017_j5/Main.java" afterPath="$PROJECT_DIR$/DMOJ/src/GFSSOC/_y2017_j5/Main.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/CCC/y2004/s4/Main$FastReader.class" afterPath="$PROJECT_DIR$/out/production/CCC/y2004/s4/Main$FastReader.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/CCC/y2004/s4/Main.class" afterPath="$PROJECT_DIR$/out/production/CCC/y2004/s4/Main.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IOI/src/_y1994_p1/Main.java" afterPath="$PROJECT_DIR$/IOI/src/_y1994_p1/Main.java" />
     </list>
     <ignored path="DSA-Java.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -74,20 +52,7 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/CCC/src/y2014/s5/Main.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
-              <caret line="18" column="30" lean-forward="false" selection-start-line="18" selection-start-column="30" selection-end-line="18" selection-end-column="30" />
-              <folding>
-                <element signature="class#P#0;class#Main#0" expanded="false" />
-                <element signature="class#FastReader#0;class#Main#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/CCOO/src/y2008/p5/Main.java">
+        <entry file="file://$PROJECT_DIR$/CCO/src/y2008/p5/Main.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="460">
               <caret line="24" column="0" lean-forward="false" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
@@ -99,28 +64,12 @@
         </entry>
       </file>
       <file leaf-file-name="Main.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/DMOJ/src/GFSSOC/y2017_j5/Main.java">
+        <entry file="file://$PROJECT_DIR$/AAA/src/Winning_at_Sports/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="763">
-              <caret line="45" column="33" lean-forward="false" selection-start-line="45" selection-start-column="33" selection-end-line="45" selection-end-column="33" />
+            <state relative-caret-position="115">
+              <caret line="9" column="27" lean-forward="false" selection-start-line="9" selection-start-column="27" selection-end-line="9" selection-end-column="27" />
               <folding>
-                <element signature="e#2789#2790#0" expanded="true" />
-                <element signature="e#2875#2876#0" expanded="true" />
-                <element signature="e#2930#2931#0" expanded="true" />
-                <element signature="e#2989#2990#0" expanded="true" />
                 <element signature="class#FastReader#0;class#Main#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MathLibrary.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/NOTES/src/Utilities/MathLibrary.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="657">
-              <caret line="102" column="4" lean-forward="false" selection-start-line="102" selection-start-column="4" selection-end-line="126" selection-end-column="5" />
-              <folding>
-                <element signature="class#P#0;class#MathLibrary#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -152,19 +101,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/IOI/src/Main.java" />
-        <option value="$PROJECT_DIR$/IOI/src/y1994_p1/Main.java" />
-        <option value="$PROJECT_DIR$/DWITE/src/_Escape_and_Loot.java" />
-        <option value="$PROJECT_DIR$/IOI_1994/src/p1/Main.java" />
-        <option value="$PROJECT_DIR$/IOI_1994/src/_p1/Main.java" />
-        <option value="$PROJECT_DIR$/DMOJ/src/HSIUNG.java" />
-        <option value="$PROJECT_DIR$/DMOJ/src/HSIUNG/HSIUNG.java" />
-        <option value="$PROJECT_DIR$/DMOJ/src/HSIUNG/Main.java" />
-        <option value="$PROJECT_DIR$/DMOJ/src/_HSIUNG/Main.java" />
-        <option value="$PROJECT_DIR$/DMOJ/src/ICPC_PACNW_2016_A/Main.java" />
-        <option value="$PROJECT_DIR$/DMOJ/src/LCS/Main.java" />
-        <option value="$PROJECT_DIR$/DMOJ/src/_ICPC_PACNW_2016_A/Main.java" />
-        <option value="$PROJECT_DIR$/DMOJ/src/_LCS/Main.java" />
         <option value="$PROJECT_DIR$/DMOJ/src/VM7WC_y2016_q2_Silver/Main.java" />
         <option value="$PROJECT_DIR$/DMOJ/src/_VM7WC_y2016_q2_Silver/Main.java" />
         <option value="$PROJECT_DIR$/DMOJ/src/VM7WC_y2016_q5_Silver/Main.java" />
@@ -202,16 +138,29 @@
         <option value="$PROJECT_DIR$/TLE/src/y2016/C6_Mock_CCC_Junior/j5_dp/Main.java" />
         <option value="$PROJECT_DIR$/TLE/src/y2016/C6_Mock_CCC_Junior/_j5_dp/Main.java" />
         <option value="$PROJECT_DIR$/CCO/src/y2008/p5/Main.java" />
+        <option value="$PROJECT_DIR$/IOI/src/y2000_p1/Main.java" />
+        <option value="$PROJECT_DIR$/IOI/src/_y2000_p1/Main.java" />
+        <option value="$PROJECT_DIR$/IOI/src/_y1994_p1/Main.java" />
+        <option value="$PROJECT_DIR$/CCC/src/s5/Main.java" />
+        <option value="$PROJECT_DIR$/AAA/src/s5/Main.java" />
+        <option value="$PROJECT_DIR$/CCC/src/y2008/s5/Main.java" />
+        <option value="$PROJECT_DIR$/CCC/src/y2008/_s5/Main.java" />
         <option value="$PROJECT_DIR$/DMOJ/src/GFSSOC/y2017_j5/Main.java" />
+        <option value="$PROJECT_DIR$/DMOJ/src/GFSSOC/_y2017_j5/Main.java" />
+        <option value="$PROJECT_DIR$/DMOJ/src/Boolean/Main.java" />
+        <option value="$PROJECT_DIR$/DMOJ/src/_Boolean/Main.java" />
+        <option value="$PROJECT_DIR$/DWITE/src/Running_In_Circles/Main.java" />
+        <option value="$PROJECT_DIR$/DWITE/src/Main.java" />
+        <option value="$PROJECT_DIR$/AAA/src/Winning_at_Sports/Main.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="134" />
-    <option name="width" value="1450" />
-    <option name="height" value="2012" />
+    <option name="x" value="67" />
+    <option name="width" value="725" />
+    <option name="height" value="1006" />
   </component>
-  <component name="ProjectLevelVcsManager">
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
   </component>
   <component name="ProjectView">
@@ -230,13 +179,23 @@
     </navigator>
     <panes>
       <pane id="Scratches" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
               <item name="DSA-Java" type="b2602c69:ProjectViewProjectNode" />
               <item name="DSA-Java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="DSA-Java" type="b2602c69:ProjectViewProjectNode" />
+              <item name="DSA-Java" type="462c0819:PsiDirectoryNode" />
+              <item name="AAA" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="DSA-Java" type="b2602c69:ProjectViewProjectNode" />
+              <item name="DSA-Java" type="462c0819:PsiDirectoryNode" />
+              <item name="AAA" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="DSA-Java" type="b2602c69:ProjectViewProjectNode" />
@@ -323,6 +282,21 @@
               <item name="DSA-Java" type="462c0819:PsiDirectoryNode" />
               <item name="CCC" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="y2008" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="DSA-Java" type="b2602c69:ProjectViewProjectNode" />
+              <item name="DSA-Java" type="462c0819:PsiDirectoryNode" />
+              <item name="CCC" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="y2008" type="462c0819:PsiDirectoryNode" />
+              <item name="_s5" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="DSA-Java" type="b2602c69:ProjectViewProjectNode" />
+              <item name="DSA-Java" type="462c0819:PsiDirectoryNode" />
+              <item name="CCC" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="y2010" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -380,32 +354,32 @@
             <path>
               <item name="DSA-Java" type="b2602c69:ProjectViewProjectNode" />
               <item name="DSA-Java" type="462c0819:PsiDirectoryNode" />
-              <item name="CCOO" type="462c0819:PsiDirectoryNode" />
+              <item name="CCO" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="DSA-Java" type="b2602c69:ProjectViewProjectNode" />
               <item name="DSA-Java" type="462c0819:PsiDirectoryNode" />
-              <item name="CCOO" type="462c0819:PsiDirectoryNode" />
+              <item name="CCO" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="DSA-Java" type="b2602c69:ProjectViewProjectNode" />
               <item name="DSA-Java" type="462c0819:PsiDirectoryNode" />
-              <item name="CCOO" type="462c0819:PsiDirectoryNode" />
+              <item name="CCO" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="y2005" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="DSA-Java" type="b2602c69:ProjectViewProjectNode" />
               <item name="DSA-Java" type="462c0819:PsiDirectoryNode" />
-              <item name="CCOO" type="462c0819:PsiDirectoryNode" />
+              <item name="CCO" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="y2008" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="DSA-Java" type="b2602c69:ProjectViewProjectNode" />
               <item name="DSA-Java" type="462c0819:PsiDirectoryNode" />
-              <item name="CCOO" type="462c0819:PsiDirectoryNode" />
+              <item name="CCO" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="y2008" type="462c0819:PsiDirectoryNode" />
               <item name="p5" type="462c0819:PsiDirectoryNode" />
@@ -413,14 +387,14 @@
             <path>
               <item name="DSA-Java" type="b2602c69:ProjectViewProjectNode" />
               <item name="DSA-Java" type="462c0819:PsiDirectoryNode" />
-              <item name="CCOO" type="462c0819:PsiDirectoryNode" />
+              <item name="CCO" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="y2010" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="DSA-Java" type="b2602c69:ProjectViewProjectNode" />
               <item name="DSA-Java" type="462c0819:PsiDirectoryNode" />
-              <item name="CCOO" type="462c0819:PsiDirectoryNode" />
+              <item name="CCO" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="y2014" type="462c0819:PsiDirectoryNode" />
             </path>
@@ -455,6 +429,13 @@
               <item name="DMOJ" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="_ICPC_PACNW_2016_H" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="DSA-Java" type="b2602c69:ProjectViewProjectNode" />
+              <item name="DSA-Java" type="462c0819:PsiDirectoryNode" />
+              <item name="DMOJ" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="_LCS" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="DSA-Java" type="b2602c69:ProjectViewProjectNode" />
@@ -530,6 +511,13 @@
               <item name="IOI" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="_y1994_p1" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="DSA-Java" type="b2602c69:ProjectViewProjectNode" />
+              <item name="DSA-Java" type="462c0819:PsiDirectoryNode" />
+              <item name="IOI" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="_y2000_p1" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="DSA-Java" type="b2602c69:ProjectViewProjectNode" />
@@ -627,30 +615,33 @@
         <option name="use-file-nesting-rules" value="false" />
       </pane>
       <pane id="AndroidView" />
+      <pane id="Scope" />
       <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$USER_HOME$/AppData/Local/GitHubDesktop/app-1.0.11/resources/app/git/mingw64/bin/git.exe" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/AAA/src" />
     <property name="settings.editor.selected.configurable" value="http.certificates" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.splitter.proportion" value="0.18291761" />
+    <property name="last_directory_selection" value="$PROJECT_DIR$/CCC/src" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
-      <recent name="" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\david\Documents\Programming\Java\DSA-Java\CCC\src\y2016\s3" />
-    </key>
-    <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="y2007._s5_better_dp" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/NOTES/src" />
       <recent name="$PROJECT_DIR$/DMOJ" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="s5" />
+      <recent name="y2007._s5_better_dp" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\david\Documents\Programming\Java\DSA-Java\CCC\src\y2016\s3" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -665,7 +656,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.Main (2)">
+  <component name="RunManager" selected="Application.Main (4)">
     <configuration name="Main (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
@@ -688,11 +679,11 @@
     <configuration name="Main (2)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
-          <option name="PATTERN" value="GFSSOC.y2017_j5.*" />
+          <option name="PATTERN" value="Running_In_Circles.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="MAIN_CLASS_NAME" value="GFSSOC.y2017_j5.Main" />
+      <option name="MAIN_CLASS_NAME" value="Running_In_Circles.Main" />
       <option name="VM_PARAMETERS" />
       <option name="PROGRAM_PARAMETERS" />
       <option name="WORKING_DIRECTORY" />
@@ -701,7 +692,40 @@
       <option name="ENABLE_SWING_INSPECTOR" value="false" />
       <option name="ENV_VARIABLES" />
       <option name="PASS_PARENT_ENVS" value="true" />
-      <module name="DMOJ" />
+      <module name="DWITE" />
+      <envs />
+    </configuration>
+    <configuration name="Main (3)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="MAIN_CLASS_NAME" value="Main" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="DWITE" />
+      <envs />
+    </configuration>
+    <configuration name="Main (4)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="Winning_at_Sports.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="MAIN_CLASS_NAME" value="Winning_at_Sports.Main" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="AAA" />
       <envs />
     </configuration>
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
@@ -721,311 +745,6 @@
       <option name="ENV_VARIABLES" />
       <option name="PASS_PARENT_ENVS" value="true" />
       <module name="DMOJ" />
-      <envs />
-    </configuration>
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
-        <pattern>
-          <option name="PATTERN" value="y1998._s4.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="MAIN_CLASS_NAME" value="y1998._s4.Main" />
-      <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" />
-      <option name="WORKING_DIRECTORY" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="ENABLE_SWING_INSPECTOR" value="false" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <module name="CCC" />
-      <envs />
-    </configuration>
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
-        <pattern>
-          <option name="PATTERN" value="y2009._s2.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="MAIN_CLASS_NAME" value="y2009._s2.Main" />
-      <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" />
-      <option name="WORKING_DIRECTORY" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="ENABLE_SWING_INSPECTOR" value="false" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <module name="CCC" />
-      <envs />
-    </configuration>
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
-        <pattern>
-          <option name="PATTERN" value="_y2001._j5_s3.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="MAIN_CLASS_NAME" value="_y2001._j5_s3.Main" />
-      <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" />
-      <option name="WORKING_DIRECTORY" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="ENABLE_SWING_INSPECTOR" value="false" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <module name="CCC" />
-      <envs />
-    </configuration>
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
-        <pattern>
-          <option name="PATTERN" value="y2016.s4_recursive.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="MAIN_CLASS_NAME" value="y2016.s4_recursive.Main" />
-      <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" />
-      <option name="WORKING_DIRECTORY" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="ENABLE_SWING_INSPECTOR" value="false" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <module name="CCC" />
-      <envs />
-    </configuration>
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
-        <pattern>
-          <option name="PATTERN" value="y2001._j2.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="MAIN_CLASS_NAME" value="y2001._j2.Main" />
-      <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" />
-      <option name="WORKING_DIRECTORY" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="ENABLE_SWING_INSPECTOR" value="false" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <module name="CCC" />
-      <envs />
-    </configuration>
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
-        <pattern>
-          <option name="PATTERN" value="y2016._s4_bottom_up.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="MAIN_CLASS_NAME" value="y2016._s4_bottom_up.Main" />
-      <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" />
-      <option name="WORKING_DIRECTORY" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="ENABLE_SWING_INSPECTOR" value="false" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <module name="CCC" />
-      <envs />
-    </configuration>
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
-        <pattern>
-          <option name="PATTERN" value="y2004.s5_bruteforce_tle.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="MAIN_CLASS_NAME" value="y2004.s5_bruteforce_tle.Main" />
-      <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" />
-      <option name="WORKING_DIRECTORY" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="ENABLE_SWING_INSPECTOR" value="false" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <module name="CCC" />
-      <envs />
-    </configuration>
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
-        <pattern>
-          <option name="PATTERN" value="y1999._s4_bfs.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="MAIN_CLASS_NAME" value="y1999._s4_bfs.Main" />
-      <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" />
-      <option name="WORKING_DIRECTORY" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="ENABLE_SWING_INSPECTOR" value="false" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <module name="CCC" />
-      <envs />
-    </configuration>
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
-        <pattern>
-          <option name="PATTERN" value="y2000._j5.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="MAIN_CLASS_NAME" value="y2000._j5.Main" />
-      <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" />
-      <option name="WORKING_DIRECTORY" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="ENABLE_SWING_INSPECTOR" value="false" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <module name="CCC" />
-      <envs />
-    </configuration>
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
-        <pattern>
-          <option name="PATTERN" value="y2004._s2.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="MAIN_CLASS_NAME" value="y2004._s2.Main" />
-      <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" />
-      <option name="WORKING_DIRECTORY" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="ENABLE_SWING_INSPECTOR" value="false" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <module name="CCC" />
-      <envs />
-    </configuration>
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
-        <pattern>
-          <option name="PATTERN" value="y2004._j5.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="MAIN_CLASS_NAME" value="y2004._j5.Main" />
-      <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" />
-      <option name="WORKING_DIRECTORY" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="ENABLE_SWING_INSPECTOR" value="false" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <module name="CCC" />
-      <envs />
-    </configuration>
-    <configuration default="false" name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
-        <pattern>
-          <option name="PATTERN" value="boardwide.q3.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="MAIN_CLASS_NAME" value="boardwide.q3.Main" />
-      <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" />
-      <option name="WORKING_DIRECTORY" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="ENABLE_SWING_INSPECTOR" value="false" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <module name="ECOO" />
-      <envs />
-      <method />
-    </configuration>
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
-        <pattern>
-          <option name="PATTERN" value="y2010._s2.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="MAIN_CLASS_NAME" value="y2010._s2.Main" />
-      <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" />
-      <option name="WORKING_DIRECTORY" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="ENABLE_SWING_INSPECTOR" value="false" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <module name="CCC" />
-      <envs />
-    </configuration>
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
-        <pattern>
-          <option name="PATTERN" value="y2001._j4_s2_bad.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="MAIN_CLASS_NAME" value="y2001._j4_s2_bad.Main" />
-      <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" />
-      <option name="WORKING_DIRECTORY" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="ENABLE_SWING_INSPECTOR" value="false" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <module name="CCC" />
-      <envs />
-    </configuration>
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
-        <pattern>
-          <option name="PATTERN" value="y2004._j1.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="MAIN_CLASS_NAME" value="y2004._j1.Main" />
-      <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" />
-      <option name="WORKING_DIRECTORY" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="ENABLE_SWING_INSPECTOR" value="false" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <module name="CCC" />
-      <envs />
-    </configuration>
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
-        <pattern>
-          <option name="PATTERN" value="y2000._s4.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="MAIN_CLASS_NAME" value="y2000._s4.Main" />
-      <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" />
-      <option name="WORKING_DIRECTORY" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="ENABLE_SWING_INSPECTOR" value="false" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <module name="CCC" />
       <envs />
     </configuration>
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
@@ -1055,6 +774,25 @@
         </pattern>
       </extension>
       <option name="MAIN_CLASS_NAME" value="y2010._j5.Main" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="CCC" />
+      <envs />
+    </configuration>
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="y1998._s4.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="MAIN_CLASS_NAME" value="y1998._s4.Main" />
       <option name="VM_PARAMETERS" />
       <option name="PROGRAM_PARAMETERS" />
       <option name="WORKING_DIRECTORY" />
@@ -1202,6 +940,25 @@
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
+          <option name="PATTERN" value="y2000._j5.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="MAIN_CLASS_NAME" value="y2000._j5.Main" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="CCC" />
+      <envs />
+    </configuration>
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
           <option name="PATTERN" value="y2012.j5_s4.*" />
           <option name="ENABLED" value="true" />
         </pattern>
@@ -1245,6 +1002,25 @@
         </pattern>
       </extension>
       <option name="MAIN_CLASS_NAME" value="y2015._s3.Main" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="CCC" />
+      <envs />
+    </configuration>
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="y2009._s2.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="MAIN_CLASS_NAME" value="y2009._s2.Main" />
       <option name="VM_PARAMETERS" />
       <option name="PROGRAM_PARAMETERS" />
       <option name="WORKING_DIRECTORY" />
@@ -1366,6 +1142,25 @@
       <envs />
     </configuration>
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="y2004._s2.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="MAIN_CLASS_NAME" value="y2004._s2.Main" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="CCC" />
+      <envs />
+    </configuration>
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <option name="MAIN_CLASS_NAME" value="_HSIUNG.Main" />
       <option name="VM_PARAMETERS" />
@@ -1425,6 +1220,25 @@
         </pattern>
       </extension>
       <option name="MAIN_CLASS_NAME" value="y2012._s5.Main" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="CCC" />
+      <envs />
+    </configuration>
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="_y2001._j5_s3.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="MAIN_CLASS_NAME" value="_y2001._j5_s3.Main" />
       <option name="VM_PARAMETERS" />
       <option name="PROGRAM_PARAMETERS" />
       <option name="WORKING_DIRECTORY" />
@@ -1534,6 +1348,25 @@
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
+          <option name="PATTERN" value="y2004._j5.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="MAIN_CLASS_NAME" value="y2004._j5.Main" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="CCC" />
+      <envs />
+    </configuration>
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
           <option name="PATTERN" value="y2002._j2.*" />
           <option name="ENABLED" value="true" />
         </pattern>
@@ -1629,6 +1462,25 @@
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
+          <option name="PATTERN" value="y2016.s4_recursive.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="MAIN_CLASS_NAME" value="y2016.s4_recursive.Main" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="CCC" />
+      <envs />
+    </configuration>
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
           <option name="PATTERN" value="y14._C5_P3.*" />
           <option name="ENABLED" value="true" />
         </pattern>
@@ -1701,6 +1553,26 @@
       <option name="PASS_PARENT_ENVS" value="true" />
       <module name="CCO" />
       <envs />
+    </configuration>
+    <configuration default="false" name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="boardwide.q3.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="MAIN_CLASS_NAME" value="boardwide.q3.Main" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="ECOO" />
+      <envs />
+      <method />
     </configuration>
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
@@ -1819,6 +1691,25 @@
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
+          <option name="PATTERN" value="y2001._j2.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="MAIN_CLASS_NAME" value="y2001._j2.Main" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="CCC" />
+      <envs />
+    </configuration>
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
           <option name="PATTERN" value="y2004._j4.*" />
           <option name="ENABLED" value="true" />
         </pattern>
@@ -1876,6 +1767,25 @@
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
+          <option name="PATTERN" value="y2010._s2.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="MAIN_CLASS_NAME" value="y2010._s2.Main" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="CCC" />
+      <envs />
+    </configuration>
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
           <option name="PATTERN" value="y2017.c3.p3.*" />
           <option name="ENABLED" value="true" />
         </pattern>
@@ -1909,6 +1819,215 @@
       <option name="ENV_VARIABLES" />
       <option name="PASS_PARENT_ENVS" value="true" />
       <module name="CCC" />
+      <envs />
+    </configuration>
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="y2016._s4_bottom_up.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="MAIN_CLASS_NAME" value="y2016._s4_bottom_up.Main" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="CCC" />
+      <envs />
+    </configuration>
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="y2004.s5_bruteforce_tle.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="MAIN_CLASS_NAME" value="y2004.s5_bruteforce_tle.Main" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="CCC" />
+      <envs />
+    </configuration>
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="y1999._s4_bfs.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="MAIN_CLASS_NAME" value="y1999._s4_bfs.Main" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="CCC" />
+      <envs />
+    </configuration>
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="y2001._j4_s2_bad.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="MAIN_CLASS_NAME" value="y2001._j4_s2_bad.Main" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="CCC" />
+      <envs />
+    </configuration>
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="y2004._j1.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="MAIN_CLASS_NAME" value="y2004._j1.Main" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="CCC" />
+      <envs />
+    </configuration>
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="y2000._s4.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="MAIN_CLASS_NAME" value="y2000._s4.Main" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="CCC" />
+      <envs />
+    </configuration>
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="_y2000_p1.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="MAIN_CLASS_NAME" value="_y2000_p1.Main" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="IOI" />
+      <envs />
+    </configuration>
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="y2008._s5.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="MAIN_CLASS_NAME" value="y2008._s5.Main" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="CCC" />
+      <envs />
+    </configuration>
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="y2008._s5.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="MAIN_CLASS_NAME" value="y2008.s5.Main" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="AAA" />
+      <envs />
+    </configuration>
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="GFSSOC._y2017_j5.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="MAIN_CLASS_NAME" value="GFSSOC._y2017_j5.Main" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="DMOJ" />
+      <envs />
+    </configuration>
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="_Boolean.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="MAIN_CLASS_NAME" value="_Boolean.Main" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="DMOJ" />
       <envs />
     </configuration>
     <configuration default="true" type="JetRunConfigurationType" factoryName="Kotlin">
@@ -2132,14 +2251,20 @@
       <listeners />
       <method />
     </configuration>
-    <list size="3">
+    <list size="5">
       <item index="0" class="java.lang.String" itemvalue="Application.Main" />
       <item index="1" class="java.lang.String" itemvalue="Application.Main (1)" />
       <item index="2" class="java.lang.String" itemvalue="Application.Main (2)" />
+      <item index="3" class="java.lang.String" itemvalue="Application.Main (3)" />
+      <item index="4" class="java.lang.String" itemvalue="Application.Main (4)" />
     </list>
     <recent_temporary>
-      <list size="1">
-        <item index="0" class="java.lang.String" itemvalue="Application.Main (2)" />
+      <list size="5">
+        <item index="0" class="java.lang.String" itemvalue="Application.Main (4)" />
+        <item index="1" class="java.lang.String" itemvalue="Application.Main (3)" />
+        <item index="2" class="java.lang.String" itemvalue="Application.Main (2)" />
+        <item index="3" class="java.lang.String" itemvalue="Application.Main (2)" />
+        <item index="4" class="java.lang.String" itemvalue="Application.Main (2)" />
       </list>
     </recent_temporary>
   </component>
@@ -2169,7 +2294,8 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="66" y="-6" width="1441" height="1013" extended-state="6" />
+    <frame x="64" y="-8" width="1864" height="1096" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32916668" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -2179,17 +2305,18 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.28295454" sideWeight="0.50253075" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.29431817" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.29375" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32954547" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32708332" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16124368" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.12472284" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.325" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24886364" sideWeight="0.49746928" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24791667" sideWeight="0.49746928" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -2198,7 +2325,6 @@
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="DB Browser" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.325" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -2883,13 +3009,13 @@
           <option name="timeStamp" value="326" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/CCOO/src/y2005/_p5/Main.java</url>
+          <url>file://$PROJECT_DIR$/CCO/src/y2005/_p5/Main.java</url>
           <line>41</line>
           <properties />
           <option name="timeStamp" value="328" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/CCOO/src/y2014/_p1/Main.java</url>
+          <url>file://$PROJECT_DIR$/CCO/src/y2014/_p1/Main.java</url>
           <line>18</line>
           <properties />
           <option name="timeStamp" value="333" />
@@ -2937,8 +3063,26 @@
           <properties />
           <option name="timeStamp" value="352" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/DMOJ/src/GFSSOC/_y2017_j5/Main.java</url>
+          <line>1</line>
+          <properties />
+          <option name="timeStamp" value="357" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/AAA/src/Winning_at_Sports/Main.java</url>
+          <line>75</line>
+          <properties />
+          <option name="timeStamp" value="363" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/AAA/src/Winning_at_Sports/Main.java</url>
+          <line>22</line>
+          <properties />
+          <option name="timeStamp" value="364" />
+        </line-breakpoint>
       </breakpoints>
-      <option name="time" value="355" />
+      <option name="time" value="365" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="Application">
@@ -2951,88 +3095,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/CCC/src/y2012/_s5/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="230">
-          <caret line="14" column="19" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="296" selection-end-column="0" />
-          <folding>
-            <element signature="class#FastReader#0;class#Main#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CCC/src/zzz_utilities/Utilities.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="483">
-          <caret line="25" column="48" lean-forward="false" selection-start-line="25" selection-start-column="48" selection-end-line="25" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CCC/src/y2016/_s4_bottom_up/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="414">
-          <caret line="23" column="0" lean-forward="false" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
-          <folding>
-            <element signature="class#FastReader#0;class#Main#0" expanded="false" />
-            <element signature="method#readLineAsLongs#0;class#FastReader#0;class#Main#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CCC/src/_y2002/_s4/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1196">
-          <caret line="57" column="54" lean-forward="false" selection-start-line="57" selection-start-column="54" selection-end-line="57" selection-end-column="54" />
-          <folding>
-            <element signature="class#FastReader#0;class#Main#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CCC/src/y1999/_s4_bfs/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="92">
-          <caret line="10" column="29" lean-forward="false" selection-start-line="10" selection-start-column="29" selection-end-line="10" selection-end-column="29" />
-          <folding>
-            <element signature="class#FastReader#0;class#Main#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CCO/Main.java" />
-    <entry file="file://$PROJECT_DIR$/CCC/src/y2016/_s4_recursive/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="92">
-          <caret line="15" column="38" lean-forward="false" selection-start-line="15" selection-start-column="38" selection-end-line="15" selection-end-column="38" />
-          <folding>
-            <element signature="class#FastReader#0;class#Main#0" expanded="false" />
-            <element signature="method#readLineAsLongs#0;class#FastReader#0;class#Main#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CCC/src/y2004/_s5_bruteforce_tle/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="23">
-          <caret line="11" column="21" lean-forward="false" selection-start-line="11" selection-start-column="21" selection-end-line="11" selection-end-column="21" />
-          <folding>
-            <element signature="class#FastReader#0;class#Main#0" expanded="false" />
-            <element signature="method#readLineAsLongs#0;class#FastReader#0;class#Main#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/DWITE/src/_Escape_and_Loot.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="46">
-          <caret line="7" column="22" lean-forward="false" selection-start-line="7" selection-start-column="22" selection-end-line="7" selection-end-column="22" />
-          <folding>
-            <element signature="class#FastReader#0;class#_Escape_and_Loot#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/IOI/src/_y1994_p1/Main.java" />
     <entry file="file://$PROJECT_DIR$/CCC/src/y2007/_s5_bad_dp/Main.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="115">
@@ -3047,9 +3109,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="598">
           <caret line="30" column="33" lean-forward="false" selection-start-line="30" selection-start-column="33" selection-end-line="30" selection-end-column="33" />
-          <folding>
-            <element signature="class#FastReader#0;class#Main#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -3057,18 +3116,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="163">
           <caret line="29" column="8" lean-forward="true" selection-start-line="29" selection-start-column="8" selection-end-line="51" selection-end-column="9" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$USER_HOME$/AppData/Local/Temp/Temp1_solutions_io_writeup.zip/recap/Alphabet/Alphabet.java" />
-    <entry file="file://$PROJECT_DIR$/DMOJ/src/_LCS/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="460">
-          <caret line="24" column="0" lean-forward="true" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/DMOJ/src/_ICPC_PACNW_2016_A/Main.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="437">
@@ -3120,15 +3171,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-594">
           <caret line="35" column="42" lean-forward="false" selection-start-line="35" selection-start-column="42" selection-end-line="35" selection-end-column="42" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/IOI/src/_y1994_p1/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-42">
-          <caret line="6" column="14" lean-forward="true" selection-start-line="6" selection-start-column="14" selection-end-line="6" selection-end-column="14" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -3139,7 +3181,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/CCOO/src/y2005/_p5/Main.java">
+    <entry file="file://$PROJECT_DIR$/CCO/src/y2005/_p5/Main.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="92">
           <caret line="8" column="19" lean-forward="true" selection-start-line="8" selection-start-column="19" selection-end-line="8" selection-end-column="19" />
@@ -3182,7 +3224,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="161">
           <caret line="11" column="13" lean-forward="false" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -3190,7 +3231,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="161">
           <caret line="11" column="13" lean-forward="false" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -3204,7 +3244,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/CCOO/src/y2014/_p1/Main.java">
+    <entry file="file://$PROJECT_DIR$/CCO/src/y2014/_p1/Main.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-19">
           <caret line="10" column="52" lean-forward="false" selection-start-line="10" selection-start-column="52" selection-end-line="10" selection-end-column="52" />
@@ -3224,9 +3264,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-575">
           <caret line="12" column="50" lean-forward="false" selection-start-line="12" selection-start-column="50" selection-end-line="12" selection-end-column="50" />
-          <folding>
-            <element signature="class#FastReader#0;class#Main#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -3234,23 +3271,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="23">
           <caret line="14" column="15" lean-forward="true" selection-start-line="14" selection-start-column="15" selection-end-line="14" selection-end-column="15" />
-          <folding>
-            <element signature="class#FastReader#0;class#Main#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/CCOO/src/y2010/_p4/Main.java">
+    <entry file="file://$PROJECT_DIR$/CCO/src/y2010/_p4/Main.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="207">
           <caret line="14" column="33" lean-forward="true" selection-start-line="14" selection-start-column="33" selection-end-line="14" selection-end-column="33" />
-          <folding>
-            <element signature="e#2327#2328#0" expanded="false" />
-            <element signature="e#2386#2387#0" expanded="false" />
-            <element signature="e#2440#2441#0" expanded="false" />
-            <element signature="e#2508#2509#0" expanded="false" />
-            <element signature="class#FastReader#0;class#Main#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -3310,7 +3337,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="207">
           <caret line="14" column="13" lean-forward="false" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -3335,7 +3361,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="161">
           <caret line="10" column="13" lean-forward="false" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -3343,20 +3368,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="289">
           <caret line="18" column="30" lean-forward="false" selection-start-line="18" selection-start-column="30" selection-end-line="18" selection-end-column="30" />
-          <folding>
-            <element signature="class#P#0;class#Main#0" expanded="false" />
-            <element signature="class#FastReader#0;class#Main#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CCOO/src/y2008/p5/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="460">
-          <caret line="24" column="0" lean-forward="false" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
-          <folding>
-            <element signature="class#FastReader#0;class#Main#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -3370,15 +3381,134 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/DMOJ/src/GFSSOC/y2017_j5/Main.java">
+    <entry file="file://$PROJECT_DIR$/DMOJ/src/_LCS/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="763">
-          <caret line="45" column="33" lean-forward="false" selection-start-line="45" selection-start-column="33" selection-end-line="45" selection-end-column="33" />
+        <state relative-caret-position="345">
+          <caret line="25" column="9" lean-forward="false" selection-start-line="25" selection-start-column="9" selection-end-line="25" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/IOI/src/_y2000_p1/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="759">
+          <caret line="37" column="41" lean-forward="false" selection-start-line="37" selection-start-column="41" selection-end-line="37" selection-end-column="41" />
           <folding>
-            <element signature="e#2789#2790#0" expanded="true" />
-            <element signature="e#2875#2876#0" expanded="true" />
-            <element signature="e#2930#2931#0" expanded="true" />
-            <element signature="e#2989#2990#0" expanded="true" />
+            <element signature="class#FastReader#0;class#Main#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CCC/src/y2008/_s5/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="27" column="13" lean-forward="false" selection-start-line="27" selection-start-column="13" selection-end-line="27" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CCC/src/y2008/_s5/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="115">
+          <caret line="9" column="14" lean-forward="false" selection-start-line="9" selection-start-column="14" selection-end-line="9" selection-end-column="14" />
+          <folding>
+            <element signature="class#FastReader#0;class#Main#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/IOI/src/_y1994_p1/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="92">
+          <caret line="5" column="21" lean-forward="false" selection-start-line="5" selection-start-column="21" selection-end-line="5" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DSA-Java.iml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="138">
+          <caret line="6" column="5" lean-forward="false" selection-start-line="6" selection-start-column="5" selection-end-line="6" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_131/src.zip!/java/util/ArrayList.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="430" column="0" lean-forward="false" selection-start-line="430" selection-start-column="0" selection-end-line="430" selection-end-column="0" />
+          <folding>
+            <element signature="e#15414#15415#0" expanded="false" />
+            <element signature="e#15459#15460#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DMOJ/src/GFSSOC/_y2017_j5/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2139">
+          <caret line="118" column="35" lean-forward="false" selection-start-line="118" selection-start-column="35" selection-end-line="118" selection-end-column="35" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="class#P#0;class#Main#0" expanded="false" />
+            <element signature="e#3117#3118#0" expanded="true" />
+            <element signature="e#3186#3187#0" expanded="true" />
+            <element signature="e#3241#3242#0" expanded="true" />
+            <element signature="e#3300#3301#0" expanded="true" />
+            <element signature="class#FastReader#0;class#Main#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DMOJ/src/_Boolean/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="78">
+          <caret line="9" column="3" lean-forward="false" selection-start-line="9" selection-start-column="3" selection-end-line="9" selection-end-column="3" />
+          <folding>
+            <element signature="class#FastReader#0;class#Main#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DWITE/src/Running_In_Circles/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="184">
+          <caret line="27" column="12" lean-forward="true" selection-start-line="27" selection-start-column="12" selection-end-line="42" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DWITE/src/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="15" lean-forward="false" selection-start-line="0" selection-start-column="15" selection-end-line="0" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CCO/src/y2008/p5/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="460">
+          <caret line="24" column="0" lean-forward="false" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
+          <folding>
+            <element signature="class#FastReader#0;class#Main#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AAA/src/Winning_at_Sports/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="115">
+          <caret line="9" column="27" lean-forward="false" selection-start-line="9" selection-start-column="27" selection-end-line="9" selection-end-column="27" />
+          <folding>
             <element signature="class#FastReader#0;class#Main#0" expanded="false" />
           </folding>
         </state>
@@ -3436,7 +3566,7 @@
       </state>
       <state key="ModuleStructureConfigurable.UI">
         <settings>
-          <last-edited>CCC</last-edited>
+          <last-edited>AAA</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>

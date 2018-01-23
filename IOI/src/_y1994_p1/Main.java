@@ -3,7 +3,7 @@ package _y1994_p1;
 import java.io.*;
 import java.util.StringTokenizer;
 
-/* The Triangle 6/6
+/* The Triangle 5/5pt
  * DP (simple)
 
 */

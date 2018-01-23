@@ -1,119 +1,74 @@
-package GFSSOC.y2017_j5;
+package y2008._s5;
 
 import java.io.DataInputStream;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
-/* Choosing Extracurriculars
+/* Nukit 12/12pt
+ * DP (Simple game theory)
+
+Let P be player going first, R be next
+memo[A][B][C][D] = with those chemicals, P win
+
+Recurrence:
+    P Win: One of his picks leads to false
+        R cannot win next turn so P win
+
+    R Win: None of his picks lead to false
+        R always wins next turn so P lose
 
 */
 public class Main {
 
+    static boolean[][][][] memo;
+
     public static void main(String[] args) throws IOException {
         FastReader reader = new FastReader();
 
-        int cn = reader.nextInt(); // club num
-        List<P>[] cs = new List[4];   // clubs
+        // > Build Memo Table
+        memo = new boolean[31][31][31][31];
 
-        for (int i = 0; i < 4; i++) cs[i] = new ArrayList();
+        for (int a = 0; a <= 30; a++) {
+            for (int b = 0; b <= 30; b++) {
+                for (int c = 0; c <= 30; c++) {
+                    for (int d = 0; d <= 30; d++) {
+                        boolean win = false;
 
-        for (int c = 0; c < cn; c++)
-            for (int y = 0; y < 4; y++)
-                cs[y].add(new P(c, y, reader.nextInt()));
+                        if (a >= 2 && b >= 1 && d >= 2)
+                            win = win || !memo[a-2][b-1][c][d-2];
 
-        for (int i = 0; i < 4; i++) Collections.sort(cs[i]);
+                        if (a >= 1 && b >= 1 && c >= 1 && d >= 1)
+                            win = win || !memo[a-1][b-1][c-1][d-1];
 
-        System.out.println(dp(new int[]{0, 0, 0, 0}, cs));
-    }
+                        if (c >= 2 && d >= 1)
+                            win = win || !memo[a][b][c-2][d-1];
 
+                        if (b >= 3)
+                            win = win || !memo[a][b-3][c][d];
 
-    static int dp(int[] is, List<P>[] cs) {
-        int[] clubs = new int[4];
-        for (int i = 0; i < 4; i++) {
-            clubs[i] = cs[i].get(is[i]).c;
+                        if (a >= 1 && d >= 1)
+                            win = win || !memo[a-1][b][c][d-1];
+
+                        memo[a][b][c][d] = win;
+                    }
+                }
+            }
         }
 
-        if (clubs[0] == clubs[1] && clubs[2] == clubs[3]) {
-            // double double pair 01, 23
-            int d02 = dp(new int[]{is[0] - 1, is[1], is[2] - 1, is[3]}, cs);
-            int d03 = dp(new int[]{is[0] - 1, is[1], is[2], is[3] - 1}, cs);
-            int d12 = dp(new int[]{is[0], is[1] - 1, is[2] - 1, is[3]}, cs);
-            int d13 = dp(new int[]{is[0], is[1] - 1, is[2], is[3] - 1}, cs);
-//            int max = Math.max()
-        } else if (clubs[0] == clubs[3] && clubs[1] == clubs[2]) {
-            // double double pair 03, 12
-            int d01 = dp(new int[]{is[0] - 1, is[1] - 1, is[2], is[3]}, cs);
-            int d02 = dp(new int[]{is[0] - 1, is[1], is[2] - 1, is[3]}, cs);
-            int d13 = dp(new int[]{is[0], is[1] - 1, is[2], is[3] - 1}, cs);
-            int d23 = dp(new int[]{is[0], is[1], is[2] - 1, is[3] - 1}, cs);
-        }
-
-        // correct case
-
-
-
-        // single pair case
-
-
-        // single triple case
-
-
-        // single quad case
-
-
-
-        // double pair case 
-
-
-
-
-        return -1;
-    }
-
-    static int sumIs(int[] is, List<P>[] cs) {
-        int sum = 0;
-        for (int i = 0; i < 4; i++) {
-            int e = cs[i].get(is[i]).e;
-            sum += e == -1 ? 0 : e;
-        }
-        return sum;
-    }
-
-    static class P implements Comparable<P> {
-        int c; // club (0 ... cn - 1)
-        int y; // year (0, 1, 2, 3)
-        int e; // excellence
-
-        P() {
-            this.c = 0;
-            this.e = 0;
-        }
-
-        P(int c0, int y0, int e0) {
-            this.c = c0;
-            this.y = y0;
-            this.e = e0;
-        }
-
-        @Override
-        public boolean equals(Object obj) {
-            P p = (P)obj;
-            return p.e == this.e && p.c == this.c && p.y == this.y;
-        }
-
-        @Override
-        public String toString() {
-            return " c:" + this.c + "y:" + this.y + ", e:" + this.e + ").";
-        }
-
-        @Override
-        public int compareTo(P o) {
-            return Integer.compare(o.e, this.e);
+        // > Output & Solve
+        int T = reader.nextInt();
+        while (T-- != 0) {
+            int[] input = reader.readLineAsIntArray(4);
+            System.out.println(
+                    memo[input[0]][input[1]][input[2]][input[3]]
+                            ? "Patrick"
+                            : "Roland"
+            );
         }
     }
+
 
     public static class FastReader {
 
