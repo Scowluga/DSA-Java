@@ -1,4 +1,4 @@
-package y2008.p5;
+package _Winning_at_Sports;
 
 import java.io.DataInputStream;
 import java.io.FileInputStream;
@@ -6,19 +6,79 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-/* Candy 15pt
- * DP (Knapsack)
+/* Winning at Sports 12/12pt
+ * DP (Semi-complicated look-up-table)
+
+Look-up-table:
+    0: Stress-free
+    1: Stress-full
+
 
 */
 public class Main {
 
+    static int MOD = 1000000007;
+
     public static void main(String[] args) throws IOException {
         FastReader reader = new FastReader();
-        int N = reader.nextInt();
+        int T = reader.nextInt();
 
-        for (int i = 0; i < N; i++) {
-            int num = reader.nextInt(); // frequency
-            int cal = reader.nextInt(); // weight per single
+        // > Build the look-up-table
+        long[][][] memo = new long[2001][2001][2];
+        for (int s1 = 0; s1 <= 2000; s1++) {
+            for (int s2 = 0; s2 <= 2000; s2++) {
+                if (s1 > s2) {
+                    // FREE
+                    if (s2 == 0) { // 10 0
+                        memo[s1][s2][0] = memo[s1-1][s2][0];
+                    } else if (s1 == s2 + 1) { // 10 9
+                        memo[s1][s2][0] = memo[s1][s2-1][0];
+                    } else { // 10 5
+                        memo[s1][s2][0] = memo[s1][s2-1][0] + memo[s1-1][s2][0];
+                    }
+                    memo[s1][s2][0] %= MOD;
+
+                    // FULL
+                    if (s2 == 0) memo[s1][s2][1] = memo[0][0][1];
+                    else memo[s1][s2][1] = memo[s2-1][s2][1];
+
+                } else if (s1 == s2) {
+                    if (s1 == 0) { // 0 0
+                        memo[s1][s2][0] = 1;
+                        memo[s1][s2][1] = 1;
+                    } else {
+                        // FREE
+                        memo[s1][s2][0] = memo[s1][s2-1][0];
+
+                        // FULL
+                        memo[s1][s2][1] = memo[s1-1][s2][1];
+                    }
+                } else { // s1 < s2
+                    // FREE
+                    memo[s1][s2][0] = -1;
+
+                    // FULL
+                    if (s1 == 0) // 0 10
+                        memo[s1][s2][1] = 1;
+                    else // 5 10
+                        memo[s1][s2][1] = memo[s1-1][s2][1] + memo[s1][s2-1][1];
+                    memo[s1][s2][1] %= MOD;
+                }
+            }
+        }
+
+        // > Output
+        for (int i = 1; i <= T; i++) {
+            String[] in = reader.readLine().split("-");
+            int i1 = Integer.parseInt(in[0]);
+            int i2 = Integer.parseInt(in[1]);
+
+            System.out.println(String.format(
+                    "Case #%s: %d %d",
+                    i,
+                    memo[i1][i2][0],
+                    memo[i1][i2][1]
+            ));
         }
     }
 
