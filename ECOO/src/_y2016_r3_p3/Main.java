@@ -1,4 +1,4 @@
-package y2016_r3_p3;
+package _y2016_r3_p3;
 
 import java.io.DataInputStream;
 import java.io.FileInputStream;
@@ -8,11 +8,11 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-/* CamelCase
+/* CamelCase 10/10pt
+ * DP (simple)
 
-dictionary mapping first letter?
-or maybe some sort of tree (probably don't need that)
-
+This question is virtually identical to every other DP question
+ie. Neanderthal Numbers ECOO
 
 
 */
@@ -43,22 +43,22 @@ public class Main {
 
             for (int i = 0; i < s.length(); i++) { // each letter
                 if (dp[i] != 0) {
-                    List<String> words = map.get(s.substring(0, 1));
+                    List<String> words = map.get(s.substring(i, i+1));
                     for (String w : words) { // each possible word
-                        if (s.length() - i > w.length()) {
-                            if (w.equals(s.substring(i, i + w.length()))) {
-                                if (dp[i + w.length()] == 0) dp[i + w.length()] = dp[i];
-                                else dp[i + w.length()] = Math.min(dp[i + w.length()], dp[i]);
-                            }
+                        if (s.length() - i >= w.length() && w.equals(s.substring(i, i + w.length()))) {
+                            if (dp[i + w.length()] == 0)
+                                dp[i + w.length()] = dp[i] + 1;
+                            else
+                                dp[i + w.length()] = Math.min(dp[i + w.length()], dp[i] + 1);
                         }
                     }
                 }
             }
 
-            System.out.println(dp[s.length()]);
+            // > Output
+            System.out.println(Math.max(0, dp[s.length()] - 2));
         }
     }
-
 
     public static class FastReader {
 
