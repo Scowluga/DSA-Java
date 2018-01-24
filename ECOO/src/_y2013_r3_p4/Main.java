@@ -1,68 +1,53 @@
-package y2014.s5;
+package _y2013_r3_p4;
 
 import java.io.DataInputStream;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
-/* Lazy Fox
- * Dynamic Programming
+/* Tour de Force 12/12pt
+ * DP (prefix sum array, simple)
+
+cs: prefix sum array
+memo: at index, max for all cards to right
+    Try every card in the range
 
 */
 public class Main {
 
     public static void main(String[] args) throws IOException {
         FastReader reader = new FastReader();
+        for (int tt = 0; tt < 10; tt++) {
+            int N = reader.nextInt();
 
-        int N = reader.nextInt();
-        P[] ps = new P[N];
-        for (int i = 0; i < N; i++) ps[i] = new P(reader.nextInt(), reader.nextInt());
-        Arrays.sort(ps);
+            // > Build Prefix Sum Array
+            int[][] cs = new int[N + 1][2];
+            for (int i = 1; i <= N; i++) {
+                cs[i][0] = cs[i-1][1] + reader.nextInt();
+                cs[i][1] = cs[i][0] + reader.nextInt();
+            }
 
+            // > Build Memo Table
+            int[] memo = new int[N + 2];
+            for (int c = N; c > 0; c--) {
+                if (N - c < 4) { // endgame
+                    memo[c] = cs[N][1] - cs[c-1][1];
+                } else { // go all the way to 4
+                    int max = 0;
+                    for (int i = 0; i < 5; i++) {
+                        if (N - c == 5 && i == 4) continue; // single case
+                        max = Math.max(max, cs[c+i][0] - cs[c-1][1] - 1 + memo[c+i+1]);
+                    }
+                    memo[c] = max;
+                }
+            }
 
-    }
-
-
-
-
-    // distance
-    static double dist(P p1, P p2) {
-        return Math.sqrt(Math.pow(p2.x - p1.x, 2) + Math.pow(p2.y - p1.y, 2));
-    }
-
-    // point
-    static class P implements Comparable<P> {
-        int x;
-        int y;
-
-        P() {
-            this.x = 0;
-            this.y = 0;
-        }
-
-        P(int x, int y) {
-            this.x = x;
-            this.y = y;
-        }
-
-        @Override
-        public boolean equals(Object obj) {
-            P p = (P)obj;
-            return p.x == this.x && p.y == this.y;
-        }
-
-        @Override
-        public String toString() {
-            return "Point (" + this.x + ", " + this.y + ").";
-        }
-
-        @Override
-        public int compareTo(P o) {
-            return 0;
+            // > Output
+            System.out.println(memo[1]);
         }
     }
+
 
     public static class FastReader {
 
