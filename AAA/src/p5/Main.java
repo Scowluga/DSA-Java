@@ -7,7 +7,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 /* Candy 15pt
- * DP (Knapsack)
+ * DP (Knapsack?)
+
 
 */
 public class Main {
@@ -17,8 +18,8 @@ public class Main {
         int N = reader.nextInt();
 
         for (int i = 0; i < N; i++) {
-            int num = reader.nextInt(); // frequency
-            int cal = reader.nextInt(); // weight per single
+            int n = reader.nextInt(); // amount
+            int c = reader.nextInt(); // sweetness
         }
     }
 

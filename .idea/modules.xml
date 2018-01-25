@@ -3,9 +3,11 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/AAA/AAA.iml" filepath="$PROJECT_DIR$/AAA/AAA.iml" />
+      <module fileurl="file://$PROJECT_DIR$/AMC-ICPC/AMC-ICPC.iml" filepath="$PROJECT_DIR$/AMC-ICPC/AMC-ICPC.iml" />
       <module fileurl="file://$PROJECT_DIR$/CCC/CCC.iml" filepath="$PROJECT_DIR$/CCC/CCC.iml" />
       <module fileurl="file://$PROJECT_DIR$/CCO/CCO.iml" filepath="$PROJECT_DIR$/CCO/CCO.iml" />
       <module fileurl="file://$PROJECT_DIR$/CCOO/CCO.iml" filepath="$PROJECT_DIR$/CCOO/CCO.iml" />
+      <module fileurl="file://$PROJECT_DIR$/COCI/COCI.iml" filepath="$PROJECT_DIR$/COCI/COCI.iml" />
       <module fileurl="file://$PROJECT_DIR$/DMOJ/DMOJ.iml" filepath="$PROJECT_DIR$/DMOJ/DMOJ.iml" />
       <module fileurl="file://$PROJECT_DIR$/DMOPC/DMOPC.iml" filepath="$PROJECT_DIR$/DMOPC/DMOPC.iml" />
       <module fileurl="file://$PROJECT_DIR$/DSA-Java.iml" filepath="$PROJECT_DIR$/DSA-Java.iml" />
