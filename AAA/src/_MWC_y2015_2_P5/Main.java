@@ -1,4 +1,4 @@
-package p5;
+package _MWC_y2015_2_P5;
 
 import java.io.DataInputStream;
 import java.io.FileInputStream;
@@ -6,30 +6,42 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-/* Candy 15pt
- * DP (Knapsack?)
+/* Watchmeblink1 7/7pt
+ * DP (difference arrays)
 
-
+Classic difference array usage
 */
 public class Main {
 
-    static int[] ks;
-    static int[] cs;
-
     public static void main(String[] args) throws IOException {
         FastReader reader = new FastReader();
-        int N = reader.nextInt();
 
-        for (int i = 0; i < N; i++) {
-            ks[i] = reader.nextInt(); // amount
-            cs[i] = reader.nextInt(); // sweetness
+        int N = reader.nextInt();
+        int K = reader.nextInt();
+        int J = reader.nextInt();
+
+        long[][] da = new long[N+2][4];
+
+        for (int i = 0; i < J; i++) {
+            int i1 = reader.nextInt();
+            int i2 = reader.nextInt();
+            long I = reader.nextLong();
+            int T = reader.nextInt();
+
+            da[i1][T] += I;
+            da[i2+1][T] -= I;
         }
 
-
-
-
+        for (int t = 1; t < 4; t++) {
+            int c = 0;
+            long n = 0;
+            for (int i = 1; i <= N; i++) {
+                n += da[i][t];
+                if (n < K) c++;
+            }
+            System.out.println(c);
+        }
     }
-
 
     public static class FastReader {
 
@@ -232,10 +244,15 @@ public class Main {
             return buffer[bufferPointer++];
         }
 
-        public int[] readLineAsIntArray(int n) throws IOException {
-            int[] ret = new int[n];
+        public int[] readLineAsIntArray(int n, boolean isOneIndex) throws IOException {
+            int[] ret;
+            if (isOneIndex) {
+                ret = new int[n + 1];
+            } else {
+                ret = new int[n];
+            }
 //            int ret = new ArrayList<>();
-            int idx = 0;
+            int idx = isOneIndex ? 1 : 0;
             byte c = read();
             while (c != -1) {
                 if (c == '\n' || c == '\r')

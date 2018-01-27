@@ -1,35 +1,91 @@
-package p5;
+package y2017_January._p3;
 
 import java.io.DataInputStream;
 import java.io.FileInputStream;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
-/* Candy 15pt
- * DP (Knapsack?)
-
+/* Willson and Factorization *solved*
 
 */
 public class Main {
 
-    static int[] ks;
-    static int[] cs;
-
     public static void main(String[] args) throws IOException {
         FastReader reader = new FastReader();
+
         int N = reader.nextInt();
 
+        int[][] vs = new int[N][N];
+
+        Set<Integer>[] s = new Set[N];
+
+        Set<Integer> us = new HashSet<>();
         for (int i = 0; i < N; i++) {
-            ks[i] = reader.nextInt(); // amount
-            cs[i] = reader.nextInt(); // sweetness
+            s[i] = new HashSet<>();
+            for (int j = 0; j < N; j++) {
+                int r = i * j % N;
+                vs[i][j] = r;
+                s[i].add(r);
+            }
+
+            if (s[i].contains(1))
+                us.add(i);
         }
 
+        Set<Integer> is = new HashSet<>();
+        for (int i = 1; i < N; i++) is.add(i);
 
+        is.removeAll(us);
+        for (int i = 1; i < N; i++) {
+            if (us.contains(i)) continue;
+            for (int j = 1; j < N; j++) {
+                if (us.contains(j)) continue;
+                is.remove(vs[i][j]);
+            }
+        }
 
+        // at this point, we have a list of all units and irreducibles
+        // and a list of sets to check for primes
 
+        Set<Integer> ps = new HashSet<>();
+        l: for (int i = 1; i < N; i++) {
+            if (us.contains(i)) continue;
+            ll: for (int a = 0; a < N; a++) {
+                for (int b = 0; b < N; b++) {
+                    int r = a * b;
+                    if (r > N) continue ll;
+                    if (s[i].contains(r)) {
+                        if (!((s[i].contains(a)) || s[i].contains(b))) {
+                            continue l;
+                        }
+                    }
+                }
+            }
+            ps.add(i);
+        }
+
+        // > Output
+        System.out.println("Units:");
+        List<Integer> ul = new ArrayList<>(us);
+        Collections.sort(ul);
+        for (int i : ul) {
+            System.out.println(i);
+        }
+
+        System.out.println("Irreducibles:");
+        List<Integer> il = new ArrayList<>(is);
+        Collections.sort(il);
+        for (int i : il) {
+            System.out.println(i);
+        }
+
+        System.out.println("Primes:");
+        List<Integer> pl = new ArrayList<>(ps);
+        Collections.sort(pl);
+        for (int i : pl) {
+            System.out.println(i);
+        }
     }
-
 
     public static class FastReader {
 
@@ -232,10 +288,15 @@ public class Main {
             return buffer[bufferPointer++];
         }
 
-        public int[] readLineAsIntArray(int n) throws IOException {
-            int[] ret = new int[n];
+        public int[] readLineAsIntArray(int n, boolean isOneIndex) throws IOException {
+            int[] ret;
+            if (isOneIndex) {
+                ret = new int[n + 1];
+            } else {
+                ret = new int[n];
+            }
 //            int ret = new ArrayList<>();
-            int idx = 0;
+            int idx = isOneIndex ? 1 : 0;
             byte c = read();
             while (c != -1) {
                 if (c == '\n' || c == '\r')

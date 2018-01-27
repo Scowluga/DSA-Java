@@ -1,35 +1,67 @@
-package p5;
+package y2007_regional_q2;
 
 import java.io.DataInputStream;
 import java.io.FileInputStream;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
-/* Candy 15pt
- * DP (Knapsack?)
+/* Nikola
 
 
+This question is literally the same thing as the other 500 exact same ones
+
+Except, you can move backward, so that messes up everything
+
+
+Or does it?
+
+Account for
+> Visited
+> jump distance
+> cost
 */
 public class Main {
 
-    static int[] ks;
-    static int[] cs;
+    static int N;
+    static int[] vs;
+    static int[][] memo;
 
     public static void main(String[] args) throws IOException {
         FastReader reader = new FastReader();
-        int N = reader.nextInt();
 
-        for (int i = 0; i < N; i++) {
-            ks[i] = reader.nextInt(); // amount
-            cs[i] = reader.nextInt(); // sweetness
-        }
+        N = reader.nextInt();
+        vs = new int[N];
+        for (int i = 0; i < N; i++) vs[i] = reader.nextInt();
 
+        memo = new int[N][N];
+        memo[1][1] = vs[1];
 
-
-
+        System.out.println(dp(1, 1));
     }
 
+    static int dp(int i, int d) {
+        if (i == N - 1) return memo[i][d];
+        if (memo[i][d] != 0) return memo[i][d];
+
+        int min = Integer.MAX_VALUE;
+        // forward
+        if (i + d + 1 < N) {
+            if (memo[i+d+1][d+1] == 0
+                || memo[i][d] + vs[i+d+1] < memo[i+d+1][d+1]) {
+                min = Math.min(min, dp(i+d+1, d+1));
+            }
+        }
+
+        // backward
+        if (i - d >= 0) {
+            if (memo[i-d][d] == 0
+                || memo[i][d] + vs[i-d] < memo[i-d][d]) {
+                min = Math.min(min, dp(i-d, d));
+            }
+        }
+
+        memo[i][d] = min;
+    }
 
     public static class FastReader {
 
@@ -232,10 +264,15 @@ public class Main {
             return buffer[bufferPointer++];
         }
 
-        public int[] readLineAsIntArray(int n) throws IOException {
-            int[] ret = new int[n];
+        public int[] readLineAsIntArray(int n, boolean isOneIndex) throws IOException {
+            int[] ret;
+            if (isOneIndex) {
+                ret = new int[n + 1];
+            } else {
+                ret = new int[n];
+            }
 //            int ret = new ArrayList<>();
-            int idx = 0;
+            int idx = isOneIndex ? 1 : 0;
             byte c = read();
             while (c != -1) {
                 if (c == '\n' || c == '\r')

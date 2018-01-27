@@ -4,6 +4,7 @@ import java.io.DataInputStream;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 /*
@@ -61,4 +62,11 @@ public class OtherLibrary {
         }
         return true;
     }
+
+
+    static <T> T min(T... args) {
+        Arrays.sort(args);
+        return args[0];
+    }
+
 }

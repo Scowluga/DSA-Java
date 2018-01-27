@@ -1,4 +1,4 @@
-package p5;
+package _y2006_c2_q5;
 
 import java.io.DataInputStream;
 import java.io.FileInputStream;
@@ -6,30 +6,67 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-/* Candy 15pt
- * DP (Knapsack?)
+/* Stol 12/12pt
+ * DP (prefix sum, loops and continues)
+
+have a prefix sum array of blocked locations, so
+    ss[c2][r2] == (ss[c2][r1-1] + ss[c1-1][r2] - ss[c1-1][r1-1]);
+calculates safety of a region in O(1) time
+
+next, loop through every combination of c1, r1, c2, r2
+    however: insert clever continues and breaks at important places
 
 
 */
 public class Main {
 
-    static int[] ks;
-    static int[] cs;
+    static int max;
+    static int[][] ss;
 
     public static void main(String[] args) throws IOException {
         FastReader reader = new FastReader();
-        int N = reader.nextInt();
 
-        for (int i = 0; i < N; i++) {
-            ks[i] = reader.nextInt(); // amount
-            cs[i] = reader.nextInt(); // sweetness
+        int rn = reader.nextInt();
+        int cn = reader.nextInt();
+
+        // > Setup Array
+        ss = new int[cn+1][rn+1];
+        for (int r = 1; r <= rn; r++) {
+            char[] in = reader.readLine().toCharArray();
+            for (int c = 1; c <= cn; c++) {
+                ss[c][r] = ss[c-1][r] + ss[c][r-1] - ss[c-1][r-1];
+                if (in[c-1] == 'X') ss[c][r]++;
+            }
         }
 
+        // > Solve
+        max = 0;
+        for (int r1 = 1; r1 <= rn; r1++) {
+            for (int c1 = 1; c1 <= cn; c1++) {
+                if (!s(r1, c1, r1, c1)) continue;
+                for (int r2 = r1; r2 <= rn; r2++) {
+                    if (!s(r1, c1, r2, c1)) break;
+                    for (int c2 = c1; c2 <= cn; c2++){
+                        if (s(r1, c1, r2, c2)) {
+                            u(max, r1, c1, r2, c2);
+                        } else {
+                            break;
+                        }
+                    }
+                }
+            }
+        }
 
-
-
+        System.out.println(max-1);
     }
 
+    static boolean s(int r1, int c1, int r2, int c2) {
+        return ss[c2][r2] == (ss[c2][r1-1] + ss[c1-1][r2] - ss[c1-1][r1-1]);
+    }
+
+    static void u(int prev, int r1, int c1, int r2, int c2) {
+        max = Math.max(prev, 2*(c2-c1+1+r2-r1+1));
+    }
 
     public static class FastReader {
 
@@ -232,10 +269,15 @@ public class Main {
             return buffer[bufferPointer++];
         }
 
-        public int[] readLineAsIntArray(int n) throws IOException {
-            int[] ret = new int[n];
+        public int[] readLineAsIntArray(int n, boolean isOneIndex) throws IOException {
+            int[] ret;
+            if (isOneIndex) {
+                ret = new int[n + 1];
+            } else {
+                ret = new int[n];
+            }
 //            int ret = new ArrayList<>();
-            int idx = 0;
+            int idx = isOneIndex ? 1 : 0;
             byte c = read();
             while (c != -1) {
                 if (c == '\n' || c == '\r')

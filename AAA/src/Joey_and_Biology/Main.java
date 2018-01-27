@@ -1,4 +1,4 @@
-package p5;
+package Joey_and_Biology;
 
 import java.io.DataInputStream;
 import java.io.FileInputStream;
@@ -6,25 +6,30 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-/* Candy 15pt
- * DP (Knapsack?)
+/* Joey and Biology
+ * DP, recursion
 
+
+Find LCS with indexes, then for each group where it's not equal,
+find least changes?
+
+
+Find least changes:
+
+diff = l1 - l2
+
+    1: return 1
+    2: return 
 
 */
 public class Main {
 
-    static int[] ks;
-    static int[] cs;
-
     public static void main(String[] args) throws IOException {
         FastReader reader = new FastReader();
+
+        // <= 1000
         int N = reader.nextInt();
-
-        for (int i = 0; i < N; i++) {
-            ks[i] = reader.nextInt(); // amount
-            cs[i] = reader.nextInt(); // sweetness
-        }
-
+        int M = reader.nextInt();
 
 
 
@@ -232,10 +237,15 @@ public class Main {
             return buffer[bufferPointer++];
         }
 
-        public int[] readLineAsIntArray(int n) throws IOException {
-            int[] ret = new int[n];
+        public int[] readLineAsIntArray(int n, boolean isOneIndex) throws IOException {
+            int[] ret;
+            if (isOneIndex) {
+                ret = new int[n + 1];
+            } else {
+                ret = new int[n];
+            }
 //            int ret = new ArrayList<>();
-            int idx = 0;
+            int idx = isOneIndex ? 1 : 0;
             byte c = read();
             while (c != -1) {
                 if (c == '\n' || c == '\r')

@@ -1,4 +1,4 @@
-package p5;
+package _Mo_Money;
 
 import java.io.DataInputStream;
 import java.io.FileInputStream;
@@ -6,28 +6,38 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-/* Candy 15pt
- * DP (Knapsack?)
+/* Summer Institute '17 Contest 1 P8 - Mo' Money 10/10pt
+ * DP (Single knapsack)
+
+Knapsack. For each added coin, increment.
 
 
+Important: don't forget to add size to int array read in with 1 indexing
 */
 public class Main {
 
-    static int[] ks;
-    static int[] cs;
-
     public static void main(String[] args) throws IOException {
         FastReader reader = new FastReader();
-        int N = reader.nextInt();
 
-        for (int i = 0; i < N; i++) {
-            ks[i] = reader.nextInt(); // amount
-            cs[i] = reader.nextInt(); // sweetness
+        int N = reader.nextInt();
+        int T = reader.nextInt();
+        int[] cs = reader.readLineAsIntArray(N+1, true);
+
+        int[][] memo = new int[T+1][N+1];
+        memo[0][0] = 1;
+
+        for (int n = 1; n <= N; n++) {
+            for (int t = T; t >= 0; t--) {
+                memo[t][n] = memo[t][n-1];
+                if (memo[t][n] != 0) {
+                    if (t + cs[n] <= T) {
+                        memo[t + cs[n]][n] += memo[t][n];
+                    }
+                }
+            }
         }
 
-
-
-
+        System.out.println(memo[T][N]);
     }
 
 
@@ -232,10 +242,15 @@ public class Main {
             return buffer[bufferPointer++];
         }
 
-        public int[] readLineAsIntArray(int n) throws IOException {
-            int[] ret = new int[n];
+        public int[] readLineAsIntArray(int n, boolean isOneIndex) throws IOException {
+            int[] ret;
+            if (isOneIndex) {
+                ret = new int[n + 1];
+            } else {
+                ret = new int[n];
+            }
 //            int ret = new ArrayList<>();
-            int idx = 0;
+            int idx = isOneIndex ? 1 : 0;
             byte c = read();
             while (c != -1) {
                 if (c == '\n' || c == '\r')

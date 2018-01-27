@@ -1,4 +1,4 @@
-package p5;
+package y2017_January.p4;
 
 import java.io.DataInputStream;
 import java.io.FileInputStream;
@@ -6,27 +6,43 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-/* Candy 15pt
- * DP (Knapsack?)
+/* Cloning
 
+brute force for 5/100pt
 
 */
 public class Main {
 
-    static int[] ks;
-    static int[] cs;
-
     public static void main(String[] args) throws IOException {
         FastReader reader = new FastReader();
-        int N = reader.nextInt();
 
-        for (int i = 0; i < N; i++) {
-            ks[i] = reader.nextInt(); // amount
-            cs[i] = reader.nextInt(); // sweetness
+        String S = reader.nextString();
+        String T = reader.nextString();
+        int Q = reader.nextInt();
+
+        String cs = "0";
+
+        List<Integer> qs = new ArrayList<>();
+        int max = 0;
+        for (int i = 0; i < Q; i++) {
+            int in = reader.nextInt();
+            qs.add(in);
+            max = Math.max(max, in);
         }
 
+        int c = 0;
+        while (cs.length() <= max) {
+            if (cs.substring(c, c+1).equals("0")) {
+                cs += S;
+            } else {
+                cs += T;
+            }
+            c++;
+        }
 
-
+        for (int q : qs) {
+            System.out.println(cs.substring(q-1, q));
+        }
 
     }
 
@@ -232,10 +248,15 @@ public class Main {
             return buffer[bufferPointer++];
         }
 
-        public int[] readLineAsIntArray(int n) throws IOException {
-            int[] ret = new int[n];
+        public int[] readLineAsIntArray(int n, boolean isOneIndex) throws IOException {
+            int[] ret;
+            if (isOneIndex) {
+                ret = new int[n + 1];
+            } else {
+                ret = new int[n];
+            }
 //            int ret = new ArrayList<>();
-            int idx = 0;
+            int idx = isOneIndex ? 1 : 0;
             byte c = read();
             while (c != -1) {
                 if (c == '\n' || c == '\r')

@@ -1,4 +1,4 @@
-package p5;
+package _Bernard;
 
 import java.io.DataInputStream;
 import java.io.FileInputStream;
@@ -6,28 +6,36 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-/* Candy 15pt
- * DP (Knapsack?)
+/* Summer Institute '17 Contest 1 P2 - Bernard 10/10pt
+ * DP
 
+
+In Combining Riceballs and Pick It!, the size of the array changes and adapts
+In this, it doesn't, so it's simpler
+
+Similar question: Bowling for Numbers
 
 */
 public class Main {
 
-    static int[] ks;
-    static int[] cs;
-
     public static void main(String[] args) throws IOException {
         FastReader reader = new FastReader();
-        int N = reader.nextInt();
 
-        for (int i = 0; i < N; i++) {
-            ks[i] = reader.nextInt(); // amount
-            cs[i] = reader.nextInt(); // sweetness
+        int N = reader.nextInt();
+        int K = reader.nextInt();
+
+        int[] d = reader.readLineAsIntArray(N+1, true);
+        long[] memo = new long[N+1];
+
+        for (int i = 1; i <= N; i++) {
+            if (i < K+1) {
+                memo[i] = Math.max(memo[i-1], d[i]);
+            } else {
+                memo[i] = Math.max(memo[i-1], d[i] + memo[i-(K+1)]);
+            }
         }
 
-
-
-
+        System.out.println(memo[N]);
     }
 
 
@@ -232,10 +240,15 @@ public class Main {
             return buffer[bufferPointer++];
         }
 
-        public int[] readLineAsIntArray(int n) throws IOException {
-            int[] ret = new int[n];
+        public int[] readLineAsIntArray(int n, boolean isOneIndex) throws IOException {
+            int[] ret;
+            if (isOneIndex) {
+                ret = new int[n + 1];
+            } else {
+                ret = new int[n];
+            }
 //            int ret = new ArrayList<>();
-            int idx = 0;
+            int idx = isOneIndex ? 1 : 0;
             byte c = read();
             while (c != -1) {
                 if (c == '\n' || c == '\r')

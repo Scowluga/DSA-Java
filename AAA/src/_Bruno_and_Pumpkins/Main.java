@@ -1,33 +1,57 @@
-package p5;
+package _Bruno_and_Pumpkins;
 
 import java.io.DataInputStream;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
-/* Candy 15pt
- * DP (Knapsack?)
+/* Bruno and Pumpkins 7/7pt
+ * DP (not really), Greedy
 
+Just check each possibility of best moves
 
 */
 public class Main {
 
-    static int[] ks;
-    static int[] cs;
-
     public static void main(String[] args) throws IOException {
         FastReader reader = new FastReader();
-        int N = reader.nextInt();
 
-        for (int i = 0; i < N; i++) {
-            ks[i] = reader.nextInt(); // amount
-            cs[i] = reader.nextInt(); // sweetness
+        int N = reader.nextInt();
+        int T = reader.nextInt();
+
+        int[] ps = new int[N+1];
+        for (int i = 0; i < N; i++) ps[i] = reader.nextInt();
+        ps[N] = 0;
+        Arrays.sort(ps);
+
+        int index;
+        for (index = 0; index <= N; index++)
+            if (ps[index] == 0) break;
+
+        int min = Integer.MAX_VALUE;
+        for (int n = 1; n < N; n++) {
+            // check left n
+
+            if (index - n >= 0 && index + (T - n) < ps.length) {
+                min = Math.min(min, Math.abs(ps[index] - ps[index - n]) + Math.abs(ps[index - n] - ps[index + (T - n)]));
+            }
+
+            // check right n
+            if (index + n < ps.length && index - (T - n) >= 0) {
+                min = Math.min(min, Math.abs(ps[index] - ps[index + n]) + Math.abs(ps[index + n] - ps[index - (T - n)]));
+            }
+
         }
 
+        if (index - T >= 0) // only move left
+            min = Math.min(min, Math.abs(ps[index - T]));
 
+        if (index + T < ps.length) // only move right
+            min = Math.min(min, ps[index + T]);
 
-
+        System.out.println(min);
     }
 
 
@@ -232,10 +256,15 @@ public class Main {
             return buffer[bufferPointer++];
         }
 
-        public int[] readLineAsIntArray(int n) throws IOException {
-            int[] ret = new int[n];
+        public int[] readLineAsIntArray(int n, boolean isOneIndex) throws IOException {
+            int[] ret;
+            if (isOneIndex) {
+                ret = new int[n + 1];
+            } else {
+                ret = new int[n];
+            }
 //            int ret = new ArrayList<>();
-            int idx = 0;
+            int idx = isOneIndex ? 1 : 0;
             byte c = read();
             while (c != -1) {
                 if (c == '\n' || c == '\r')

@@ -1,35 +1,64 @@
-package p5;
+package y2016._C1_P3;
 
 import java.io.DataInputStream;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
-/* Candy 15pt
- * DP (Knapsack?)
+/* Shoe Shopping 8/8pt
+ * DP
 
+See: Bernard
+Same thing as Bowling for Numbers
 
 */
 public class Main {
 
-    static int[] ks;
-    static int[] cs;
-
     public static void main(String[] args) throws IOException {
         FastReader reader = new FastReader();
-        int N = reader.nextInt();
 
-        for (int i = 0; i < N; i++) {
-            ks[i] = reader.nextInt(); // amount
-            cs[i] = reader.nextInt(); // sweetness
+        int N = reader.nextInt();
+        int[] vs = reader.readLineAsIntArray(N+1, true);
+        double[] memo = new double[N+1];
+
+        memo[1] = Double.valueOf(vs[1]);
+        if (N == 1) {
+            System.out.printf("%.1f", memo[N]);
+            return;
         }
 
+        memo[2] = two(vs[1], vs[2]);
+        if (N == 2) {
+            System.out.printf("%.1f", memo[N]);
+            return;
+        }
 
+        for (int i = 3; i <= N; i++)
+            memo[i] = min(
+               memo[i-2] + two(vs[i], vs[i-1]),
+               memo[i-3] + three(vs[i], vs[i-1], vs[i-2]),
+               memo[i-1] + vs[i]
+            );
 
-
+        System.out.printf("%.1f", memo[N]);
     }
 
+    static double two(int n1, int n2) {
+        return (Math.min(n1, n2) * 0.5) + Math.max(n1, n2);
+    }
+
+    static double three(int n1, int n2, int n3) {
+        int[] ns = {n1, n2, n3};
+        Arrays.sort(ns);
+        return ns[1] + ns[2];
+    }
+
+    static <T> T min(T... args) {
+        Arrays.sort(args);
+        return args[0];
+    }
 
     public static class FastReader {
 
@@ -232,10 +261,15 @@ public class Main {
             return buffer[bufferPointer++];
         }
 
-        public int[] readLineAsIntArray(int n) throws IOException {
-            int[] ret = new int[n];
+        public int[] readLineAsIntArray(int n, boolean isOneIndex) throws IOException {
+            int[] ret;
+            if (isOneIndex) {
+                ret = new int[n + 1];
+            } else {
+                ret = new int[n];
+            }
 //            int ret = new ArrayList<>();
-            int idx = 0;
+            int idx = isOneIndex ? 1 : 0;
             byte c = read();
             while (c != -1) {
                 if (c == '\n' || c == '\r')

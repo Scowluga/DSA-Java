@@ -1,35 +1,82 @@
-package p5;
+package _PACNW_2016_H;
 
-import java.io.DataInputStream;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
+import java.io.*;
+import java.util.*;
 
-/* Candy 15pt
- * DP (Knapsack?)
+/* Paint 7/7pt
+ * DP (Difficult)
 
+Makes use of TreeMap instead of array for DP since multiple
+painters can have the same right ending.
+
+dp[p] = max(self,
+           (best of all p0 where p0.r < p.l) + p.v()
+       )
 
 */
-public class Main {
 
-    static int[] ks;
-    static int[] cs;
+public class Main {
 
     public static void main(String[] args) throws IOException {
         FastReader reader = new FastReader();
-        int N = reader.nextInt();
 
-        for (int i = 0; i < N; i++) {
-            ks[i] = reader.nextInt(); // amount
-            cs[i] = reader.nextInt(); // sweetness
+        // input
+        long n = reader.nextLong();
+        int k = reader.nextInt();
+
+        R[] ps = new R[k];
+        for (int i = 0; i < k; i++) ps[i] = new R(reader.nextLong(), reader.nextLong());
+        Arrays.sort(ps);
+
+        // p.r -> max v
+        TreeMap<Long, Long> dp = new TreeMap<>();
+        long b = 0;
+        for(R p : ps) {
+            while(!dp.isEmpty() && dp.firstKey() < p.l) {
+                b = Math.max(b, dp.remove(dp.firstKey()));
+            }
+
+            // first visited p.r val
+            if(!dp.containsKey(p.r)) dp.put(p.r, 0L);
+
+            dp.put(p.r, Math.max(dp.get(p.r), p.v() + b));
         }
 
-
-
+        // output
+        System.out.println(n - Collections.max(dp.values()));
 
     }
 
+    static class R implements Comparable<R> {
+
+        long l;
+        long r;
+
+        R(long x, long y) {
+            this.l = x;
+            this.r = y;
+        }
+
+        long v() {
+            return this.r - this.l + 1;
+        }
+
+        @Override
+        public boolean equals(Object obj) {
+            R p = (R)obj;
+            return p.l == this.l && p.r == this.r;
+        }
+
+        @Override
+        public String toString() {
+            return "Range (" + this.l + ", " + this.r + ")";
+        }
+
+        @Override
+        public int compareTo(R o) {
+            return Long.compare(this.l, o.l);
+        }
+    }
 
     public static class FastReader {
 

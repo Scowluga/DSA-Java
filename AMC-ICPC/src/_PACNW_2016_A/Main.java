@@ -1,4 +1,4 @@
-package p5;
+package _PACNW_2016_A;
 
 import java.io.DataInputStream;
 import java.io.FileInputStream;
@@ -6,29 +6,55 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-/* Candy 15pt
- * DP (Knapsack?)
+/* Alphabet 7/7 pt
+ * DP (Longest Common Subsequence)
 
+Find the LCR between input and the alphabet
+Guide: https://en.wikipedia.org/wiki/Longest_common_subsequence_problem
+
+Essentially, there are two cases:
+    same ending
+    different ending
 
 */
 public class Main {
 
-    static int[] ks;
-    static int[] cs;
-
     public static void main(String[] args) throws IOException {
-        FastReader reader = new FastReader();
-        int N = reader.nextInt();
+        String[] input = new FastReader().readLine().split("");
+        String[] alpha = "abcdefghijklmnopqrstuvwxyz".split("");
+        int[][] dp = new int[input.length + 1][alpha.length + 1];
 
-        for (int i = 0; i < N; i++) {
-            ks[i] = reader.nextInt(); // amount
-            cs[i] = reader.nextInt(); // sweetness
+        for (int i = 0; i <= input.length; i++) {
+            for (int j = 0; j <= alpha.length; j++) {
+                if (i == 0 || j == 0) dp[i][j] = 0;
+                else if (input[i-1].equals(alpha[j-1])) {
+                    dp[i][j] = dp[i-1][j-1] + 1;
+                } else {
+                    dp[i][j] = Math.max(dp[i-1][j], dp[i][j-1]);
+                }
+            }
         }
 
-
-
-
+        System.out.println(26 - dp[input.length][alpha.length]);
     }
+
+    // for saving the string, not just length
+//    static String recurse(int i1, int i2) {
+//        if (i1 == -1 || i2 == -1) return "";       // base case (0 length string)
+//        if (dp[i1][i2] != null) return dp[i1][i2]; // memoized
+//
+//        if (input[i1].equals(alpha[i2])) { // same ending
+//            String res = recurse(i1 - 1, i2 - 1) + input[i1];
+//            dp[i1][i2] = res;
+//            return res;
+//        } else { // different ending
+//            String r1 = recurse(i1 - 1, i2);
+//            String r2 = recurse(i1, i2 - 1);
+//            String res = (r1.length() > r2.length()) ? r1 : r2;
+//            dp[i1][i2] = res;
+//            return res;
+//        }
+//    }
 
 
     public static class FastReader {

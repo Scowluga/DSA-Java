@@ -1,4 +1,4 @@
-package p5;
+package y2017_January._p2;
 
 import java.io.DataInputStream;
 import java.io.FileInputStream;
@@ -6,28 +6,50 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-/* Candy 15pt
- * DP (Knapsack?)
-
+/* DeliveryService II *solved*
 
 */
 public class Main {
 
-    static int[] ks;
-    static int[] cs;
-
     public static void main(String[] args) throws IOException {
         FastReader reader = new FastReader();
-        int N = reader.nextInt();
 
-        for (int i = 0; i < N; i++) {
-            ks[i] = reader.nextInt(); // amount
-            cs[i] = reader.nextInt(); // sweetness
+        int N = reader.nextInt();
+        int D = reader.nextInt();
+
+        int[] ps = new int[N+1];
+        for (int i = 1; i <= N; i++) ps[i] = reader.nextInt();
+
+        int ls = Integer.MAX_VALUE;
+        int le = Integer.MAX_VALUE;
+        int rs = Integer.MIN_VALUE;
+        int re = Integer.MIN_VALUE;
+
+        for (int i = 0; i < D; i++) {
+            int l1 = reader.nextInt();
+            int l2 = reader.nextInt();
+            int p1 = ps[l1];
+            int p2 = ps[l2];
+
+            if (p1 < p2) {
+                ls = Math.min(ls, p1);
+                re = Math.max(re, p2);
+            } else { // p1 > p2
+                rs = Math.max(rs, p1);
+                le = Math.min(le, p2);
+            }
         }
 
-
-
-
+        if (rs == Integer.MIN_VALUE && le == Integer.MAX_VALUE) {
+            System.out.println(Math.abs(re - ls));
+        } else if (re == Integer.MIN_VALUE && ls == Integer.MAX_VALUE) {
+            System.out.println(Math.abs(rs - le));
+        } else {
+            System.out.println(Math.min(
+                    Math.abs(re - ls) + Math.abs(re - rs) + Math.abs(rs - le), // l r l
+                    Math.abs(rs - le) + Math.abs(le - ls) + Math.abs(re - ls)  // r l r
+            ));
+        }
     }
 
 
@@ -232,10 +254,15 @@ public class Main {
             return buffer[bufferPointer++];
         }
 
-        public int[] readLineAsIntArray(int n) throws IOException {
-            int[] ret = new int[n];
+        public int[] readLineAsIntArray(int n, boolean isOneIndex) throws IOException {
+            int[] ret;
+            if (isOneIndex) {
+                ret = new int[n + 1];
+            } else {
+                ret = new int[n];
+            }
 //            int ret = new ArrayList<>();
-            int idx = 0;
+            int idx = isOneIndex ? 1 : 0;
             byte c = read();
             while (c != -1) {
                 if (c == '\n' || c == '\r')

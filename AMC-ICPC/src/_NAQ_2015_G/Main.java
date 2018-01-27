@@ -1,33 +1,65 @@
-package p5;
+package _NAQ_2015_G;
 
 import java.io.DataInputStream;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
-/* Candy 15pt
- * DP (Knapsack?)
+/* Safe Passage 10/10pt
+ * DP, Greedy
 
+We observe only two moves are ever economic:
+    Fast two, back, slow two, back
+    Fast one + Slow one, fast back
+
+(Double ferry, single ferry)
+
+So, we build a look-up table with this
 
 */
 public class Main {
 
-    static int[] ks;
-    static int[] cs;
-
     public static void main(String[] args) throws IOException {
         FastReader reader = new FastReader();
-        int N = reader.nextInt();
 
+        int N = reader.nextInt(); // [2, 15]
+
+        int[] fs = new int[N];
+        int[] dp = new int[N];
+
+        // > Input
         for (int i = 0; i < N; i++) {
-            ks[i] = reader.nextInt(); // amount
-            cs[i] = reader.nextInt(); // sweetness
+            dp[i] = Integer.MAX_VALUE;
+            fs[i] = reader.nextInt();
+        }
+        Arrays.sort(fs);
+
+        // > Base cases
+        dp[0] = fs[0];
+        dp[1] = fs[1];
+        if (N == 2) {
+            System.out.println(dp[1]);
+            return;
+        }
+        dp[2] = fs[0] + fs[1] + fs[2];
+        if (N == 3) {
+            System.out.println(dp[2]);
+            return;
         }
 
+        // > Build look-up-table
+        for (int i = 3; i < N; i++) {
+            dp[i] = Math.min(
+               dp[i-1] + fs[i] + fs[0],
+               dp[i-2] + fs[0] + fs[1] + fs[1] + fs[i]
+            );
 
+        }
 
-
+        // > Output
+        System.out.println(dp[N-1]);
     }
 
 
@@ -232,10 +264,15 @@ public class Main {
             return buffer[bufferPointer++];
         }
 
-        public int[] readLineAsIntArray(int n) throws IOException {
-            int[] ret = new int[n];
+        public int[] readLineAsIntArray(int n, boolean isOneIndex) throws IOException {
+            int[] ret;
+            if (isOneIndex) {
+                ret = new int[n + 1];
+            } else {
+                ret = new int[n];
+            }
 //            int ret = new ArrayList<>();
-            int idx = 0;
+            int idx = isOneIndex ? 1 : 0;
             byte c = read();
             while (c != -1) {
                 if (c == '\n' || c == '\r')

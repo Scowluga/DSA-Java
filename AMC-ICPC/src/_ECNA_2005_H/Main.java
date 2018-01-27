@@ -1,4 +1,4 @@
-package p5;
+package _ECNA_2005_H;
 
 import java.io.DataInputStream;
 import java.io.FileInputStream;
@@ -6,30 +6,53 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-/* Candy 15pt
- * DP (Knapsack?)
+/* Two Ends 10pt
+ * DP (simple)
 
+Pretty easy. Try every test case.
 
 */
 public class Main {
 
-    static int[] ks;
+    static int N;
+
     static int[] cs;
+    static int[][][] memo;
 
     public static void main(String[] args) throws IOException {
         FastReader reader = new FastReader();
-        int N = reader.nextInt();
+        N = reader.nextInt();
+        int c = 1;
+        while (N != 0) {
+            cs = reader.readLineAsIntArray(N, false);
+            memo = new int[N][N][2];
 
-        for (int i = 0; i < N; i++) {
-            ks[i] = reader.nextInt(); // amount
-            cs[i] = reader.nextInt(); // sweetness
+            System.out.println(String.format(
+                    "In game %d, the greedy strategy might lose by as many as %d points.",
+                    c++, dp(0, N-1, true)));
+            N = reader.nextInt();
         }
-
-
-
-
     }
 
+
+    static int dp(int si, int ei, boolean t) {
+        if (memo[si][ei][t?1:0] == 0) {
+            if (ei - si == 1) { // base case
+                memo[si][ei][t?1:0] = Math.abs(cs[ei] - cs[si]);
+            } else if (t) { // your turn
+                memo[si][ei][t?1:0] = Math.max(
+                   cs[si] + dp(si+1, ei, !t), // take left
+                   cs[ei] + dp(si, ei-1, !t)  // take right
+                );
+            } else { // other turn
+                if (cs[si] >= cs[ei]) // take left
+                    memo[si][ei][t?1:0] = dp(si+1, ei, !t) - cs[si];
+                else // take right
+                    memo[si][ei][t?1:0] = dp(si, ei-1, !t) - cs[ei];
+            }
+        }
+        return memo[si][ei][t?1:0];
+    }
 
     public static class FastReader {
 
@@ -232,10 +255,15 @@ public class Main {
             return buffer[bufferPointer++];
         }
 
-        public int[] readLineAsIntArray(int n) throws IOException {
-            int[] ret = new int[n];
+        public int[] readLineAsIntArray(int n, boolean isOneIndex) throws IOException {
+            int[] ret;
+            if (isOneIndex) {
+                ret = new int[n + 1];
+            } else {
+                ret = new int[n];
+            }
 //            int ret = new ArrayList<>();
-            int idx = 0;
+            int idx = isOneIndex ? 1 : 0;
             byte c = read();
             while (c != -1) {
                 if (c == '\n' || c == '\r')
@@ -265,6 +293,8 @@ public class Main {
             }
             return ret;
         }
+
+
 
         public void close() throws IOException {
             if (din != null) {

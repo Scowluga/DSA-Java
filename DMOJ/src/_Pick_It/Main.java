@@ -1,4 +1,4 @@
-package p5;
+package _Pick_It;
 
 import java.io.DataInputStream;
 import java.io.FileInputStream;
@@ -6,30 +6,49 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-/* Candy 15pt
- * DP (Knapsack?)
+/* Pick It 15/15pt
+ * DP
 
+Very similar to combining riceballs
+For some reason, look-up-table TLE's
+
+This requires recursive approach
 
 */
 public class Main {
 
-    static int[] ks;
-    static int[] cs;
+    static int[][] memo;
+    static int[] vals;
 
     public static void main(String[] args) throws IOException {
         FastReader reader = new FastReader();
         int N = reader.nextInt();
+        while (N != 0) {
+            memo = new int[N][N];
+            vals = reader.readLineAsIntArray(N, false);
 
-        for (int i = 0; i < N; i++) {
-            ks[i] = reader.nextInt(); // amount
-            cs[i] = reader.nextInt(); // sweetness
+            System.out.println(dp(0, N-1));
+            N = reader.nextInt();
         }
-
-
-
-
     }
 
+    static int dp(int i1, int i2) {
+        if (i1 == i2) return 0;
+        if (memo[i1][i2] == 0) {
+            int max = 0;
+            for (int i = i1 + 1; i < i2; i++) {
+                max = Math.max(max,
+                        dp(i1, i)
+                        + vals[i1]
+                        + vals[i]
+                        + dp(i, i2)
+                        + vals[i2]
+                );
+            }
+            memo[i1][i2] = max;
+        }
+        return memo[i1][i2];
+    }
 
     public static class FastReader {
 
@@ -232,10 +251,15 @@ public class Main {
             return buffer[bufferPointer++];
         }
 
-        public int[] readLineAsIntArray(int n) throws IOException {
-            int[] ret = new int[n];
+        public int[] readLineAsIntArray(int n, boolean isOneIndex) throws IOException {
+            int[] ret;
+            if (isOneIndex) {
+                ret = new int[n + 1];
+            } else {
+                ret = new int[n];
+            }
 //            int ret = new ArrayList<>();
-            int idx = 0;
+            int idx = isOneIndex ? 1 : 0;
             byte c = read();
             while (c != -1) {
                 if (c == '\n' || c == '\r')

@@ -1,4 +1,4 @@
-package p5;
+package y2017_January._p1;
 
 import java.io.DataInputStream;
 import java.io.FileInputStream;
@@ -6,28 +6,23 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-/* Candy 15pt
- * DP (Knapsack?)
-
+/* Guess the Number *solved*
 
 */
 public class Main {
 
-    static int[] ks;
-    static int[] cs;
-
     public static void main(String[] args) throws IOException {
         FastReader reader = new FastReader();
-        int N = reader.nextInt();
 
-        for (int i = 0; i < N; i++) {
-            ks[i] = reader.nextInt(); // amount
-            cs[i] = reader.nextInt(); // sweetness
-        }
+        int g = -50;
 
+        System.out.printf("guess %d\n", g);
+        System.out.flush();
 
+        int n = reader.nextInt();
 
-
+        System.out.printf("answer %d\n", g + n);
+        System.out.flush();
     }
 
 
@@ -232,10 +227,15 @@ public class Main {
             return buffer[bufferPointer++];
         }
 
-        public int[] readLineAsIntArray(int n) throws IOException {
-            int[] ret = new int[n];
+        public int[] readLineAsIntArray(int n, boolean isOneIndex) throws IOException {
+            int[] ret;
+            if (isOneIndex) {
+                ret = new int[n + 1];
+            } else {
+                ret = new int[n];
+            }
 //            int ret = new ArrayList<>();
-            int idx = 0;
+            int idx = isOneIndex ? 1 : 0;
             byte c = read();
             while (c != -1) {
                 if (c == '\n' || c == '\r')
