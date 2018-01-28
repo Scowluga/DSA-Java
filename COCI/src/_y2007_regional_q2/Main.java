@@ -20,6 +20,12 @@ as a whole, think specifically about sub problems.
 In this case, the cheapest solution for a point is simply the min
 of the backward or forward jump. That's it.
 
+You just need to clear your head, and focus on
+    key insight
+    recurrence
+
+Simplify the dp problem into sub-problems with overlap, that's it.
+
 */
 public class Main {
 

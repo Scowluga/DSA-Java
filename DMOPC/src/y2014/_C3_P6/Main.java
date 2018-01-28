@@ -1,181 +1,67 @@
-package _y2016_c5_p3;
+package y2014._C3_P6;
 
 import java.io.DataInputStream;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
-/* Flight Exam 10/10pt
- * DP (very very very tedious)
+/* Not Enough Time!
+ * DP (knapsack)
 
-The algorithm is fairly standard
-    key insight is not too bad (and is in the editorial)
-    recurrence is simply max of all the nodes it can reach
+Recurrence (classic 0/1 knapsack):
+    memo[c-1][t]
+    memo[c-1][t-p] + v // time minus preparation time, but adding value
 
-(top solution is 40 lines of code... thinking...)
+Key insight:
+    group each customer's 3 choices
+    at each time, check max of all possible choices
 
+This is like Nukit, or Joey and Biology, or anything else.
+Classic recurrence but take max/min of every possibility
 
-Notes:
-When faced with a new problem like this, don't stress. Think
-very carefully about the question to search for the key insight
-that will allow us to use dp to solve it.
-
-In this case, the plane should only ever pass by a point, or one S below
-So, we only care about those points. Then, the recurrence is simply
-max of all reachable points, for which there are 2N of them.
-
+To save memory, only keep the last customer's best values.
 
 */
 public class Main {
 
-    static int N; // checkpoints
-    static int I; // increase speed
-    static int D; // decrease speed
-    static int S; // somersault distance
-
     public static void main(String[] args) throws IOException {
         FastReader reader = new FastReader();
 
-        // > Input
-        N = reader.nextInt();
-        I = reader.nextInt();
-        D = reader.nextInt();
-        S = reader.nextInt();
+        int N = reader.nextInt();
+        int T = reader.nextInt();
 
-        In[] is = new In[N]; // ensures sorted input
-        for (int i = 0; i < N; i++)
-            is[i] = new In(reader.nextLong(), reader.nextLong());
-        Arrays.sort(is);
+        long[][] memo = new long[T+1][2];
+        int mi = 0;
 
-        // > Setup
-        List<List<P>> ps = new ArrayList<>();
-        ps.add(new ArrayList<>());
+        // for each customer
+        for (int c = 0; c < N; c++) {
+            // input choices
+            int[][] vs = new int[][] {
+                {reader.nextInt(), reader.nextInt()},
+                {reader.nextInt(), reader.nextInt()},
+                {reader.nextInt(), reader.nextInt()}
+            };
 
-        long cd = is[0].d; // current distance
-        for (int i = 0; i < is.length; i++) {
-            if (is[i].d == cd) { // same distance
+            // run knapsack on each time limit by taking max of each option
+            for (int t = 1; t <= T; t++) {
+                // previous
+                memo[t][mi] = memo[t][mi^1];
 
-                // add current point
-                P c = new P(is[i].d, is[i].a, 1);
-                int ci = l(ps).indexOf(c);
-                if (ci < 0)
-                    l(ps).add(c);
-                else
-                    l(ps).get(ci).v++;
+                if (t >= vs[2][0]) // good
+                    memo[t][mi] = Math.max(memo[t][mi], memo[t-vs[2][0]][mi^1] + vs[2][1]);
 
-                // add below point
-                if (S != 0 && is[i].a - S >= 0) {
-                    P b = new P(is[i].d, is[i].a - S, 1);
-                    int bi = l(ps).indexOf(b);
-                    if (bi < 0)
-                        l(ps).add(b);
-                    else
-                        l(ps).get(bi).v++;
-                }
-            } else { // new distance
-                // initialize array
-                ps.add(new ArrayList<>());
-                cd = is[i].d;
-                // go back so you run the top half of this if
-                i--;
+                if (t >= vs[1][0]) // average
+                    memo[t][mi] = Math.max(memo[t][mi], memo[t-vs[1][0]][mi^1] + vs[1][1]);
+
+                if (t >= vs[0][0]) // poor
+                    memo[t][mi] = Math.max(memo[t][mi], memo[t-vs[0][0]][mi^1] + vs[0][1]);
             }
-        }
-        ps.add(0, new ArrayList<>());
-        ps.get(0).add(new P(0, 0, 0)); // starting point
-
-        // > Solve
-
-        // for each distance going backward
-         for (int c1 = ps.size() - 1; c1 >= 0; c1--) {
-            // for each point at that distance
-            for (P p1 : ps.get(c1)) {
-                long max = 0L;
-                // each distance after
-                for (int c2 = c1+1; c2 < ps.size(); c2++) {
-                    // each point after
-                    for (P p2 : ps.get(c2)) {
-                        // if reachable
-                        if (r(p1, p2)) {
-                            max = Math.max(max, p2.m);
-                        }
-                    }
-                }
-                p1.m = max + p1.v;
-            }
+            mi ^= 1;
         }
 
-        // > Output
-        System.out.println(ps.get(0).get(0).m);
+        System.out.println(memo[T][mi^1]);
     }
-
-    // whether p1 can reach p2
-    static boolean r(P p1, P p2) {
-        if (p2.a == p1.a) return true;
-        if (p2.a > p1.a) {
-            return p2.a - p1.a <= (p2.d - p1.d) * I;
-        } else { // p2.1 < p1.a
-            return p1.a - p2.a <= (p2.d - p1.d) * D;
-        }
-    }
-
-    // saves me code
-    static List<P> l(List<List<P>> ps) {
-        return ps.get(ps.size() - 1);
-    }
-
-    // class input
-    static class In implements Comparable<In> {
-        long d;
-        long a;
-
-        In(long d0, long a0) {
-            this.d = d0;
-            this.a = a0;
-        }
-
-        @Override
-        public int compareTo(In o) {
-            int cd = Long.compare(this.d, o.d);
-            if (cd != 0) return cd;
-            return Long.compare(this.a, o.a);
-        }
-    }
-
-    // info
-    static class P implements Comparable<P> {
-
-        long d; // distance
-        long a; // altitude
-        int v; // value
-        long m; // memo
-
-        public P(long d0, long a0, int v0) {
-            this.d = d0;
-            this.a = a0;
-            this.v = v0;
-        }
-
-        @Override
-        public String toString() {
-            return "d: " + this.d + " a: " + this.a + " v: " + this.v + " m: " + this.m;
-        }
-
-        @Override
-        public boolean equals(Object obj) {
-            P p = (P)obj;
-            return this.d == p.d && this.a == p.a;
-        }
-
-        @Override
-        public int compareTo(P o) {
-            int cd = Long.compare(this.d, o.d);
-            if (cd != 0) return cd;
-            return Long.compare(this.a, o.a);
-        }
-    }
-
 
     public static class FastReader {
 

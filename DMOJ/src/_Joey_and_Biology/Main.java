@@ -1,4 +1,4 @@
-package Joey_and_Biology;
+package _Joey_and_Biology;
 
 import java.io.DataInputStream;
 import java.io.FileInputStream;
@@ -6,20 +6,11 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-/* Joey and Biology
+/* Joey and Biology 12/12pt
  * DP, recursion
 
-
-Find LCS with indexes, then for each group where it's not equal,
-find least changes?
-
-
-Find least changes:
-
-diff = l1 - l2
-
-    1: return 1
-    2: return 
+Just build a look up table with recurrence based on each of the
+7 possible moves.
 
 */
 public class Main {
@@ -27,12 +18,48 @@ public class Main {
     public static void main(String[] args) throws IOException {
         FastReader reader = new FastReader();
 
-        // <= 1000
         int N = reader.nextInt();
         int M = reader.nextInt();
 
+        char[] ns = reader.readLine().toCharArray();
+        char[] ms = reader.readLine().toCharArray();
+
+        int[][] memo = new int[N+1][M+1];
+
+        // base cases
+        for (int ni = 1; ni <= N; ni++) memo[ni][0] = (ni - 1) / 3 + 1;
+        for (int mi = 1; mi <= M; mi++) memo[0][mi] = (mi - 1) / 3 + 1;
 
 
+        for (int ni = 1; ni <= N; ni++) {
+            for (int mi = 1; mi <= M; mi++) {
+                int min = Integer.MAX_VALUE;
+
+                // change single
+                if (ns[ni-1] == ms[mi-1]) { // no need
+                    min = Math.min(min, memo[ni-1][mi-1]);
+                } else { // change
+                    min = Math.min(min, memo[ni-1][mi-1] + 1);
+                }
+
+                // 1
+                min = Math.min(min, memo[ni-1][mi] + 1);
+                min = Math.min(min, memo[ni][mi-1] + 1);
+
+                // 2
+                if (ni >= 2) min = Math.min(min, memo[ni-2][mi] + 1);
+                if (mi >= 2) min = Math.min(min, memo[ni][mi-2] + 1);
+
+                // 3
+                if (ni >= 3) min = Math.min(min, memo[ni-3][mi] + 1);
+                if (mi >= 3) min = Math.min(min, memo[ni][mi-3] + 1);
+
+                memo[ni][mi] = min;
+            }
+
+        }
+
+        System.out.println(memo[N][M]);
     }
 
 
