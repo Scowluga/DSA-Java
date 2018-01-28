@@ -1,24 +1,25 @@
-package y2007_regional_q2;
+package _y2007_regional_q2;
 
 import java.io.DataInputStream;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.*;
 
-/* Nikola
+/* Nikola 10/10pt
+ * DP
 
+You're over complicating it.
 
-This question is literally the same thing as the other 500 exact same ones
+Two piece of information
+    index
+    jump distance
 
-Except, you can move backward, so that messes up everything
+Remember DP is about recurrence. Don't try to solve the problem
+as a whole, think specifically about sub problems.
 
+In this case, the cheapest solution for a point is simply the min
+of the backward or forward jump. That's it.
 
-Or does it?
-
-Account for
-> Visited
-> jump distance
-> cost
 */
 public class Main {
 
@@ -34,33 +35,25 @@ public class Main {
         for (int i = 0; i < N; i++) vs[i] = reader.nextInt();
 
         memo = new int[N][N];
-        memo[1][1] = vs[1];
-
         System.out.println(dp(1, 1));
     }
 
     static int dp(int i, int d) {
-        if (i == N - 1) return memo[i][d];
+        if (i == N-1) return vs[i];
         if (memo[i][d] != 0) return memo[i][d];
 
         int min = Integer.MAX_VALUE;
-        // forward
-        if (i + d + 1 < N) {
-            if (memo[i+d+1][d+1] == 0
-                || memo[i][d] + vs[i+d+1] < memo[i+d+1][d+1]) {
-                min = Math.min(min, dp(i+d+1, d+1));
-            }
-        }
 
-        // backward
-        if (i - d >= 0) {
-            if (memo[i-d][d] == 0
-                || memo[i][d] + vs[i-d] < memo[i-d][d]) {
-                min = Math.min(min, dp(i-d, d));
-            }
-        }
+        if (i + d + 1 < N) // forward
+            min = Math.min(min, dp(i+d+1, d+1));
 
-        memo[i][d] = min;
+        if (i - d >= 0) // backward
+            min = Math.min(min, dp(i-d, d));
+
+        if (min == Integer.MAX_VALUE) memo[i][d] = min;
+        else memo[i][d] = min + vs[i];
+
+        return memo[i][d];
     }
 
     public static class FastReader {
