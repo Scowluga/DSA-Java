@@ -1,4 +1,4 @@
-package y2013.c1.p4;
+package y2013._C3_P5;
 
 import java.io.DataInputStream;
 import java.io.FileInputStream;
@@ -6,31 +6,46 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-/* AFK
+/* A Romantic Dinner 15/15pt
+ * DP (multiple constraint knapsack)
+
+classic knapsack (Simon and Marcy)
+knapsack with types (Computer Purchase)
+knapsack with stages (Getting good at programming)
+knapsack with options (Not Enough Time!)
+now multiple constraints
+
+But if you think about it, this question with multiple constraints
+is very easy. It's just knapsack, with an extra nested loop.
 
 */
 public class Main {
 
     public static void main(String[] args) throws IOException {
-        String file = "t.txt";
-//        FastReader reader = new FastReader("C:\\Users\\david\\Documents\\Programming\\Java\\DSA-Java\\CCC\\src\\" + "y13.c1.p4".split(".")[0] + "\\" + "y13.c1.p4".split(".")[1] + "\\" + "file");
         FastReader reader = new FastReader();
 
-        int t = reader.nextInt();
-        for (int tt = 0; tt < t; tt++) {
-            int xT = reader.nextInt();
-            int yT = reader.nextInt();
+        int M = reader.nextInt(); // constraint 1 (time)
+        int U = reader.nextInt(); // constraint 2 (food)
+        int R = reader.nextInt(); // restaurants
 
-            String[][] b = new String[xT][yT];
+        int[][][] memo = new int[R+1][M+1][U+1];
 
-            for (int i = 0; i < yT; i++) {
-                b[i] = reader.readLine().split("");
+        for (int ri = 1; ri <= R; ri++) { // each restaurant
+            int v = reader.nextInt(); // value
+            int m = reader.nextInt(); // cost 1 (time)
+            int u = reader.nextInt(); // cost 2 (food)
+
+            for (int mi = 1; mi <= M; mi++) { // each minute
+                for (int ui = 1; ui <= U; ui++) { // each unit of food
+                    memo[ri][mi][ui] = memo[ri-1][mi][ui];
+                    if (mi >= m && ui >= u)
+                        memo[ri][mi][ui] = Math.max(memo[ri][mi][ui], memo[ri-1][mi-m][ui-u] + v);
+                }
             }
-
-
         }
-    }
 
+        System.out.println(memo[R][M][U]);
+    }
 
     public static class FastReader {
 
@@ -233,10 +248,15 @@ public class Main {
             return buffer[bufferPointer++];
         }
 
-        public int[] readLineAsIntArray(int n) throws IOException {
-            int[] ret = new int[n];
+        public int[] readLineAsIntArray(int n, boolean isOneIndex) throws IOException {
+            int[] ret;
+            if (isOneIndex) {
+                ret = new int[n + 1];
+            } else {
+                ret = new int[n];
+            }
 //            int ret = new ArrayList<>();
-            int idx = 0;
+            int idx = isOneIndex ? 1 : 0;
             byte c = read();
             while (c != -1) {
                 if (c == '\n' || c == '\r')

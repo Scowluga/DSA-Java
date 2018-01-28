@@ -1,4 +1,4 @@
-package y2014._C3_P6;
+package y2013.C1_P4;
 
 import java.io.DataInputStream;
 import java.io.FileInputStream;
@@ -6,62 +6,31 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-/* Not Enough Time! 15/15pt
- * DP (knapsack)
-
-Recurrence (classic 0/1 knapsack):
-    memo[c-1][t]
-    memo[c-1][t-p] + v // time minus preparation time, but adding value
-
-Key insight:
-    group each customer's 3 choices
-    at each time, check max of all possible choices
-
-This is like Nukit, or Joey and Biology, or anything else.
-Classic recurrence but take max/min of every possibility
-
-To save memory, only keep the last customer's best values.
+/* AFK
 
 */
 public class Main {
 
     public static void main(String[] args) throws IOException {
+        String file = "t.txt";
+//        FastReader reader = new FastReader("C:\\Users\\david\\Documents\\Programming\\Java\\DSA-Java\\CCC\\src\\" + "y13.c1.p4".split(".")[0] + "\\" + "y13.c1.p4".split(".")[1] + "\\" + "file");
         FastReader reader = new FastReader();
 
-        int N = reader.nextInt();
-        int T = reader.nextInt();
+        int t = reader.nextInt();
+        for (int tt = 0; tt < t; tt++) {
+            int xT = reader.nextInt();
+            int yT = reader.nextInt();
 
-        long[][] memo = new long[T+1][2];
-        int mi = 0;
+            String[][] b = new String[xT][yT];
 
-        // for each customer
-        for (int c = 0; c < N; c++) {
-            // input choices
-            int[][] vs = new int[][] {
-                {reader.nextInt(), reader.nextInt()},
-                {reader.nextInt(), reader.nextInt()},
-                {reader.nextInt(), reader.nextInt()}
-            };
-
-            // run knapsack on each time limit by taking max of each option
-            for (int t = 1; t <= T; t++) {
-                // previous
-                memo[t][mi] = memo[t][mi^1];
-
-                if (t >= vs[2][0]) // good
-                    memo[t][mi] = Math.max(memo[t][mi], memo[t-vs[2][0]][mi^1] + vs[2][1]);
-
-                if (t >= vs[1][0]) // average
-                    memo[t][mi] = Math.max(memo[t][mi], memo[t-vs[1][0]][mi^1] + vs[1][1]);
-
-                if (t >= vs[0][0]) // poor
-                    memo[t][mi] = Math.max(memo[t][mi], memo[t-vs[0][0]][mi^1] + vs[0][1]);
+            for (int i = 0; i < yT; i++) {
+                b[i] = reader.readLine().split("");
             }
-            mi ^= 1;
-        }
 
-        System.out.println(memo[T][mi^1]);
+
+        }
     }
+
 
     public static class FastReader {
 
@@ -264,15 +233,10 @@ public class Main {
             return buffer[bufferPointer++];
         }
 
-        public int[] readLineAsIntArray(int n, boolean isOneIndex) throws IOException {
-            int[] ret;
-            if (isOneIndex) {
-                ret = new int[n + 1];
-            } else {
-                ret = new int[n];
-            }
+        public int[] readLineAsIntArray(int n) throws IOException {
+            int[] ret = new int[n];
 //            int ret = new ArrayList<>();
-            int idx = isOneIndex ? 1 : 0;
+            int idx = 0;
             byte c = read();
             while (c != -1) {
                 if (c == '\n' || c == '\r')

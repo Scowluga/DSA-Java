@@ -1,4 +1,4 @@
-package y2014._C3_P6;
+package _vmss15c1p5;
 
 import java.io.DataInputStream;
 import java.io.FileInputStream;
@@ -6,21 +6,10 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-/* Not Enough Time! 15/15pt
- * DP (knapsack)
+/* Jeffrey and Frank and a Lack of Roads 12/12pt
+ * DP
 
-Recurrence (classic 0/1 knapsack):
-    memo[c-1][t]
-    memo[c-1][t-p] + v // time minus preparation time, but adding value
-
-Key insight:
-    group each customer's 3 choices
-    at each time, check max of all possible choices
-
-This is like Nukit, or Joey and Biology, or anything else.
-Classic recurrence but take max/min of every possibility
-
-To save memory, only keep the last customer's best values.
+This question is HSIUNG (jumping) with an extra dimension.
 
 */
 public class Main {
@@ -28,40 +17,83 @@ public class Main {
     public static void main(String[] args) throws IOException {
         FastReader reader = new FastReader();
 
-        int N = reader.nextInt();
-        int T = reader.nextInt();
+        // > Input
+        int N = reader.nextInt(); // # of apples
+        int R = reader.nextInt(); // r limit
+        int S = reader.nextInt(); // s limit
 
-        long[][] memo = new long[T+1][2];
-        int mi = 0;
+        A[] as = new A[N]; // apples
+        for (int ni = 0; ni < N; ni++)
+            as[ni] = new A(reader.nextString(), reader.nextInt(), reader.nextInt(), reader.nextInt());
 
-        // for each customer
-        for (int c = 0; c < N; c++) {
-            // input choices
-            int[][] vs = new int[][] {
-                {reader.nextInt(), reader.nextInt()},
-                {reader.nextInt(), reader.nextInt()},
-                {reader.nextInt(), reader.nextInt()}
-            };
 
-            // run knapsack on each time limit by taking max of each option
-            for (int t = 1; t <= T; t++) {
-                // previous
-                memo[t][mi] = memo[t][mi^1];
+        // > Building look-up-table
+        O[][] memo = new O[R+1][S+1];
+        memo[0][0] = new O(0, new int[N]);
 
-                if (t >= vs[2][0]) // good
-                    memo[t][mi] = Math.max(memo[t][mi], memo[t-vs[2][0]][mi^1] + vs[2][1]);
-
-                if (t >= vs[1][0]) // average
-                    memo[t][mi] = Math.max(memo[t][mi], memo[t-vs[1][0]][mi^1] + vs[1][1]);
-
-                if (t >= vs[0][0]) // poor
-                    memo[t][mi] = Math.max(memo[t][mi], memo[t-vs[0][0]][mi^1] + vs[0][1]);
+        for (int ri = 0; ri <= R; ri++) {
+            for (int si = 0; si <= S; si++) {
+                if (memo[ri][si] != null) {
+                    for (int ni = 0; ni < N; ni++) {
+                        if (as[ni].rv + ri <= R && as[ni].sv + si <= S) {
+                            O o = new O(memo[ri][si].v + as[ni].tv, memo[ri][si].a.clone());
+                            o.a[ni]++;
+                            if (memo[as[ni].rv + ri][as[ni].sv + si] == null || memo[as[ni].rv + ri][as[ni].sv + si].v < o.v) {
+                                memo[as[ni].rv + ri][as[ni].sv + si] = o;
+                            }
+                        }
+                    }
+                }
             }
-            mi ^= 1;
         }
 
-        System.out.println(memo[T][mi^1]);
+        // > Finding max
+        O max = memo[0][0];
+        for (int ri = 0; ri <= R; ri++) {
+            for (int si = 0; si <= S; si++) {
+                if (memo[ri][si] != null) {
+                    if (memo[ri][si].v > max.v) {
+                        max = memo[ri][si];
+                    }
+                }
+            }
+        }
+
+        // > Output
+        System.out.println(max.v);
+        for (int ni = 0; ni < N; ni++) {
+            System.out.printf("%s %d \n", as[ni].name, max.a[ni]);
+        }
     }
+
+    // storing value and array of number of apples
+    static class O {
+        int v; // total value
+        int[] a; // apples
+
+        O(int v0, int[] a0) {
+            this.v = v0;
+            this.a = a0;
+        }
+    }
+
+    // apple type
+    static class A {
+        String name;
+        int tv;
+        int rv;
+        int sv;
+
+        public A(String name, int tv, int rv, int sv) {
+            this.name = name;
+            this.tv = tv;
+            this.rv = rv;
+            this.sv = sv;
+        }
+    }
+
+
+
 
     public static class FastReader {
 
