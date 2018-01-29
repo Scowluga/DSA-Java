@@ -1,4 +1,4 @@
-package _y2009_p4;
+package y2014._C2_P5;
 
 import java.io.DataInputStream;
 import java.io.FileInputStream;
@@ -6,70 +6,43 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-/* Raisins 15/15pt
- * DP (intermediate simple)
+/* Sawmill Scheme 15/15pt
+ * DP, Graph Theory
 
-This is a simple recursive approach.
-
-Note that a look-up-table version does exist,
-    it just requires annoying use of indexes.
+lakes & rivers form a DAG (direct acyclic graph)
+for each lake -> for each river -> split probability
 
 */
 public class Main {
 
-    static int rn; // row #
-    static int cn; // col #
-
-    // total raisins in square (0, 0) -> (c, r)
-    // 2D prefix sum array (inclusive)
-    static int[][] rs;
-
-    // best solution for (c1, r1) -> (c2, r2)
-    // memoization for dp()
-    static int[][][][] memo;
-
     public static void main(String[] args) throws IOException {
         FastReader reader = new FastReader();
 
-        // > Input
-        rn = reader.nextInt();
-        cn = reader.nextInt();
+        int N = reader.nextInt();
+        int M = reader.nextInt();
 
-        rs = new int[cn+1][rn+1];
-        memo = new int[cn+1][rn+1][cn+1][rn+1];
+        // rivers
+        List<Integer>[] rs = new List[N+1];
+        for (int li = 1; li <= N; li++)
+            rs[li] = new ArrayList<>();
 
-        // > Setup rs array
-        for (int r = 1; r <= rn; r++)
-            for (int c = 1; c <= cn; c++)
-                rs[c][r] = reader.nextInt() + rs[c-1][r] + rs[c][r-1] - rs[c-1][r-1];
+        for (int mi = 0; mi < M; mi++)
+            rs[reader.nextInt()].add(reader.nextInt());
 
-        // > Output
-        System.out.println(dp(1, 1, cn, rn));
-    }
+        // probabilities
+        double[] ps = new double[N+1];
+        ps[1] = 1;
 
-    static int dp(int c1, int r1, int c2, int r2) {
-        if (c2 == c1 && r2 == r1) return 0; // single case
-        else if (memo[c1][r1][c2][r2] == 0) {
-            int min = Integer.MAX_VALUE;
-            if (r1 != r2) for (int r = r1 + 1; r <= r2; r++) { // horizontal cut
-                int t = dp(c1, r1, c2, r-1);
-                int b = dp(c1, r, c2, r2);
-                min = Math.min(min, t + b);
+        // for each lake
+        for (int li = 1; li <= N; li++) {
+            if (rs[li].isEmpty()) { // it's a collection point
+                System.out.println(ps[li]);
+            } else {
+                for (int l : rs[li]) { // for each river
+                    ps[l] += ps[li] / rs[li].size();
+                }
             }
-
-            if (c1 != c2) for (int c = c1 + 1; c <= c2; c++) { // vertical cut
-                int l = dp(c1, r1, c-1, r2);
-                int r = dp(c, r1, c2, r2);
-                min = Math.min(min, l + r);
-            }
-
-            memo[c1][r1][c2][r2] = min + sum(c1, r1, c2, r2);
         }
-        return memo[c1][r1][c2][r2];
-    }
-
-    static int sum(int c1, int r1, int c2, int r2) {
-        return rs[c2][r2] - rs[c1-1][r2] - rs[c2][r1-1] + rs[c1-1][r1-1];
     }
 
     public static class FastReader {
@@ -273,10 +246,15 @@ public class Main {
             return buffer[bufferPointer++];
         }
 
-        public int[] readLineAsIntArray(int n) throws IOException {
-            int[] ret = new int[n];
+        public int[] readLineAsIntArray(int n, boolean isOneIndex) throws IOException {
+            int[] ret;
+            if (isOneIndex) {
+                ret = new int[n + 1];
+            } else {
+                ret = new int[n];
+            }
 //            int ret = new ArrayList<>();
-            int idx = 0;
+            int idx = isOneIndex ? 1 : 0;
             byte c = read();
             while (c != -1) {
                 if (c == '\n' || c == '\r')

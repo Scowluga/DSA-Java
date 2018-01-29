@@ -18,18 +18,21 @@ public class Main {
 
     public static void main(String[] args) throws IOException {
         FastReader reader = new FastReader();
-        int N = reader.nextInt();
+//        int N = reader.nextInt();
+//
+//        for (int i = 0; i < N; i++) {
+//            ks[i] = reader.nextInt(); // amount
+//            cs[i] = reader.nextInt(); // sweetness
+//        }
 
-        for (int i = 0; i < N; i++) {
-            ks[i] = reader.nextInt(); // amount
-            cs[i] = reader.nextInt(); // sweetness
-        }
 
-
-
+        String a = "asdf";
+        String b = a;
+        b += "jkl;";
+        System.out.println(b);
+        System.out.println(a);
 
     }
-
 
     public static class FastReader {
 

@@ -1,4 +1,4 @@
-package _y2009_p4;
+package y2014._CE_P5;
 
 import java.io.DataInputStream;
 import java.io.FileInputStream;
@@ -6,70 +6,69 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-/* Raisins 15/15pt
- * DP (intermediate simple)
+/* Happy Teachers 15/15pt
+ * DP
 
-This is a simple recursive approach.
-
-Note that a look-up-table version does exist,
-    it just requires annoying use of indexes.
+Not too difficult, just some math with calculations
+For each teacher, each minute, max each amount of minutes they can appear
 
 */
 public class Main {
 
-    static int rn; // row #
-    static int cn; // col #
-
-    // total raisins in square (0, 0) -> (c, r)
-    // 2D prefix sum array (inclusive)
-    static int[][] rs;
-
-    // best solution for (c1, r1) -> (c2, r2)
-    // memoization for dp()
-    static int[][][][] memo;
+    static int H = 0;
+    static int E = 1;
+    static int P = 2;
 
     public static void main(String[] args) throws IOException {
         FastReader reader = new FastReader();
 
         // > Input
-        rn = reader.nextInt();
-        cn = reader.nextInt();
+        int tn = reader.nextInt();
+        int[][] ts = new int[tn+1][3];
+        for (int i = 1; i <= tn; i++)
+            ts[i] = reader.readLineAsIntArray(3, false);
 
-        rs = new int[cn+1][rn+1];
-        memo = new int[cn+1][rn+1][cn+1][rn+1];
+        // > DP Solve
+        int M = reader.nextInt();
+        V[][] memo = new V[M+1][2];
+        int i = 0;
 
-        // > Setup rs array
-        for (int r = 1; r <= rn; r++)
-            for (int c = 1; c <= cn; c++)
-                rs[c][r] = reader.nextInt() + rs[c-1][r] + rs[c][r-1] - rs[c-1][r-1];
+        for (int ti = 1; ti <= tn; ti++) { // each teacher
+            for (int mi = 0; mi <= M; mi++) { // each minute
+                memo[mi][i] = memo[mi][i^1];
+                if (memo[mi][i] == null) memo[mi][i] = new V(0, 0);
+                for (int a = 1; a * ts[ti][P] <= mi; a++) { // minutes in video
+                    V v0 = memo[mi-a*ts[ti][P]][i^1];
+                    if (v0 == null) v0 = new V(0, 0);
+                    V v1 = new V(v0.t+a, v0.h + ts[ti][H] * a - ts[ti][E] * ((a-1) * a / 2));
+                    if (memo[mi][i].h < v1.h || (memo[mi][i].h == v1.h && memo[mi][i].t > v1.t)) {
+                        memo[mi][i] = v1;
+                    }
+                }
+
+            }
+            i ^= 1;
+        }
 
         // > Output
-        System.out.println(dp(1, 1, cn, rn));
+        System.out.printf("%d\n%d", memo[M][i^1].h, memo[M][i^1].t);
     }
 
-    static int dp(int c1, int r1, int c2, int r2) {
-        if (c2 == c1 && r2 == r1) return 0; // single case
-        else if (memo[c1][r1][c2][r2] == 0) {
-            int min = Integer.MAX_VALUE;
-            if (r1 != r2) for (int r = r1 + 1; r <= r2; r++) { // horizontal cut
-                int t = dp(c1, r1, c2, r-1);
-                int b = dp(c1, r, c2, r2);
-                min = Math.min(min, t + b);
-            }
+    // Video
+    static class V {
 
-            if (c1 != c2) for (int c = c1 + 1; c <= c2; c++) { // vertical cut
-                int l = dp(c1, r1, c-1, r2);
-                int r = dp(c, r1, c2, r2);
-                min = Math.min(min, l + r);
-            }
+        int t;
+        int h;
 
-            memo[c1][r1][c2][r2] = min + sum(c1, r1, c2, r2);
+        V(int t0, int h0) {
+            this.t = t0;
+            this.h = h0;
         }
-        return memo[c1][r1][c2][r2];
-    }
 
-    static int sum(int c1, int r1, int c2, int r2) {
-        return rs[c2][r2] - rs[c1-1][r2] - rs[c2][r1-1] + rs[c1-1][r1-1];
+        @Override
+        public String toString() {
+            return "t: " + this.t + " h: " + this.h;
+        }
     }
 
     public static class FastReader {
@@ -273,10 +272,15 @@ public class Main {
             return buffer[bufferPointer++];
         }
 
-        public int[] readLineAsIntArray(int n) throws IOException {
-            int[] ret = new int[n];
+        public int[] readLineAsIntArray(int n, boolean isOneIndex) throws IOException {
+            int[] ret;
+            if (isOneIndex) {
+                ret = new int[n + 1];
+            } else {
+                ret = new int[n];
+            }
 //            int ret = new ArrayList<>();
-            int idx = 0;
+            int idx = isOneIndex ? 1 : 0;
             byte c = read();
             while (c != -1) {
                 if (c == '\n' || c == '\r')

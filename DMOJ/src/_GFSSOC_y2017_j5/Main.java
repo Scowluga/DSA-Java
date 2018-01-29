@@ -1,58 +1,120 @@
+package _GFSSOC_y2017_j5;
+
 import java.io.DataInputStream;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
-/* Escape and Loot 5/5
+/* Choosing Extracurriculars 7/7pt
+ * DP (multiple pointers)
+
+Honestly I don't like this question. I just gave up.
+This code is really bad.
 
 */
-public class _Escape_and_Loot {
-
-    static String[][] map;
-    static int[][] memo;
+public class Main {
 
     public static void main(String[] args) throws IOException {
         FastReader reader = new FastReader();
 
-        for (int T = 0; T < 5; T++) {
+        int cn = reader.nextInt(); // club num
+        List<P>[] cs = new List[4];   // clubs
 
-            // map
-            map = new String[8][8];
-            for (int r = 0; r < 8; r++) map[r] = reader.readLine().split("");
-            reader.readLine();
+        for (int i = 0; i < 4; i++) cs[i] = new ArrayList();
 
-            // memo
-            memo = new int[8][8];
-            for (int r = 0; r < 8; r++) Arrays.fill(memo[r], -2);
-            memo[0][7] = 0;
+        for (int c = 0; c < cn; c++)
+            for (int y = 0; y < 4; y++)
+                cs[y].add(new P(c, reader.nextInt()));
 
-            System.out.println(dp(7, 0));
+        for (int i = 0; i < 4; i++) Collections.sort(cs[i]);
 
+        if (cn == 1) {
+            int max = 0;
+            for (int i = 0; i < 4; i++) max = Math.max(max, cs[i].get(0).e);
+            System.out.println(max);
+        } else if (cn == 2) {
+            int max = 0;
+            for (int i = 0; i < 4; i++) {
+                for (int j = 0; j < 4; j++) {
+                    if (i != j)
+                        max = Math.max(max, cs[i].get(0).e + cs[j].get(1).e);
+                }
+            }
+            System.out.println(max);
+        } else if (cn == 3) {
+            int max = 0;
+            for (int i = 0; i < 4; i++) {
+                for (int j = 0; j < 4; j++) {
+                    for (int k = 0; k < 4; k++) {
+                        if (i != j && j != k && i != k)
+                            max = Math.max(max, cs[i].get(0).e + cs[j].get(1).e + cs[k].get(2).e);
+                    }
+                }
+            }
+            System.out.println(max);
+        } else {
+            System.out.println(dp(new int[]{0, 0, 0, 0}, cs));
         }
     }
 
-    static int dp(int r, int c) {
-        if (r == -1 || c == 8) return -1;
-        if (map[r][c].equals("#")) return -1;    // wall
-        if (memo[r][c] != -2) return memo[r][c]; // memo
 
-        // calculate
+    static int dp(int[] is, List<P>[] cs) {
+
+        for (int i = 0; i < 3; i++) {
+            for (int j = i + 1; j < 4; j++) {
+                if (cs[i].get(is[i]).c == cs[j].get(is[j]).c) {
+                    int max = 0;
+                    int[] t;
+                    if (is[i] < cs[0].size()) {
+                        t = is.clone();
+                        t[i]++;
+                        max  = Math.max(max, dp(t, cs));
+                    }
+                    if (is[j] < cs[0].size()) {
+                        t = is.clone();
+                        t[j]++;
+                        max = Math.max(max, dp(t, cs));
+                    }
+                    return max;
+                }
+            }
+        }
+
         int sum = 0;
-
-        int top = dp(r-1, c);
-        int right = dp(r, c+1);
-
-        if (top == -1 && right == -1) sum = -1;
-        else sum = Math.max(top, right);
-
-        if (!map[r][c].equals(".")) sum += Integer.parseInt(map[r][c]);
-
-        memo[r][c] = sum;
+        for (int i = 0; i < 4; i++) {
+            sum += cs[i].get(is[i]).e;
+        }
         return sum;
     }
 
+    static class P implements Comparable<P> {
+
+        int c; // club (0 ... cn - 1)
+        int e; // excellence
+
+        P(int c0, int e0) {
+            this.c = c0;
+            this.e = e0;
+        }
+
+        @Override
+        public boolean equals(Object obj) {
+            P p = (P)obj;
+            return p.e == this.e && p.c == this.c;
+        }
+
+        @Override
+        public String toString() {
+            return " c:" + this.c + " e:" + this.e + ").";
+        }
+
+        @Override
+        public int compareTo(P o) {
+            return Integer.compare(o.e, this.e);
+        }
+    }
 
     public static class FastReader {
 
