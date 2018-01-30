@@ -1,32 +1,63 @@
-package p5;
+package y2015._C2_P4;
 
 import java.io.DataInputStream;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Comparator;
 import java.util.List;
 
-/* Candy 15pt
- * DP (Knapsack?)
+/* Personal Assistant 12/12pt
+ * DP, binary search
+
+This question is very similar to Paint, in fact almost identical.
+
+The key here is we can't run classic knapsack on every possible time,
+but instead only care about the specific animes. We handle this with
+a binary search that takes the next possible anime starting after the
+current anime.
 
 
 */
 public class Main {
 
-    static int[] ks;
-    static int[] cs;
+    static int R = 0, L = 1, H = 2, M = 3;
 
     public static void main(String[] args) throws IOException {
         FastReader reader = new FastReader();
-//        int N = reader.nextInt();
-//
-//        for (int i = 0; i < N; i++) {
-//            ks[i] = reader.nextInt(); // amount
-//            cs[i] = reader.nextInt(); // sweetness
-//        }
 
+        // input
+        int N = reader.nextInt();
+        long[][] vs = new long[N+1][4];
+        for (int i = 0; i < N; i++) {
+            vs[i][R] = reader.nextLong();
+            vs[i][L] = reader.nextLong();
+            vs[i][H] = reader.nextLong();
+        }
+
+        // look-up-table
+        for (int i = N-1; i >= 0; i--) {
+            // binary search
+            long v = vs[i][R] + vs[i][L];
+
+            int l = i + 1;
+            int h = N - 1;
+            int m;
+
+            while (l <= h) {
+                m = l + (h - l) / 2;
+                if (vs[m][R] < v) {
+                    l = m + 1;
+                } else {
+                    h = m - 1;
+                }
+            }
+
+            // recurrence of watch/not watch
+            vs[i][M] = Math.max(vs[i+1][M], vs[i][H] + vs[l][M]);
+        }
+
+        // output
+        System.out.println(vs[0][M]);
     }
 
     public static class FastReader {
@@ -230,10 +261,15 @@ public class Main {
             return buffer[bufferPointer++];
         }
 
-        public int[] readLineAsIntArray(int n) throws IOException {
-            int[] ret = new int[n];
+        public int[] readLineAsIntArray(int n, boolean isOneIndex) throws IOException {
+            int[] ret;
+            if (isOneIndex) {
+                ret = new int[n + 1];
+            } else {
+                ret = new int[n];
+            }
 //            int ret = new ArrayList<>();
-            int idx = 0;
+            int idx = isOneIndex ? 1 : 0;
             byte c = read();
             while (c != -1) {
                 if (c == '\n' || c == '\r')
