@@ -1,14 +1,12 @@
-package y2014.s5;
+package Mock_CCC_1_Senior._p1;
 
 import java.io.DataInputStream;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
-/* Lazy Fox 20pt
- * DP
+/* A Math Problem
 
 */
 public class Main {
@@ -16,53 +14,23 @@ public class Main {
     public static void main(String[] args) throws IOException {
         FastReader reader = new FastReader();
 
-        int N = reader.nextInt();
-        P[] ps = new P[N];
-        for (int i = 0; i < N; i++) ps[i] = new P(reader.nextInt(), reader.nextInt());
-        Arrays.sort(ps);
+        int K = reader.nextInt();
+        int P = reader.nextInt();
+        int X = reader.nextInt();
+        double KP = K * P;
 
+        double v1 = 1 * X + (KP / 1);
+        double v2 = 2 * X + (KP / 2);
+        long M = 2;
+        while (v2 < v1) {
+            v1 = v2;
+            v2 = ++M * X + (KP / M);
+        }
+
+        System.out.printf("%.003f", Math.min(v1, v2));
 
     }
 
-
-
-
-    // distance
-    static double dist(P p1, P p2) {
-        return Math.sqrt(Math.pow(p2.x - p1.x, 2) + Math.pow(p2.y - p1.y, 2));
-    }
-
-    // point
-    static class P implements Comparable<P> {
-        int x;
-        int y;
-
-        P() {
-            this.x = 0;
-            this.y = 0;
-        }
-
-        P(int x, int y) {
-            this.x = x;
-            this.y = y;
-        }
-
-        @Override
-        public boolean equals(Object obj) {
-            P p = (P)obj;
-            return p.x == this.x && p.y == this.y;
-        }
-
-        @Override
-        public String toString() {
-            return "Point (" + this.x + ", " + this.y + ").";
-        }
-
-        @Override
-        public int compareTo(P o) {
-            return 0;
-        }
-    }
 
     public static class FastReader {
 
@@ -265,10 +233,15 @@ public class Main {
             return buffer[bufferPointer++];
         }
 
-        public int[] readLineAsIntArray(int n) throws IOException {
-            int[] ret = new int[n];
+        public int[] readLineAsIntArray(int n, boolean isOneIndex) throws IOException {
+            int[] ret;
+            if (isOneIndex) {
+                ret = new int[n + 1];
+            } else {
+                ret = new int[n];
+            }
 //            int ret = new ArrayList<>();
-            int idx = 0;
+            int idx = isOneIndex ? 1 : 0;
             byte c = read();
             while (c != -1) {
                 if (c == '\n' || c == '\r')

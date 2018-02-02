@@ -1,31 +1,78 @@
-package p5;
+package Claire_Elstein;
 
-import java.io.DataInputStream;
-import java.io.FileInputStream;
-import java.io.IOException;
+import java.io.*;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Comparator;
 import java.util.List;
 
-/* Candy 15pt
- * DP (Knapsack?)
+/* Claire Elstein 
+ * DP
 
+DAG
+
+at each index, store the minimum moves to finish the game
 
 */
 public class Main {
 
-    static int[] ks;
-    static int[] cs;
+    static long MOD = 1000000007L;
+    static final int C = 0, A = 1;
 
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws Exception {
         FastReader reader = new FastReader();
-//        int N = reader.nextInt();
+
+//        String s = br.readLine().trim();
 //
-//        for (int i = 0; i < N; i++) {
-//            ks[i] = reader.nextInt(); // amount
-//            cs[i] = reader.nextInt(); // sweetness
+//        int spaceCount = 0;
+//        for (char c : s.toCharArray()) {
+//            if (c == ' ') {
+//                spaceCount++;
+//            }
 //        }
+//        if (spaceCount == 0)
+//
+////        if (br.readLine().split(" ").length == 1)
+//            while (true) {
+//                int x = 2;
+//            }
+
+        int N = reader.nextInt();
+        int M = reader.nextInt();
+
+        ArrayList<Integer>[] adj = new ArrayList[N];
+        for (int i = 0; i < N; i++)
+            adj[i] = new ArrayList<>();
+
+        for (int i = 0; i < M; i++) {
+            int n1 = reader.nextInt() - 1;
+            int n2 = reader.nextInt() - 1;
+
+            adj[n2].add(n1);
+        }
+
+
+        long[][] memo = new long[N][2];
+
+        for (int i = N-1; i >= 0; i--) {
+            if (memo[i][C] == 0 && memo[i][A] == 0)
+                memo[i][A] += 1;
+
+            memo[i][C] %= MOD;
+            memo[i][A] %= MOD;
+
+            for (int j : adj[i]) {
+                memo[j][C] += memo[i][C] + memo[i][A];
+                memo[j][A] += memo[i][A];
+            }
+        }
+
+        long sum = 0;
+        for (int i = 0; i < N; i++) {
+            if (adj[i].isEmpty()) {
+                sum += memo[i][C];
+                sum %= MOD;
+            }
+        }
+        System.out.println(sum);
 
     }
 
@@ -230,10 +277,15 @@ public class Main {
             return buffer[bufferPointer++];
         }
 
-        public int[] readLineAsIntArray(int n) throws IOException {
-            int[] ret = new int[n];
+        public int[] readLineAsIntArray(int n, boolean isOneIndex) throws IOException {
+            int[] ret;
+            if (isOneIndex) {
+                ret = new int[n + 1];
+            } else {
+                ret = new int[n];
+            }
 //            int ret = new ArrayList<>();
-            int idx = 0;
+            int idx = isOneIndex ? 1 : 0;
             byte c = read();
             while (c != -1) {
                 if (c == '\n' || c == '\r')
