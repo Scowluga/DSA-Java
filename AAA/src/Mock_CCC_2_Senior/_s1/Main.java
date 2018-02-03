@@ -1,4 +1,4 @@
-package s5;
+package Mock_CCC_2_Senior._s1;
 
 import java.io.DataInputStream;
 import java.io.FileInputStream;
@@ -7,8 +7,11 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-/* Lazy Fox 20pt
- * DP
+/* An Array Problem
+
+This doesn't actually work, but the same algorithm using prefix sum arrays
+works. Who knows...
+
 
 */
 public class Main {
@@ -17,52 +20,22 @@ public class Main {
         FastReader reader = new FastReader();
 
         int N = reader.nextInt();
-        P[] ps = new P[N];
-        for (int i = 0; i < N; i++) ps[i] = new P(reader.nextInt(), reader.nextInt());
-        Arrays.sort(ps);
+        long sum = 0; // sum of numbers
+        long max = 0; // max num
 
-
-    }
-
-
-
-
-    // distance
-    static double dist(P p1, P p2) {
-        return Math.sqrt(Math.pow(p2.x - p1.x, 2) + Math.pow(p2.y - p1.y, 2));
-    }
-
-    // point
-    static class P implements Comparable<P> {
-        int x;
-        int y;
-
-        P() {
-            this.x = 0;
-            this.y = 0;
+        for (int i = 0; i < N; i++) {
+            long in = reader.nextLong();
+            max = Math.max(max, in);
+            sum += in;
         }
 
-        P(int x, int y) {
-            this.x = x;
-            this.y = y;
-        }
-
-        @Override
-        public boolean equals(Object obj) {
-            P p = (P)obj;
-            return p.x == this.x && p.y == this.y;
-        }
-
-        @Override
-        public String toString() {
-            return "Point (" + this.x + ", " + this.y + ").";
-        }
-
-        @Override
-        public int compareTo(P o) {
-            return 0;
+        if (max > sum - max) {
+            System.out.println(sum - max);
+        } else {
+            System.out.println(sum / 2);
         }
     }
+
 
     public static class FastReader {
 
@@ -265,10 +238,15 @@ public class Main {
             return buffer[bufferPointer++];
         }
 
-        public int[] readLineAsIntArray(int n) throws IOException {
-            int[] ret = new int[n];
+        public int[] readLineAsIntArray(int n, boolean isOneIndex) throws IOException {
+            int[] ret;
+            if (isOneIndex) {
+                ret = new int[n + 1];
+            } else {
+                ret = new int[n];
+            }
 //            int ret = new ArrayList<>();
-            int idx = 0;
+            int idx = isOneIndex ? 1 : 0;
             byte c = read();
             while (c != -1) {
                 if (c == '\n' || c == '\r')

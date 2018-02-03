@@ -1,4 +1,4 @@
-package _Cat_Girls;
+package cccs5;
 
 import java.io.DataInputStream;
 import java.io.FileInputStream;
@@ -6,22 +6,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-/* Cat Girls 15/15pt
- * DP (prefix sum, binary search)
-
-For each cat at index i, store the best photo for cats in
-range (1, i)
-
-This way, when you delete, nothing happens. The maximum is
-always just the max of the last cat in the list.
-
-To calculate that, take max of previous, and binary search
-for the width of the camera.
-
-Learning: Next values can be calculated with binary search
-or just storing the next index in input.
-
-
+/* Origin of Life
 
 */
 public class Main {
@@ -29,64 +14,9 @@ public class Main {
     public static void main(String[] args) throws IOException {
         FastReader reader = new FastReader();
 
-        int N = reader.nextInt();
-        long W = reader.nextLong();
 
-        List<C> cs = new ArrayList<>();
-
-        // base cat
-        C c = new C(0, 0); c.b = 0;
-        cs.add(c);
-
-        while (N-- != 0) {
-            if (reader.nextString().equals("A")) {
-
-                // prefix sum width and cuteness
-                c = new C(reader.nextLong() + cs.get(cs.size()-1).pw, reader.nextLong() + cs.get(cs.size()-1).pc);
-                cs.add(c);
-
-                // find index
-                int l = 1;
-                int h = cs.size()-1;
-                int m;
-
-                while (l <= h) {
-                    m = l + (h - l) / 2;
-                    if (c.pw - cs.get(m-1).pw <= W) {
-                        h = m - 1;
-                    } else {
-                        l = m + 1;
-                    }
-                }
-
-                c.b = Math.max(
-                        cs.get(cs.size()-2).b, // last cat
-                        c.pw - cs.get(l-1).pw <= W ? c.pc - cs.get(l-1).pc : 0);
-
-                System.out.println(c.b);
-            } else {
-                cs.remove(cs.size()-1);
-            }
-        }
     }
 
-    // Cat Girl
-    static class C {
-
-        long pw; // prefix widths
-        long pc; // prefix cuteness
-        long b;  // best picture
-
-        C (long pw, long pc) {
-            this.pw = pw;
-            this.pc = pc;
-        }
-
-        @Override
-        public String toString() {
-            return String.format("pw:%d, pc:%d, b:%d", pw, pc, b);
-        }
-    }
 
     public static class FastReader {
 

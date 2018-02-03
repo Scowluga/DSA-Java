@@ -1,27 +1,30 @@
-package _Cat_Girls;
+package y2014._s5_pairs;
 
 import java.io.DataInputStream;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
-/* Cat Girls 15/15pt
- * DP (prefix sum, binary search)
+/* Lazy Fox
+ * 13.3/20pt DMOJ (TLE)
+ * 15/15 CCC Grader
+ * DP
+ * (Not my solution)
 
-For each cat at index i, store the best photo for cats in
-range (1, i)
+This solution instead stores pairs since we know that
+binary searching distances each time is impossible.
 
-This way, when you delete, nothing happens. The maximum is
-always just the max of the last cat in the list.
+Then we loop through all increasing distances, keeping a memo
+table of most treats attainable without travelling more.
 
-To calculate that, take max of previous, and binary search
-for the width of the camera.
+To finish, just print memo[0] (best value from origin)
 
-Learning: Next values can be calculated with binary search
-or just storing the next index in input.
+TLE's on DMOJ, but AC's on CCC Grader.
 
-
+The other option uses binary search.
+    (See other solution)
 
 */
 public class Main {
@@ -30,61 +33,95 @@ public class Main {
         FastReader reader = new FastReader();
 
         int N = reader.nextInt();
-        long W = reader.nextLong();
 
-        List<C> cs = new ArrayList<>();
+        // > Input
+        P[] ps = new P[N+1]; ps[0] = new P(0, 0);
+        for (int i = 1; i <= N; i++)
+            ps[i] = new P(reader.nextInt(), reader.nextInt());
 
-        // base cat
-        C c = new C(0, 0); c.b = 0;
-        cs.add(c);
+        // > Pairs of Points
+        List<V> vs = new ArrayList<>();
+        for (int i = 0; i <= N; i++)
+            for (int j = i+1; j <= N; j++)
+                vs.add(new V(i, j, P.dist(ps[i], ps[j])));
 
-        while (N-- != 0) {
-            if (reader.nextString().equals("A")) {
+        Collections.sort(vs);
 
-                // prefix sum width and cuteness
-                c = new C(reader.nextLong() + cs.get(cs.size()-1).pw, reader.nextLong() + cs.get(cs.size()-1).pc);
-                cs.add(c);
+        // > Solve
+        int[] cbs = new int[N+1]; // current bests
+        int[] mds = new int[N+1]; // max distances
+        int[] pbs = new int[N+1]; // previous bests
 
-                // find index
-                int l = 1;
-                int h = cs.size()-1;
-                int m;
+        for (V v : vs) {
 
-                while (l <= h) {
-                    m = l + (h - l) / 2;
-                    if (c.pw - cs.get(m-1).pw <= W) {
-                        h = m - 1;
-                    } else {
-                        l = m + 1;
-                    }
-                }
+            // if this new distance is greater than the previous distance
+            if (v.d != mds[v.p1]) {
+                // update previous distance
+                mds[v.p1] = v.d;
+                // update the previous best score
+                pbs[v.p1] = cbs[v.p1];
+            }
 
-                c.b = Math.max(
-                        cs.get(cs.size()-2).b, // last cat
-                        c.pw - cs.get(l-1).pw <= W ? c.pc - cs.get(l-1).pc : 0);
+            if (v.d != mds[v.p2]) {
+                mds[v.p2] = v.d;
+                pbs[v.p2] = cbs[v.p2];
+            }
 
-                System.out.println(c.b);
+            if (v.p1 == 0) { // can't return to origin
+                cbs[v.p1] = Math.max(cbs[v.p1], pbs[v.p2] + 1);
             } else {
-                cs.remove(cs.size()-1);
+                // the current best can now include going to the node
+                cbs[v.p1] = Math.max(cbs[v.p1], pbs[v.p2] + 1);
+                cbs[v.p2] = Math.max(cbs[v.p2], pbs[v.p1] + 1);
             }
         }
+
+        // > Output
+        System.out.println(cbs[0]);
     }
 
-    // Cat Girl
-    static class C {
+    // Point
+    static class P {
 
-        long pw; // prefix widths
-        long pc; // prefix cuteness
-        long b;  // best picture
+        int x;
+        int y;
 
-        C (long pw, long pc) {
-            this.pw = pw;
-            this.pc = pc;
+        P(int x, int y) {
+            this.x = x;
+            this.y = y;
         }
 
         @Override
         public String toString() {
-            return String.format("pw:%d, pc:%d, b:%d", pw, pc, b);
+            return "(" + this.x + ", " + this.y + ")";
+        }
+
+        static int dist(P p1, P p2) {
+            return (int)Math.round(Math.pow(p2.x - p1.x, 2) + Math.pow(p2.y - p1.y, 2));
+        }
+    }
+
+    // Pair of Points & distance
+    static class V implements Comparable<V> {
+
+        int p1;
+        int p2;
+        int d;
+
+        public V(int p1, int p2, int d) {
+            this.p1 = p1;
+            this.p2 = p2;
+            this.d = d;
+        }
+
+        @Override
+        public int compareTo(V o) {
+            return Long.compare(this.d, o.d);
+        }
+
+        @Override
+        public String toString() {
+            return "d:" + this.d + " | " + this.p1 + " -> " + this.p2;
         }
     }
 
@@ -289,15 +326,10 @@ public class Main {
             return buffer[bufferPointer++];
         }
 
-        public int[] readLineAsIntArray(int n, boolean isOneIndex) throws IOException {
-            int[] ret;
-            if (isOneIndex) {
-                ret = new int[n + 1];
-            } else {
-                ret = new int[n];
-            }
+        public int[] readLineAsIntArray(int n) throws IOException {
+            int[] ret = new int[n];
 //            int ret = new ArrayList<>();
-            int idx = isOneIndex ? 1 : 0;
+            int idx = 0;
             byte c = read();
             while (c != -1) {
                 if (c == '\n' || c == '\r')
