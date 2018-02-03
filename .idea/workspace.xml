@@ -2,18 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1fefd6f2-b2c1-40d8-bd6c-e791a02392f4" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/AAA/src/cccs5/Main.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/CCC/src/y2014/_s5_binarysearch/Main.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/CCC/src/y2014/_s5_pairs/Main.java" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/AAA/p2/Main$FastReader.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/AAA/p2/Main$Node.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/AAA/p2/Main.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/AAA/s5/Main$FastReader.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/AAA/s5/Main$P.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/AAA/s5/Main.class" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/AAA/src/s5/Main.java" afterPath="$PROJECT_DIR$/AAA/src/Mock_CCC_2_Senior/_s1/Main.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/DMOJ/src/_Cat_Girls/Main.java" afterPath="$PROJECT_DIR$/DMOJ/src/_Cat_Girls/Main.java" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/AAA/_s5_binarysearch/Main$FastReader.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/AAA/_s5_binarysearch/Main$N.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/AAA/_s5_binarysearch/Main$V.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/AAA/_s5_binarysearch/Main.class" afterPath="" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/AAA/src/Claire_Elstein/Main.java" afterPath="$PROJECT_DIR$/DMOJ/src/_Claire_Elstein/Main.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/AAA/src/cccs5/Main.java" afterPath="$PROJECT_DIR$/AAA/src/s5/Main.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CCC/src/y2014/_s5_binarysearch/Main.java" afterPath="$PROJECT_DIR$/CCC/src/y2014/_s5_binarysearch/Main.java" />
     </list>
     <ignored path="DSA-Java.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -42,7 +37,33 @@
     <fileColor scope="Non-Project Files (Material Palenight)" color="2f2e43" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="Main.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/DMOJ/src/_Claire_Elstein/Main.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="161">
+              <caret line="7" column="5" lean-forward="true" selection-start-line="7" selection-start-column="5" selection-end-line="7" selection-end-column="5" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="class#FastReader#0;class#Main#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/AAA/src/s5/Main.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="276">
+              <caret line="16" column="0" lean-forward="false" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+              <folding>
+                <element signature="class#FastReader#0;class#Main#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -69,8 +90,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/ECOO/src/y2013_r2_p4/Main.java" />
-        <option value="$PROJECT_DIR$/ECOO/src/y2016_c5_p3/Main.java" />
         <option value="$PROJECT_DIR$/TLE/src/_y2016_c5_p3/Main.java" />
         <option value="$PROJECT_DIR$/COCI/src/_y2007_regional_q2/Main.java" />
         <option value="$PROJECT_DIR$/AAA/src/Joey_and_Biology/Main.java" />
@@ -99,7 +118,6 @@
         <option value="$PROJECT_DIR$/AAA/src/Mock_CCC_1_Senior/p2/Main.java" />
         <option value="$PROJECT_DIR$/AAA/src/Mock_CCC_1_Senior/j5_s3/Main.java" />
         <option value="$PROJECT_DIR$/AAA/src/Mock_CCC_1_Senior/s4/Main.java" />
-        <option value="$PROJECT_DIR$/AAA/src/Claire_Elstein/Main.java" />
         <option value="$PROJECT_DIR$/AAA/src/p5/Main.java" />
         <option value="$PROJECT_DIR$/AAA/src/_p5/Main.java" />
         <option value="$PROJECT_DIR$/CCO/src/y2008/_p5/Main.java" />
@@ -114,12 +132,15 @@
         <option value="$PROJECT_DIR$/CCO/src/y2010/_p2/Main.java" />
         <option value="$PROJECT_DIR$/AAA/src/cccs5/Main.java" />
         <option value="$PROJECT_DIR$/DMOJ/src/_Cat_Girls/Main.java" />
-        <option value="$PROJECT_DIR$/AAA/src/s5/Main.java" />
         <option value="$PROJECT_DIR$/AAA/src/Mock_CCC_2_Senior/s1/Main.java" />
         <option value="$PROJECT_DIR$/AAA/src/Mock_CCC_2_Senior/_s1/Main.java" />
         <option value="$PROJECT_DIR$/AAA/src/_s5_binarysearch/Main.java" />
         <option value="$PROJECT_DIR$/AAA/src/s5_pairs/Main.java" />
         <option value="$PROJECT_DIR$/CCC/src/y2014/_s5_binarysearch/Main.java" />
+        <option value="$PROJECT_DIR$/AAA/src/Claire_Elstein/Main.java" />
+        <option value="$PROJECT_DIR$/AAA/src/_Claire_Elstein/Main.java" />
+        <option value="$PROJECT_DIR$/AAA/src/s5/Main.java" />
+        <option value="$PROJECT_DIR$/DMOJ/src/_Claire_Elstein/Main.java" />
       </list>
     </option>
   </component>
@@ -169,25 +190,7 @@
               <item name="DSA-Java" type="462c0819:PsiDirectoryNode" />
               <item name="AAA" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Claire_Elstein" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="DSA-Java" type="b2602c69:ProjectViewProjectNode" />
-              <item name="DSA-Java" type="462c0819:PsiDirectoryNode" />
-              <item name="CCC" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="DSA-Java" type="b2602c69:ProjectViewProjectNode" />
-              <item name="DSA-Java" type="462c0819:PsiDirectoryNode" />
-              <item name="CCC" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="DSA-Java" type="b2602c69:ProjectViewProjectNode" />
-              <item name="DSA-Java" type="462c0819:PsiDirectoryNode" />
-              <item name="CCC" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="y2014" type="462c0819:PsiDirectoryNode" />
+              <item name="s5" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="DSA-Java" type="b2602c69:ProjectViewProjectNode" />
@@ -255,6 +258,13 @@
               <item name="DSA-Java" type="462c0819:PsiDirectoryNode" />
               <item name="DMOJ" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="DSA-Java" type="b2602c69:ProjectViewProjectNode" />
+              <item name="DSA-Java" type="462c0819:PsiDirectoryNode" />
+              <item name="DMOJ" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="_Claire_Elstein" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="DSA-Java" type="b2602c69:ProjectViewProjectNode" />
@@ -419,7 +429,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.Main (3)">
+  <component name="RunManager" selected="Application.Main (5)">
     <configuration name="Main (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
@@ -447,25 +457,6 @@
         </pattern>
       </extension>
       <option name="MAIN_CLASS_NAME" value="Mock_CCC_1_Senior.p2.Main" />
-      <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" />
-      <option name="WORKING_DIRECTORY" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="ENABLE_SWING_INSPECTOR" value="false" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <module name="AAA" />
-      <envs />
-    </configuration>
-    <configuration name="Main (5)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
-        <pattern>
-          <option name="PATTERN" value="Claire_Elstein.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="MAIN_CLASS_NAME" value="Claire_Elstein.Main" />
       <option name="VM_PARAMETERS" />
       <option name="PROGRAM_PARAMETERS" />
       <option name="WORKING_DIRECTORY" />
@@ -2596,6 +2587,25 @@
       <module name="AAA" />
       <envs />
     </configuration>
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="_Claire_Elstein.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="MAIN_CLASS_NAME" value="_Claire_Elstein.Main" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="AAA" />
+      <envs />
+    </configuration>
     <configuration default="true" type="JetRunConfigurationType" factoryName="Kotlin">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <option name="MAIN_CLASS_NAME" />
@@ -2826,7 +2836,7 @@
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Application.Main (3)" />
+        <item index="0" class="java.lang.String" itemvalue="Application.Main (5)" />
         <item index="1" class="java.lang.String" itemvalue="Application.Main (3)" />
         <item index="2" class="java.lang.String" itemvalue="Application.Main (3)" />
         <item index="3" class="java.lang.String" itemvalue="Application.Main (3)" />
@@ -2861,6 +2871,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="64" y="-8" width="1864" height="1096" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32916668" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -2875,7 +2886,7 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.325" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.12749445" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.12749445" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -3821,8 +3832,8 @@
           <option name="timeStamp" value="437" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/AAA/src/Claire_Elstein/Main.java</url>
-          <line>52</line>
+          <url>file://$PROJECT_DIR$/DMOJ/src/_Claire_Elstein/Main.java</url>
+          <line>38</line>
           <properties />
           <option name="timeStamp" value="443" />
         </line-breakpoint>
@@ -4268,17 +4279,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/AAA/src/Claire_Elstein/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-437">
-          <caret line="26" column="29" lean-forward="true" selection-start-line="26" selection-start-column="29" selection-end-line="26" selection-end-column="29" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="class#FastReader#0;class#Main#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/DMOPC/src/y2014/_C2_P5/Main.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="207">
@@ -4313,16 +4313,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1510">
           <caret line="81" column="24" lean-forward="true" selection-start-line="81" selection-start-column="24" selection-end-line="81" selection-end-column="24" />
-          <folding>
-            <element signature="class#FastReader#0;class#Main#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/AAA/src/cccs5/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="276">
-          <caret line="16" column="0" lean-forward="false" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
           <folding>
             <element signature="class#FastReader#0;class#Main#0" expanded="false" />
           </folding>
@@ -4373,38 +4363,45 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/CCC/src/y2014/_s5_binarysearch/Main.java">
+    <entry file="file://$PROJECT_DIR$/CCC/src/y2014/_s5_pairs/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="529">
-          <caret line="28" column="0" lean-forward="true" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
+        <state relative-caret-position="207">
+          <caret line="9" column="11" lean-forward="false" selection-start-line="9" selection-start-column="11" selection-end-line="9" selection-end-column="11" />
           <folding>
-            <element signature="e#2433#2434#0" expanded="true" />
-            <element signature="e#2526#2527#0" expanded="true" />
-            <element signature="e#2580#2581#0" expanded="true" />
-            <element signature="e#2645#2646#0" expanded="true" />
-            <element signature="e#3024#3025#0" expanded="true" />
-            <element signature="e#3082#3083#0" expanded="true" />
-            <element signature="e#3136#3137#0" expanded="true" />
-            <element signature="e#3197#3198#0" expanded="true" />
+            <element signature="imports" expanded="true" />
+            <element signature="class#P#0;class#Main#0" expanded="false" />
+            <element signature="class#V#0;class#Main#0" expanded="false" />
             <element signature="class#FastReader#0;class#Main#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/CCC/src/y2014/_s5_pairs/Main.java">
+    <entry file="file://$PROJECT_DIR$/CCC/src/y2014/_s5_binarysearch/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="107">
-          <caret line="25" column="37" lean-forward="false" selection-start-line="25" selection-start-column="37" selection-end-line="25" selection-end-column="37" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="class#FastReader#0;class#Main#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AAA/src/s5/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="276">
+          <caret line="16" column="0" lean-forward="false" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+          <folding>
+            <element signature="class#FastReader#0;class#Main#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DMOJ/src/_Claire_Elstein/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="161">
+          <caret line="7" column="5" lean-forward="true" selection-start-line="7" selection-start-column="5" selection-end-line="7" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="class#P#0;class#Main#0" expanded="false" />
-            <element signature="e#2492#2493#0" expanded="true" />
-            <element signature="e#2557#2558#0" expanded="true" />
-            <element signature="e#2596#2597#0" expanded="true" />
-            <element signature="e#2695#2696#0" expanded="true" />
-            <element signature="class#V#0;class#Main#0" expanded="false" />
-            <element signature="e#3013#3014#0" expanded="true" />
-            <element signature="e#3069#3070#0" expanded="true" />
             <element signature="class#FastReader#0;class#Main#0" expanded="false" />
           </folding>
         </state>

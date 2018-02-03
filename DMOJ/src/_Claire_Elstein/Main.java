@@ -1,39 +1,25 @@
-package Claire_Elstein;
+package _Claire_Elstein;
 
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
-/* Claire Elstein 
+/* Claire Elstein 12/12pt
  * DP
 
-DAG
+DP on DAG
 
 at each index, store the minimum moves to finish the game
+just loop and increment
 
 */
 public class Main {
 
     static long MOD = 1000000007L;
-    static final int C = 0, A = 1;
+    static int C = 0, A = 1;
 
     public static void main(String[] args) throws Exception {
         FastReader reader = new FastReader();
-
-//        String s = br.readLine().trim();
-//
-//        int spaceCount = 0;
-//        for (char c : s.toCharArray()) {
-//            if (c == ' ') {
-//                spaceCount++;
-//            }
-//        }
-//        if (spaceCount == 0)
-//
-////        if (br.readLine().split(" ").length == 1)
-//            while (true) {
-//                int x = 2;
-//            }
 
         int N = reader.nextInt();
         int M = reader.nextInt();

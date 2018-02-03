@@ -14,7 +14,7 @@ import java.util.List;
  * (My solution)
 
 The main issue with this problem is storing memos based on different distances.
-This problem approaches it through a binary search.
+This solution approaches it through a binary search.
 
 TLE's on DMOJ, but AC's on CCC Grader.
 

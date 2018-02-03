@@ -1,4 +1,4 @@
-package cccs5;
+package s5;
 
 import java.io.DataInputStream;
 import java.io.FileInputStream;
