@@ -1,4 +1,4 @@
-package y2010._p2;
+package y2009._s4_vis;
 
 import java.io.DataInputStream;
 import java.io.FileInputStream;
@@ -7,142 +7,76 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-/* Tree Pruning 15/15pt
- * DP (knapsack on a tree)
+/* Shop and Ship 15/15pt
+ * Graph Theory (Dijkstra with visited)
 
-This is a recursive solution. Compute the original difference,
-then create a memo table of each node where it stores the least
-number of moves for that sub tree to get to each difference.
+Researching the difference between this visited approach
+and using PriorityQueue
 
-If a node has two children, we need to merge the two memoized arrays
-of the children.
-
-For that, just take every pair of differences.
-
-Learning: Not much, this is just recurrence.
-    Think recursively in terms of the tree structure
-    Merging possible differences
-    Optimization based on a difference
+PriorityQueue makes more sense
 
 */
 public class Main {
 
-    static int N;
-    static int D;
-
-    static int OD;
-
-    static Node[] ns;
-    static int[][] memo;
-
     public static void main(String[] args) throws IOException {
         FastReader reader = new FastReader();
 
-        N = reader.nextInt();
-        D = reader.nextInt();
+        int N = reader.nextInt();
 
-        // > Tree Input
-        ns = new Node[N];
-        for (int i = 0; i < N; i++) ns[i] = new Node();
+        // edges
+        long[][] es = new long[N+1][N+1];
 
-        for (int i = 0; i < N; i++) {
-            reader.nextInt(); // burn the id input (it comes in order)
-            if (reader.nextInt() == 1) ns[i].wn++;
-            else ns[i].bn++;
-
-            switch(reader.nextInt()) {
-                case 0:
-                    ns[i].li = N;
-                    ns[i].ri = N;
-                    break;
-                case 1:
-                    ns[i].li = reader.nextInt();
-                    ns[ns[i].li].pi = i;
-                    ns[i].ri = N;
-                    break;
-                case 2:
-                    ns[i].li = reader.nextInt();
-                    ns[ns[i].li].pi = i;
-                    ns[i].ri = reader.nextInt();
-                    ns[ns[i].ri].pi = i;
-                    break;
-            }
+        long T = reader.nextLong();
+        for (long i = 1; i <= T; i++) {
+            int x = reader.nextInt();
+            int y = reader.nextInt();
+            long c = reader.nextLong();
+            es[x][y] = es[y][x] = c;
         }
 
-        // > DFS for wn and bn
-        dfs1(0);
 
-        // > Build memo table and solve
-        memo = new int[N][2*N];
-        OD = ns[0].wn - ns[0].bn;
-        dfs2(0);
+        int K = reader.nextInt();
+        int[][] ps = new int[K][2];
 
-        // > Output
-        System.out.println(memo[0][N+D]);
-
-    }
-
-    // builds wn and bn
-    static void dfs1 (int n) {
-        if (ns[n].li != N) dfs1(ns[n].li);
-        if (ns[n].ri != N) dfs1(ns[n].ri);
-        if (n != 0) {
-            ns[ns[n].pi].wn += ns[n].wn;
-            ns[ns[n].pi].bn += ns[n].bn;
+        for (int i = 0; i < K; i++) {
+            ps[i][0] = reader.nextInt();
+            ps[i][1] = reader.nextInt();
         }
-    }
 
-    // builds memo table
-    static void dfs2 (int n) {
-        if (n == N) return;
+        int D = reader.nextInt();
 
-        if (ns[n].li != N) dfs2(ns[n].li);
-        if (ns[n].ri != N) dfs2(ns[n].ri);
+        boolean[] vis = new boolean[N+1];
+        long[] dis = new long[N+1];
+        Arrays.fill(dis, Long.MAX_VALUE);
+        dis[D] = 0;
 
-        if (ns[n].li != N && ns[n].ri != N) {
-            Arrays.fill(memo[n], -1);
+        while (true) {
+            int city = -1;
+            long cost = Long.MAX_VALUE;
 
-            for (int d1 = 0; d1 < 2*N; d1++) {
-                if (memo[ns[n].li][d1] == -1) continue;
-                for (int d2 = 0; d2 < 2*N; d2++) {
-                    if (memo[ns[n].ri][d2] == -1) continue;
-
-                    int ti = N + OD - (N+OD-d1) - (N+OD-d2);
-                    memo[n][ti] = Math.min(memo[n][ti] == -1 ? Integer.MAX_VALUE : memo[n][ti],
-                            memo[ns[n].li][d1] + memo[ns[n].ri][d2]);
-
+            for (int i = 1; i < N+1; i++) {
+                if (!vis[i] && dis[i] < cost) {
+                    city = i;
+                    cost = dis[i];
                 }
             }
 
-        } else if (ns[n].li != N) {
-            System.arraycopy(memo[ns[n].li], 0, memo[n], 0, 2*N);
-        } else if (ns[n].ri != N) {
-            System.arraycopy(memo[ns[n].ri], 0, memo[n], 0, 2*N);
-        } else {
-            Arrays.fill(memo[n], -1);
+            if (cost == Long.MAX_VALUE) break;
+            vis[city] = true;
+
+            for (int i = 1; i < N+1; i++) {
+                if (es[city][i] != 0) {
+                    dis[i] = Math.min(dis[i], dis[city] + es[city][i]);
+                }
+            }
         }
 
-        // update 0
-        memo[n][N + OD] = 0;
-        // remove this one
-        int ti = N + OD + (ns[n].bn - ns[n].wn);
+        long c = Long.MAX_VALUE;
+        for (int i = 0; i < K; i++) {
+            c = Math.min(c, ps[i][1] + dis[ps[i][0]]);
+        }
 
-        memo[n][ti] = Math.min(
-                memo[n][ti] == -1 ? Integer.MAX_VALUE : memo[n][ti],
-                1
-        );
-    }
-
-    static class Node {
-
-        int wn; // white #
-        int bn; // black #
-
-        int pi; // parent id
-        int li; // left child id
-        int ri; // right child id
-
-        Node () {}
+        System.out.println(c);
     }
 
     public static class FastReader {

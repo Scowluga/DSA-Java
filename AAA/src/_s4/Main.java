@@ -1,4 +1,4 @@
-package y2010._p2;
+package _s4;
 
 import java.io.DataInputStream;
 import java.io.FileInputStream;
@@ -6,143 +6,92 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.PriorityQueue;
 
-/* Tree Pruning 15/15pt
- * DP (knapsack on a tree)
+/* Convex Hull 15/15pt
+ * Graph Theory (Dijkstra)
 
-This is a recursive solution. Compute the original difference,
-then create a memo table of each node where it stores the least
-number of moves for that sub tree to get to each difference.
+Dijkstra's with additional constraint of hull wear
 
-If a node has two children, we need to merge the two memoized arrays
-of the children.
-
-For that, just take every pair of differences.
-
-Learning: Not much, this is just recurrence.
-    Think recursively in terms of the tree structure
-    Merging possible differences
-    Optimization based on a difference
+So the values we care about are:
+1. Best distance (time)
+2. Remaining hull
+3. Island checking
 
 */
 public class Main {
 
-    static int N;
-    static int D;
-
-    static int OD;
-
-    static Node[] ns;
-    static int[][] memo;
-
     public static void main(String[] args) throws IOException {
         FastReader reader = new FastReader();
 
-        N = reader.nextInt();
-        D = reader.nextInt();
+        int K = reader.nextInt(); // hull thickness
+        int N = reader.nextInt(); // # of v
 
-        // > Tree Input
-        ns = new Node[N];
-        for (int i = 0; i < N; i++) ns[i] = new Node();
+        // > Inputting edges
+        List<E>[] adj = new List[N+1];
+        for (int i = 1; i <= N; i++) adj[i] = new ArrayList<>();
 
-        for (int i = 0; i < N; i++) {
-            reader.nextInt(); // burn the id input (it comes in order)
-            if (reader.nextInt() == 1) ns[i].wn++;
-            else ns[i].bn++;
-
-            switch(reader.nextInt()) {
-                case 0:
-                    ns[i].li = N;
-                    ns[i].ri = N;
-                    break;
-                case 1:
-                    ns[i].li = reader.nextInt();
-                    ns[ns[i].li].pi = i;
-                    ns[i].ri = N;
-                    break;
-                case 2:
-                    ns[i].li = reader.nextInt();
-                    ns[ns[i].li].pi = i;
-                    ns[i].ri = reader.nextInt();
-                    ns[ns[i].ri].pi = i;
-                    break;
-            }
+        for (int M = reader.nextInt(); M > 0; M--) {
+            int a = reader.nextInt(), b = reader.nextInt();
+            int t = reader.nextInt(), h = reader.nextInt();
+            if (h > K) continue;
+            adj[a].add(new E(b, t, h));
+            adj[b].add(new E(a, t, h));
         }
 
-        // > DFS for wn and bn
-        dfs1(0);
+        int A = reader.nextInt();
+        int B = reader.nextInt();
 
-        // > Build memo table and solve
-        memo = new int[N][2*N];
-        OD = ns[0].wn - ns[0].bn;
-        dfs2(0);
+        int[][] ts = new int[N+1][K+1];
+        for (int i = 1; i <= N; i++) Arrays.fill(ts[i], Integer.MAX_VALUE);
+        ts[A][K] = 0;
 
-        // > Output
-        System.out.println(memo[0][N+D]);
+        // > Dijkstra's
+        PriorityQueue<E> q = new PriorityQueue<>();
+        q.add(new E(A, 0, K));
 
-    }
+        while (!q.isEmpty()) {
+            E e1 = q.poll();
 
-    // builds wn and bn
-    static void dfs1 (int n) {
-        if (ns[n].li != N) dfs1(ns[n].li);
-        if (ns[n].ri != N) dfs1(ns[n].ri);
-        if (n != 0) {
-            ns[ns[n].pi].wn += ns[n].wn;
-            ns[ns[n].pi].bn += ns[n].bn;
-        }
-    }
-
-    // builds memo table
-    static void dfs2 (int n) {
-        if (n == N) return;
-
-        if (ns[n].li != N) dfs2(ns[n].li);
-        if (ns[n].ri != N) dfs2(ns[n].ri);
-
-        if (ns[n].li != N && ns[n].ri != N) {
-            Arrays.fill(memo[n], -1);
-
-            for (int d1 = 0; d1 < 2*N; d1++) {
-                if (memo[ns[n].li][d1] == -1) continue;
-                for (int d2 = 0; d2 < 2*N; d2++) {
-                    if (memo[ns[n].ri][d2] == -1) continue;
-
-                    int ti = N + OD - (N+OD-d1) - (N+OD-d2);
-                    memo[n][ti] = Math.min(memo[n][ti] == -1 ? Integer.MAX_VALUE : memo[n][ti],
-                            memo[ns[n].li][d1] + memo[ns[n].ri][d2]);
-
+            for (E e2 : adj[e1.i]) {
+                int t = e1.t + e2.t;
+                int h = e1.h - e2.h;
+                if (h < 1) continue;
+                if (ts[e2.i][h] > t) {
+                    ts[e2.i][h] = t;
+                    q.add(new E(e2.i, t, h));
                 }
             }
-
-        } else if (ns[n].li != N) {
-            System.arraycopy(memo[ns[n].li], 0, memo[n], 0, 2*N);
-        } else if (ns[n].ri != N) {
-            System.arraycopy(memo[ns[n].ri], 0, memo[n], 0, 2*N);
-        } else {
-            Arrays.fill(memo[n], -1);
         }
 
-        // update 0
-        memo[n][N + OD] = 0;
-        // remove this one
-        int ti = N + OD + (ns[n].bn - ns[n].wn);
-
-        memo[n][ti] = Math.min(
-                memo[n][ti] == -1 ? Integer.MAX_VALUE : memo[n][ti],
-                1
-        );
+        // > Output
+        int min = Integer.MAX_VALUE;
+        for (int i = 1; i <= K; i++)
+            min = Math.min(min, ts[B][i]);
+        System.out.println(min == Integer.MAX_VALUE ? -1 : min);
     }
 
-    static class Node {
 
-        int wn; // white #
-        int bn; // black #
+    static class E implements Comparable<E> {
+        int i; // island
+        int t; // time
+        int h; // hull
 
-        int pi; // parent id
-        int li; // left child id
-        int ri; // right child id
+        public E(int i, int t, int h) {
+            this.i = i;
+            this.t = t;
+            this.h = h;
+        }
 
-        Node () {}
+        @Override
+        public int compareTo(E o) {
+            return Integer.compare(this.t, o.t);
+        }
+
+        @Override
+        public String toString() {
+            return String.format("i:%d t:%d h:%d", i, t, h);
+        }
     }
 
     public static class FastReader {

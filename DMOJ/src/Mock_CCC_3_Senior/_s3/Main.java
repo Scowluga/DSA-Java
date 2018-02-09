@@ -1,149 +1,168 @@
-package y2010._p2;
+package Mock_CCC_3_Senior._s3;
 
 import java.io.DataInputStream;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
-/* Tree Pruning 15/15pt
- * DP (knapsack on a tree)
+/* A Cookie-Cutter Problem
 
-This is a recursive solution. Compute the original difference,
-then create a memo table of each node where it stores the least
-number of moves for that sub tree to get to each difference.
 
-If a node has two children, we need to merge the two memoized arrays
-of the children.
+Wait this is literally the exact same question as CCC '01 S4 - Cookies
+huh
 
-For that, just take every pair of differences.
-
-Learning: Not much, this is just recurrence.
-    Think recursively in terms of the tree structure
-    Merging possible differences
-    Optimization based on a difference
 
 */
 public class Main {
 
-    static int N;
-    static int D;
-
-    static int OD;
-
-    static Node[] ns;
-    static int[][] memo;
-
     public static void main(String[] args) throws IOException {
         FastReader reader = new FastReader();
 
-        N = reader.nextInt();
-        D = reader.nextInt();
+        int N = reader.nextInt();
+        P[] ps = new P[N];
+        for (int i = 0; i < N; i++)
+            ps[i] = new P(reader.nextInt(), reader.nextInt());
 
-        // > Tree Input
-        ns = new Node[N];
-        for (int i = 0; i < N; i++) ns[i] = new Node();
-
-        for (int i = 0; i < N; i++) {
-            reader.nextInt(); // burn the id input (it comes in order)
-            if (reader.nextInt() == 1) ns[i].wn++;
-            else ns[i].bn++;
-
-            switch(reader.nextInt()) {
-                case 0:
-                    ns[i].li = N;
-                    ns[i].ri = N;
-                    break;
-                case 1:
-                    ns[i].li = reader.nextInt();
-                    ns[ns[i].li].pi = i;
-                    ns[i].ri = N;
-                    break;
-                case 2:
-                    ns[i].li = reader.nextInt();
-                    ns[ns[i].li].pi = i;
-                    ns[i].ri = reader.nextInt();
-                    ns[ns[i].ri].pi = i;
-                    break;
-            }
+        if (N == 1) {
+            System.out.println(0);
+            return;
+        } else if (N == 2) {
+            System.out.println(dist(ps[0], ps[1]) / 2.0d);
+            return;
         }
 
-        // > DFS for wn and bn
-        dfs1(0);
+        double max = 0;
+        for (int i1 = 0; i1 < N; i1++) {
+            for (int i2 = i1 + 1; i2 < N; i2++) {
+                for (int i3 = 0; i3 < N; i3++) {
+                    if (i1 == i3 || i2 == i3) continue;
 
-        // > Build memo table and solve
-        memo = new int[N][2*N];
-        OD = ns[0].wn - ns[0].bn;
-        dfs2(0);
+                    P A = ps[i1];
+                    P B = ps[i2];
+                    P C = ps[i3];
+                    double a = dist(B, C);
+                    double b = dist(A, C);
+                    double c = dist(A, B);
 
-        // > Output
-        System.out.println(memo[0][N+D]);
-
-    }
-
-    // builds wn and bn
-    static void dfs1 (int n) {
-        if (ns[n].li != N) dfs1(ns[n].li);
-        if (ns[n].ri != N) dfs1(ns[n].ri);
-        if (n != 0) {
-            ns[ns[n].pi].wn += ns[n].wn;
-            ns[ns[n].pi].bn += ns[n].bn;
-        }
-    }
-
-    // builds memo table
-    static void dfs2 (int n) {
-        if (n == N) return;
-
-        if (ns[n].li != N) dfs2(ns[n].li);
-        if (ns[n].ri != N) dfs2(ns[n].ri);
-
-        if (ns[n].li != N && ns[n].ri != N) {
-            Arrays.fill(memo[n], -1);
-
-            for (int d1 = 0; d1 < 2*N; d1++) {
-                if (memo[ns[n].li][d1] == -1) continue;
-                for (int d2 = 0; d2 < 2*N; d2++) {
-                    if (memo[ns[n].ri][d2] == -1) continue;
-
-                    int ti = N + OD - (N+OD-d1) - (N+OD-d2);
-                    memo[n][ti] = Math.min(memo[n][ti] == -1 ? Integer.MAX_VALUE : memo[n][ti],
-                            memo[ns[n].li][d1] + memo[ns[n].ri][d2]);
-
+                    double m = Math.max(a, Math.max(b, c)); // max distance
+                    if ((m == a) && (c*c + b*b > a*a) ||
+                            (m == b) && (c*c + a*a > b*b) ||
+                            (m == c) && (a*a + b*b > c*c)){
+                        // case 2: check chords
+                        max = Math.max(max, triple(A, B, C));
+                    } else {
+                        // case 1: take max distance (diameter)
+                        max = Math.max(max, Math.max(a, Math.max(b, c)));
+                    }
                 }
             }
-
-        } else if (ns[n].li != N) {
-            System.arraycopy(memo[ns[n].li], 0, memo[n], 0, 2*N);
-        } else if (ns[n].ri != N) {
-            System.arraycopy(memo[ns[n].ri], 0, memo[n], 0, 2*N);
-        } else {
-            Arrays.fill(memo[n], -1);
         }
 
-        // update 0
-        memo[n][N + OD] = 0;
-        // remove this one
-        int ti = N + OD + (ns[n].bn - ns[n].wn);
-
-        memo[n][ti] = Math.min(
-                memo[n][ti] == -1 ? Integer.MAX_VALUE : memo[n][ti],
-                1
-        );
+        System.out.println(max / 2.0d);
+//        System.out.println(String.format("%.0000000009f", max));
     }
 
-    static class Node {
+    // invSlope of two points
+    private static double invSlope(P p1, P p2) {
+        if (p1.x == p2.x || p1.y == p2.y) { // horizontal
+            return Integer.MAX_VALUE;
+        }
 
-        int wn; // white #
-        int bn; // black #
-
-        int pi; // parent id
-        int li; // left child id
-        int ri; // right child id
-
-        Node () {}
+        return -1.0 / ((p2.y - p1.y * 1.0) / (p2.x - p1.x));
     }
+
+    // middle of two values
+    private static double middle (int v1, int v2) {
+        return (v1 + v2 * 1.0) / 2.0;
+    }
+
+    // distance between points
+    static double dist(P p1, P p2) {
+        return Math.sqrt(Math.pow(1.0 * p2.x - p1.x, 2) + Math.pow(1.0 * p2.y - p1.y, 2));
+    }
+
+    // distance between points (as values)
+    static double dist(double x1, double y1, double x2, double y2) {
+        return Math.sqrt(Math.pow(1.0 * x2 - x1, 2) + Math.pow(1.0 * y2 - y1, 2));
+    }
+
+    private static double triple(P A, P B, P C) {
+        // let us set the two chords as AC (1) and BC (2)
+        // the equation of each line can be modelled as
+        // y = mx + b, where m is invSlope, b is y-intercept
+
+        double m1 = invSlope(A, C);   // invSlope
+        double x1 = middle(A.x, C.x); // mid x
+        double y1 = middle(A.y, C.y); // mid y
+        double b1 = y1 - (m1 * x1);   // y int
+
+        double m2 = invSlope(B, C);   // invSlope
+        double x2 = middle(B.x, C.x); // mid x
+        double y2 = middle(B.y, C.y); // mid y
+        double b2 = y2 - (m2 * x2);   // y int
+
+        // if a chord is horizontal or vertical, it's annoying
+        // we're going to escape it by then changing that
+        // chord to the third one (AB)
+        if (m1 == Integer.MAX_VALUE || m1 == 0) {
+            m1 = invSlope(A, B);      // invSlope
+            x1 = middle(A.x, B.x);    // mid x
+            y1 = middle(A.y, B.y);    // mid y
+            b1 = y1 - (m1 * x1);      // y int
+        } else if (m2 == Integer.MAX_VALUE || m2 == 0) {
+            m2 = invSlope(A, B);      // invSlope
+            x2 = middle(A.x, B.x);    // mid x
+            y2 = middle(A.y, B.y);    // mid y
+            b2 = y2 - (m2 * x2);      // y int
+        }
+        /*
+        (1) y = m1 * x + b1
+        (2) y = m2 * x + b2
+            substitute (1) into (2)
+        m1 * x + b1 = m2 * x + b2
+        (m1 - m2) * x = b2 - b1
+        x = (b2 - b1) / (m1 - m2)
+        y = m1 * x + b1
+
+        thus (x, y) is the center of the circle
+         */
+
+        double x0 = (b2 - b1) / (m1 - m2);
+        double y0 = m1 * x0 + b1;
+        double diameter = 2 * dist(x0, y0, A.x, A.y);
+
+        return diameter;
+    }
+
+    // point
+    static class P {
+        int x;
+        int y;
+
+        P() {
+            this.x = 0;
+            this.y = 0;
+        }
+
+        P(int x, int y) {
+            this.x = x;
+            this.y = y;
+        }
+
+        @Override
+        public boolean equals(Object obj) {
+            P p = (P)obj;
+            return p.x == this.x && p.y == this.y;
+        }
+
+        @Override
+        public String toString() {
+            return "Point (" + this.x + ", " + this.y + ").";
+        }
+    }
+
+
 
     public static class FastReader {
 

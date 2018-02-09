@@ -1,4 +1,4 @@
-package s5;
+package y2005._s3;
 
 import java.io.DataInputStream;
 import java.io.FileInputStream;
@@ -6,15 +6,94 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-/* Origin of Life
+/* Quantum Operations 10/10pt
+ * Implementation
 
+Very simple, just do it.
 */
 public class Main {
 
     public static void main(String[] args) throws IOException {
         FastReader reader = new FastReader();
 
+        int N = reader.nextInt() - 1;
 
+        int r0 = reader.nextInt(); int c0 = reader.nextInt();
+        long[][] m0 = new long[c0][r0];
+        for (int r = 0; r < r0; r++) {
+            for (int c = 0; c < c0; c++) {
+                m0[c][r] = reader.nextLong();
+            }
+        }
+
+        while (N-- > 0) {
+            int r1 = reader.nextInt(); int c1 = reader.nextInt();
+            long[][] m1 = new long[c1][r1];
+            for (int r = 0; r < r1; r++) {
+                for (int c = 0; c < c1; c++) {
+                    m1[c][r] = reader.nextLong();
+                }
+            }
+
+            m0 = multiply(m0, m1);
+        }
+
+        long[][] m = m0;
+        int cn = m.length;
+        int rn = m[0].length;
+
+        long maxt = m[0][0];
+        long mint = m[0][0];
+        long[] rs = new long[rn];
+        long[] cs = new long[cn];
+
+        for (int r = 0; r < rn; r++) {
+            for (int c = 0; c < cn; c++) {
+                maxt = Math.max(maxt, m[c][r]);
+                mint = Math.min(mint, m[c][r]);
+                rs[r] += m[c][r];
+                cs[c] += m[c][r];
+            }
+        }
+
+        long maxr = rs[0];
+        long minr = rs[0];
+
+        for (int i = 1; i < rn; i++) {
+            maxr = Math.max(maxr, rs[i]);
+            minr = Math.min(minr, rs[i]);
+        }
+
+        long maxc = cs[0];
+        long minc = cs[0];
+
+        for (int i = 1; i < cn; i++) {
+            maxc = Math.max(maxc, cs[i]);
+            minc = Math.min(minc, cs[i]);
+        }
+
+
+        System.out.println(maxt);
+        System.out.println(mint);
+        System.out.println(maxr);
+        System.out.println(minr);
+        System.out.println(maxc);
+        System.out.println(minc);
+    }
+
+    static long[][] multiply(long[][] a, long[][] b) {
+        int ac = a.length, ar = a[0].length;
+        int bc = b.length, br = b[0].length;
+
+        long[][] ab = new long[ac * bc][ar * br];
+
+        for (int ari = 0; ari < ar; ari++)
+            for (int aci = 0; aci < ac; aci++)
+                for (int bri = 0; bri < br; bri++)
+                    for (int bci = 0; bci < bc; bci++)
+                        ab[aci * bc + bci][ari * br + bri] = a[aci][ari] * b[bci][bri];
+
+        return ab;
     }
 
 

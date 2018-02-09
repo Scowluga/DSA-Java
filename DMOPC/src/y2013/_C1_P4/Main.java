@@ -1,148 +1,106 @@
-package y2010._p2;
+package y2013._C1_P4;
 
 import java.io.DataInputStream;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Arrays;
+import java.util.LinkedList;
 import java.util.List;
+import java.util.Queue;
 
-/* Tree Pruning 15/15pt
- * DP (knapsack on a tree)
+/* AFK 12/12pt
+ * Graph Theory (BFS)
 
-This is a recursive solution. Compute the original difference,
-then create a memo table of each node where it stores the least
-number of moves for that sub tree to get to each difference.
+BFS with visited
 
-If a node has two children, we need to merge the two memoized arrays
-of the children.
-
-For that, just take every pair of differences.
-
-Learning: Not much, this is just recurrence.
-    Think recursively in terms of the tree structure
-    Merging possible differences
-    Optimization based on a difference
+Learning:
+    With BFS, we don't need individual visited sets for each point
+    We can just keep one grand one because you never want to visit
+    one point after it already has been with a lesser number of moves
 
 */
 public class Main {
 
-    static int N;
-    static int D;
-
-    static int OD;
-
-    static Node[] ns;
-    static int[][] memo;
-
     public static void main(String[] args) throws IOException {
         FastReader reader = new FastReader();
+        int T = reader.nextInt();
+        gl: while (T-- > 0) {
+            int cn = reader.nextInt();
+            int rn = reader.nextInt();
 
-        N = reader.nextInt();
-        D = reader.nextInt();
+            int cs = 0, rs = 0, ce = 0, re = 0;
+            boolean[][] room = new boolean[cn][rn];
 
-        // > Tree Input
-        ns = new Node[N];
-        for (int i = 0; i < N; i++) ns[i] = new Node();
-
-        for (int i = 0; i < N; i++) {
-            reader.nextInt(); // burn the id input (it comes in order)
-            if (reader.nextInt() == 1) ns[i].wn++;
-            else ns[i].bn++;
-
-            switch(reader.nextInt()) {
-                case 0:
-                    ns[i].li = N;
-                    ns[i].ri = N;
-                    break;
-                case 1:
-                    ns[i].li = reader.nextInt();
-                    ns[ns[i].li].pi = i;
-                    ns[i].ri = N;
-                    break;
-                case 2:
-                    ns[i].li = reader.nextInt();
-                    ns[ns[i].li].pi = i;
-                    ns[i].ri = reader.nextInt();
-                    ns[ns[i].ri].pi = i;
-                    break;
-            }
-        }
-
-        // > DFS for wn and bn
-        dfs1(0);
-
-        // > Build memo table and solve
-        memo = new int[N][2*N];
-        OD = ns[0].wn - ns[0].bn;
-        dfs2(0);
-
-        // > Output
-        System.out.println(memo[0][N+D]);
-
-    }
-
-    // builds wn and bn
-    static void dfs1 (int n) {
-        if (ns[n].li != N) dfs1(ns[n].li);
-        if (ns[n].ri != N) dfs1(ns[n].ri);
-        if (n != 0) {
-            ns[ns[n].pi].wn += ns[n].wn;
-            ns[ns[n].pi].bn += ns[n].bn;
-        }
-    }
-
-    // builds memo table
-    static void dfs2 (int n) {
-        if (n == N) return;
-
-        if (ns[n].li != N) dfs2(ns[n].li);
-        if (ns[n].ri != N) dfs2(ns[n].ri);
-
-        if (ns[n].li != N && ns[n].ri != N) {
-            Arrays.fill(memo[n], -1);
-
-            for (int d1 = 0; d1 < 2*N; d1++) {
-                if (memo[ns[n].li][d1] == -1) continue;
-                for (int d2 = 0; d2 < 2*N; d2++) {
-                    if (memo[ns[n].ri][d2] == -1) continue;
-
-                    int ti = N + OD - (N+OD-d1) - (N+OD-d2);
-                    memo[n][ti] = Math.min(memo[n][ti] == -1 ? Integer.MAX_VALUE : memo[n][ti],
-                            memo[ns[n].li][d1] + memo[ns[n].ri][d2]);
-
+            for (int r = 0; r < rn; r++) {
+                char[] chars = reader.readLine().toCharArray();
+                // for some reason, reader doesn't finish the line off with nextInt()
+                if (chars.length != cn) chars = reader.readLine().toCharArray();
+                for (int c = 0; c < cn; c++) {
+                    switch(chars[c]) {
+                        case 'O':
+                            room[c][r] = true;
+                            break;
+                        case 'X':
+                            room[c][r] = false;
+                            break;
+                        case 'C':
+                            room[c][r] = true;
+                            cs = c; rs = r;
+                            break;
+                        case 'W':
+                            room[c][r] = true;
+                            ce = c; re = r;
+                            break;
+                    }
                 }
             }
 
-        } else if (ns[n].li != N) {
-            System.arraycopy(memo[ns[n].li], 0, memo[n], 0, 2*N);
-        } else if (ns[n].ri != N) {
-            System.arraycopy(memo[ns[n].ri], 0, memo[n], 0, 2*N);
-        } else {
-            Arrays.fill(memo[n], -1);
+
+            int[][] move = new int[][]{
+                    {0, 1, 0, -1}, // x
+                    {-1, 0, 1, 0} // y
+            };
+
+            boolean[][] vis = new boolean[cn][rn];
+
+            Queue<P> q = new LinkedList<>();
+            q.add(new P(cs, rs, 0));
+
+            while (!q.isEmpty()) {
+                P p = q.remove();
+                if (p.n > 59 || p.c < 0 || p.c >= cn || p.r < 0 || p.r >= rn || !room[p.c][p.r] || vis[p.c][p.r]) continue;
+                if (p.c == ce && p.r == re) {
+                    System.out.println(p.n);
+                    continue gl;
+                }
+
+                vis[p.c][p.r] = true;
+
+                for (int d = 0; d < 4; d++) {
+                    q.add(new P(p.c + move[0][d], p.r + move[1][d], p.n + 1));
+                }
+            }
+
+            System.out.println("#notworth");
         }
 
-        // update 0
-        memo[n][N + OD] = 0;
-        // remove this one
-        int ti = N + OD + (ns[n].bn - ns[n].wn);
-
-        memo[n][ti] = Math.min(
-                memo[n][ti] == -1 ? Integer.MAX_VALUE : memo[n][ti],
-                1
-        );
     }
 
-    static class Node {
+    static class P {
+        int c;
+        int r;
+        int n;
 
-        int wn; // white #
-        int bn; // black #
+        public P(int c, int r, int n) {
+            this.c = c;
+            this.r = r;
+            this.n = n;
+        }
 
-        int pi; // parent id
-        int li; // left child id
-        int ri; // right child id
-
-        Node () {}
+        @Override
+        public String toString() {
+            return String.format("(%d, %d) %d", c, r, n);
+        }
     }
 
     public static class FastReader {

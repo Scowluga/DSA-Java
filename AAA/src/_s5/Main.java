@@ -1,36 +1,98 @@
-package y2013.C1_P4;
+package _s5;
 
 import java.io.DataInputStream;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+import java.util.PriorityQueue;
 
-/* AFK
+/* Trucking Troubles 12/12pt
+ * Graph Theory (MST)
+
+Prim's Algorithm for Minimum Spanning Tree with a twist
+
+For this q, we want to store
+    maximum weight possible to get to each city
+
+So pq by maximum weights
+    for each edge, check if this current path is better
+        if yes, update and add to pq
+
+Ok i kinda understand this? now what's the difference to regular prims?
+:O
 
 */
 public class Main {
 
     public static void main(String[] args) throws IOException {
-        String file = "t.txt";
-//        FastReader reader = new FastReader("C:\\Users\\david\\Documents\\Programming\\Java\\DSA-Java\\CCC\\src\\" + "y13.c1.p4".split(".")[0] + "\\" + "y13.c1.p4".split(".")[1] + "\\" + "file");
         FastReader reader = new FastReader();
 
-        int t = reader.nextInt();
-        for (int tt = 0; tt < t; tt++) {
-            int xT = reader.nextInt();
-            int yT = reader.nextInt();
+        int C = reader.nextInt();
+        int R = reader.nextInt();
+        int D = reader.nextInt();
 
-            String[][] b = new String[xT][yT];
+        // > Inputting edges
+        List<E>[] es = new List[C+1];
+        for (int i = 1; i <= C; i++) es[i] = new ArrayList<>();
 
-            for (int i = 0; i < yT; i++) {
-                b[i] = reader.readLine().split("");
-            }
-
-
+        for (int i = 0; i < R; i++) {
+            int x = reader.nextInt(), y = reader.nextInt(), w = reader.nextInt();
+            es[x].add(new E(y, w));
+            es[y].add(new E(x, w));
         }
+
+        // > Run Prim's Algorithm
+
+        PriorityQueue<E> pq = new PriorityQueue<>();
+        int[] dis = new int[C+1];
+        Arrays.fill(dis, Integer.MIN_VALUE);
+
+        pq.add(new E(1, Integer.MAX_VALUE));
+        dis[1] = Integer.MAX_VALUE;
+
+        while (!pq.isEmpty()) {
+            E e1 = pq.poll();
+            if (e1.w < dis[e1.c]) continue;
+            for (E e2 : es[e1.c]) {
+                int w2 = Math.min(dis[e1.c], e2.w);
+                if (dis[e2.c] < w2) {
+                    dis[e2.c] = w2;
+                    pq.add(new E(e2.c, w2));
+                }
+            }
+        }
+
+        // > Output
+
+        int min = Integer.MAX_VALUE;
+        for (int i = 0; i < D; i++) {
+            min = Math.min(min, dis[reader.nextInt()]);
+        }
+
+        System.out.println(min);
     }
 
+    static class E implements Comparable<E> {
+        int c; // city
+        int w; // weight
+
+        public E(int c, int w) {
+            this.c = c;
+            this.w = w;
+        }
+
+        @Override
+        public int compareTo(E o) {
+            return Integer.compare(o.w, this.w);
+        }
+
+        @Override
+        public String toString() {
+            return String.format("c:%d, w:%d", c, w);
+        }
+    }
 
     public static class FastReader {
 
@@ -233,10 +295,15 @@ public class Main {
             return buffer[bufferPointer++];
         }
 
-        public int[] readLineAsIntArray(int n) throws IOException {
-            int[] ret = new int[n];
+        public int[] readLineAsIntArray(int n, boolean isOneIndex) throws IOException {
+            int[] ret;
+            if (isOneIndex) {
+                ret = new int[n + 1];
+            } else {
+                ret = new int[n];
+            }
 //            int ret = new ArrayList<>();
-            int idx = 0;
+            int idx = isOneIndex ? 1 : 0;
             byte c = read();
             while (c != -1) {
                 if (c == '\n' || c == '\r')
