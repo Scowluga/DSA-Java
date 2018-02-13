@@ -1,11 +1,10 @@
-package Cake_Balancing;
+package _Cake_Balancing;
 
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.StringTokenizer;
 
-/* Cake Balancing 15pt
+/* Cake Balancing 15/15pt
  * DP
 
 Use bitmask to store states
