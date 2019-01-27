@@ -1,62 +1,94 @@
 import java.io.DataInputStream;
 import java.io.FileInputStream;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*; 
 
 /* --- Problem ---  
- * Topics: Arrays
+ * Topics: 
 
-Given a list of numbers and a number k,
-return whether any two numbers from the list add up to k.
+Given an array of integers, return a new array such that
+each element at index i of the new array is the product of
+all the numbers in the original array except the one at i.
 
-For example, given [10, 15, 3, 7] and k of 17, return true since 10 + 7 is 17.
+For example, if our input was [1, 2, 3, 4, 5],
+the expected output would be [120, 60, 40, 30, 24].
 
-Bonus: Can you do this in one pass?
+If our input was [3, 2, 1],
+the expected output would be [2, 3, 6].
 
+Follow-up: what if you can't use division?
+ 
  */
  
-/* --- Solution --- 
+/* --- Solution ---  
 
-- Naive Solution: O(n^2) O(1)
+So immediately this is harder than the last one.
 
-We're searching for any pair that sums to k, so why not just try them all?
-We can just nested for loop and check with if
+- Naive: O(n^2) O(1)
+Naive solution is to simply loop through each element
+And then calculate the value with a second nested for loop
 
-- Bonus optimization: O(n) O(n)
+- Optimization: Storing a product O(n) O(1)
+Or you can loop through first to store the product of the entire array
+Then the second for loop can be replaced with division
 
-But for each element we're looking at,
-we don't actually have to check all n elements again.
-We only need to check if the element (k-arr[i]) exists
+- Optimization: No division O(n) O(n)
+To not use the division sign, we have to do something tricky here.
+Primarily, we need to re-think our naive algorithm
 
-But we can no longer do that in linear memory can we?
-So we use a set :)
+The product of all elements divided by one.
+Is that not the same as the product of both sides?
+*** out[i] = product[start, i-1] * product[i+1, end]
 
+From this, we can generate 2 "prefix product" arrays
+Then the problem because simple.
+
+Learning:
+> for this one it's key to think about it from a different angle
+> Yes the naive solution is product of all divided by one
+> But it's also just product of both sides
 
  */
 
-public class P1 {
+public class P2 {
 
-    static boolean solution(List<Integer> nList, int k) {
 
-        Set<Integer> nSet = new HashSet<>(nList);
+    static int[] solve(int[] in) {
+        if (in.length == 0) return new int[0];
+        if (in.length == 1) return new int[1];
 
-        for (int num : nList)
-            if (nSet.contains(k - num))
-                return true;
+        // build left
+        int[] left = new int[in.length];
+        left[0] = in[0];
+        for (int i = 1; i < in.length; i++)
+            left[i] = left[i-1] * in[i];
 
-        return false;
+        // build right
+        int[] right = new int[in.length];
+        right[in.length - 1] = in[in.length - 1];
+        for (int i = in.length - 2; i >=0; i--)
+            right[i] = right[i+1] * in[i];
+
+        // build out
+        int[] out = new int[in.length];
+        out[0] = right[1];
+        out[in.length - 1] = left[in.length - 2];
+
+        for (int i = 1; i < in.length - 1; i++)
+            out[i] = left[i-1] * right[i+1];
+
+        return out;
     }
 
     public static void main(String[] args) throws IOException {
         FastReader reader = new FastReader();
         while (true) {
-            List<Integer> nList = reader.readLineAsIntegers();
-            int k = reader.nextInt();
 
-            System.out.println(solution(nList, k));
+            int[] arr = reader.readLineAsIntArray(5, false);
+
+            System.out.println(Arrays.toString(
+                    solve(arr)
+            ));
         }
     }
 
