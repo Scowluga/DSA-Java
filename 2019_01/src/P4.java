@@ -1,141 +1,38 @@
 import java.io.DataInputStream;
 import java.io.FileInputStream;
 import java.io.IOException;
-import java.io.Serializable;
-import java.util.*;
+import java.util.*; 
 
 /* --- Problem ---  
- * Topics: Tree, Recursion, Strings
+ * Topics: 
 
-Given the root to a binary tree, implement
-    1. serialize(root), which serializes the tree into a string,
-    2. deserialize(s), which deserializes the string back into the tree.
 
-For example, given the following Node class
-
-class Node:
-    def __init__(self, val, left=None, right=None):
-        self.val = val
-        self.left = left
-        self.right = right
-The following test should pass:
-
-node = Node('root', Node('left', Node('left.left')), Node('right'))
-assert deserialize(serialize(node)).left.left.val == 'left.left'
  
  */
  
 /* --- Solution ---  
-So this problem is quite different than the first two
-This is more of a CCC problem. That's perfect :)
-
-So the way I'm gonna do this is similar to Contacts App
-The delimiter will be open and class squiggly brackets
-
-Ok perhaps not the best way to solve this problem but w/e
-Does the job (kinda)
 
 
-Serialize: O(logn)
-Deserialize: O(nlogn)
-
+ 
  */
 
-public class P3 {
-
-    static class Node implements Serializable {
-        int val;
-        Node left;
-        Node right;
-
-        // Basic constructor
-        Node(int val) {
-            this.val = val;
-        }
-
-        // Complete constructor
-        Node(int val, Node left, Node right) {
-            this.val = val;
-            this.left = left;
-            this.right = right;
-        }
+public class P4 {
 
 
-        // serialize into string
-        static String serialize(Node node) {
-            if (node == null) return "{NULL}";
-            return String.format("{%d, %s, %s}",
-                    node.val,
-                    serialize(node.left),
-                    serialize(node.right)
-            );
-        }
+    static String solve() {
 
-        // deserialize back into node
-        static Node deserialize(String node) {
-            if (node.equals("{NULL}")) return null;
-
-            // Strip the outside braces
-            node = node.substring(1, node.length() - 1);
-            char[] cs = node.toCharArray();
-
-            // Checks for the specific pattern
-            // val, {left}, {right}
-            List<Integer> is = new ArrayList<>();
-            for (int i = 0, c = 0; i < cs.length; i++) {
-                if (cs[i] == '{') {
-                    c++;
-                    if (c == 1) is.add(i);
-                }
-                if (cs[i] == '}') {
-                    c--;
-                    if (c == 0) is.add(i);
-                }
-            }
-
-            return new Node(
-                    Integer.valueOf(
-                            node.substring(0, is.get(0) - 2)
-                    ),
-                    deserialize(
-                            node.substring(is.get(0), is.get(1)+1)
-                    ),
-                    deserialize(
-                            node.substring(is.get(2), is.get(3)+1)
-                    )
-            );
-        }
+        return null;
     }
-
-
-
 
     public static void main(String[] args) throws IOException {
         FastReader reader = new FastReader();
-
-        // Simple test case
-//        Node head = new Node(
-//           1,
-//           new Node(2),
-//           new Node(3)
-//        );
+        while (true) {
 
 
-        // Harder test case
-        Node head = new Node(
-                1,
-                new Node(2, new Node(4), null),
-                new Node(3, null, new Node(5, new Node(6), null))
-        );
-
-
-        String s = Node.serialize(head);
-        System.out.println(s);
-
-        System.out.println(
-                Node.serialize(Node.deserialize(s))
-        );
-
+            System.out.println(
+                    solve()
+            );
+        }
     }
 
 
