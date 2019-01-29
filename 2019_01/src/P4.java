@@ -4,13 +4,24 @@ import java.io.IOException;
 import java.util.*; 
 
 /* --- Problem ---  
- * Topics: 
+ * Topics:
 
+Given an array of integers, find the first missing positive integer
+in linear time and constant space.
+
+In other words, find the lowest positive integer that does not exist in the array.
+The array can contain duplicates and negative numbers as well.
+
+For example, the input [3, 4, -1, 1] should give 2.
+The input [1, 2, 0] should give 3.
+
+You can modify the input array in-place.
 
  
  */
  
 /* --- Solution ---  
+
 
 
  
@@ -19,18 +30,41 @@ import java.util.*;
 public class P4 {
 
 
-    static String solve() {
+    static int solve(int[] arr) {
 
-        return null;
+        // Filter out non-positive integers
+        arr = Arrays.stream(arr)
+                .filter(n -> n > 0)
+                .toArray();
+
+        // "Visit" each element
+        for (int i = 0; i < arr.length; i++) {
+            int n = Math.abs(arr[i]);
+
+            // Check validity
+            if (n > arr.length)
+                continue;
+
+            // Visit
+            arr[n-1] = -Math.abs(arr[n-1]);
+        }
+
+        // Return first non-negative
+        for (int i = 0; i < arr.length; i++)
+            if (arr[i] > 0) return i + 1;
+
+        // Default return
+        return arr.length + 1;
     }
 
     public static void main(String[] args) throws IOException {
         FastReader reader = new FastReader();
         while (true) {
-
+            int size = reader.nextInt();
+            int[] arr = reader.readLineAsIntArray(size, false);
 
             System.out.println(
-                    solve()
+                    solve(arr)
             );
         }
     }
