@@ -4,83 +4,33 @@ import java.io.IOException;
 import java.util.*; 
 
 /* --- Problem ---  
- * Topics: Arrays (streams), In-place Visited
+ * Topics: 
 
-Given an array of integers, find the first missing positive integer
-in linear time and constant space.
-
-In other words, find the lowest positive integer that does not exist in the array.
-The array can contain duplicates and negative numbers as well.
-
-For example, the input [3, 4, -1, 1] should give 2.
-The input [1, 2, 0] should give 3.
-
-You can modify the input array in-place.
 
  
  */
  
 /* --- Solution ---  
 
-Ok so right off the bat there's an O(n^2) O1) naive solution
-    You loop up from 1 and check if it doesn't exist exist
 
-Now looping up from 1 is un-optimizable. That's BCR.
-But checking existence is O(n), should be O(1) with visited.
-
-Optimization: Visited Array/Set O(n) O(n)
-Loop through once to create the visited
-Loop through second time to check
-
-
-Further Optimization: In-place O(n) O(1)
-Key Insight: The number missing cannot possibly be larger than size of array
-
-So use the array itself to store the visited as positive/negative
-
-:) Yay a classic question just like from the CCC days
-
-
+ 
  */
 
-public class P4 {
+public class P5 {
 
 
-    static int solve(int[] arr) {
+    static String solve() {
 
-        // Filter out non-positive integers
-        arr = Arrays.stream(arr)
-                .filter(n -> n > 0)
-                .toArray();
-
-        // "Visit" each element
-        for (int i = 0; i < arr.length; i++) {
-            int n = Math.abs(arr[i]);
-
-            // Check validity
-            if (n > arr.length)
-                continue;
-
-            // Visit
-            arr[n-1] = -Math.abs(arr[n-1]);
-        }
-
-        // Return first non-negative
-        for (int i = 0; i < arr.length; i++)
-            if (arr[i] > 0) return i + 1;
-
-        // Default return
-        return arr.length + 1;
+        return null;
     }
 
     public static void main(String[] args) throws IOException {
         FastReader reader = new FastReader();
         while (true) {
-            int size = reader.nextInt();
-            int[] arr = reader.readLineAsIntArray(size, false);
+
 
             System.out.println(
-                    solve(arr)
+                    solve()
             );
         }
     }
