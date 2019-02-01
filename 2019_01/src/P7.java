@@ -6,113 +6,62 @@ import java.util.*;
 /* --- Problem ---  
  * Topics: DP
 
-Was XOR linked list. I read up on it, cool data structure, really great to know.
-But I'm not going to implement it in Java. Too many downsides.
+Given the mapping a = 1, b = 2, ... z = 26, and an encoded message,
+count the number of ways it can be decoded.
 
+> '111' would give 3, since it could be decoded as 'aaa', 'ka', and 'ak'.
 
-Instead: Let's do a classic:
-https://leetcode.com/problems/maximum-product-subarray/
-
-Given an integer array nums, find the contiguous subarray within an array
-(containing at least one number) which has the largest product.
-
-Ooh this is fun :)
-
+You can assume that the messages are decodable. For example, '001' is not allowed.
  
  */
  
 /* --- Solution ---  
-Definitely DP. 100% DP. I've probably even done this before but don't remember.
 
-Naive is you loop through every possible start and stop index
-O(n^2) time with O(1) space. Not bad
+I'm pretty sure I've done a problem like this at least 20 times. 
+Simple recurrence really.
 
-But we can optimize maybe?
-
-Immediately, 2 big points come to mind.
-1. Negative numbers. Any 2 become positive again
-2. Zero. Automatically 0'ifies the product. Avoid.
-
-Now for recurrence.
-
-So it looks like we need to store 2 values here
-Maximum positive number, and maximum negative number
-
-With recurrence, this can easily be made into
-O(n) time with O(n) space
-
-Can we do better?
-
-Probably not tbh. Let's just code it :)
-
-
-Learning
-> Don't forget how recurrence works
-> Or how you actually do dp problems lol
-
+O(n) time O(n) space
  
  */
 
-public class P6 {
+public class P7 {
 
-    static int maxProduct(int[] nums) {
-        // Edge Case
-        if (nums.length == 0) return 0;
-        if (nums.length == 1) return nums[0];
 
-        // Create memo
-        int[] maxP = new int[nums.length];
-        int[] maxN = new int[nums.length];
+    static int solve(String message) {
+        if (message.isEmpty()) return 0;
+        if (message.length() == 1) return 1;
 
-        // Init memo
-        maxP[0] = Math.max(0, nums[0]);
-        maxN[0] = Math.min(0, nums[0]);
+        // Single-line stream to int[]
+        int[] vs = Arrays.stream(message.split(""))
+                .mapToInt(Integer::valueOf)
+                .toArray();
 
-        // Fill memo
-        for (int i = 1; i < nums.length; i++) {
-            if (nums[i] == 0) {
-                maxP[i] = 0;
-                maxN[i] = 0;
-            }
+        // Base memo cases
+        int[] memo = new int[vs.length];
+        memo[0] = 1;
+        memo[1] = 1;
+        if (vs[0] == 1 || (vs[0] == 2 && vs[1] <= 6))
+            memo[1]++;
 
-            if (nums[i] > 0) {
-                if (maxP[i-1] == 0)
-                    maxP[i] = nums[i];
-                else
-                    maxP[i] = maxP[i-1] * nums[i];
+        // Build Look-up Table
+        for (int i = 2; i < vs.length; i++) {
+            if (vs[i-1] == 1 || (vs[i-1] == 2 && vs[i] <= 6))
+                memo[i] += memo[i-2];
 
-                maxN[i] = maxN[i-1] * nums[i];
-
-            }
-
-            if (nums[i] < 0) {
-                maxP[i] = maxN[i-1] * nums[i];
-
-                if (maxP[i-1] == 0)
-                    maxN[i] = nums[i];
-                else
-                    maxN[i] = maxP[i-1] * nums[i];
-            }
-
+            memo[i] += memo[i-1];
         }
 
-        // Search memo
-        int max = nums[0];
-        for (int val : maxP)
-            max = Math.max(max, val);
-        return max;
+        // Output count
+        return memo[vs.length-1];
     }
-
 
     public static void main(String[] args) throws IOException {
         FastReader reader = new FastReader();
-
         while (true) {
-            int n = reader.nextInt();
-            int[] arr = reader.readLineAsIntArray(n, false);
-            System.out.println(maxProduct(arr));
+            System.out.println(
+                    solve(reader.readLine())
+            );
         }
-
     }
 
 
