@@ -1,3 +1,3 @@
 # DailyCodingProblem
-Problems from <a href="https://www.dailycodingproblem.com/">here</a>. 
-They're pretty solid so far. 
+My aim is to do <strong>at least</strong> one coding problem per day. Some problems are from <a href="https://www.dailycodingproblem.com/">here</a>. 
+Others are from various sources online. 
