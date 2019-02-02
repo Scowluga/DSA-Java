@@ -1,5 +1,3 @@
-package SUNNYWAANG;
-
 import java.io.DataInputStream;
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -7,6 +5,7 @@ import java.util.*;
 
 /* --- Problem ---  
  * Topics: Arrays (streams), In-place Visited
+ * 2019-01-29
 
 Given an array of integers, find the first missing positive integer
 in linear time and constant space.

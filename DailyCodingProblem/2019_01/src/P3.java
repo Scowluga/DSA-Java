@@ -1,5 +1,3 @@
-package SUNNYWAANG;
-
 import java.io.DataInputStream;
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -8,6 +6,7 @@ import java.util.*;
 
 /* --- Problem ---  
  * Topics: Tree, Recursion, Strings
+ * 2019-01-28
 
 Given the root to a binary tree, implement
     1. serialize(root), which serializes the tree into a string,

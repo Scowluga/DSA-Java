@@ -1,5 +1,3 @@
-package SUNNYWAANG;
-
 import java.io.DataInputStream;
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -7,6 +5,7 @@ import java.util.*;
 
 /* --- Problem ---  
  * Topics: DP
+ * 2019-01-31
 
 Was XOR linked list. I read up on it, cool data structure, really great to know.
 But I'm not going to implement it in Java. Too many downsides.

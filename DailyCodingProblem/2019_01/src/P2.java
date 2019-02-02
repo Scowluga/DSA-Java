@@ -1,5 +1,3 @@
-package SUNNYWAANG;
-
 import java.io.DataInputStream;
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -7,6 +5,7 @@ import java.util.*;
 
 /* --- Problem ---  
  * Topics: Arrays, DP
+ * 2019-01-27
 
 Given an array of integers, return a new array such that
 each element at index i of the new array is the product of

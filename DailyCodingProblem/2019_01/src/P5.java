@@ -1,9 +1,8 @@
-package SUNNYWAANG;
-
 import javafx.util.Pair;
 
 /* --- Problem ---  
  * Topics: Generic Types
+ * 2019-01-30
 
 cons(a, b) constructs a pair,
 car(pair) and cdr(pair) returns the first and last element of that pair.

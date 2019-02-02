@@ -1,5 +1,3 @@
-package SUNNYWAANG;
-
 import java.io.DataInputStream;
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -10,6 +8,7 @@ import java.util.Set;
 
 /* --- Problem ---  
  * Topics: Arrays
+ * 2019-01-26
 
 Given a list of numbers and a number k,
 return whether any two numbers from the list add up to k.

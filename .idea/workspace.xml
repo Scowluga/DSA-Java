@@ -2,9 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1fefd6f2-b2c1-40d8-bd6c-e791a02392f4" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Interview/NOTES/src/Utilities/Nodes.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/2019_02/P8$FastReader.class" afterPath="$PROJECT_DIR$/out/production/2019_02/P8$FastReader.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/2019_02/P8.class" afterPath="$PROJECT_DIR$/out/production/2019_02/P8.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/DailyCodingProblem/2019_02/src/P8.java" afterPath="$PROJECT_DIR$/DailyCodingProblem/2019_02/src/P8.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/DailyCodingProblem/2019_01/src/P1.java" afterPath="$PROJECT_DIR$/DailyCodingProblem/2019_01/src/P1.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/DailyCodingProblem/2019_01/src/P2.java" afterPath="$PROJECT_DIR$/DailyCodingProblem/2019_01/src/P2.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/DailyCodingProblem/2019_01/src/P3.java" afterPath="$PROJECT_DIR$/DailyCodingProblem/2019_01/src/P3.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/DailyCodingProblem/2019_01/src/P4.java" afterPath="$PROJECT_DIR$/DailyCodingProblem/2019_01/src/P4.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/DailyCodingProblem/2019_01/src/P5.java" afterPath="$PROJECT_DIR$/DailyCodingProblem/2019_01/src/P5.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/DailyCodingProblem/2019_01/src/P6.java" afterPath="$PROJECT_DIR$/DailyCodingProblem/2019_01/src/P6.java" />
     </list>
     <ignored path="DSA-Java.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -34,33 +40,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="P1.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/DailyCodingProblem/2019_01/src/P1.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="49" column="21" lean-forward="false" selection-start-line="49" selection-start-column="21" selection-end-line="49" selection-end-column="21" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="P7.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/DailyCodingProblem/2019_02/src/P7.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="487">
-              <caret line="28" column="0" lean-forward="false" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
-              <folding>
-                <element signature="class#FastReader#0;class#P7#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="P8.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/DailyCodingProblem/2019_02/src/P8.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1019">
-              <caret line="6" column="27" lean-forward="true" selection-start-line="6" selection-start-column="27" selection-end-line="6" selection-end-column="27" />
+            <state relative-caret-position="667">
+              <caret line="32" column="0" lean-forward="true" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
               <folding>
                 <element signature="class#Node#0;class#P8#0" expanded="false" />
                 <element signature="class#FastReader#0;class#P8#0" expanded="false" />
@@ -99,12 +83,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/COCI/src/_y2006_c5_q5/Main.java" />
-        <option value="$PROJECT_DIR$/AAA/src/_Cake_Balancing/Main.java" />
-        <option value="$PROJECT_DIR$/AAA/src/reader/Main.java" />
-        <option value="$PROJECT_DIR$/CCC/src/y2006/_s5/Main.java" />
-        <option value="$PROJECT_DIR$/AAA/src/Higgs/Main.java" />
-        <option value="$PROJECT_DIR$/AAA/src/s5/Main.java" />
         <option value="$PROJECT_DIR$/AAA/src/_s5/Main.java" />
         <option value="$PROJECT_DIR$/AAA/src/CCC/Main.java" />
         <option value="$PROJECT_DIR$/CCO/src/_y2015/_p2/Main.java" />
@@ -150,6 +128,12 @@
         <option value="$PROJECT_DIR$/Interview/Sorts/src/QuickSort.java" />
         <option value="$PROJECT_DIR$/Interview/NOTES/src/Utilities/Nodes.java" />
         <option value="$PROJECT_DIR$/DailyCodingProblem/2019_02/src/P8.java" />
+        <option value="$PROJECT_DIR$/DailyCodingProblem/2019_01/src/P1.java" />
+        <option value="$PROJECT_DIR$/DailyCodingProblem/2019_01/src/P2.java" />
+        <option value="$PROJECT_DIR$/DailyCodingProblem/2019_01/src/P3.java" />
+        <option value="$PROJECT_DIR$/DailyCodingProblem/2019_01/src/P4.java" />
+        <option value="$PROJECT_DIR$/DailyCodingProblem/2019_01/src/P5.java" />
+        <option value="$PROJECT_DIR$/DailyCodingProblem/2019_01/src/P6.java" />
       </list>
     </option>
   </component>
@@ -241,36 +225,38 @@
             <path>
               <item name="DSA-Java" type="b2602c69:ProjectViewProjectNode" />
               <item name="DSA-Java" type="462c0819:PsiDirectoryNode" />
-              <item name="Interview" type="462c0819:PsiDirectoryNode" />
+              <item name="DailyCodingProblem" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="DSA-Java" type="b2602c69:ProjectViewProjectNode" />
               <item name="DSA-Java" type="462c0819:PsiDirectoryNode" />
-              <item name="Interview" type="462c0819:PsiDirectoryNode" />
-              <item name="NOTES" type="462c0819:PsiDirectoryNode" />
+              <item name="DailyCodingProblem" type="462c0819:PsiDirectoryNode" />
+              <item name="2019_01" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="DSA-Java" type="b2602c69:ProjectViewProjectNode" />
               <item name="DSA-Java" type="462c0819:PsiDirectoryNode" />
-              <item name="Interview" type="462c0819:PsiDirectoryNode" />
-              <item name="NOTES" type="462c0819:PsiDirectoryNode" />
+              <item name="DailyCodingProblem" type="462c0819:PsiDirectoryNode" />
+              <item name="2019_01" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="DSA-Java" type="b2602c69:ProjectViewProjectNode" />
+              <item name="DSA-Java" type="462c0819:PsiDirectoryNode" />
+              <item name="DailyCodingProblem" type="462c0819:PsiDirectoryNode" />
+              <item name="2019_02" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="DSA-Java" type="b2602c69:ProjectViewProjectNode" />
+              <item name="DSA-Java" type="462c0819:PsiDirectoryNode" />
+              <item name="DailyCodingProblem" type="462c0819:PsiDirectoryNode" />
+              <item name="2019_02" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="DSA-Java" type="b2602c69:ProjectViewProjectNode" />
               <item name="DSA-Java" type="462c0819:PsiDirectoryNode" />
               <item name="Interview" type="462c0819:PsiDirectoryNode" />
-              <item name="NOTES" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Graphs" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="DSA-Java" type="b2602c69:ProjectViewProjectNode" />
-              <item name="DSA-Java" type="462c0819:PsiDirectoryNode" />
-              <item name="Interview" type="462c0819:PsiDirectoryNode" />
-              <item name="NOTES" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Utilities" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="DSA-Java" type="b2602c69:ProjectViewProjectNode" />
@@ -3119,6 +3105,14 @@
       <option name="presentableId" value="Default" />
       <updated>1490315365510</updated>
     </task>
+    <task id="LOCAL-00001" summary="Finished P8">
+      <created>1549133233047</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1549133233047</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TodoView">
@@ -3142,12 +3136,13 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.28295454" sideWeight="0.50253075" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25795454" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25795454" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32954547" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32045454" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20734341" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.325" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -3161,7 +3156,6 @@
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="DB Browser" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.325" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -3204,6 +3198,10 @@
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Finished P8" />
+    <option name="LAST_COMMIT_MESSAGE" value="Finished P8" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -4425,32 +4423,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Competitive/CCC/src/y2003/_s5/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="483">
-          <caret line="27" column="0" lean-forward="false" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
-          <folding>
-            <element signature="class#FastReader#0;class#Main#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/AAA/src/CCC/Main.java" />
-    <entry file="file://$PROJECT_DIR$/AAA/src/reader/Main.java" />
-    <entry file="file://$PROJECT_DIR$/Competitive/DMOPC/src/y2014/_ExamTime_P3/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="437">
-          <caret line="23" column="28" lean-forward="false" selection-start-line="23" selection-start-column="28" selection-end-line="23" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Competitive/CCC/src/y2013/_s4/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="621">
-          <caret line="33" column="30" lean-forward="false" selection-start-line="33" selection-start-column="30" selection-end-line="33" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Competitive/CCC/src/y2008/_s3/Main.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="27">
@@ -4751,14 +4723,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/DailyCodingProblem/2019_01/src/P1.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="49" column="21" lean-forward="false" selection-start-line="49" selection-start-column="21" selection-end-line="49" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/DailyCodingProblem2019_02/src/P9.java" />
     <entry file="file://$PROJECT_DIR$/Interview/Sorts/src/MergeSort.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -4778,16 +4742,6 @@
             <element signature="e#901#902#0" expanded="true" />
             <element signature="e#952#953#0" expanded="true" />
             <element signature="class#FastReader#0;class#QuickSort#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/DailyCodingProblem/2019_02/src/P7.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="487">
-          <caret line="28" column="0" lean-forward="false" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
-          <folding>
-            <element signature="class#FastReader#0;class#P7#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -4840,10 +4794,70 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/DailyCodingProblem/2019_02/src/P7.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="575">
+          <caret line="28" column="0" lean-forward="false" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
+          <folding>
+            <element signature="class#FastReader#0;class#P7#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DailyCodingProblem/2019_01/src/P1.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="230">
+          <caret line="10" column="13" lean-forward="true" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DailyCodingProblem/2019_01/src/P2.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="92">
+          <caret line="7" column="13" lean-forward="false" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DailyCodingProblem/2019_01/src/P3.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1012">
+          <caret line="8" column="3" lean-forward="true" selection-start-line="8" selection-start-column="3" selection-end-line="8" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DailyCodingProblem/2019_01/src/P5.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DailyCodingProblem/2019_01/src/P6.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DailyCodingProblem/2019_01/src/P4.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="92">
+          <caret line="7" column="13" lean-forward="false" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/DailyCodingProblem/2019_02/src/P8.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1019">
-          <caret line="6" column="27" lean-forward="true" selection-start-line="6" selection-start-column="27" selection-end-line="6" selection-end-column="27" />
+        <state relative-caret-position="667">
+          <caret line="32" column="0" lean-forward="true" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
           <folding>
             <element signature="class#Node#0;class#P8#0" expanded="false" />
             <element signature="class#FastReader#0;class#P8#0" expanded="false" />
