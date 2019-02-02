@@ -4,7 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/DailyCodingProblem/2019_01/2019_01.iml" filepath="$PROJECT_DIR$/DailyCodingProblem/2019_01/2019_01.iml" />
       <module fileurl="file://$PROJECT_DIR$/DailyCodingProblem/2019_02/2019_02.iml" filepath="$PROJECT_DIR$/DailyCodingProblem/2019_02/2019_02.iml" />
-      <module fileurl="file://$PROJECT_DIR$/AAA/AAA.iml" filepath="$PROJECT_DIR$/AAA/AAA.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Competitive/AAA/AAA.iml" filepath="$PROJECT_DIR$/Competitive/AAA/AAA.iml" />
       <module fileurl="file://$PROJECT_DIR$/Competitive/AMC-ICPC/AMC-ICPC.iml" filepath="$PROJECT_DIR$/Competitive/AMC-ICPC/AMC-ICPC.iml" />
       <module fileurl="file://$PROJECT_DIR$/Competitive/CCC/CCC.iml" filepath="$PROJECT_DIR$/Competitive/CCC/CCC.iml" />
       <module fileurl="file://$PROJECT_DIR$/Competitive/CCO/CCO.iml" filepath="$PROJECT_DIR$/Competitive/CCO/CCO.iml" />
@@ -16,7 +16,8 @@
       <module fileurl="file://$PROJECT_DIR$/Competitive/DWITE/DWITE.iml" filepath="$PROJECT_DIR$/Competitive/DWITE/DWITE.iml" />
       <module fileurl="file://$PROJECT_DIR$/Competitive/ECOO/ECOO.iml" filepath="$PROJECT_DIR$/Competitive/ECOO/ECOO.iml" />
       <module fileurl="file://$PROJECT_DIR$/Competitive/IOI/IOI.iml" filepath="$PROJECT_DIR$/Competitive/IOI/IOI.iml" />
-      <module fileurl="file://$PROJECT_DIR$/NOTES/NOTES.iml" filepath="$PROJECT_DIR$/NOTES/NOTES.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Interview/NOTES/NOTES.iml" filepath="$PROJECT_DIR$/Interview/NOTES/NOTES.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Interview/Sorts/Sorts.iml" filepath="$PROJECT_DIR$/Interview/Sorts/Sorts.iml" />
       <module fileurl="file://$PROJECT_DIR$/Competitive/TLE/TLE.iml" filepath="$PROJECT_DIR$/Competitive/TLE/TLE.iml" />
     </modules>
   </component>

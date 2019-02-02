@@ -2,299 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1fefd6f2-b2c1-40d8-bd6c-e791a02392f4" name="Default" comment="">
-      <change type="MOVED" beforePath="$PROJECT_DIR$/AAA/AAA.iml" afterPath="$PROJECT_DIR$/Competitive/AAA/AAA.iml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/AAA/src/Bank_Notes/Main.java" afterPath="$PROJECT_DIR$/Competitive/AAA/src/Bank_Notes/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/AAA/src/GoogleCodeJam2018/p1/Solution.java" afterPath="$PROJECT_DIR$/Competitive/AAA/src/GoogleCodeJam2018/p1/Solution.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/AAA/src/GoogleCodeJam2018/p2/Solution.java" afterPath="$PROJECT_DIR$/Competitive/AAA/src/GoogleCodeJam2018/p2/Solution.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/AAA/src/GoogleCodeJam2018/p3/Solution.java" afterPath="$PROJECT_DIR$/Competitive/AAA/src/GoogleCodeJam2018/p3/Solution.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/AAA/src/Pyramid/Main.java" afterPath="$PROJECT_DIR$/Competitive/AAA/src/Pyramid/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/AAA/src/SUNNYWAANG/Main.java" afterPath="$PROJECT_DIR$/Competitive/AAA/src/SUNNYWAANG/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/AAA/src/_y2007_r3_p1/Main.java" afterPath="$PROJECT_DIR$/Competitive/AAA/src/_y2007_r3_p1/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/AAA/src/_y2016_r2_p1/Main.java" afterPath="$PROJECT_DIR$/Competitive/AAA/src/_y2016_r2_p1/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/AAA/src/p5/Main.java" afterPath="$PROJECT_DIR$/Competitive/AAA/src/p5/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/AAA/src/s4/Main.java" afterPath="$PROJECT_DIR$/Competitive/AAA/src/s4/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/AAA/src/y2013_r2_p4/Main.java" afterPath="$PROJECT_DIR$/Competitive/AAA/src/y2013_r2_p4/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/AMC-ICPC/AMC-ICPC.iml" afterPath="$PROJECT_DIR$/Competitive/AMC-ICPC/AMC-ICPC.iml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/AMC-ICPC/src/_ECNA_2005_H/Main.java" afterPath="$PROJECT_DIR$/Competitive/AMC-ICPC/src/_ECNA_2005_H/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/AMC-ICPC/src/_NAQ_2015_G/Main.java" afterPath="$PROJECT_DIR$/Competitive/AMC-ICPC/src/_NAQ_2015_G/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/AMC-ICPC/src/_PACNW_2016_A/Main.java" afterPath="$PROJECT_DIR$/Competitive/AMC-ICPC/src/_PACNW_2016_A/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/AMC-ICPC/src/_PACNW_2016_H/Main.java" afterPath="$PROJECT_DIR$/Competitive/AMC-ICPC/src/_PACNW_2016_H/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/CCC/CCC.iml" afterPath="$PROJECT_DIR$/Competitive/CCC/CCC.iml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/CCC/src/_y2000/_j1/Main.java" afterPath="$PROJECT_DIR$/Competitive/CCC/src/_y2000/_j1/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/CCC/src/_y2000/_j2/Main.java" afterPath="$PROJECT_DIR$/Competitive/CCC/src/_y2000/_j2/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/CCC/src/_y2000/_j3_s1/Main.java" afterPath="$PROJECT_DIR$/Competitive/CCC/src/_y2000/_j3_s1/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/CCC/src/_y2000/_j4_s2/Main.java" afterPath="$PROJECT_DIR$/Competitive/CCC/src/_y2000/_j4_s2/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/CCC/src/_y2000/_j5_s3/Main.java" afterPath="$PROJECT_DIR$/Competitive/CCC/src/_y2000/_j5_s3/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/CCC/src/_y2000/_s4/Main.java" afterPath="$PROJECT_DIR$/Competitive/CCC/src/_y2000/_s4/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/CCC/src/_y2000/_s5/Main.java" afterPath="$PROJECT_DIR$/Competitive/CCC/src/_y2000/_s5/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/CCC/src/_y2001/_j1/Main.java" afterPath="$PROJECT_DIR$/Competitive/CCC/src/_y2001/_j1/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/CCC/src/_y2001/_j2/Main.java" afterPath="$PROJECT_DIR$/Competitive/CCC/src/_y2001/_j2/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/CCC/src/_y2001/_j3_s1/Main.java" afterPath="$PROJECT_DIR$/Competitive/CCC/src/_y2001/_j3_s1/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/CCC/src/_y2001/_j4_s2_bad/Main.java" afterPath="$PROJECT_DIR$/Competitive/CCC/src/_y2001/_j4_s2_bad/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/CCC/src/_y2001/_j4_s2_good/Main.java" afterPath="$PROJECT_DIR$/Competitive/CCC/src/_y2001/_j4_s2_good/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/CCC/src/_y2001/_j5_s3/Main.java" afterPath="$PROJECT_DIR$/Competitive/CCC/src/_y2001/_j5_s3/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/CCC/src/_y2001/_s4/Main.java" afterPath="$PROJECT_DIR$/Competitive/CCC/src/_y2001/_s4/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/CCC/src/_y2001/_s5/Main.java" afterPath="$PROJECT_DIR$/Competitive/CCC/src/_y2001/_s5/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/CCC/src/_y2002/_j1/Main.java" afterPath="$PROJECT_DIR$/Competitive/CCC/src/_y2002/_j1/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/CCC/src/_y2002/_j2/Main.java" afterPath="$PROJECT_DIR$/Competitive/CCC/src/_y2002/_j2/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/CCC/src/_y2002/_j3_s1/Main.java" afterPath="$PROJECT_DIR$/Competitive/CCC/src/_y2002/_j3_s1/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/CCC/src/_y2002/_j4_s2/Main.java" afterPath="$PROJECT_DIR$/Competitive/CCC/src/_y2002/_j4_s2/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/CCC/src/_y2002/_j5_s3/Main.java" afterPath="$PROJECT_DIR$/Competitive/CCC/src/_y2002/_j5_s3/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/CCC/src/_y2002/_s4/Main.java" afterPath="$PROJECT_DIR$/Competitive/CCC/src/_y2002/_s4/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/CCC/src/_y2002/_s5/Main.java" afterPath="$PROJECT_DIR$/Competitive/CCC/src/_y2002/_s5/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/CCC/src/_y2007/_j1/Main.java" afterPath="$PROJECT_DIR$/Competitive/CCC/src/_y2007/_j1/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/CCC/src/_y2007/_j2/Main.java" afterPath="$PROJECT_DIR$/Competitive/CCC/src/_y2007/_j2/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/CCC/src/_y2007/_j3/Main.java" afterPath="$PROJECT_DIR$/Competitive/CCC/src/_y2007/_j3/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/CCC/src/_y2007/_j4/Main.java" afterPath="$PROJECT_DIR$/Competitive/CCC/src/_y2007/_j4/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/CCC/src/_y2007/_j5/Main.java" afterPath="$PROJECT_DIR$/Competitive/CCC/src/_y2007/_j5/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/CCC/src/_y2007/_s1/Main.java" afterPath="$PROJECT_DIR$/Competitive/CCC/src/_y2007/_s1/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/CCC/src/_y2007/_s2/Main.java" afterPath="$PROJECT_DIR$/Competitive/CCC/src/_y2007/_s2/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/CCC/src/_y2007/_s3/Main.java" afterPath="$PROJECT_DIR$/Competitive/CCC/src/_y2007/_s3/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/CCC/src/_y2007/_s4/Main.java" afterPath="$PROJECT_DIR$/Competitive/CCC/src/_y2007/_s4/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/CCC/src/_y2007/_s5_bad_dp/Main.java" afterPath="$PROJECT_DIR$/Competitive/CCC/src/_y2007/_s5_bad_dp/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/CCC/src/_y2007/_s5_better_dp/Main.java" afterPath="$PROJECT_DIR$/Competitive/CCC/src/_y2007/_s5_better_dp/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/CCC/src/_y2011/_j1/Main.java" afterPath="$PROJECT_DIR$/Competitive/CCC/src/_y2011/_j1/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/CCC/src/_y2011/_j2/Main.java" afterPath="$PROJECT_DIR$/Competitive/CCC/src/_y2011/_j2/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/CCC/src/_y2011/_j3/Main.java" afterPath="$PROJECT_DIR$/Competitive/CCC/src/_y2011/_j3/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/CCC/src/_y2011/_j4/Main.java" afterPath="$PROJECT_DIR$/Competitive/CCC/src/_y2011/_j4/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/CCC/src/_y2011/_j5/Main.java" afterPath="$PROJECT_DIR$/Competitive/CCC/src/_y2011/_j5/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/CCC/src/_y2011/_s1/Main.java" afterPath="$PROJECT_DIR$/Competitive/CCC/src/_y2011/_s1/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/CCC/src/_y2011/_s2/Main.java" afterPath="$PROJECT_DIR$/Competitive/CCC/src/_y2011/_s2/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/CCC/src/_y2011/_s3/Main.java" afterPath="$PROJECT_DIR$/Competitive/CCC/src/_y2011/_s3/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/CCC/src/_y2011/_s4/Main.java" afterPath="$PROJECT_DIR$/Competitive/CCC/src/_y2011/_s4/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/CCC/src/_y2011/_s4/problem.pdf" afterPath="$PROJECT_DIR$/Competitive/CCC/src/_y2011/_s4/problem.pdf" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/CCC/src/_y2011/_s5_brute_force/Main.java" afterPath="$PROJECT_DIR$/Competitive/CCC/src/_y2011/_s5_brute_force/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/CCC/src/_y2011/_s5_brute_force/problem.pdf" afterPath="$PROJECT_DIR$/Competitive/CCC/src/_y2011/_s5_brute_force/problem.pdf" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/CCC/src/_y2011/_s5_dp/Main.java" afterPath="$PROJECT_DIR$/Competitive/CCC/src/_y2011/_s5_dp/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/CCC/src/_y2015/_j1/Main.java" afterPath="$PROJECT_DIR$/Competitive/CCC/src/_y2015/_j1/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/CCC/src/_y2015/_j2/Main.java" afterPath="$PROJECT_DIR$/Competitive/CCC/src/_y2015/_j2/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/CCC/src/_y2015/_j3/Main.java" afterPath="$PROJECT_DIR$/Competitive/CCC/src/_y2015/_j3/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/CCC/src/_y2015/_j4/Main.java" afterPath="$PROJECT_DIR$/Competitive/CCC/src/_y2015/_j4/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/CCC/src/_y2015/_j5/Main.java" afterPath="$PROJECT_DIR$/Competitive/CCC/src/_y2015/_j5/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/CCC/src/_y2015/_s1/Main.java" afterPath="$PROJECT_DIR$/Competitive/CCC/src/_y2015/_s1/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/CCC/src/_y2015/_s2/Main.java" afterPath="$PROJECT_DIR$/Competitive/CCC/src/_y2015/_s2/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/CCC/src/_y2015/_s3/Main.java" afterPath="$PROJECT_DIR$/Competitive/CCC/src/_y2015/_s3/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/CCC/src/_y2015/_s4/Main.java" afterPath="$PROJECT_DIR$/Competitive/CCC/src/_y2015/_s4/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/CCC/src/_y2015/_s5/Main.java" afterPath="$PROJECT_DIR$/Competitive/CCC/src/_y2015/_s5/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/CCC/src/y1998/_s4/Main.java" afterPath="$PROJECT_DIR$/Competitive/CCC/src/y1998/_s4/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/CCC/src/y1999/_s4_bfs/Main.java" afterPath="$PROJECT_DIR$/Competitive/CCC/src/y1999/_s4_bfs/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/CCC/src/y2003/_j1/Main.java" afterPath="$PROJECT_DIR$/Competitive/CCC/src/y2003/_j1/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/CCC/src/y2003/_j2/Main.java" afterPath="$PROJECT_DIR$/Competitive/CCC/src/y2003/_j2/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/CCC/src/y2003/_j3_s1/Main.java" afterPath="$PROJECT_DIR$/Competitive/CCC/src/y2003/_j3_s1/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/CCC/src/y2003/_j4_s2/Main.java" afterPath="$PROJECT_DIR$/Competitive/CCC/src/y2003/_j4_s2/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/CCC/src/y2003/_s3/Main.java" afterPath="$PROJECT_DIR$/Competitive/CCC/src/y2003/_s3/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/CCC/src/y2003/_s5/Main.java" afterPath="$PROJECT_DIR$/Competitive/CCC/src/y2003/_s5/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/CCC/src/y2003/s4_/Main.java" afterPath="$PROJECT_DIR$/Competitive/CCC/src/y2003/s4_/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/CCC/src/y2004/_j1/Main.java" afterPath="$PROJECT_DIR$/Competitive/CCC/src/y2004/_j1/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/CCC/src/y2004/_j2/Main.java" afterPath="$PROJECT_DIR$/Competitive/CCC/src/y2004/_j2/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/CCC/src/y2004/_j3/Main.java" afterPath="$PROJECT_DIR$/Competitive/CCC/src/y2004/_j3/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/CCC/src/y2004/_j4/Main.java" afterPath="$PROJECT_DIR$/Competitive/CCC/src/y2004/_j4/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/CCC/src/y2004/_j5/Main.java" afterPath="$PROJECT_DIR$/Competitive/CCC/src/y2004/_j5/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/CCC/src/y2004/_s1/Main.java" afterPath="$PROJECT_DIR$/Competitive/CCC/src/y2004/_s1/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/CCC/src/y2004/_s2/Main.java" afterPath="$PROJECT_DIR$/Competitive/CCC/src/y2004/_s2/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/CCC/src/y2004/_s3/Main.java" afterPath="$PROJECT_DIR$/Competitive/CCC/src/y2004/_s3/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/CCC/src/y2004/_s5_bruteforce_tle/Main.java" afterPath="$PROJECT_DIR$/Competitive/CCC/src/y2004/_s5_bruteforce_tle/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/CCC/src/y2004/_s5_dp/Main.java" afterPath="$PROJECT_DIR$/Competitive/CCC/src/y2004/_s5_dp/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/CCC/src/y2004/s4/Main.java" afterPath="$PROJECT_DIR$/Competitive/CCC/src/y2004/s4/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/CCC/src/y2005/_s3/Main.java" afterPath="$PROJECT_DIR$/Competitive/CCC/src/y2005/_s3/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/CCC/src/y2005/_s4/Main.java" afterPath="$PROJECT_DIR$/Competitive/CCC/src/y2005/_s4/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/CCC/src/y2006/_s4/Main.java" afterPath="$PROJECT_DIR$/Competitive/CCC/src/y2006/_s4/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/CCC/src/y2006/_s5/Main.java" afterPath="$PROJECT_DIR$/Competitive/CCC/src/y2006/_s5/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/CCC/src/y2008/_s3/Main.java" afterPath="$PROJECT_DIR$/Competitive/CCC/src/y2008/_s3/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/CCC/src/y2008/_s5/Main.java" afterPath="$PROJECT_DIR$/Competitive/CCC/src/y2008/_s5/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/CCC/src/y2009/_s2/Main.java" afterPath="$PROJECT_DIR$/Competitive/CCC/src/y2009/_s2/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/CCC/src/y2009/_s4_prioq/Main.java" afterPath="$PROJECT_DIR$/Competitive/CCC/src/y2009/_s4_prioq/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/CCC/src/y2009/_s4_vis/Main.java" afterPath="$PROJECT_DIR$/Competitive/CCC/src/y2009/_s4_vis/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/CCC/src/y2010/_j1/Main.java" afterPath="$PROJECT_DIR$/Competitive/CCC/src/y2010/_j1/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/CCC/src/y2010/_j2/Main.java" afterPath="$PROJECT_DIR$/Competitive/CCC/src/y2010/_j2/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/CCC/src/y2010/_j3/Main.java" afterPath="$PROJECT_DIR$/Competitive/CCC/src/y2010/_j3/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/CCC/src/y2010/_j4/Main.java" afterPath="$PROJECT_DIR$/Competitive/CCC/src/y2010/_j4/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/CCC/src/y2010/_j5/Main.java" afterPath="$PROJECT_DIR$/Competitive/CCC/src/y2010/_j5/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/CCC/src/y2010/_s1/Main.java" afterPath="$PROJECT_DIR$/Competitive/CCC/src/y2010/_s1/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/CCC/src/y2010/_s2/Main.java" afterPath="$PROJECT_DIR$/Competitive/CCC/src/y2010/_s2/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/CCC/src/y2010/_s5/Main.java" afterPath="$PROJECT_DIR$/Competitive/CCC/src/y2010/_s5/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/CCC/src/y2012/_j1/Main.java" afterPath="$PROJECT_DIR$/Competitive/CCC/src/y2012/_j1/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/CCC/src/y2012/_j2/Main.java" afterPath="$PROJECT_DIR$/Competitive/CCC/src/y2012/_j2/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/CCC/src/y2012/_j3/Main.java" afterPath="$PROJECT_DIR$/Competitive/CCC/src/y2012/_j3/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/CCC/src/y2012/_j4/Main.java" afterPath="$PROJECT_DIR$/Competitive/CCC/src/y2012/_j4/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/CCC/src/y2012/_s1/Main.java" afterPath="$PROJECT_DIR$/Competitive/CCC/src/y2012/_s1/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/CCC/src/y2012/_s2/Main.java" afterPath="$PROJECT_DIR$/Competitive/CCC/src/y2012/_s2/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/CCC/src/y2012/_s3/Main.java" afterPath="$PROJECT_DIR$/Competitive/CCC/src/y2012/_s3/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/CCC/src/y2012/_s5/Main.java" afterPath="$PROJECT_DIR$/Competitive/CCC/src/y2012/_s5/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/CCC/src/y2012/j5_s4/Main.java" afterPath="$PROJECT_DIR$/Competitive/CCC/src/y2012/j5_s4/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/CCC/src/y2013/_j1/Main.java" afterPath="$PROJECT_DIR$/Competitive/CCC/src/y2013/_j1/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/CCC/src/y2013/_j2/Main.java" afterPath="$PROJECT_DIR$/Competitive/CCC/src/y2013/_j2/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/CCC/src/y2013/_j3_s1/Main.java" afterPath="$PROJECT_DIR$/Competitive/CCC/src/y2013/_j3_s1/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/CCC/src/y2013/_j4/Main.java" afterPath="$PROJECT_DIR$/Competitive/CCC/src/y2013/_j4/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/CCC/src/y2013/_j5_s3/Main.java" afterPath="$PROJECT_DIR$/Competitive/CCC/src/y2013/_j5_s3/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/CCC/src/y2013/_s2/Main.java" afterPath="$PROJECT_DIR$/Competitive/CCC/src/y2013/_s2/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/CCC/src/y2013/_s4/Main.java" afterPath="$PROJECT_DIR$/Competitive/CCC/src/y2013/_s4/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/CCC/src/y2014/_j1/Main.java" afterPath="$PROJECT_DIR$/Competitive/CCC/src/y2014/_j1/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/CCC/src/y2014/_j2/Main.java" afterPath="$PROJECT_DIR$/Competitive/CCC/src/y2014/_j2/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/CCC/src/y2014/_j3/Main.java" afterPath="$PROJECT_DIR$/Competitive/CCC/src/y2014/_j3/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/CCC/src/y2014/_j4_s1_new/Main.java" afterPath="$PROJECT_DIR$/Competitive/CCC/src/y2014/_j4_s1_new/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/CCC/src/y2014/_j4_s1_old/Main.java" afterPath="$PROJECT_DIR$/Competitive/CCC/src/y2014/_j4_s1_old/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/CCC/src/y2014/_j5_s2_new/Main.java" afterPath="$PROJECT_DIR$/Competitive/CCC/src/y2014/_j5_s2_new/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/CCC/src/y2014/_j5_s2_old/Main.java" afterPath="$PROJECT_DIR$/Competitive/CCC/src/y2014/_j5_s2_old/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/CCC/src/y2014/_s3/Main.java" afterPath="$PROJECT_DIR$/Competitive/CCC/src/y2014/_s3/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/CCC/src/y2014/_s5_binarysearch/Main.java" afterPath="$PROJECT_DIR$/Competitive/CCC/src/y2014/_s5_binarysearch/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/CCC/src/y2014/_s5_pairs/Main.java" afterPath="$PROJECT_DIR$/Competitive/CCC/src/y2014/_s5_pairs/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/CCC/src/y2016/_j1/Main.java" afterPath="$PROJECT_DIR$/Competitive/CCC/src/y2016/_j1/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/CCC/src/y2016/_j2/Main.java" afterPath="$PROJECT_DIR$/Competitive/CCC/src/y2016/_j2/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/CCC/src/y2016/_j3/Main.java" afterPath="$PROJECT_DIR$/Competitive/CCC/src/y2016/_j3/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/CCC/src/y2016/_j4/Main.java" afterPath="$PROJECT_DIR$/Competitive/CCC/src/y2016/_j4/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/CCC/src/y2016/_j5_s2/Main.java" afterPath="$PROJECT_DIR$/Competitive/CCC/src/y2016/_j5_s2/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/CCC/src/y2016/_s1/Main.java" afterPath="$PROJECT_DIR$/Competitive/CCC/src/y2016/_s1/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/CCC/src/y2016/_s3/Main.java" afterPath="$PROJECT_DIR$/Competitive/CCC/src/y2016/_s3/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/CCC/src/y2016/_s3/t1.txt" afterPath="$PROJECT_DIR$/Competitive/CCC/src/y2016/_s3/t1.txt" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/CCC/src/y2016/_s4_bottom_up/Main.java" afterPath="$PROJECT_DIR$/Competitive/CCC/src/y2016/_s4_bottom_up/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/CCC/src/y2016/_s4_recursive/Main.java" afterPath="$PROJECT_DIR$/Competitive/CCC/src/y2016/_s4_recursive/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/CCC/src/y2017/_j1/Main.java" afterPath="$PROJECT_DIR$/Competitive/CCC/src/y2017/_j1/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/CCC/src/y2017/_j2/Main.java" afterPath="$PROJECT_DIR$/Competitive/CCC/src/y2017/_j2/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/CCC/src/y2017/_j3/Main.java" afterPath="$PROJECT_DIR$/Competitive/CCC/src/y2017/_j3/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/CCC/src/y2017/_j4/Main.java" afterPath="$PROJECT_DIR$/Competitive/CCC/src/y2017/_j4/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/CCC/src/y2017/_s1/Main.java" afterPath="$PROJECT_DIR$/Competitive/CCC/src/y2017/_s1/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/CCC/src/y2017/_s2/Main.java" afterPath="$PROJECT_DIR$/Competitive/CCC/src/y2017/_s2/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/CCC/src/y2017/_s3/Main.java" afterPath="$PROJECT_DIR$/Competitive/CCC/src/y2017/_s3/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/CCC/src/y2017/_s3_2/Main.java" afterPath="$PROJECT_DIR$/Competitive/CCC/src/y2017/_s3_2/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/CCC/src/y2017/s4/Main.java" afterPath="$PROJECT_DIR$/Competitive/CCC/src/y2017/s4/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/CCC/src/y2017/s5/Main.java" afterPath="$PROJECT_DIR$/Competitive/CCC/src/y2017/s5/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/CCC/src/zzz_utilities/Utilities.java" afterPath="$PROJECT_DIR$/Competitive/CCC/src/zzz_utilities/Utilities.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/CCO/CCO.iml" afterPath="$PROJECT_DIR$/Competitive/CCO/CCO.iml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/CCO/src/_y2015/_p2/Main.java" afterPath="$PROJECT_DIR$/Competitive/CCO/src/_y2015/_p2/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/CCO/src/y2005/_p5/Main.java" afterPath="$PROJECT_DIR$/Competitive/CCO/src/y2005/_p5/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/CCO/src/y2008/_p5/Main.java" afterPath="$PROJECT_DIR$/Competitive/CCO/src/y2008/_p5/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/CCO/src/y2010/_p2/Main.java" afterPath="$PROJECT_DIR$/Competitive/CCO/src/y2010/_p2/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/CCO/src/y2010/_p4/Main.java" afterPath="$PROJECT_DIR$/Competitive/CCO/src/y2010/_p4/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/CCO/src/y2014/_p1/Main.java" afterPath="$PROJECT_DIR$/Competitive/CCO/src/y2014/_p1/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/COCI/COCI.iml" afterPath="$PROJECT_DIR$/Competitive/COCI/COCI.iml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/COCI/src/_y2006_c1_q5/Main.java" afterPath="$PROJECT_DIR$/Competitive/COCI/src/_y2006_c1_q5/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/COCI/src/_y2006_c2_q5/Main.java" afterPath="$PROJECT_DIR$/Competitive/COCI/src/_y2006_c2_q5/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/COCI/src/_y2006_c5_q5/Main.java" afterPath="$PROJECT_DIR$/Competitive/COCI/src/_y2006_c5_q5/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/COCI/src/_y2007_regional_q2/Main.java" afterPath="$PROJECT_DIR$/Competitive/COCI/src/_y2007_regional_q2/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/COCI/src/_y2008_c2_q5/Main.java" afterPath="$PROJECT_DIR$/Competitive/COCI/src/_y2008_c2_q5/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/COCI/src/_y2014_c7_q3/Main.java" afterPath="$PROJECT_DIR$/Competitive/COCI/src/_y2014_c7_q3/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/DMOJ/DMOJ.iml" afterPath="$PROJECT_DIR$/Competitive/DMOJ/DMOJ.iml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/DMOJ/src/Mock_CCC_1_Senior/_p1/Main.java" afterPath="$PROJECT_DIR$/Competitive/DMOJ/src/Mock_CCC_1_Senior/_p1/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/DMOJ/src/Mock_CCC_1_Senior/j5_s3/Main.java" afterPath="$PROJECT_DIR$/Competitive/DMOJ/src/Mock_CCC_1_Senior/j5_s3/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/DMOJ/src/Mock_CCC_1_Senior/p2/Main.java" afterPath="$PROJECT_DIR$/Competitive/DMOJ/src/Mock_CCC_1_Senior/p2/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/DMOJ/src/Mock_CCC_1_Senior/s4/Main.java" afterPath="$PROJECT_DIR$/Competitive/DMOJ/src/Mock_CCC_1_Senior/s4/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/DMOJ/src/Mock_CCC_2_Senior/_s1/Main.java" afterPath="$PROJECT_DIR$/Competitive/DMOJ/src/Mock_CCC_2_Senior/_s1/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/DMOJ/src/Mock_CCC_3_Senior/_s1/Main.java" afterPath="$PROJECT_DIR$/Competitive/DMOJ/src/Mock_CCC_3_Senior/_s1/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/DMOJ/src/Mock_CCC_3_Senior/_s2/Main.java" afterPath="$PROJECT_DIR$/Competitive/DMOJ/src/Mock_CCC_3_Senior/_s2/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/DMOJ/src/Mock_CCC_3_Senior/_s3/Main.java" afterPath="$PROJECT_DIR$/Competitive/DMOJ/src/Mock_CCC_3_Senior/_s3/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/DMOJ/src/Mock_CCC_3_Senior/_s4/Main.java" afterPath="$PROJECT_DIR$/Competitive/DMOJ/src/Mock_CCC_3_Senior/_s4/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/DMOJ/src/_Bernard/Main.java" afterPath="$PROJECT_DIR$/Competitive/DMOJ/src/_Bernard/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/DMOJ/src/_Boolean/Main.java" afterPath="$PROJECT_DIR$/Competitive/DMOJ/src/_Boolean/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/DMOJ/src/_Bruno_and_Pumpkins/Main.java" afterPath="$PROJECT_DIR$/Competitive/DMOJ/src/_Bruno_and_Pumpkins/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/DMOJ/src/_Cake_Balancing/Main.java" afterPath="$PROJECT_DIR$/Competitive/DMOJ/src/_Cake_Balancing/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/DMOJ/src/_Cat_Girls/Main.java" afterPath="$PROJECT_DIR$/Competitive/DMOJ/src/_Cat_Girls/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/DMOJ/src/_Claire_Elstein/Main.java" afterPath="$PROJECT_DIR$/Competitive/DMOJ/src/_Claire_Elstein/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/DMOJ/src/_DMPG_y2017_B5/Main.java" afterPath="$PROJECT_DIR$/Competitive/DMOJ/src/_DMPG_y2017_B5/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/DMOJ/src/_GFSSOC_y2017_j5/Main.java" afterPath="$PROJECT_DIR$/Competitive/DMOJ/src/_GFSSOC_y2017_j5/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/DMOJ/src/_HEIGHT/Main.java" afterPath="$PROJECT_DIR$/Competitive/DMOJ/src/_HEIGHT/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/DMOJ/src/_HSIUNG/Main.java" afterPath="$PROJECT_DIR$/Competitive/DMOJ/src/_HSIUNG/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/DMOJ/src/_Joey_and_Biology/Main.java" afterPath="$PROJECT_DIR$/Competitive/DMOJ/src/_Joey_and_Biology/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/DMOJ/src/_LCS/Main.java" afterPath="$PROJECT_DIR$/Competitive/DMOJ/src/_LCS/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/DMOJ/src/_MEC_y2016_p3/Main.java" afterPath="$PROJECT_DIR$/Competitive/DMOJ/src/_MEC_y2016_p3/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/DMOJ/src/_MWC_y2015_2_P5/Main.java" afterPath="$PROJECT_DIR$/Competitive/DMOJ/src/_MWC_y2015_2_P5/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/DMOJ/src/_Mo_Money/Main.java" afterPath="$PROJECT_DIR$/Competitive/DMOJ/src/_Mo_Money/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/DMOJ/src/_Pick_It/Main.java" afterPath="$PROJECT_DIR$/Competitive/DMOJ/src/_Pick_It/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/DMOJ/src/_Simon_and_Marcy/Main.java" afterPath="$PROJECT_DIR$/Competitive/DMOJ/src/_Simon_and_Marcy/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/DMOJ/src/_VM7WC_y2016_q2_Silver/Main.java" afterPath="$PROJECT_DIR$/Competitive/DMOJ/src/_VM7WC_y2016_q2_Silver/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/DMOJ/src/_VM7WC_y2016_q4_Gold/Main.java" afterPath="$PROJECT_DIR$/Competitive/DMOJ/src/_VM7WC_y2016_q4_Gold/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/DMOJ/src/_VM7WC_y2016_q5_Silver/Main.java" afterPath="$PROJECT_DIR$/Competitive/DMOJ/src/_VM7WC_y2016_q5_Silver/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/DMOJ/src/_Winning_at_Sports/Main.java" afterPath="$PROJECT_DIR$/Competitive/DMOJ/src/_Winning_at_Sports/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/DMOJ/src/_vmss15c1p5/Main.java" afterPath="$PROJECT_DIR$/Competitive/DMOJ/src/_vmss15c1p5/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/DMOJ/src/brute_force/p3/Main.java" afterPath="$PROJECT_DIR$/Competitive/DMOJ/src/brute_force/p3/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/DMOJ/src/feb16/feb_q1/Main.java" afterPath="$PROJECT_DIR$/Competitive/DMOJ/src/feb16/feb_q1/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/DMOJ/src/feb16/q3/Main.java" afterPath="$PROJECT_DIR$/Competitive/DMOJ/src/feb16/q3/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/DMOJ/src/newyears2018/p1/Main.java" afterPath="$PROJECT_DIR$/Competitive/DMOJ/src/newyears2018/p1/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/DMOJ/src/newyears2018/p2/Main.java" afterPath="$PROJECT_DIR$/Competitive/DMOJ/src/newyears2018/p2/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/DMOJ/src/newyears2018/p3/Main.java" afterPath="$PROJECT_DIR$/Competitive/DMOJ/src/newyears2018/p3/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/DMOJ/src/newyears2018/p4/Main.java" afterPath="$PROJECT_DIR$/Competitive/DMOJ/src/newyears2018/p4/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/DMOJ/src/newyears2018/p6/Main.java" afterPath="$PROJECT_DIR$/Competitive/DMOJ/src/newyears2018/p6/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/DMOPC/DMOPC.iml" afterPath="$PROJECT_DIR$/Competitive/DMOPC/DMOPC.iml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/DMOPC/src/_y2015/_C2_P4/Main.java" afterPath="$PROJECT_DIR$/Competitive/DMOPC/src/_y2015/_C2_P4/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/DMOPC/src/_y2015/_C3_P4/Main.java" afterPath="$PROJECT_DIR$/Competitive/DMOPC/src/_y2015/_C3_P4/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/DMOPC/src/_y2015/_C6_P3/Main.java" afterPath="$PROJECT_DIR$/Competitive/DMOPC/src/_y2015/_C6_P3/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/DMOPC/src/y2013/_C1_P4/Main.java" afterPath="$PROJECT_DIR$/Competitive/DMOPC/src/y2013/_C1_P4/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/DMOPC/src/y2013/_C3_P5/Main.java" afterPath="$PROJECT_DIR$/Competitive/DMOPC/src/y2013/_C3_P5/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/DMOPC/src/y2014/_C2_P5/Main.java" afterPath="$PROJECT_DIR$/Competitive/DMOPC/src/y2014/_C2_P5/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/DMOPC/src/y2014/_C3_P6/Main.java" afterPath="$PROJECT_DIR$/Competitive/DMOPC/src/y2014/_C3_P6/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/DMOPC/src/y2014/_C5_P3/Main.java" afterPath="$PROJECT_DIR$/Competitive/DMOPC/src/y2014/_C5_P3/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/DMOPC/src/y2014/_CE_P5/Main.java" afterPath="$PROJECT_DIR$/Competitive/DMOPC/src/y2014/_CE_P5/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/DMOPC/src/y2014/_ExamTime_P3/Main.java" afterPath="$PROJECT_DIR$/Competitive/DMOPC/src/y2014/_ExamTime_P3/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/DMOPC/src/y2016/C3_P5/Main.java" afterPath="$PROJECT_DIR$/Competitive/DMOPC/src/y2016/C3_P5/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/DMOPC/src/y2016/_Araxxi/Main.java" afterPath="$PROJECT_DIR$/Competitive/DMOPC/src/y2016/_Araxxi/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/DMOPC/src/y2016/_C1_P3/Main.java" afterPath="$PROJECT_DIR$/Competitive/DMOPC/src/y2016/_C1_P3/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/DMOPC/src/y2017/c3/p0/Main.java" afterPath="$PROJECT_DIR$/Competitive/DMOPC/src/y2017/c3/p0/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/DMOPC/src/y2017/c3/p1/Main.java" afterPath="$PROJECT_DIR$/Competitive/DMOPC/src/y2017/c3/p1/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/DMOPC/src/y2017/c3/p2/Main.java" afterPath="$PROJECT_DIR$/Competitive/DMOPC/src/y2017/c3/p2/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/DMOPC/src/y2017/c3/p3/Main.java" afterPath="$PROJECT_DIR$/Competitive/DMOPC/src/y2017/c3/p3/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/DMOPC/src/y2017/c3/p4/Main.java" afterPath="$PROJECT_DIR$/Competitive/DMOPC/src/y2017/c3/p4/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/DWITE/DWITE.iml" afterPath="$PROJECT_DIR$/Competitive/DWITE/DWITE.iml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/DWITE/src/_Escape_and_Loot/Main.java" afterPath="$PROJECT_DIR$/Competitive/DWITE/src/_Escape_and_Loot/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/DWITE/src/_New_type_of_wordplay/Main.java" afterPath="$PROJECT_DIR$/Competitive/DWITE/src/_New_type_of_wordplay/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/DWITE/src/_Time_for_Change/Main.java" afterPath="$PROJECT_DIR$/Competitive/DWITE/src/_Time_for_Change/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/ECOO/ECOO.iml" afterPath="$PROJECT_DIR$/Competitive/ECOO/ECOO.iml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/ECOO/src/_y2013_r3_p4/Main.java" afterPath="$PROJECT_DIR$/Competitive/ECOO/src/_y2013_r3_p4/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/ECOO/src/_y2014_r3_p4/Main.java" afterPath="$PROJECT_DIR$/Competitive/ECOO/src/_y2014_r3_p4/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/ECOO/src/_y2015_r1_p4/Main.java" afterPath="$PROJECT_DIR$/Competitive/ECOO/src/_y2015_r1_p4/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/ECOO/src/_y2015_r2_p3/DATA11.txt.txt" afterPath="$PROJECT_DIR$/Competitive/ECOO/src/_y2015_r2_p3/DATA11.txt.txt" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/ECOO/src/_y2015_r2_p3/Main.java" afterPath="$PROJECT_DIR$/Competitive/ECOO/src/_y2015_r2_p3/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/ECOO/src/_y2016_r1_p2/Main.java" afterPath="$PROJECT_DIR$/Competitive/ECOO/src/_y2016_r1_p2/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/ECOO/src/_y2016_r3_p3/Main.java" afterPath="$PROJECT_DIR$/Competitive/ECOO/src/_y2016_r3_p3/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/ECOO/src/boardwide/q0/DATA01.txt" afterPath="$PROJECT_DIR$/Competitive/ECOO/src/boardwide/q0/DATA01.txt" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/ECOO/src/boardwide/q0/Main.java" afterPath="$PROJECT_DIR$/Competitive/ECOO/src/boardwide/q0/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/ECOO/src/boardwide/q0/test/DATA01.txt" afterPath="$PROJECT_DIR$/Competitive/ECOO/src/boardwide/q0/test/DATA01.txt" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/ECOO/src/boardwide/q1/DATA11.txt" afterPath="$PROJECT_DIR$/Competitive/ECOO/src/boardwide/q1/DATA11.txt" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/ECOO/src/boardwide/q1/Main.java" afterPath="$PROJECT_DIR$/Competitive/ECOO/src/boardwide/q1/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/ECOO/src/boardwide/q1/asdf/DATA11.txt" afterPath="$PROJECT_DIR$/Competitive/ECOO/src/boardwide/q1/asdf/DATA11.txt" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/ECOO/src/boardwide/q3/DATA31.txt" afterPath="$PROJECT_DIR$/Competitive/ECOO/src/boardwide/q3/DATA31.txt" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/ECOO/src/boardwide/q3/Main.java" afterPath="$PROJECT_DIR$/Competitive/ECOO/src/boardwide/q3/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/ECOO/src/boardwide/q3/test/DATA31.txt" afterPath="$PROJECT_DIR$/Competitive/ECOO/src/boardwide/q3/test/DATA31.txt" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/ECOO/src/boardwide/q4/Main.java" afterPath="$PROJECT_DIR$/Competitive/ECOO/src/boardwide/q4/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/ECOO/src/regional/q1/DATA11.txt" afterPath="$PROJECT_DIR$/Competitive/ECOO/src/regional/q1/DATA11.txt" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/ECOO/src/regional/q1/Main.java" afterPath="$PROJECT_DIR$/Competitive/ECOO/src/regional/q1/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/ECOO/src/regional/q2/DATA21.txt" afterPath="$PROJECT_DIR$/Competitive/ECOO/src/regional/q2/DATA21.txt" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/ECOO/src/regional/q2/Main.java" afterPath="$PROJECT_DIR$/Competitive/ECOO/src/regional/q2/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/ECOO/src/regional/q3/DATA31.txt" afterPath="$PROJECT_DIR$/Competitive/ECOO/src/regional/q3/DATA31.txt" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/ECOO/src/regional/q3/Main.java" afterPath="$PROJECT_DIR$/Competitive/ECOO/src/regional/q3/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/ECOO/src/regional/q4/DATA41.txt" afterPath="$PROJECT_DIR$/Competitive/ECOO/src/regional/q4/DATA41.txt" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/ECOO/src/regional/q4/Main.java" afterPath="$PROJECT_DIR$/Competitive/ECOO/src/regional/q4/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/ECOO/src/y2017_r2_p3/Main.java" afterPath="$PROJECT_DIR$/Competitive/ECOO/src/y2017_r2_p3/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/IOI/IOI.iml" afterPath="$PROJECT_DIR$/Competitive/IOI/IOI.iml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/IOI/src/_y1994_p1/Main.java" afterPath="$PROJECT_DIR$/Competitive/IOI/src/_y1994_p1/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/IOI/src/_y2000_p1/Main.java" afterPath="$PROJECT_DIR$/Competitive/IOI/src/_y2000_p1/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/IOI/src/_y2009_p4/Main.java" afterPath="$PROJECT_DIR$/Competitive/IOI/src/_y2009_p4/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/NOTES/NOTES.iml" afterPath="$PROJECT_DIR$/Interview/NOTES/NOTES.iml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/NOTES/src/FastReaderClass" afterPath="$PROJECT_DIR$/Interview/NOTES/src/FastReaderClass" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/NOTES/src/Graphs/Djikstra.java" afterPath="$PROJECT_DIR$/Interview/NOTES/src/Graphs/Djikstra.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/NOTES/src/Utilities/MathLibrary.java" afterPath="$PROJECT_DIR$/Interview/NOTES/src/Utilities/MathLibrary.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/NOTES/src/Utilities/OtherLibrary.java" afterPath="$PROJECT_DIR$/Interview/NOTES/src/Utilities/OtherLibrary.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/TLE/TLE.iml" afterPath="$PROJECT_DIR$/Competitive/TLE/TLE.iml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/TLE/src/December17/p1/Main.java" afterPath="$PROJECT_DIR$/Competitive/TLE/src/December17/p1/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/TLE/src/December17/p2/Main.java" afterPath="$PROJECT_DIR$/Competitive/TLE/src/December17/p2/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/TLE/src/December17/p3/Main.java" afterPath="$PROJECT_DIR$/Competitive/TLE/src/December17/p3/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/TLE/src/December17/p5/Main.java" afterPath="$PROJECT_DIR$/Competitive/TLE/src/December17/p5/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/TLE/src/Main.java" afterPath="$PROJECT_DIR$/Competitive/TLE/src/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/TLE/src/NOR/Main.java" afterPath="$PROJECT_DIR$/Competitive/TLE/src/NOR/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/TLE/src/Reading/Main.java" afterPath="$PROJECT_DIR$/Competitive/TLE/src/Reading/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/TLE/src/_y2016_c5_p3/Main.java" afterPath="$PROJECT_DIR$/Competitive/TLE/src/_y2016_c5_p3/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/TLE/src/y2016/C6_Mock_CCC_Junior/_j5_dp/Main.java" afterPath="$PROJECT_DIR$/Competitive/TLE/src/y2016/C6_Mock_CCC_Junior/_j5_dp/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/TLE/src/y2016/C6_Mock_CCC_Junior/j1/Main.java" afterPath="$PROJECT_DIR$/Competitive/TLE/src/y2016/C6_Mock_CCC_Junior/j1/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/TLE/src/y2016/C6_Mock_CCC_Junior/j3/Main.java" afterPath="$PROJECT_DIR$/Competitive/TLE/src/y2016/C6_Mock_CCC_Junior/j3/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/TLE/src/y2016/C6_Mock_CCC_Junior/j4/Main.java" afterPath="$PROJECT_DIR$/Competitive/TLE/src/y2016/C6_Mock_CCC_Junior/j4/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/TLE/src/y2016/C6_Mock_CCC_Junior/j5one/Main.java" afterPath="$PROJECT_DIR$/Competitive/TLE/src/y2016/C6_Mock_CCC_Junior/j5one/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/TLE/src/y2016/C6_Mock_CCC_Junior/j5two/Main.java" afterPath="$PROJECT_DIR$/Competitive/TLE/src/y2016/C6_Mock_CCC_Junior/j5two/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/TLE/src/y2016/C6_Mock_CCC_Senior/s1/Main.java" afterPath="$PROJECT_DIR$/Competitive/TLE/src/y2016/C6_Mock_CCC_Senior/s1/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/TLE/src/y2016/C6_Mock_CCC_Senior/s2/Main.java" afterPath="$PROJECT_DIR$/Competitive/TLE/src/y2016/C6_Mock_CCC_Senior/s2/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/TLE/src/y2016/C6_Mock_CCC_Senior/s3/Main.java" afterPath="$PROJECT_DIR$/Competitive/TLE/src/y2016/C6_Mock_CCC_Senior/s3/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/TLE/src/y2017_January/_p1/Main.java" afterPath="$PROJECT_DIR$/Competitive/TLE/src/y2017_January/_p1/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/TLE/src/y2017_January/_p2/Main.java" afterPath="$PROJECT_DIR$/Competitive/TLE/src/y2017_January/_p2/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/TLE/src/y2017_January/_p3/Main.java" afterPath="$PROJECT_DIR$/Competitive/TLE/src/y2017_January/_p3/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/TLE/src/y2017_January/p4/Main.java" afterPath="$PROJECT_DIR$/Competitive/TLE/src/y2017_January/p4/Main.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
@@ -369,8 +76,8 @@
       <file leaf-file-name="P7.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/DailyCodingProblem/2019_02/src/P7.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="579">
-              <caret line="32" column="44" lean-forward="true" selection-start-line="32" selection-start-column="44" selection-end-line="32" selection-end-column="44" />
+            <state relative-caret-position="487">
+              <caret line="28" column="0" lean-forward="false" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
               <folding>
                 <element signature="class#FastReader#0;class#P7#0" expanded="false" />
               </folding>
@@ -614,6 +321,12 @@
               <item name="NOTES" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="DSA-Java" type="b2602c69:ProjectViewProjectNode" />
+              <item name="DSA-Java" type="462c0819:PsiDirectoryNode" />
+              <item name="Interview" type="462c0819:PsiDirectoryNode" />
+              <item name="Sorts" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -633,8 +346,8 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\david\Documents\Programming\Java\DSA-Java\Competitive" />
       <recent name="C:\Users\david\Documents\Programming\Java\DSA-Java\Interview" />
+      <recent name="C:\Users\david\Documents\Programming\Java\DSA-Java\Competitive" />
       <recent name="C:\Users\david\Documents\Programming\Java\DSA-Java\Competition" />
       <recent name="C:\Users\david\Documents\Programming\Java\DSA-Java\DailyCodingProblem\2019_02\src" />
       <recent name="C:\Users\david\Documents\Programming\Java\DSA-Java\DailyCodingProblem\2019_02" />
@@ -3476,7 +3189,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="60" y="-6" width="1447" height="1013" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32916668" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -3491,7 +3203,7 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32045454" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20734341" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20734341" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -5168,8 +4880,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/DailyCodingProblem/2019_02/src/P7.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="579">
-          <caret line="32" column="44" lean-forward="true" selection-start-line="32" selection-start-column="44" selection-end-line="32" selection-end-column="44" />
+        <state relative-caret-position="487">
+          <caret line="28" column="0" lean-forward="false" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
           <folding>
             <element signature="class#FastReader#0;class#P7#0" expanded="false" />
           </folding>
