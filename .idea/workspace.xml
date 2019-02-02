@@ -2,30 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1fefd6f2-b2c1-40d8-bd6c-e791a02392f4" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/2019_01/2019_01.iml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/2019_01/src/P1.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/2019_01/src/P2.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/2019_01/src/P3.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/2019_01/src/P4.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/2019_01/src/P5.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/2019_01/src/P6.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/2019_01/src/P7.java" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/AAA/_y2014_r3_p4/Main$FastReader.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/AAA/_y2014_r3_p4/Main.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/AAA/_y2015_r2_p3/DATA11.txt.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/AAA/_y2015_r2_p3/Main$FastReader.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/AAA/_y2015_r2_p3/Main.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/AAA/y2016_r2_p1/Main$FastReader.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/AAA/y2016_r2_p1/Main.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/DWITE/Main$Node.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/DWITE/Main.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/DWITE/Running_In_Circles/Main$Node.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/DWITE/Running_In_Circles/Main.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/DWITE/_Escape_and_Loot$FastReader.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/DWITE/_Escape_and_Loot.class" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
     </list>
     <ignored path="DSA-Java.iws" />
@@ -103,8 +79,8 @@
       <file leaf-file-name="README.md" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="184">
-              <caret line="8" column="0" lean-forward="true" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+            <state relative-caret-position="230">
+              <caret line="10" column="0" lean-forward="true" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -5048,8 +5024,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="184">
-          <caret line="8" column="0" lean-forward="true" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+        <state relative-caret-position="230">
+          <caret line="10" column="0" lean-forward="true" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
           <folding />
         </state>
       </provider>
