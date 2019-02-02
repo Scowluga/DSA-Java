@@ -4,35 +4,86 @@ import java.io.IOException;
 import java.util.*; 
 
 /* --- Problem ---  
- * Topics: 
+ * Topics: Trees, Recursion
  * 2019-02-02
 
- 
+A unival tree (which stands for "universal value") is a tree where all nodes under it have the same value.
+
+Given the root to a binary tree, count the number of unival subtrees.
+
+For example, the following tree has 5 unival subtrees:
+
+   0
+  / \
+ 1   0
+    / \
+   1   0
+  / \
+ 1   1
+
  */
  
 /* --- Solution ---  
 
+Recursion!
+Some pretty difficult recursion actually.
+    You really have to think for a bit
 
- 
+Pretty much requires global variable or nested returns (this solution at least)
+
+This is overall a very good question.
  */
 
 public class P8 {
 
+    static class Node {
 
-    static String solve() {
+        int val;
+        Node left;
+        Node right;
 
-        return null;
+        Node(int v0) {
+            this.val = v0;
+        }
+    }
+
+    static int c = 0;
+
+    static boolean countUnivalTrees(Node n) {
+        if (n == null) return true;
+
+        boolean l = countUnivalTrees(n.left);
+        boolean r = countUnivalTrees(n.right);
+
+        if ((l && (n.left == null || n.val == n.left.val))
+            && (r && (n.right == null || n.val == n.right.val))) {
+            c++;
+            return true;
+        }
+
+        return false;
     }
 
     public static void main(String[] args) throws IOException {
-        FastReader reader = new FastReader();
-        while (true) {
 
+        Node n1 = new Node(0);
+        Node n2 = new Node(1);
+        Node n3 = new Node(0);
+        Node n4 = new Node(1);
+        Node n5 = new Node(0);
+        Node n6 = new Node(1);
+        Node n7 = new Node(1);
 
-            System.out.println(
-                    solve()
-            );
-        }
+        n1.left = n2;
+        n1.right = n3;
+        n3.left = n4;
+        n3.right = n5;
+        n4.left = n6;
+        n4.right = n7;
+
+        c = 0;
+        countUnivalTrees(n1);
+        System.out.println(c);
     }
 
 
