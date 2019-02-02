@@ -1,3 +1,5 @@
+package SUNNYWAANG;
+
 import javafx.util.Pair;
 
 /* --- Problem ---  

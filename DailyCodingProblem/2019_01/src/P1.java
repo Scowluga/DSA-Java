@@ -1,87 +1,64 @@
+package SUNNYWAANG;
+
 import java.io.DataInputStream;
 import java.io.FileInputStream;
 import java.io.IOException;
-import java.util.*; 
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 /* --- Problem ---  
- * Topics: Arrays (streams), In-place Visited
+ * Topics: Arrays
 
-Given an array of integers, find the first missing positive integer
-in linear time and constant space.
+Given a list of numbers and a number k,
+return whether any two numbers from the list add up to k.
 
-In other words, find the lowest positive integer that does not exist in the array.
-The array can contain duplicates and negative numbers as well.
+For example, given [10, 15, 3, 7] and k of 17, return true since 10 + 7 is 17.
 
-For example, the input [3, 4, -1, 1] should give 2.
-The input [1, 2, 0] should give 3.
+Bonus: Can you do this in one pass?
 
-You can modify the input array in-place.
-
- 
  */
  
-/* --- Solution ---  
+/* --- Solution --- 
 
-Ok so right off the bat there's an O(n^2) O1) naive solution
-    You loop up from 1 and check if it doesn't exist exist
+- Naive Solution: O(n^2) O(1)
 
-Now looping up from 1 is un-optimizable. That's BCR.
-But checking existence is O(n), should be O(1) with visited.
+We're searching for any pair that sums to k, so why not just try them all?
+We can just nested for loop and check with if
 
-Optimization: Visited Array/Set O(n) O(n)
-Loop through once to create the visited
-Loop through second time to check
+- Bonus optimization: O(n) O(n)
 
+But for each element we're looking at,
+we don't actually have to check all n elements again.
+We only need to check if the element (k-arr[i]) exists
 
-Further Optimization: In-place O(n) O(1)
-Key Insight: The number missing cannot possibly be larger than size of array
-
-So use the array itself to store the visited as positive/negative
-
-:) Yay a classic question just like from the CCC days
+But we can no longer do that in linear memory can we?
+So we use a set :)
 
 
  */
 
-public class P4 {
+public class P1 {
 
+    static boolean solution(List<Integer> nList, int k) {
 
-    static int solve(int[] arr) {
+        Set<Integer> nSet = new HashSet<>(nList);
 
-        // Filter out non-positive integers
-        arr = Arrays.stream(arr)
-                .filter(n -> n > 0)
-                .toArray();
+        for (int num : nList)
+            if (nSet.contains(k - num))
+                return true;
 
-        // "Visit" each element
-        for (int i = 0; i < arr.length; i++) {
-            int n = Math.abs(arr[i]);
-
-            // Check validity
-            if (n > arr.length)
-                continue;
-
-            // Visit
-            arr[n-1] = -Math.abs(arr[n-1]);
-        }
-
-        // Return first non-negative
-        for (int i = 0; i < arr.length; i++)
-            if (arr[i] > 0) return i + 1;
-
-        // Default return
-        return arr.length + 1;
+        return false;
     }
 
     public static void main(String[] args) throws IOException {
         FastReader reader = new FastReader();
         while (true) {
-            int size = reader.nextInt();
-            int[] arr = reader.readLineAsIntArray(size, false);
+            List<Integer> nList = reader.readLineAsIntegers();
+            int k = reader.nextInt();
 
-            System.out.println(
-                    solve(arr)
-            );
+            System.out.println(solution(nList, k));
         }
     }
 

@@ -1,141 +1,90 @@
+package SUNNYWAANG;
+
 import java.io.DataInputStream;
 import java.io.FileInputStream;
 import java.io.IOException;
-import java.io.Serializable;
-import java.util.*;
+import java.util.*; 
 
 /* --- Problem ---  
- * Topics: Tree, Recursion, Strings
+ * Topics: Arrays (streams), In-place Visited
 
-Given the root to a binary tree, implement
-    1. serialize(root), which serializes the tree into a string,
-    2. deserialize(s), which deserializes the string back into the tree.
+Given an array of integers, find the first missing positive integer
+in linear time and constant space.
 
-For example, given the following Node class
+In other words, find the lowest positive integer that does not exist in the array.
+The array can contain duplicates and negative numbers as well.
 
-class Node:
-    def __init__(self, val, left=None, right=None):
-        self.val = val
-        self.left = left
-        self.right = right
-The following test should pass:
+For example, the input [3, 4, -1, 1] should give 2.
+The input [1, 2, 0] should give 3.
 
-node = Node('root', Node('left', Node('left.left')), Node('right'))
-assert deserialize(serialize(node)).left.left.val == 'left.left'
+You can modify the input array in-place.
+
  
  */
  
 /* --- Solution ---  
-So this problem is quite different than the first two
-This is more of a CCC problem. That's perfect :)
 
-So the way I'm gonna do this is similar to Contacts App
-The delimiter will be open and class squiggly brackets
+Ok so right off the bat there's an O(n^2) O1) naive solution
+    You loop up from 1 and check if it doesn't exist exist
 
-Ok perhaps not the best way to solve this problem but w/e
-Does the job (kinda)
+Now looping up from 1 is un-optimizable. That's BCR.
+But checking existence is O(n), should be O(1) with visited.
+
+Optimization: Visited Array/Set O(n) O(n)
+Loop through once to create the visited
+Loop through second time to check
 
 
-Serialize: O(logn)
-Deserialize: O(nlogn)
+Further Optimization: In-place O(n) O(1)
+Key Insight: The number missing cannot possibly be larger than size of array
+
+So use the array itself to store the visited as positive/negative
+
+:) Yay a classic question just like from the CCC days
+
 
  */
 
-public class P3 {
+public class P4 {
 
-    static class Node implements Serializable {
-        int val;
-        Node left;
-        Node right;
 
-        // Basic constructor
-        Node(int val) {
-            this.val = val;
+    static int solve(int[] arr) {
+
+        // Filter out non-positive integers
+        arr = Arrays.stream(arr)
+                .filter(n -> n > 0)
+                .toArray();
+
+        // "Visit" each element
+        for (int i = 0; i < arr.length; i++) {
+            int n = Math.abs(arr[i]);
+
+            // Check validity
+            if (n > arr.length)
+                continue;
+
+            // Visit
+            arr[n-1] = -Math.abs(arr[n-1]);
         }
 
-        // Complete constructor
-        Node(int val, Node left, Node right) {
-            this.val = val;
-            this.left = left;
-            this.right = right;
-        }
+        // Return first non-negative
+        for (int i = 0; i < arr.length; i++)
+            if (arr[i] > 0) return i + 1;
 
-
-        // serialize into string
-        static String serialize(Node node) {
-            if (node == null) return "{NULL}";
-            return String.format("{%d, %s, %s}",
-                    node.val,
-                    serialize(node.left),
-                    serialize(node.right)
-            );
-        }
-
-        // deserialize back into node
-        static Node deserialize(String node) {
-            if (node.equals("{NULL}")) return null;
-
-            // Strip the outside braces
-            node = node.substring(1, node.length() - 1);
-            char[] cs = node.toCharArray();
-
-            // Checks for the specific pattern
-            // val, {left}, {right}
-            List<Integer> is = new ArrayList<>();
-            for (int i = 0, c = 0; i < cs.length; i++) {
-                if (cs[i] == '{') {
-                    c++;
-                    if (c == 1) is.add(i);
-                }
-                if (cs[i] == '}') {
-                    c--;
-                    if (c == 0) is.add(i);
-                }
-            }
-
-            return new Node(
-                    Integer.valueOf(
-                            node.substring(0, is.get(0) - 2)
-                    ),
-                    deserialize(
-                            node.substring(is.get(0), is.get(1)+1)
-                    ),
-                    deserialize(
-                            node.substring(is.get(2), is.get(3)+1)
-                    )
-            );
-        }
+        // Default return
+        return arr.length + 1;
     }
-
-
-
 
     public static void main(String[] args) throws IOException {
         FastReader reader = new FastReader();
+        while (true) {
+            int size = reader.nextInt();
+            int[] arr = reader.readLineAsIntArray(size, false);
 
-        // Simple test case
-//        Node head = new Node(
-//           1,
-//           new Node(2),
-//           new Node(3)
-//        );
-
-
-        // Harder test case
-        Node head = new Node(
-                1,
-                new Node(2, new Node(4), null),
-                new Node(3, null, new Node(5, new Node(6), null))
-        );
-
-
-        String s = Node.serialize(head);
-        System.out.println(s);
-
-        System.out.println(
-                Node.serialize(Node.deserialize(s))
-        );
-
+            System.out.println(
+                    solve(arr)
+            );
+        }
     }
 
 
