@@ -4,62 +4,33 @@ import java.io.IOException;
 import java.util.*; 
 
 /* --- Problem ---  
- * Topics: DP
+ * Topics: 
+ * 2019-02-02
 
-Given the mapping a = 1, b = 2, ... z = 26, and an encoded message,
-count the number of ways it can be decoded.
-
-> '111' would give 3, since it could be decoded as 'aaa', 'ka', and 'ak'.
-
-You can assume that the messages are decodable. For example, '001' is not allowed.
  
  */
  
 /* --- Solution ---  
 
-I'm pretty sure I've done a problem like this at least 20 times. 
-Simple recurrence really.
 
-O(n) time O(n) space
  
  */
 
-public class P7 {
+public class P8 {
 
 
-    static int solve(String message) {
-        if (message.isEmpty()) return 0;
-        if (message.length() == 1) return 1;
+    static String solve() {
 
-        // Single-line stream to int[]
-        int[] vs = Arrays.stream(message.split(""))
-                .mapToInt(Integer::valueOf)
-                .toArray();
-
-        // Base memo cases
-        int[] memo = new int[vs.length];
-        memo[0] = 1;
-        memo[1] = 1;
-        if (vs[0] == 1 || (vs[0] == 2 && vs[1] <= 6))
-            memo[1]++;
-
-        // Build Look-up Table
-        for (int i = 2; i < vs.length; i++) {
-            if (vs[i-1] == 1 || (vs[i-1] == 2 && vs[i] <= 6))
-                memo[i] += memo[i-2];
-
-            memo[i] += memo[i-1];
-        }
-
-        // Output count
-        return memo[vs.length-1];
+        return null;
     }
 
     public static void main(String[] args) throws IOException {
         FastReader reader = new FastReader();
         while (true) {
+
+
             System.out.println(
-                    solve(reader.readLine())
+                    solve()
             );
         }
     }
