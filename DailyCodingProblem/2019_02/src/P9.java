@@ -4,42 +4,67 @@ import java.io.IOException;
 import java.util.*; 
 
 /* --- Problem ---  
- * Topics: 
+ * Topics: DP
  * 2019-02-02
 
-Given a list of integers, write a function that returns the largest sum of non-adjacent numbers. Numbers can be 0 or negative.
+Given a list of integers, write a function that returns
+the largest sum of non-adjacent numbers. Numbers can be 0 or negative.
 
-For example, [2, 4, 6, 2, 5] should return 13, since we pick 2, 6, and 5. [5, 1, 1, 5] should return 10, since we pick 5 and 5.
+[2, 4, 6, 2, 5] should return 13, since we pick 2, 6, and 5.
+[5, 1, 1, 5] should return 10, since we pick 5 and 5.
 
 Follow-up: Can you do this in O(N) time and constant space?
- 
+
  */
  
 /* --- Solution ---  
 
+[2, 4, 6, 2, 5]
+[2, 4, 8, 8, 13]
 
+Recurrence: With simple DP
+memo[i] = Math.max(
+    memo[i-1],          // not picking
+    arr[i] + memo[i-2]  // picking
+)
  
  */
 
 public class P9 {
 
 
-    static String solve() {
+    static int solve(int[] arr) {
+        if (arr.length == 0) return 0;
+        if (arr.length == 1) return Math.max(0, arr[0]);
+        if (arr.length == 2) return Math.max(0, Math.max(arr[0], arr[1]));
 
-        return null;
+        int twoBefore = Math.max(0, arr[0]);
+        int oneBefore = Math.max(0, Math.max(arr[0], arr[1]));
+        int current = 0;
+
+        for (int i = 2; i < arr.length; i++) {
+            current = Math.max(
+                    oneBefore,
+                    arr[i] + twoBefore
+            );
+
+            twoBefore = oneBefore;
+            oneBefore = current;
+        }
+
+        return current;
     }
 
     public static void main(String[] args) throws IOException {
         FastReader reader = new FastReader();
         while (true) {
-
-
+            int n = reader.nextInt();
             System.out.println(
-                    solve()
+                    solve(reader.readLineAsIntArray(n, false))
             );
+
         }
     }
-
 
     public static class FastReader {
 
