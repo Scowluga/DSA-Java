@@ -4,86 +4,34 @@ import java.io.IOException;
 import java.util.*; 
 
 /* --- Problem ---  
- * Topics: DP (Palindromic Substrings)
- * 2019-02-04
+ * Topics: 
+ * 2019-02-06
 
-Originally the question was to implement a delay handler
-But that's a little weird. We're going to do a LeetCode!
 
-https://leetcode.com/problems/palindromic-substrings/
-
-Given a string, your task is to count how many palindromic substrings in this string.
-
-The substrings with different start indexes or end indexes
-are counted as different substrings even they consist of same characters.
-
-"abc" -> 3
-"aaa" -> 6
-
+ 
  */
  
 /* --- Solution ---  
-(1) Naive --- O(n^3) O(1)
-Perform a nested for loop over every possible substring O(n^2)
-Then perform a palindrome check O(n)
 
 
-(2) DP --- O(n^2) O(n^2)
-Using Dynamic Programming, we can reduce this to O(1) with an O(n^2) initial loop
-
-
-(3) Clever Counting --- O(n^2) O(1)
-We can perform a nested for loop
-Counting palindromes will simply start from i and branch outwards until break
-
-
-(4) Manacher's Algorithm --- O(n) O(n)
-
-
+ 
  */
 
-public class P10 {
+public class P11 {
 
 
-    // This is case 2: the dp solution
-    public static int countSubstrings(String s) {
-        char[] cs = s.toCharArray();
+    static String solve() {
 
-        boolean[][] isPalindrome = new boolean[cs.length][cs.length];
-        int count = 0;
-
-        // Single Character Palindromes
-        for (int i = 0; i < cs.length; i++) {
-            isPalindrome[i][i] = true;
-            count++;
-        }
-
-        // Double Character Palindromes
-        for (int i = 0; i < cs.length - 1; i++) {
-            if (cs[i] == cs[i+1]) {
-                isPalindrome[i][i+1] = true;
-                count++;
-            }
-        }
-
-        // 3+ Character Palindromes
-        for (int d = 2; d < cs.length; d++) {
-            for (int i = 0; i + d < cs.length; i++) {
-                isPalindrome[i][i+d] =
-                        cs[i] == cs[i+d]
-                                && isPalindrome[i+1][i+d-1];
-                if (isPalindrome[i][i+d])
-                    count++;
-            }
-        }
-        return count;
+        return null;
     }
+
     public static void main(String[] args) throws IOException {
         FastReader reader = new FastReader();
         while (true) {
 
+
             System.out.println(
-                    countSubstrings(reader.readLine())
+                    solve()
             );
         }
     }
