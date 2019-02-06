@@ -4,35 +4,115 @@ import java.io.IOException;
 import java.util.*; 
 
 /* --- Problem ---  
- * Topics: 
+ * Topics: Data Structures (Trie) 
  * 2019-02-06
 
+Implement an autocomplete system.
+That is, given a query string s and a set of all possible query strings,
+return all strings in the set that have s as a prefix.
 
+For example, given the query string "de"
+and the set of strings [dog, deer, deal],
+return [deer, deal].
+
+Hint: Try preprocessing the dictionary into a more efficient
+data structure to speed up queries.
  
  */
  
 /* --- Solution ---  
 
+Huh so it appears like I'll be building a Trie today for the first time
+Never implemented a Trie before, so let's see how that goes!
 
+Trie Complexity: O(k) where k is the length of the string
+
+Well that was a fun exercise!
  
  */
 
 public class P11 {
 
 
-    static String solve() {
+    static class Trie {
+        Node head;
 
-        return null;
+        Trie() {
+            this.head = new Node('*');
+        }
+
+        void add(String word) {
+            Node curr = head;
+            char[] chars = word.toCharArray();
+            for (Character c : chars) {
+                if (!curr.map.keySet().contains(c))
+                    curr.map.put(c, new Node(c));
+                curr = curr.map.get(c);
+            }
+            curr.isComplete = true;
+        }
+
+        List<String> check(String prefix) {
+            return head.check(
+                    prefix,
+                    prefix.substring(0, prefix.length()-1)
+            );
+        }
+
+    }
+
+    static class Node {
+        Character c;
+        Map<Character, Node> map;
+        boolean isComplete;
+
+        Node(Character c) {
+            this.c = c;
+            this.isComplete = false;
+            this.map = new HashMap<>();
+        }
+
+        List<String> check(String prefix, String currentWord) {
+            Node curr = this;
+            char[] chars = prefix.toCharArray();
+            for (Character c : chars) {
+                if (!curr.map.keySet().contains(c))
+                    return new ArrayList<>();
+                curr = curr.map.get(c);
+            }
+
+            List<String> completed = new ArrayList<>();
+            if (curr.isComplete)
+                completed.add(currentWord + curr.c);
+
+            for (Map.Entry<Character, Node> entry : curr.map.entrySet())
+                completed.addAll(entry.getValue().check("", currentWord + curr.c));
+
+            return completed;
+        }
+
+        @Override
+        public String toString() {
+            return String.format(
+                    "Node{Character: '%s', isComplete = %s}", String.valueOf(this.c), this.isComplete ? "True" : "False"
+            );
+        }
     }
 
     public static void main(String[] args) throws IOException {
         FastReader reader = new FastReader();
+        Trie trie = new Trie();
+
         while (true) {
+            String type = reader.nextString();
+            if (type.toLowerCase().equals("add")) {
+                trie.add(reader.nextString());
+            } else if (type.toLowerCase().equals("check")) {
+                List<String> output = trie.check(reader.nextString());
 
-
-            System.out.println(
-                    solve()
-            );
+                for (String s : output)
+                    System.out.println(s);
+            }
         }
     }
 

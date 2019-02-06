@@ -2,10 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1fefd6f2-b2c1-40d8-bd6c-e791a02392f4" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/DailyCodingProblem/2019_02/src/P11.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/DailyCodingProblem/2019_02/src/P12.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/DailyCodingProblem/2019_02/src/P10.java" afterPath="$PROJECT_DIR$/DailyCodingProblem/2019_02/src/P10.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/DailyCodingProblem/2019_02/src/P11.java" afterPath="$PROJECT_DIR$/DailyCodingProblem/2019_02/src/P11.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/DailyCodingProblem/2019_02/src/P12.java" afterPath="$PROJECT_DIR$/DailyCodingProblem/2019_02/src/P12.java" />
     </list>
     <ignored path="DSA-Java.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -39,8 +38,10 @@
         <entry file="file://$PROJECT_DIR$/DailyCodingProblem/2019_02/src/P11.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="69">
-              <caret line="6" column="11" lean-forward="true" selection-start-line="6" selection-start-column="11" selection-end-line="6" selection-end-column="11" />
+              <caret line="6" column="34" lean-forward="false" selection-start-line="6" selection-start-column="34" selection-end-line="6" selection-end-column="34" />
               <folding>
+                <element signature="e#891#892#0" expanded="true" />
+                <element signature="e#940#941#0" expanded="true" />
                 <element signature="class#FastReader#0;class#P11#0" expanded="false" />
               </folding>
             </state>
@@ -127,8 +128,8 @@
         <option value="$PROJECT_DIR$/Interview/Sorts/src/QuickSort.java" />
         <option value="$PROJECT_DIR$/DailyCodingProblem/2019_02/src/P9.java" />
         <option value="$PROJECT_DIR$/DailyCodingProblem/2019_02/src/P10.java" />
-        <option value="$PROJECT_DIR$/DailyCodingProblem/2019_02/src/P11.java" />
         <option value="$PROJECT_DIR$/DailyCodingProblem/2019_02/src/P12.java" />
+        <option value="$PROJECT_DIR$/DailyCodingProblem/2019_02/src/P11.java" />
       </list>
     </option>
   </component>
@@ -248,7 +249,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.P12">
+  <component name="RunManager" selected="Application.P11">
     <configuration name="Main (2)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
@@ -2648,9 +2649,9 @@
       <module name="Sorts" />
       <envs />
     </configuration>
-    <configuration name="P1" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+    <configuration name="P10" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <option name="MAIN_CLASS_NAME" value="SUNNYWAANG.P1" />
+      <option name="MAIN_CLASS_NAME" value="P10" />
       <option name="VM_PARAMETERS" />
       <option name="PROGRAM_PARAMETERS" />
       <option name="WORKING_DIRECTORY" />
@@ -2659,12 +2660,12 @@
       <option name="ENABLE_SWING_INSPECTOR" value="false" />
       <option name="ENV_VARIABLES" />
       <option name="PASS_PARENT_ENVS" value="true" />
-      <module name="2019_01" />
+      <module name="2019_02" />
       <envs />
     </configuration>
-    <configuration name="P10" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+    <configuration name="P11" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <option name="MAIN_CLASS_NAME" value="P10" />
+      <option name="MAIN_CLASS_NAME" value="P11" />
       <option name="VM_PARAMETERS" />
       <option name="PROGRAM_PARAMETERS" />
       <option name="WORKING_DIRECTORY" />
@@ -2987,19 +2988,19 @@
       <method />
     </configuration>
     <list size="5">
-      <item index="0" class="java.lang.String" itemvalue="Application.P1" />
-      <item index="1" class="java.lang.String" itemvalue="Application.QuickSort" />
-      <item index="2" class="java.lang.String" itemvalue="Application.P8" />
-      <item index="3" class="java.lang.String" itemvalue="Application.P10" />
-      <item index="4" class="java.lang.String" itemvalue="Application.P12" />
+      <item index="0" class="java.lang.String" itemvalue="Application.QuickSort" />
+      <item index="1" class="java.lang.String" itemvalue="Application.P8" />
+      <item index="2" class="java.lang.String" itemvalue="Application.P10" />
+      <item index="3" class="java.lang.String" itemvalue="Application.P12" />
+      <item index="4" class="java.lang.String" itemvalue="Application.P11" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Application.P12" />
-        <item index="1" class="java.lang.String" itemvalue="Application.P10" />
-        <item index="2" class="java.lang.String" itemvalue="Application.P8" />
-        <item index="3" class="java.lang.String" itemvalue="Application.QuickSort" />
-        <item index="4" class="java.lang.String" itemvalue="Application.P1" />
+        <item index="0" class="java.lang.String" itemvalue="Application.P11" />
+        <item index="1" class="java.lang.String" itemvalue="Application.P12" />
+        <item index="2" class="java.lang.String" itemvalue="Application.P10" />
+        <item index="3" class="java.lang.String" itemvalue="Application.P8" />
+        <item index="4" class="java.lang.String" itemvalue="Application.QuickSort" />
       </list>
     </recent_temporary>
   </component>
@@ -3052,7 +3053,14 @@
       <option name="project" value="LOCAL" />
       <updated>1549316542912</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Finished DP P12">
+      <created>1549475936849</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1549475936849</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TodoView">
@@ -3066,6 +3074,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="58" y="-6" width="1449" height="1013" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32916668" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -3080,7 +3089,7 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32045454" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20992091" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.20992091" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -4352,8 +4361,14 @@
           <properties />
           <option name="timeStamp" value="603" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/DailyCodingProblem/2019_02/src/P11.java</url>
+          <line>55</line>
+          <properties />
+          <option name="timeStamp" value="608" />
+        </line-breakpoint>
       </breakpoints>
-      <option name="time" value="608" />
+      <option name="time" value="609" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="Application">
@@ -4722,7 +4737,7 @@
         <state relative-caret-position="184">
           <caret line="8" column="0" lean-forward="true" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
             <element signature="class#FastReader#0;class#QuickSort#0" expanded="false" />
           </folding>
         </state>
@@ -4775,8 +4790,10 @@
     <entry file="file://$PROJECT_DIR$/DailyCodingProblem/2019_02/src/P11.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="69">
-          <caret line="6" column="11" lean-forward="true" selection-start-line="6" selection-start-column="11" selection-end-line="6" selection-end-column="11" />
+          <caret line="6" column="34" lean-forward="false" selection-start-line="6" selection-start-column="34" selection-end-line="6" selection-end-column="34" />
           <folding>
+            <element signature="e#891#892#0" expanded="true" />
+            <element signature="e#940#941#0" expanded="true" />
             <element signature="class#FastReader#0;class#P11#0" expanded="false" />
           </folding>
         </state>
