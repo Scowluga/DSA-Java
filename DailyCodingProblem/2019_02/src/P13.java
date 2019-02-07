@@ -4,115 +4,76 @@ import java.io.IOException;
 import java.util.*; 
 
 /* --- Problem ---  
- * Topics: Data Structures (Trie)
- * 2019-02-06
+ * Topics: 
+ * 2019-02-07
 
-Implement an autocomplete system.
-That is, given a query string s and a set of all possible query strings,
-return all strings in the set that have s as a prefix.
+Given an integer k and a string s,
+find the length of the longest substring that contains at most k distinct characters.
 
-For example, given the query string "de"
-and the set of strings [dog, deer, deal],
-return [deer, deal].
-
-Hint: Try preprocessing the dictionary into a more efficient
-data structure to speed up queries.
+s = "abcba" and k = 2, the longest substring with k distinct characters is "bcb".
  
  */
  
 /* --- Solution ---  
 
-Huh so it appears like I'll be building a Trie today for the first time
-Never implemented a Trie before, so let's see how that goes!
+-> Naive O(n^3) O(1)
+Nested for loop with single loop to check
+Update a global variable maxLength
 
-Trie Complexity: O(k) where k is the length of the string
+-> Simple Memoization O(n^2) O(n^2)
+Store: nxn for number of distinct characters
+Store: nxn for which characters: bitmask
 
-Well that was a fun exercise!
- 
+Setup: O(n^2) Final loop: O(n^2)
+
+-> Better Memoization O(n^2) O(n)
+
+Store only the last row of the memoization table
+
+-> Two Pointer O(n) O(n)
+https://www.youtube.com/watch?v=RHFrVNmlyA8
+
+The key concept here is the same as Interval Question
+When you're looping over e, if you can remove s completely from future checks
+You have yourself a two-pointer O(n) solution
+
+
  */
 
-public class P11 {
+public class P13 {
 
+    static int longestSubstring(String in, int k) {
+        assert(k >= 0);
+        assert(in != null);
 
-    static class Trie {
-        Node head;
+        Map<Character, Integer> map = new HashMap<>();
+        char[] chars = in.toCharArray();
+        int max = 0;
 
-        Trie() {
-            this.head = new Node('*');
-        }
-
-        void add(String word) {
-            Node curr = head;
-            char[] chars = word.toCharArray();
-            for (Character c : chars) {
-                if (!curr.map.keySet().contains(c))
-                    curr.map.put(c, new Node(c));
-                curr = curr.map.get(c);
+        for (int e = 0, s = 0; e < in.length(); e++) {
+            if (map.containsKey(chars[e])) {
+                map.put(chars[e], map.get(chars[e]) + 1);
+            } else {
+                map.put(chars[e], 1);
+                while (map.keySet().size() > k) {
+                    if (map.get(chars[s]) == 1)
+                        map.remove(chars[s]);
+                    else
+                        map.put(chars[s], map.get(chars[s]) - 1);
+                    s++;
+                }
             }
-            curr.isComplete = true;
+            max = Math.max(max, e - s + 1);
         }
-
-        List<String> check(String prefix) {
-            return head.check(
-                    prefix,
-                    prefix.substring(0, prefix.length()-1)
-            );
-        }
-
-    }
-
-    static class Node {
-        Character c;
-        Map<Character, Node> map;
-        boolean isComplete;
-
-        Node(Character c) {
-            this.c = c;
-            this.isComplete = false;
-            this.map = new HashMap<>();
-        }
-
-        List<String> check(String prefix, String currentWord) {
-            Node curr = this;
-            char[] chars = prefix.toCharArray();
-            for (Character c : chars) {
-                if (!curr.map.keySet().contains(c))
-                    return new ArrayList<>();
-                curr = curr.map.get(c);
-            }
-
-            List<String> completed = new ArrayList<>();
-            if (curr.isComplete)
-                completed.add(currentWord + curr.c);
-
-            for (Map.Entry<Character, Node> entry : curr.map.entrySet())
-                completed.addAll(entry.getValue().check("", currentWord + curr.c));
-
-            return completed;
-        }
-
-        @Override
-        public String toString() {
-            return String.format(
-                    "Node{Character: '%s', isComplete = %s}", String.valueOf(this.c), this.isComplete ? "True" : "False"
-            );
-        }
+        return max;
     }
 
     public static void main(String[] args) throws IOException {
         FastReader reader = new FastReader();
-        Trie trie = new Trie();
-
         while (true) {
-            String type = reader.nextString();
-            if (type.toLowerCase().equals("add")) {
-                trie.add(reader.nextString());
-            } else if (type.toLowerCase().equals("check")) {
-                List<String> output = trie.check(reader.nextString());
-
-                for (String s : output)
-                    System.out.println(s);
-            }
+            System.out.println(
+                    longestSubstring(reader.nextString(), reader.nextInt())
+            );
         }
     }
 
