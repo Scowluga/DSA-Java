@@ -4,76 +4,100 @@ import java.io.IOException;
 import java.util.*; 
 
 /* --- Problem ---  
- * Topics: 
+ * Topics: Greedy, PriorityQueue
  * 2019-02-07
 
-Given an integer k and a string s,
-find the length of the longest substring that contains at most k distinct characters.
-
-s = "abcba" and k = 2, the longest substring with k distinct characters is "bcb".
- 
- */
- 
-/* --- Solution ---  
-
--> Naive O(n^3) O(1)
-Nested for loop with single loop to check
-Update a global variable maxLength
-
--> Simple Memoization O(n^2) O(n^2)
-Store: nxn for number of distinct characters
-Store: nxn for which characters: bitmask
-
-Setup: O(n^2) Final loop: O(n^2)
-
--> Better Memoization O(n^2) O(n)
-
-Store only the last row of the memoization table
-
--> Two Pointer O(n) O(n)
-https://www.youtube.com/watch?v=RHFrVNmlyA8
-
-The key concept here is the same as Interval Question
-When you're looping over e, if you can remove s completely from future checks
-You have yourself a two-pointer O(n) solution
-
-Sliding Window
+https://leetcode.com/problems/task-scheduler/
 
  */
 
-public class P13 {
+/* --- Solution ----
+Ok so right off the bat this is a greedy solution
+It's not DP. DP sucks in this case. Doesn't work dude.
 
-    static int longestSubstring(String in, int k) {
-        assert(k >= 0);
-        assert(in != null);
+I haven't done a greedy solution in a long time
+But it feels like this:
 
-        Map<Character, Integer> map = new HashMap<>();
-        char[] chars = in.toCharArray();
-        int max = 0;
+> Pick the task with the most remaining that is off cooldown
+> If none, just increment count
+> Store in a priority queue
 
-        for (int e = 0, s = 0; e < in.length(); e++) {
-            if (map.containsKey(chars[e])) {
-                map.put(chars[e], map.get(chars[e]) + 1);
-            } else {
-                map.put(chars[e], 1);
-                while (map.keySet().size() > k) {
-                    if (map.get(chars[s]) == 1)
-                        map.remove(chars[s]);
-                    else
-                        map.put(chars[s], map.get(chars[s]) - 1);
-                    s++;
+ */
+
+public class P14 {
+
+    static int getKey(Character c) {
+        return ((int)c) - 65;
+    }
+
+    static class Task implements Comparable<Task> {
+        int count;
+        int last;
+
+        public Task(int count, int last) {
+            this.count = count;
+            this.last = last;
+        }
+
+        @Override
+        public int compareTo(Task o) {
+            if (this.count == o.count) {
+                return Integer.compare(this.last, o.last); // earlier first
+            }
+            return Integer.compare(o.count, this.count); // larger first
+        }
+
+        @Override
+        public String toString() {
+            return String.format("Task {count: %d, last: %d}",
+                    this.count, this.last
+            );
+        }
+    }
+
+    static int leastInterval(char[] tasks, int n) {
+        int[] counts = new int[26];
+        for (char t : tasks)
+            counts[getKey(t)]++;
+
+        Queue<Task> q = new PriorityQueue<>();
+        Arrays.stream(counts)
+                .filter(x -> x > 0)
+                .forEach(x -> q.add(new Task(x, -n - 1)));
+
+        int time = 0;
+        List<Task> temp;
+        while (!q.isEmpty()) {
+            temp = new LinkedList<>();
+            while (!q.isEmpty()) {
+                Task t = q.poll();
+                if (t.last + n < time) {
+                    // process
+                    t.last = time;
+                    t.count--;
+                    if (t.count > 0)
+                        q.add(t);
+                    break;
+                } else {
+                    temp.add(t);
                 }
             }
-            max = Math.max(max, e - s + 1);
+            time++;
+            q.addAll(temp);
         }
-        return max;
+
+        return time;
     }
 
     public static void main(String[] args) throws IOException {
         FastReader reader = new FastReader();
         while (true) {
+
+            char[] cs = reader.nextString().toCharArray();
+            int n = reader.nextInt();
+
             System.out.println(
-                    longestSubstring(reader.nextString(), reader.nextInt())
+                    leastInterval(cs, n)
             );
         }
     }
