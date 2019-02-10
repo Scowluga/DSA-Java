@@ -38,7 +38,7 @@ So we use a set :)
 
  */
 
-public class P1 {
+public class D1 {
 
     static boolean solution(List<Integer> nList, int k) {
 

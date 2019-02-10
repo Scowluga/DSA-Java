@@ -4,85 +4,92 @@ import java.io.IOException;
 import java.util.*; 
 
 /* --- Problem ---  
- * Topics: Arrays (streams), In-place Visited
- * 2019-01-29
+ * Topics: Arrays, DP
+ * 2019-01-27
 
-Given an array of integers, find the first missing positive integer
-in linear time and constant space.
+Given an array of integers, return a new array such that
+each element at index i of the new array is the product of
+all the numbers in the original array except the one at i.
 
-In other words, find the lowest positive integer that does not exist in the array.
-The array can contain duplicates and negative numbers as well.
+For example, if our input was [1, 2, 3, 4, 5],
+the expected output would be [120, 60, 40, 30, 24].
 
-For example, the input [3, 4, -1, 1] should give 2.
-The input [1, 2, 0] should give 3.
+If our input was [3, 2, 1],
+the expected output would be [2, 3, 6].
 
-You can modify the input array in-place.
-
+Follow-up: what if you can't use division?
  
  */
  
 /* --- Solution ---  
 
-Ok so right off the bat there's an O(n^2) O1) naive solution
-    You loop up from 1 and check if it doesn't exist exist
+So immediately this is harder than the last one.
 
-Now looping up from 1 is un-optimizable. That's BCR.
-But checking existence is O(n), should be O(1) with visited.
+- Naive: O(n^2) O(1)
+Naive solution is to simply loop through each element
+And then calculate the value with a second nested for loop
 
-Optimization: Visited Array/Set O(n) O(n)
-Loop through once to create the visited
-Loop through second time to check
+- Optimization: Storing a product O(n) O(1)
+Or you can loop through first to store the product of the entire array
+Then the second for loop can be replaced with division
 
+- Optimization: No division O(n) O(n)
+To not use the division sign, we have to do something tricky here.
+Primarily, we need to re-think our naive algorithm
 
-Further Optimization: In-place O(n) O(1)
-Key Insight: The number missing cannot possibly be larger than size of array
+The product of all elements divided by one.
+Is that not the same as the product of both sides?
+*** out[i] = product[start, i-1] * product[i+1, end]
 
-So use the array itself to store the visited as positive/negative
+From this, we can generate 2 "prefix product" arrays
+Then the problem because simple.
 
-:) Yay a classic question just like from the CCC days
-
+Learning:
+> for this one it's key to think about it from a different angle
+> Yes the naive solution is product of all divided by one
+> But it's also just product of both sides
 
  */
 
-public class P4 {
+public class D2 {
 
 
-    static int solve(int[] arr) {
+    static int[] solve(int[] in) {
+        if (in.length == 0) return new int[0];
+        if (in.length == 1) return new int[1];
 
-        // Filter out non-positive integers
-        arr = Arrays.stream(arr)
-                .filter(n -> n > 0)
-                .toArray();
+        // build left
+        int[] left = new int[in.length];
+        left[0] = in[0];
+        for (int i = 1; i < in.length; i++)
+            left[i] = left[i-1] * in[i];
 
-        // "Visit" each element
-        for (int i = 0; i < arr.length; i++) {
-            int n = Math.abs(arr[i]);
+        // build right
+        int[] right = new int[in.length];
+        right[in.length - 1] = in[in.length - 1];
+        for (int i = in.length - 2; i >=0; i--)
+            right[i] = right[i+1] * in[i];
 
-            // Check validity
-            if (n > arr.length)
-                continue;
+        // build out
+        int[] out = new int[in.length];
+        out[0] = right[1];
+        out[in.length - 1] = left[in.length - 2];
 
-            // Visit
-            arr[n-1] = -Math.abs(arr[n-1]);
-        }
+        for (int i = 1; i < in.length - 1; i++)
+            out[i] = left[i-1] * right[i+1];
 
-        // Return first non-negative
-        for (int i = 0; i < arr.length; i++)
-            if (arr[i] > 0) return i + 1;
-
-        // Default return
-        return arr.length + 1;
+        return out;
     }
 
     public static void main(String[] args) throws IOException {
         FastReader reader = new FastReader();
         while (true) {
-            int size = reader.nextInt();
-            int[] arr = reader.readLineAsIntArray(size, false);
 
-            System.out.println(
+            int[] arr = reader.readLineAsIntArray(5, false);
+
+            System.out.println(Arrays.toString(
                     solve(arr)
-            );
+            ));
         }
     }
 

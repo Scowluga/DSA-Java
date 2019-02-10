@@ -4,116 +4,86 @@ import java.io.IOException;
 import java.util.*; 
 
 /* --- Problem ---  
- * Topics: DP
- * 2019-01-31
+ * Topics: Arrays (streams), In-place Visited
+ * 2019-01-29
 
-Was XOR linked list. I read up on it, cool data structure, really great to know.
-But I'm not going to implement it in Java. Too many downsides.
+Given an array of integers, find the first missing positive integer
+in linear time and constant space.
 
+In other words, find the lowest positive integer that does not exist in the array.
+The array can contain duplicates and negative numbers as well.
 
-Instead: Let's do a classic:
-https://leetcode.com/problems/maximum-product-subarray/
+For example, the input [3, 4, -1, 1] should give 2.
+The input [1, 2, 0] should give 3.
 
-Given an integer array nums, find the contiguous subarray within an array
-(containing at least one number) which has the largest product.
-
-Ooh this is fun :)
+You can modify the input array in-place.
 
  
  */
  
 /* --- Solution ---  
-Definitely DP. 100% DP. I've probably even done this before but don't remember.
 
-Naive is you loop through every possible start and stop index
-O(n^2) time with O(1) space. Not bad
+Ok so right off the bat there's an O(n^2) O1) naive solution
+    You loop up from 1 and check if it doesn't exist exist
 
-But we can optimize maybe?
+Now looping up from 1 is un-optimizable. That's BCR.
+But checking existence is O(n), should be O(1) with visited.
 
-Immediately, 2 big points come to mind.
-1. Negative numbers. Any 2 become positive again
-2. Zero. Automatically 0'ifies the product. Avoid.
-
-Now for recurrence.
-
-So it looks like we need to store 2 values here
-Maximum positive number, and maximum negative number
-
-With recurrence, this can easily be made into
-O(n) time with O(n) space
-
-Can we do better?
-
-Probably not tbh. Let's just code it :)
+Optimization: Visited Array/Set O(n) O(n)
+Loop through once to create the visited
+Loop through second time to check
 
 
-Learning
-> Don't forget how recurrence works
-> Or how you actually do dp problems lol
+Further Optimization: In-place O(n) O(1)
+Key Insight: The number missing cannot possibly be larger than size of array
 
- 
+So use the array itself to store the visited as positive/negative
+
+:) Yay a classic question just like from the CCC days
+
+
  */
 
-public class P6 {
+public class D4 {
 
-    static int maxProduct(int[] nums) {
-        // Edge Case
-        if (nums.length == 0) return 0;
-        if (nums.length == 1) return nums[0];
 
-        // Create memo
-        int[] maxP = new int[nums.length];
-        int[] maxN = new int[nums.length];
+    static int solve(int[] arr) {
 
-        // Init memo
-        maxP[0] = Math.max(0, nums[0]);
-        maxN[0] = Math.min(0, nums[0]);
+        // Filter out non-positive integers
+        arr = Arrays.stream(arr)
+                .filter(n -> n > 0)
+                .toArray();
 
-        // Fill memo
-        for (int i = 1; i < nums.length; i++) {
-            if (nums[i] == 0) {
-                maxP[i] = 0;
-                maxN[i] = 0;
-            }
+        // "Visit" each element
+        for (int i = 0; i < arr.length; i++) {
+            int n = Math.abs(arr[i]);
 
-            if (nums[i] > 0) {
-                if (maxP[i-1] == 0)
-                    maxP[i] = nums[i];
-                else
-                    maxP[i] = maxP[i-1] * nums[i];
+            // Check validity
+            if (n > arr.length)
+                continue;
 
-                maxN[i] = maxN[i-1] * nums[i];
-
-            }
-
-            if (nums[i] < 0) {
-                maxP[i] = maxN[i-1] * nums[i];
-
-                if (maxP[i-1] == 0)
-                    maxN[i] = nums[i];
-                else
-                    maxN[i] = maxP[i-1] * nums[i];
-            }
-
+            // Visit
+            arr[n-1] = -Math.abs(arr[n-1]);
         }
 
-        // Search memo
-        int max = nums[0];
-        for (int val : maxP)
-            max = Math.max(max, val);
-        return max;
-    }
+        // Return first non-negative
+        for (int i = 0; i < arr.length; i++)
+            if (arr[i] > 0) return i + 1;
 
+        // Default return
+        return arr.length + 1;
+    }
 
     public static void main(String[] args) throws IOException {
         FastReader reader = new FastReader();
-
         while (true) {
-            int n = reader.nextInt();
-            int[] arr = reader.readLineAsIntArray(n, false);
-            System.out.println(maxProduct(arr));
-        }
+            int size = reader.nextInt();
+            int[] arr = reader.readLineAsIntArray(size, false);
 
+            System.out.println(
+                    solve(arr)
+            );
+        }
     }
 
 

@@ -4,87 +4,65 @@ import java.io.IOException;
 import java.util.*; 
 
 /* --- Problem ---  
- * Topics: Trees, Recursion
- * 2019-02-02
+ * Topics: DP
+ * 2019-02-01
 
-A unival tree (which stands for "universal value") is a tree where all nodes under it have the same value.
+Given the mapping a = 1, b = 2, ... z = 26, and an encoded message,
+count the number of ways it can be decoded.
 
-Given the root to a binary tree, count the number of unival subtrees.
+> '111' would give 3, since it could be decoded as 'aaa', 'ka', and 'ak'.
 
-For example, the following tree has 5 unival subtrees:
-
-   0
-  / \
- 1   0
-    / \
-   1   0
-  / \
- 1   1
-
+You can assume that the messages are decodable. For example, '001' is not allowed.
+ 
  */
  
 /* --- Solution ---  
 
-Recursion!
-Some pretty difficult recursion actually.
-    You really have to think for a bit
+I'm pretty sure I've done a problem like this at least 20 times. 
+Simple recurrence really.
 
-Pretty much requires global variable or nested returns (this solution at least)
-
-This is overall a very good question.
+O(n) time O(n) space
+ 
  */
 
-public class P8 {
+public class D7 {
 
-    static class Node {
 
-        int val;
-        Node left;
-        Node right;
+    static int solve(String message) {
+        if (message.isEmpty()) return 0;
+        if (message.length() == 1) return 1;
 
-        Node(int v0) {
-            this.val = v0;
+        // Single-line stream to int[]
+        int[] vs = Arrays.stream(message.split(""))
+                .mapToInt(Integer::valueOf)
+                .toArray();
+
+        // Base memo cases
+        int[] memo = new int[vs.length];
+        memo[0] = 1;
+        memo[1] = 1;
+        if (vs[0] == 1 || (vs[0] == 2 && vs[1] <= 6))
+            memo[1]++;
+
+        // Build Look-up Table
+        for (int i = 2; i < vs.length; i++) {
+            if (vs[i-1] == 1 || (vs[i-1] == 2 && vs[i] <= 6))
+                memo[i] += memo[i-2];
+
+            memo[i] += memo[i-1];
         }
-    }
 
-    static int c = 0;
-
-    static boolean countUnivalTrees(Node n) {
-        if (n == null) return true;
-
-        boolean l = countUnivalTrees(n.left);
-        boolean r = countUnivalTrees(n.right);
-
-        if ((l && (n.left == null || n.val == n.left.val))
-            && (r && (n.right == null || n.val == n.right.val))) {
-            c++;
-            return true;
-        }
-
-
-        return false;
+        // Output count
+        return memo[vs.length-1];
     }
 
     public static void main(String[] args) throws IOException {
-
-        Node n1 = new Node(0);
-        Node n2 = new Node(1);
-        Node n3 = new Node(0);
-        Node n4 = new Node(1);
-        Node n5 = new Node(0);
-        Node n6 = new Node(1);
-        Node n7 = new Node(1);
-
-        n1.left = n2;
-        n1.right = n3;
-        n3.left = n4;
-        n3.right = n5;
-        n4.left = n6;
-        n4.right = n7;
-
-        c = 0;
-        countUnivalTrees(n1);
-        System.out.println(c);
+        FastReader reader = new FastReader();
+        while (true) {
+            System.out.println(
+                    solve(reader.readLine())
+            );
+        }
     }
 
 

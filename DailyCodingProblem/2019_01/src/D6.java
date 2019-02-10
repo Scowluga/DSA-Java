@@ -4,93 +4,116 @@ import java.io.IOException;
 import java.util.*; 
 
 /* --- Problem ---  
- * Topics: Arrays, DP
- * 2019-01-27
+ * Topics: DP
+ * 2019-01-31
 
-Given an array of integers, return a new array such that
-each element at index i of the new array is the product of
-all the numbers in the original array except the one at i.
+Was XOR linked list. I read up on it, cool data structure, really great to know.
+But I'm not going to implement it in Java. Too many downsides.
 
-For example, if our input was [1, 2, 3, 4, 5],
-the expected output would be [120, 60, 40, 30, 24].
 
-If our input was [3, 2, 1],
-the expected output would be [2, 3, 6].
+Instead: Let's do a classic:
+https://leetcode.com/problems/maximum-product-subarray/
 
-Follow-up: what if you can't use division?
+Given an integer array nums, find the contiguous subarray within an array
+(containing at least one number) which has the largest product.
+
+Ooh this is fun :)
+
  
  */
  
 /* --- Solution ---  
+Definitely DP. 100% DP. I've probably even done this before but don't remember.
 
-So immediately this is harder than the last one.
+Naive is you loop through every possible start and stop index
+O(n^2) time with O(1) space. Not bad
 
-- Naive: O(n^2) O(1)
-Naive solution is to simply loop through each element
-And then calculate the value with a second nested for loop
+But we can optimize maybe?
 
-- Optimization: Storing a product O(n) O(1)
-Or you can loop through first to store the product of the entire array
-Then the second for loop can be replaced with division
+Immediately, 2 big points come to mind.
+1. Negative numbers. Any 2 become positive again
+2. Zero. Automatically 0'ifies the product. Avoid.
 
-- Optimization: No division O(n) O(n)
-To not use the division sign, we have to do something tricky here.
-Primarily, we need to re-think our naive algorithm
+Now for recurrence.
 
-The product of all elements divided by one.
-Is that not the same as the product of both sides?
-*** out[i] = product[start, i-1] * product[i+1, end]
+So it looks like we need to store 2 values here
+Maximum positive number, and maximum negative number
 
-From this, we can generate 2 "prefix product" arrays
-Then the problem because simple.
+With recurrence, this can easily be made into
+O(n) time with O(n) space
 
-Learning:
-> for this one it's key to think about it from a different angle
-> Yes the naive solution is product of all divided by one
-> But it's also just product of both sides
+Can we do better?
 
+Probably not tbh. Let's just code it :)
+
+
+Learning
+> Don't forget how recurrence works
+> Or how you actually do dp problems lol
+
+ 
  */
 
-public class P2 {
+public class D6 {
 
+    static int maxProduct(int[] nums) {
+        // Edge Case
+        if (nums.length == 0) return 0;
+        if (nums.length == 1) return nums[0];
 
-    static int[] solve(int[] in) {
-        if (in.length == 0) return new int[0];
-        if (in.length == 1) return new int[1];
+        // Create memo
+        int[] maxP = new int[nums.length];
+        int[] maxN = new int[nums.length];
 
-        // build left
-        int[] left = new int[in.length];
-        left[0] = in[0];
-        for (int i = 1; i < in.length; i++)
-            left[i] = left[i-1] * in[i];
+        // Init memo
+        maxP[0] = Math.max(0, nums[0]);
+        maxN[0] = Math.min(0, nums[0]);
 
-        // build right
-        int[] right = new int[in.length];
-        right[in.length - 1] = in[in.length - 1];
-        for (int i = in.length - 2; i >=0; i--)
-            right[i] = right[i+1] * in[i];
+        // Fill memo
+        for (int i = 1; i < nums.length; i++) {
+            if (nums[i] == 0) {
+                maxP[i] = 0;
+                maxN[i] = 0;
+            }
 
-        // build out
-        int[] out = new int[in.length];
-        out[0] = right[1];
-        out[in.length - 1] = left[in.length - 2];
+            if (nums[i] > 0) {
+                if (maxP[i-1] == 0)
+                    maxP[i] = nums[i];
+                else
+                    maxP[i] = maxP[i-1] * nums[i];
 
-        for (int i = 1; i < in.length - 1; i++)
-            out[i] = left[i-1] * right[i+1];
+                maxN[i] = maxN[i-1] * nums[i];
 
-        return out;
+            }
+
+            if (nums[i] < 0) {
+                maxP[i] = maxN[i-1] * nums[i];
+
+                if (maxP[i-1] == 0)
+                    maxN[i] = nums[i];
+                else
+                    maxN[i] = maxP[i-1] * nums[i];
+            }
+
+        }
+
+        // Search memo
+        int max = nums[0];
+        for (int val : maxP)
+            max = Math.max(max, val);
+        return max;
     }
+
 
     public static void main(String[] args) throws IOException {
         FastReader reader = new FastReader();
+
         while (true) {
-
-            int[] arr = reader.readLineAsIntArray(5, false);
-
-            System.out.println(Arrays.toString(
-                    solve(arr)
-            ));
+            int n = reader.nextInt();
+            int[] arr = reader.readLineAsIntArray(n, false);
+            System.out.println(maxProduct(arr));
         }
+
     }
 
 

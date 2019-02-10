@@ -31,7 +31,7 @@ Well that was a fun exercise!
  
  */
 
-public class P11 {
+public class D11 {
 
 
     static class Trie {

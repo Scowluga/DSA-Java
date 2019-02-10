@@ -4,100 +4,82 @@ import java.io.IOException;
 import java.util.*; 
 
 /* --- Problem ---  
- * Topics: Greedy, PriorityQueue
- * 2019-02-07
+ * Topics: Simple DP
+ * 2019-02-06
 
-https://leetcode.com/problems/task-scheduler/
+There exists a staircase with N steps, and you can climb up either 1 or 2 steps at a time.
+Given N, write a function that returns the number of unique ways
+you can climb the staircase. The order of the steps matters.
 
+For example, if N is 4, then there are 5 unique ways:
+
+1, 1, 1, 1
+2, 1, 1
+1, 2, 1
+1, 1, 2
+2, 2
+
+
+Addition:
+What if, instead of being able to climb 1 or 2 steps at a time,
+you could climb any number from a set of positive integers X?
+For example, if X = {1, 3, 5}, you could climb 1, 3, or 5 steps at a time.
+ 
+ */
+ 
+/* --- Solution ---  
+
+-> Naive O(2^n) O(1)
+Perform what's essentially a dfs and increment a global variable
+
+-> DP v1 O(n) O(n)
+Memoize each computed subcase
+To eliminate duplicate work
+
+-> DP v2 O(n) O(1)
+Only store the next 3 memoized values
+We don't need n subcases
+
+
+Addition: DP v3 O(nk) O(n)
+
+Now the time to compute each subcase is O(k) instead of O(1)
+So our total time complexity goes up to O(nk)
+
+Learning
+Not much. Pretty good follow of LeetCode Algorithm
+Pretty good process of optimization
+ 
  */
 
-/* --- Solution ----
-Ok so right off the bat this is a greedy solution
-It's not DP. DP sucks in this case. Doesn't work dude.
+public class D12 {
 
-I haven't done a greedy solution in a long time
-But it feels like this:
 
-> Pick the task with the most remaining that is off cooldown
-> If none, just increment count
-> Store in a priority queue
+    static int dp(int n, int[] X) {
+        if (n == 0) return 0;
+        if (n <= 2) return 1;
 
- */
+        int[] memo = new int[n];
+        memo[0] = 1;
 
-public class P14 {
+        for (int i = 0; i < n; i++)
+            for (int j = 0; j < X.length; j++)
+                if (i + X[j] < n)
+                    memo[i + X[j]] += memo[i];
 
-    static int getKey(Character c) {
-        return ((int)c) - 65;
-    }
-
-    static class Task implements Comparable<Task> {
-        int count;
-        int last;
-
-        public Task(int count, int last) {
-            this.count = count;
-            this.last = last;
-        }
-
-        @Override
-        public int compareTo(Task o) {
-            if (this.count == o.count) {
-                return Integer.compare(this.last, o.last); // earlier first
-            }
-            return Integer.compare(o.count, this.count); // larger first
-        }
-
-        @Override
-        public String toString() {
-            return String.format("Task {count: %d, last: %d}",
-                    this.count, this.last
-            );
-        }
-    }
-
-    static int leastInterval(char[] tasks, int n) {
-        int[] counts = new int[26];
-        for (char t : tasks)
-            counts[getKey(t)]++;
-
-        Queue<Task> q = new PriorityQueue<>();
-        Arrays.stream(counts)
-                .filter(x -> x > 0)
-                .forEach(x -> q.add(new Task(x, -n - 1)));
-
-        int time = 0;
-        List<Task> temp;
-        while (!q.isEmpty()) {
-            temp = new LinkedList<>();
-            while (!q.isEmpty()) {
-                Task t = q.poll();
-                if (t.last + n < time) {
-                    // process
-                    t.last = time;
-                    t.count--;
-                    if (t.count > 0)
-                        q.add(t);
-                    break;
-                } else {
-                    temp.add(t);
-                }
-            }
-            time++;
-            q.addAll(temp);
-        }
-
-        return time;
+        return memo[n-1];
     }
 
     public static void main(String[] args) throws IOException {
         FastReader reader = new FastReader();
         while (true) {
-
-            char[] cs = reader.nextString().toCharArray();
             int n = reader.nextInt();
+            int k = reader.nextInt();
+
+            int[] X = reader.readLineAsIntArray(k, false);
 
             System.out.println(
-                    leastInterval(cs, n)
+                    dp(n, X)
             );
         }
     }

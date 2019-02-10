@@ -4,82 +4,86 @@ import java.io.IOException;
 import java.util.*; 
 
 /* --- Problem ---  
- * Topics: Simple DP
- * 2019-02-06
+ * Topics: DP (Palindromic Substrings)
+ * 2019-02-04
 
-There exists a staircase with N steps, and you can climb up either 1 or 2 steps at a time.
-Given N, write a function that returns the number of unique ways
-you can climb the staircase. The order of the steps matters.
+Originally the question was to implement a delay handler
+But that's a little weird. We're going to do a LeetCode!
 
-For example, if N is 4, then there are 5 unique ways:
+https://leetcode.com/problems/palindromic-substrings/
 
-1, 1, 1, 1
-2, 1, 1
-1, 2, 1
-1, 1, 2
-2, 2
+Given a string, your task is to count how many palindromic substrings in this string.
 
+The substrings with different start indexes or end indexes
+are counted as different substrings even they consist of same characters.
 
-Addition:
-What if, instead of being able to climb 1 or 2 steps at a time,
-you could climb any number from a set of positive integers X?
-For example, if X = {1, 3, 5}, you could climb 1, 3, or 5 steps at a time.
- 
+"abc" -> 3
+"aaa" -> 6
+
  */
  
 /* --- Solution ---  
-
--> Naive O(2^n) O(1)
-Perform what's essentially a dfs and increment a global variable
-
--> DP v1 O(n) O(n)
-Memoize each computed subcase
-To eliminate duplicate work
-
--> DP v2 O(n) O(1)
-Only store the next 3 memoized values
-We don't need n subcases
+(1) Naive --- O(n^3) O(1)
+Perform a nested for loop over every possible substring O(n^2)
+Then perform a palindrome check O(n)
 
 
-Addition: DP v3 O(nk) O(n)
+(2) DP --- O(n^2) O(n^2)
+Using Dynamic Programming, we can reduce this to O(1) with an O(n^2) initial loop
 
-Now the time to compute each subcase is O(k) instead of O(1)
-So our total time complexity goes up to O(nk)
 
-Learning
-Not much. Pretty good follow of LeetCode Algorithm
-Pretty good process of optimization
- 
+(3) Clever Counting --- O(n^2) O(1)
+We can perform a nested for loop
+Counting palindromes will simply start from i and branch outwards until break
+
+
+(4) Manacher's Algorithm --- O(n) O(n)
+
+
  */
 
-public class P12 {
+public class D10 {
 
 
-    static int dp(int n, int[] X) {
-        if (n == 0) return 0;
-        if (n <= 2) return 1;
+    // This is case 2: the dp solution
+    public static int countSubstrings(String s) {
+        char[] cs = s.toCharArray();
 
-        int[] memo = new int[n];
-        memo[0] = 1;
+        boolean[][] isPalindrome = new boolean[cs.length][cs.length];
+        int count = 0;
 
-        for (int i = 0; i < n; i++)
-            for (int j = 0; j < X.length; j++)
-                if (i + X[j] < n)
-                    memo[i + X[j]] += memo[i];
+        // Single Character Palindromes
+        for (int i = 0; i < cs.length; i++) {
+            isPalindrome[i][i] = true;
+            count++;
+        }
 
-        return memo[n-1];
+        // Double Character Palindromes
+        for (int i = 0; i < cs.length - 1; i++) {
+            if (cs[i] == cs[i+1]) {
+                isPalindrome[i][i+1] = true;
+                count++;
+            }
+        }
+
+        // 3+ Character Palindromes
+        for (int d = 2; d < cs.length; d++) {
+            for (int i = 0; i + d < cs.length; i++) {
+                isPalindrome[i][i+d] =
+                        cs[i] == cs[i+d]
+                                && isPalindrome[i+1][i+d-1];
+                if (isPalindrome[i][i+d])
+                    count++;
+            }
+        }
+        return count;
     }
-
     public static void main(String[] args) throws IOException {
         FastReader reader = new FastReader();
         while (true) {
-            int n = reader.nextInt();
-            int k = reader.nextInt();
-
-            int[] X = reader.readLineAsIntArray(k, false);
 
             System.out.println(
-                    dp(n, X)
+                    countSubstrings(reader.readLine())
             );
         }
     }

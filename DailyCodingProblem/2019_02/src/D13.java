@@ -41,7 +41,7 @@ Sliding Window
 
  */
 
-public class P13 {
+public class D13 {
 
     static int longestSubstring(String in, int k) {
         assert(k >= 0);

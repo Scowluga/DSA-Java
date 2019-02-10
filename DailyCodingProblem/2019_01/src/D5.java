@@ -43,7 +43,7 @@ Classes: class [name] <generic> {}
  
  */
 
-public class P5 {
+public class D5 {
 
     static <K, V> Pair<K, V> cons(K a, V b) {
         return new Pair<>(a, b);

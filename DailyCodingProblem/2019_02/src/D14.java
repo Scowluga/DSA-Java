@@ -1,70 +1,110 @@
+import javafx.util.Pair;
+
 import java.io.DataInputStream;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.*; 
 
 /* --- Problem ---  
- * Topics: DP
- * 2019-02-02
+ * Topics: Greedy, PriorityQueue
+ * 2019-02-07
 
-Given a list of integers, write a function that returns
-the largest sum of non-adjacent numbers. Numbers can be 0 or negative.
-
-[2, 4, 6, 2, 5] should return 13, since we pick 2, 6, and 5.
-[5, 1, 1, 5] should return 10, since we pick 5 and 5.
-
-Follow-up: Can you do this in O(N) time and constant space?
+https://leetcode.com/problems/task-scheduler/
 
  */
- 
-/* --- Solution ---  
 
-[2, 4, 6, 2, 5]
-[2, 4, 8, 8, 13]
+/* --- Solution ----
+Ok so right off the bat this is a greedy solution
+It's not DP. DP sucks in this case. Doesn't work dude.
 
-Recurrence: With simple DP
-memo[i] = Math.max(
-    memo[i-1],          // not picking
-    arr[i] + memo[i-2]  // picking
-)
- 
+I haven't done a greedy solution in a long time
+But it feels like this:
+
+> Pick the task with the most remaining that is off cooldown
+> If none, just increment count
+> Store in a priority queue
+
  */
 
-public class P9 {
+public class D14 {
 
+    static int getKey(Character c) {
+        return ((int)c) - 65;
+    }
 
-    static int solve(int[] arr) {
-        if (arr.length == 0) return 0;
-        if (arr.length == 1) return Math.max(0, arr[0]);
-        if (arr.length == 2) return Math.max(0, Math.max(arr[0], arr[1]));
+    static class Task implements Comparable<Task> {
+        int count;
+        int last;
 
-        int twoBefore = Math.max(0, arr[0]);
-        int oneBefore = Math.max(0, Math.max(arr[0], arr[1]));
-        int current = 0;
-
-        for (int i = 2; i < arr.length; i++) {
-            current = Math.max(
-                    oneBefore,
-                    arr[i] + twoBefore
-            );
-
-            twoBefore = oneBefore;
-            oneBefore = current;
+        public Task(int count, int last) {
+            this.count = count;
+            this.last = last;
         }
 
-        return current;
+        @Override
+        public int compareTo(Task o) {
+            if (this.count == o.count) {
+                return Integer.compare(this.last, o.last); // earlier first
+            }
+            return Integer.compare(o.count, this.count); // larger first
+        }
+
+        @Override
+        public String toString() {
+            return String.format("Task {count: %d, last: %d}",
+                    this.count, this.last
+            );
+        }
+    }
+
+    static int leastInterval(char[] tasks, int n) {
+        int[] counts = new int[26];
+        for (char t : tasks)
+            counts[getKey(t)]++;
+
+        Queue<Task> q = new PriorityQueue<>();
+        Arrays.stream(counts)
+                .filter(x -> x > 0)
+                .forEach(x -> q.add(new Task(x, -n - 1)));
+
+        int time = 0;
+        List<Task> temp;
+        while (!q.isEmpty()) {
+            temp = new LinkedList<>();
+            while (!q.isEmpty()) {
+                Task t = q.poll();
+                if (t.last + n < time) {
+                    // process
+                    t.last = time;
+                    t.count--;
+                    if (t.count > 0)
+                        q.add(t);
+                    break;
+                } else {
+                    temp.add(t);
+                }
+            }
+            time++;
+            q.addAll(temp);
+        }
+
+        return time;
     }
 
     public static void main(String[] args) throws IOException {
+
         FastReader reader = new FastReader();
         while (true) {
-            int n = reader.nextInt();
-            System.out.println(
-                    solve(reader.readLineAsIntArray(n, false))
-            );
 
+            char[] cs = reader.nextString().toCharArray();
+            int n = reader.nextInt();
+
+            System.out.println(
+                    leastInterval(cs, n)
+            );
         }
     }
+
 
     public static class FastReader {
 
