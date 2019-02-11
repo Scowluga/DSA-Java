@@ -1,35 +1,104 @@
-import javafx.util.Pair;
-
 import java.io.DataInputStream;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.*; 
 
 /* --- Problem ---  
- * Topics: 
- * 2019-02-09
+ * Topics: Sliding Window Extensions
+ * 2019-02-10
 
-Today I did the LeetCode weekly contest 123
-I got completely destroyed by it
-
-Couldn't even think of a solution to P4 in time. Unfortunate.
-
-But got the first 3 questions!
+https://leetcode.com/problems/subarrays-with-k-different-integers/
+https://leetcode.com/problems/minimum-window-substring/
  
  */
  
-/* --- Solution ---  
+/* --- Solution: Subarrays with K Different Integers ---
+This is solving P4 from yesterday's contest
+I didn't actually solve this myself, but looked at a solution for help
 
+And oh my god is it genius:
 
- 
+Generally our sliding window solution can be extended to find subarrays
+with strictly LESS than K different integers.
+
+But extending to find exactly K is very difficult. So what do you do?
+
+****** exactly(K) = atMost(K) - atMost(K-1)
+
+This brilliant insight trivializes the problem into sliding window
+It can also be extended in the future
+
+Learning:
+Whenever we have the phrase "exactly"
+we can apply the concept of prefix sum and find with simply 2 calculations
+
  */
 
-public class D15 {
 
+/* --- Solution: Minimum Window Substring
+Without as beautiful of an insight, this question is a lot harder (solution in this file)
+This is a pretty complicated play on sliding window
+
+A lot more variables, and a lot to do
+But it's complete!
+
+This question gives us insight into an extension of sliding
+So that's pretty cool
+
+
+ */
+
+public class D16 {
+
+    static String minWindow(String s, String t) {
+        Map<Character, Integer> tCharCount = new HashMap<>();
+
+        for (char c : t.toCharArray())
+            tCharCount.put(c, tCharCount.getOrDefault(c, 0) + 1);
+
+        char[] sChars = s.toCharArray();
+
+        int min = sChars.length+1;
+        int minLI = 0; // left index of min
+
+        int count = 0;
+        Map<Character, Integer> winCharCount = new HashMap<>();
+
+        int left = 0;
+        beeg_beeg_yoshi: for (int right = 0; right < sChars.length; right++) {
+
+            if (tCharCount.containsKey(sChars[right]))
+                count++;
+            winCharCount.put(sChars[right], winCharCount.getOrDefault(sChars[right], 0) + 1);
+
+            while (count >= t.length()) {
+                if (tCharCount.containsKey(sChars[left]) && winCharCount.get(sChars[left]) <= tCharCount.get(sChars[left]))
+                    break;
+                if (tCharCount.containsKey(sChars[left]) && winCharCount.get(sChars[left]) > tCharCount.get(sChars[left]))
+                    count--;
+                winCharCount.put(sChars[left], winCharCount.get(sChars[left]) - 1);
+                left++;
+            }
+
+            if (right - left + 1 < min) {
+                for (Map.Entry<Character, Integer> entry : tCharCount.entrySet())
+                    if (winCharCount.getOrDefault(entry.getKey(), 0) < entry.getValue())
+                        continue beeg_beeg_yoshi;
+
+                min = right - left + 1;
+                minLI = left;
+            }
+        }
+
+        if (min == sChars.length+1)
+            return "";
+        return s.substring(minLI, minLI + min);
+    }
 
     public static void main(String[] args) throws IOException {
         FastReader reader = new FastReader();
-
+        //        System.out.println(minWindow("ADOBECODEBANC", "ABC"));
+        System.out.println(minWindow(reader.nextString(), reader.nextString()));
     }
 
 
